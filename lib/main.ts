@@ -1,3 +1,3 @@
 import './global.css'
 
-export { Button } from './components/button'
+export { Button } from './components/button/Button'
