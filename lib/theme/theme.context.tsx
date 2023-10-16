@@ -9,6 +9,8 @@ interface ThemeComponents {
   Button: typeof styles.buttonStyles;
   Box: typeof styles.boxStyles;
   Text: typeof styles.textStyles;
+  Tooltip: typeof styles.tooltipStyles;
+  Popover: typeof styles.popoverStyles;
 }
 
 const defaultTheme: Theme = {
@@ -16,6 +18,8 @@ const defaultTheme: Theme = {
     Button: styles.buttonStyles,
     Box: styles.boxStyles,
     Text: styles.textStyles,
+    Tooltip: styles.tooltipStyles,
+    Popover: styles.popoverStyles,
   },
 };
 

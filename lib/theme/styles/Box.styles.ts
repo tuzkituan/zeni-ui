@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-const base = cva(["t-block"]);
+const base = cva(["block"]);
 
 const boxStyles = {
   base,
