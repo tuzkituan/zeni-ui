@@ -1,7 +1,14 @@
 import { cva } from "class-variance-authority";
 
 const base = cva(
-  ["t-rounded-md", "disabled:t-opacity-70", "disabled:t-cursor-not-allowed"],
+  [
+    "t-rounded-md",
+    "disabled:t-opacity-70",
+    "disabled:t-cursor-not-allowed",
+    "t-transition-opacity",
+    "t-duration-400",
+    "t-ease-in-out",
+  ],
   {
     variants: {
       variant: {
@@ -9,30 +16,31 @@ const base = cva(
           "t-border",
           "t-bg-transparent",
           "t-border-transparent",
-          "t-text-primary",
           "active:t-opacity-70",
+          "t-text-primary",
         ],
         outline: [
           "t-border",
           "t-bg-transparent",
           "t-border-accent",
-          "t-text-accent",
           "active:t-opacity-70",
+          "t-text-accent",
         ],
         solid: [
           "t-border",
           "t-bg-accent",
           "t-border-transparent",
-          "t-text-inverse-primary",
           "active:t-bg-active",
+          "t-text-white",
+          "t-text-accent",
         ],
         link: [
           "t-border",
           "t-bg-transparent",
           "t-border-transparent",
-          "t-text-accent",
           "t-underline",
           "active:t-opacity-70",
+          "t-text-accent",
         ],
         unstyled: [],
       },

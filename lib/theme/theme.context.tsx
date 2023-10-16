@@ -8,12 +8,14 @@ export interface Theme {
 interface ThemeComponents {
   Button: typeof styles.buttonStyles;
   Box: typeof styles.boxStyles;
+  Text: typeof styles.textStyles;
 }
 
 const defaultTheme: Theme = {
   components: {
     Button: styles.buttonStyles,
     Box: styles.boxStyles,
+    Text: styles.textStyles,
   },
 };
 
