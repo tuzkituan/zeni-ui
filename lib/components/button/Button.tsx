@@ -69,7 +69,7 @@ export const Button = (props: IButton) => {
     >
       <div className={theme.container()} style={containerStyles}>
         {renderLeftIcon()}
-        {isLoading ? loadingText : children}
+        {isLoading ? loadingText || children : children}
         {renderRightIcon()}
       </div>
     </button>

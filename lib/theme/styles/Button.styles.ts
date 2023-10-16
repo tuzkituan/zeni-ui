@@ -40,7 +40,7 @@ const base = cva(
         xs: ["t-text-xs", "t-py-1", "t-px-2"],
         sm: ["t-text-sm", "t-py-1", "t-px-2"],
         md: ["t-text-base", "t-py-2", "t-px-4"],
-        lg: ["t-text-lg", "t-py-4", "t-px-8"],
+        lg: ["t-text-xl", "t-py-4", "t-px-8"],
       },
     },
 

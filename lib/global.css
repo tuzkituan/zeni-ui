@@ -12,9 +12,9 @@
 }
 
 :root[data-theme="dark"] {
-  --accent-color: theme("colors.red.500");
-  --active-accent-color: theme("colors.red.500");
-  --light-accent-color: theme("colors.red.100");
+  --accent-color: theme("colors.teal.500");
+  --active-accent-color: theme("colors.teal.500");
+  --light-accent-color: theme("colors.teal.100");
   --primary-text: theme("colors.white");
   --inverse-primary-text: theme("colors.gray.900");
   --bg-primary: theme("colors.gray.900");
