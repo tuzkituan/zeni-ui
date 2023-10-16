@@ -30,10 +30,10 @@ export const Button = (props: IButton) => {
   } as Record<string, ClassValue>;
 
   const borderClass = {
-    ghost: "lv-rounded-lg lv-border lv-border-transparent",
-    outline: "lv-rounded-lg lv-border lv-border-accent",
-    solid: "lv-rounded-lg lv-border lv-border-transparent",
-    link: "lv-rounded-lg lv-border lv-border-transparent",
+    ghost: "lv-rounded-md lv-border lv-border-transparent",
+    outline: "lv-rounded-md lv-border lv-border-accent",
+    solid: "lv-rounded-md lv-border lv-border-transparent",
+    link: "lv-rounded-md lv-border lv-border-transparent",
   } as Record<string, ClassValue>;
 
   const bgClass = {
