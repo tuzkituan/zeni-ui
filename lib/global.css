@@ -3,17 +3,19 @@
 @tailwind utilities;
 
 :root {
-    --accent-color: theme('colors.violet.500');
-    --active-accent-color: theme('colors.violet.600');
-    --light-accent-color: theme('colors.violet.200');
-    --primary-text: theme('colors.gray.900');
-    --inverse-primary-text: theme('colors.white');
+  --accent-color: #9873ac;
+  --active-accent-color: #9161ab;
+  --light-accent-color: #dba6f7;
+  --primary-text: theme("colors.gray.900");
+  --inverse-primary-text: theme("colors.white");
+  --bg-primary: theme("colors.white");
 }
 
 :root[data-theme="dark"] {
-    --accent-color: theme('colors.red.500');
-    --active-accent-color: theme('colors.red.500');
-    --light-accent-color: theme('colors.red.100');
-    --primary-text: theme('colors.white');
-    --inverse-primary-text: theme('colors.gray.900');
+  --accent-color: theme("colors.red.500");
+  --active-accent-color: theme("colors.red.500");
+  --light-accent-color: theme("colors.red.100");
+  --primary-text: theme("colors.white");
+  --inverse-primary-text: theme("colors.gray.900");
+  --bg-primary: theme("colors.gray.900");
 }
