@@ -29,5 +29,5 @@ export default {
     },
   },
   plugins: [],
-  prefix: "lv-",
+  prefix: "t-",
 };

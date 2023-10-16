@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "./Button";
-import { Spinner, Airplane } from "@phosphor-icons/react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -28,7 +27,8 @@ export const Primary: Story = {
     children: "Button",
     size: "md",
     variant: "solid",
-    // isLoading: true,
+    isLoading: false,
+    isDisabled: false,
     // iconSpacing: 10,
     // leftIcon: <Spinner />,
     // rightIcon: <Airplane />,
