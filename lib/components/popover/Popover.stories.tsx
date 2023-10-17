@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Popover } from "./Popover";
-import { Button } from "../button/Button";
 import { Text } from "../text/Text";
 import { Box } from "../box/Box";
 
