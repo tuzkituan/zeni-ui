@@ -6,7 +6,7 @@ const base = cva([
   "py-2",
   "bg-bg-primary",
   "text-primary",
-  "text-sm",
+  "text-base",
   "border",
   "border-gray-200",
   "shadow-md",

@@ -3,11 +3,7 @@ import { Box } from "../lib/components/box/Box";
 import { Text } from "../lib/components/text/Text";
 import { Button } from "../lib/main";
 import { useDarkMode } from "../lib/utils/hooks/useDarkMode";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "../lib/components/tooltip/Tooltip";
+import { Popover } from "../lib/components/popover/Popover";
 
 function App() {
   const [isDark, setIsDark] = useDarkMode();
@@ -26,10 +22,9 @@ function App() {
           </Button>
         </Box>
         <Text>Click to toggle the theme</Text>
-        <Tooltip placement="bottom">
-          <TooltipTrigger>My trigger</TooltipTrigger>
-          <TooltipContent>My tooltip</TooltipContent>
-        </Tooltip>
+        <Popover content="Popover content" placement="bottom-start">
+          <Button variant="outline">Click me</Button>
+        </Popover>
       </Box>
     </Box>
   );

@@ -1,9 +1,19 @@
-import type { Placement } from "@floating-ui/react";
-
 export interface IPopover {
-  initialOpen?: boolean;
-  placement?: Placement;
-  modal?: boolean;
+  placement?:
+    | "top-center"
+    | "top-start"
+    | "top-end"
+    | "left-start"
+    | "left-center"
+    | "left-end"
+    | "right-start"
+    | "right-center"
+    | "right-end"
+    | "bottom-start"
+    | "bottom-center"
+    | "bottom-end";
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
+  content?: React.ReactNode;
+  children?: React.ReactNode;
 }

@@ -22,7 +22,6 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@floating-ui/react": "^0.26.1",
     "@phosphor-icons/react": "^2.0.13",
     "@storybook/addon-essentials": "^7.4.6",
     "@storybook/addon-interactions": "^7.4.6",
@@ -46,10 +45,12 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.15",
+    "framer-motion": "^10.16.4",
     "glob": "^10.3.10",
     "postcss": "^8.4.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-laag": "^2.0.5",
     "sass": "^1.69.3",
     "storybook": "^7.4.6",
     "tailwind-merge": "^1.14.0",

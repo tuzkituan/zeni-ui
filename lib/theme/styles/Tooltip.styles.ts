@@ -6,12 +6,14 @@ const base = cva([
   "py-2",
   "bg-black",
   "text-white",
-  "text-sm",
+  "text-base",
   "shadow-md",
 ]);
 
+const arrow = cva([""]);
 const tooltipStyles = {
   base,
+  arrow,
 };
 
 export { tooltipStyles };

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Tooltip, TooltipContent, TooltipTrigger } from "./Tooltip";
+import { Tooltip } from "./Tooltip";
 
 const meta = {
   title: "LAVENDER/Tooltip",
@@ -8,21 +8,22 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     placement: {
+      description: "Tooltip placement",
       options: [
-        "top",
+        "top-center",
         "top-start",
         "top-end",
-        "bottom",
-        "bottom-start",
-        "bottom-end",
-        "left",
         "left-start",
+        "left-center",
         "left-end",
-        "right",
         "right-start",
+        "right-center",
         "right-end",
+        "bottom-start",
+        "bottom-center",
+        "bottom-end",
       ],
-      control: { type: "select" },
+      control: { type: "radio" },
     },
   },
 } satisfies Meta<typeof Tooltip>;
@@ -31,17 +32,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => {
-    const { children, placement } = args;
-    return (
-      <Tooltip placement={placement}>
-        <TooltipTrigger>{children}</TooltipTrigger>
-        <TooltipContent>This is the content of the tooltip</TooltipContent>
-      </Tooltip>
-    );
-  },
   args: {
     children: "Display tooltip",
-    placement: "top-start",
+    placement: "bottom-start",
+    content: "This is a tooltip",
   },
 };

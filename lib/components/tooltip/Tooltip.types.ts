@@ -1,8 +1,17 @@
-import type { Placement } from "@floating-ui/react";
-
 export interface ITooltip {
-  initialOpen?: boolean;
-  placement?: Placement;
-  open?: boolean;
-  onOpenChange?: (open: boolean) => void;
+  placement?:
+    | "top-center"
+    | "top-start"
+    | "top-end"
+    | "left-start"
+    | "left-center"
+    | "left-end"
+    | "right-start"
+    | "right-center"
+    | "right-end"
+    | "bottom-start"
+    | "bottom-center"
+    | "bottom-end";
+  content?: string;
+  children?: React.ReactNode;
 }
