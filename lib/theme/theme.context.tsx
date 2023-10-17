@@ -11,6 +11,8 @@ interface ThemeComponents {
   Text: typeof styles.textStyles;
   Tooltip: typeof styles.tooltipStyles;
   Popover: typeof styles.popoverStyles;
+  Center: typeof styles.centerStyles;
+  Flex: typeof styles.flexStyles;
 }
 
 const defaultTheme: Theme = {
@@ -20,6 +22,8 @@ const defaultTheme: Theme = {
     Text: styles.textStyles,
     Tooltip: styles.tooltipStyles,
     Popover: styles.popoverStyles,
+    Center: styles.centerStyles,
+    Flex: styles.flexStyles,
   },
 };
 
