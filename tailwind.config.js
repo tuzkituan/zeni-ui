@@ -16,6 +16,7 @@ export default {
         "primary-background": "var(--background-primary)",
         "sec-background": "var(--background-sec)",
         "primary-text": "var(--color-text-primary)",
+        "line-primary": "var(--line-primary)",
       },
     },
     backgroundColor: (theme) => ({

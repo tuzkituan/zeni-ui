@@ -8,8 +8,8 @@ const base = cva([
   "text-primary-text",
   "text-base",
   "border",
-  "border-primary-background",
-  "shadow-md",
+  "border-line-primary",
+  "shadow-sm",
 ]);
 
 const popoverStyles = {

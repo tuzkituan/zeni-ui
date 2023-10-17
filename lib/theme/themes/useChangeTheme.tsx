@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { THEMES } from "../../theme/themes";
-import { applyTheme } from "../../theme/themes/utils";
+import { THEMES } from ".";
+import { applyTheme } from "./utils";
 
 type ThemeType = keyof typeof THEMES;
 

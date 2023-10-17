@@ -5,6 +5,9 @@ import { Text } from "./Text";
 const meta = {
   title: "LAVENDER/Text",
   component: Text,
+  parameters: {
+    layout: "centered",
+  },
   tags: ["autodocs"],
   argTypes: {},
 } satisfies Meta<typeof Text>;

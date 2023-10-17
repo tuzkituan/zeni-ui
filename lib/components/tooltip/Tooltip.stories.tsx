@@ -6,6 +6,9 @@ const meta = {
   title: "LAVENDER/Tooltip",
   component: Tooltip,
   tags: ["autodocs"],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     placement: {
       description: "Tooltip placement",

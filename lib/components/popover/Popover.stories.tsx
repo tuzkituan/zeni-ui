@@ -1,15 +1,23 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Popover } from "./Popover";
 import { Button } from "../button/Button";
+import { Text } from "../text/Text";
+import { Box } from "../box/Box";
 
 const meta = {
   title: "LAVENDER/Popover",
   component: Popover,
   tags: ["autodocs"],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     content: {
       control: "text",
       description: "React.ReactNode",
+    },
+    children: {
+      type: "string",
     },
     placement: {
       description: "Popover placement",
@@ -36,9 +44,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+  render: ({ children, content, ...rest }) => (
+    <Popover {...rest} content={<Box className="max-w-[250px]">{content}</Box>}>
+      <Text className="underline cursor-pointer">{children}</Text>
+    </Popover>
+  ),
   args: {
-    children: <Button>Click me</Button>,
+    children: "Click me",
     placement: "bottom-start",
-    content: "Popover content",
+    content:
+      "Well, you only need the light when it's burning low. Only miss the sun when it starts to snow",
   },
 };

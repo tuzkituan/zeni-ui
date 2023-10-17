@@ -15,6 +15,7 @@ export const mapTheme = (variables: ITheme): IMappedTheme => {
     "--color-text-primary": variables.textPrimary || "",
     "--background-primary": variables.backgroundPrimary || "",
     "--background-sec": variables.backgroundSecondary || "",
+    "--line-primary": variables.linePrimary || "",
   };
 };
 

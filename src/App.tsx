@@ -2,7 +2,7 @@ import { Box } from "../lib/components/box/Box";
 import { Popover } from "../lib/components/popover/Popover";
 import { Text } from "../lib/components/text/Text";
 import { Button, Center } from "../lib/main";
-import { useChangeTheme } from "../lib/utils/hooks/useChangeTheme";
+import { useChangeTheme } from "../lib/theme/themes/useChangeTheme";
 
 function App() {
   const { theme, setTheme } = useChangeTheme();
