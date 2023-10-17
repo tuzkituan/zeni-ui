@@ -8,26 +8,25 @@ export default {
   ],
   theme: {
     extend: {
-      accentColor: {
-        primary: "var(--accent-color)",
-        active: "var(--active-accent-color)",
-      },
-      textColor: {
-        accent: "var(--accent-color)",
-        primary: "var(--primary-text)",
-        "inverse-primary": "var(--inverse-primary-text)",
-      },
-      backgroundColor: {
-        accent: "var(--accent-color)",
-        "bg-primary": "var(--bg-primary)",
-        active: "var(--active-accent-color)",
-        disabled: "var(--light-accent-color)",
-      },
-      borderColor: {
-        accent: "var(--accent-color)",
+      colors: {
+        primary: "var(--color-primary)",
+        secondary: "var(--color-secondary)",
+        negative: "var(--color-negative)",
+        positive: "var(--color-positive)",
+        "primary-background": "var(--background-primary)",
+        "sec-background": "var(--background-sec)",
+        "primary-text": "var(--color-text-primary)",
       },
     },
+    backgroundColor: (theme) => ({
+      ...theme("colors"),
+    }),
+    borderColor: (theme) => ({
+      ...theme("colors"),
+    }),
+  },
+  variants: {
+    backgroundColor: ["active"],
   },
   plugins: [],
-  // prefix: "t-",
 };

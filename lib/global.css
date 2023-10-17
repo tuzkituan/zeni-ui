@@ -3,19 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --accent-color: theme("colors.blue.500");
-  --active-accent-color: theme("colors.blue.700");
-  --light-accent-color: theme("colors.blue.200");
-  --primary-text: theme("colors.gray.900");
-  --inverse-primary-text: theme("colors.white");
-  --bg-primary: theme("colors.white");
-}
-
-:root[data-theme="dark"] {
-  --accent-color: theme("colors.blue.500");
-  --active-accent-color: theme("colors.blue.700");
-  --light-accent-color: theme("colors.blue.200");
-  --primary-text: theme("colors.white");
-  --inverse-primary-text: theme("colors.gray.900");
-  --bg-primary: theme("colors.gray.900");
+  --color-primary: #61dafb;
+  --color-secondary: #254e70;
+  --color-positive: #a3d9b1;
+  --color-negative: #e45b78;
+  --color-text-primary: #333;
+  --background-primary: #efefef;
+  --background-sec: #f6f9fc;
 }

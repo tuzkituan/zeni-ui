@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-const base = cva(["text-primary"]);
+const base = cva(["text-primary-text"]);
 
 const textStyles = {
   base,

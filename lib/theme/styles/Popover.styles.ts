@@ -4,11 +4,11 @@ const base = cva([
   "rounded-lg",
   "px-3",
   "py-2",
-  "bg-bg-primary",
-  "text-primary",
+  "bg-sec-background",
+  "text-primary-text",
   "text-base",
   "border",
-  "border-gray-200",
+  "border-primary-background",
   "shadow-md",
 ]);
 

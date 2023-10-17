@@ -1,32 +1,32 @@
-import { twMerge } from "tailwind-merge";
 import { Box } from "../lib/components/box/Box";
-import { Text } from "../lib/components/text/Text";
-import { Button } from "../lib/main";
-import { useDarkMode } from "../lib/utils/hooks/useDarkMode";
 import { Popover } from "../lib/components/popover/Popover";
+import { Text } from "../lib/components/text/Text";
+import { Button, Center } from "../lib/main";
+import { useChangeTheme } from "../lib/utils/hooks/useChangeTheme";
 
 function App() {
-  const [isDark, setIsDark] = useDarkMode();
+  const { theme, setTheme } = useChangeTheme();
 
   return (
-    <Box
-      className={twMerge(
-        isDark ? "bg-gray-900" : "bg-white",
-        "w-full h-screen"
-      )}
-    >
+    <Center className="bg-primary-background min-h-screen">
       <Box className="flex justify-center flex-col items-center h-full gap-4">
         <Box className="card">
-          <Button size="md" onClick={() => setIsDark(!isDark)}>
-            {isDark ? "Dark Mode" : "Light Mode"}
-          </Button>
+          {theme === "baseLight" ? (
+            <Button onClick={() => setTheme("baseDark")}>
+              Apply Dark Theme
+            </Button>
+          ) : (
+            <Button onClick={() => setTheme("baseLight")}>
+              Apply Light Theme
+            </Button>
+          )}
         </Box>
         <Text>Click to toggle the theme</Text>
         <Popover content="Popover content" placement="bottom-start">
           <Button variant="outline">Click me</Button>
         </Popover>
       </Box>
-    </Box>
+    </Center>
   );
 }
 
