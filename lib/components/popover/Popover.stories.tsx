@@ -4,7 +4,7 @@ import { Text } from "../text/Text";
 import { Box } from "../box/Box";
 
 const meta = {
-  title: "LAVENDER/Popover",
+  title: "SKY-UI/Popover",
   component: Popover,
   tags: ["autodocs"],
   parameters: {

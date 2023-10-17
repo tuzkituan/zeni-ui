@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Box } from "./Box";
 
 const meta = {
-  title: "LAVENDER/Box",
+  title: "SKY-UI/Box",
   component: Box,
   tags: ["autodocs"],
   argTypes: {},

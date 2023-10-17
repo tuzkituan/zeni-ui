@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Tooltip } from "./Tooltip";
 
 const meta = {
-  title: "LAVENDER/Tooltip",
+  title: "SKY-UI/Tooltip",
   component: Tooltip,
   tags: ["autodocs"],
   parameters: {
