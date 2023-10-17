@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useChangeTheme } from "../theme/themes/useChangeTheme";
 import { ThemeType } from "../theme/themes";
 
-export const ThemeProvider = ({
+export const SkyProvider = ({
   theme,
   children,
 }: {
