@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
-import { useComponentTheme } from "../../theme/theme.context";
+import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IPopover } from "./Popover.types";
 
 export const Popover = ({
@@ -15,7 +15,7 @@ export const Popover = ({
 }: IPopover) => {
   const [isOpen, setOpen] = useState(false);
 
-  const theme = useComponentTheme("Popover");
+  const theme = useComponentStyle("Popover");
 
   const { triggerProps, layerProps, renderLayer } = useLayer({
     isOpen: open || isOpen,

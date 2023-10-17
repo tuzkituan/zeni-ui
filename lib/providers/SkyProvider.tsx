@@ -1,26 +1,21 @@
 import { useEffect } from "react";
-import { useChangeTheme } from "../theme/themes/useChangeTheme";
-import { ThemeType } from "../theme/themes";
+import { applyTheme } from "../main";
+import { ThemeType } from "../customization/theme";
+
 
 export const SkyProvider = ({
-  theme,
+  initialTheme,
   children,
 }: {
-  theme?: ThemeType;
+  initialTheme?: ThemeType;
   children: React.ReactNode;
 }) => {
-  const { setTheme } = useChangeTheme();
-
-  // Set the default theme here
   useEffect(() => {
-    console.log("🚀 ~ SET THEME");
-    setTheme(theme || "baseLight");
-  }, [setTheme, theme]);
+    const savedTheme = localStorage.getItem("theme");
+    const defaultTheme = (savedTheme as ThemeType) || initialTheme || "baseLight";
+    applyTheme(defaultTheme);
+    localStorage.setItem("theme", defaultTheme);
+  }, [initialTheme]);
 
-  return (
-    <>
-      {/* Any other provider components can be added here */}
-      {children}
-    </>
-  );
+  return <>{children}</>;
 };

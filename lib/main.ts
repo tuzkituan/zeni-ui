@@ -1,4 +1,4 @@
-import "./global.css";
+import "./customization/global.css";
 
 export * from "./components/button/Button";
 export * from "./components/center/Center";
@@ -12,7 +12,7 @@ export * from "./components/box/Box";
 export * from "./providers/SkyProvider";
 
 // UTILS
-export * from "./theme/theme.context";
-export * from "./theme/themes/index";
-export * from "./theme/themes/useChangeTheme";
-export * from "./theme/themes/utils";
+export * from "./customization/styles/theme.context";
+export * from "./customization/theme/index";
+export * from "./customization/theme/useChangeTheme";
+export * from "./customization/theme/utils";

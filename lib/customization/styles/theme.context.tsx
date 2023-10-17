@@ -1,11 +1,11 @@
-import * as styles from "./styles/index";
+import * as styles from "./components";
 import { createContext, Provider, useContext } from "react";
 
-export interface Theme {
-  components: ThemeComponents;
+export interface Style {
+  components: StyleComponents;
 }
 
-interface ThemeComponents {
+interface StyleComponents {
   Button: typeof styles.buttonStyles;
   Box: typeof styles.boxStyles;
   Text: typeof styles.textStyles;
@@ -15,7 +15,7 @@ interface ThemeComponents {
   Flex: typeof styles.flexStyles;
 }
 
-const defaultTheme: Theme = {
+const defaultStyle: Style = {
   components: {
     Button: styles.buttonStyles,
     Box: styles.boxStyles,
@@ -27,23 +27,23 @@ const defaultTheme: Theme = {
   },
 };
 
-export interface ThemeContextType {
-  theme: Theme;
+export interface StyleContextType {
+  style: Style;
 }
 
-const ThemeContext = createContext<ThemeContextType>({
-  theme: defaultTheme,
+const StyleContext = createContext<StyleContextType>({
+  style: defaultStyle,
 });
 
-export const ThemeProvider: Provider<ThemeContextType> = ThemeContext.Provider;
+export const StyleProvider: Provider<StyleContextType> = StyleContext.Provider;
 
-export function useTheme(): Theme {
-  return useContext(ThemeContext)?.theme || defaultTheme;
+export function useStyle(): Style {
+  return useContext(StyleContext)?.style || defaultStyle;
 }
 
-export function useComponentTheme<C extends keyof ThemeComponents>(
+export function useComponentStyle<C extends keyof StyleComponents>(
   component: C
 ) {
-  const theme = useTheme();
-  return theme.components[component];
+  const style = useStyle();
+  return style.components[component];
 }

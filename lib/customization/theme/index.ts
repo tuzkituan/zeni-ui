@@ -1,18 +1,14 @@
 // src/themes/index.ts
-import baseLight from "./light/base";
 import baseDark from "./dark/base";
+import baseLight from "./light/base";
 import { IThemes } from "./utils";
 
-/**
- * The default theme to load
- */
 export const THEMES = {
   baseLight: "baseLight",
   baseDark: "baseDark",
 };
-export type ThemeType = keyof typeof THEMES;
 
-export const DEFAULT_THEME = THEMES.baseLight;
+export type ThemeType = keyof typeof THEMES;
 
 export const themes: IThemes = {
   baseLight,

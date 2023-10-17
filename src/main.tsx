@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { SkyProvider } from "../lib/main.ts";
 import App from "./App.tsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <SkyProvider initialTheme="baseDark">
+      <App />
+    </SkyProvider>
   </React.StrictMode>
 );

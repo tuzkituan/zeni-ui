@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import { useComponentTheme } from "../../theme/theme.context";
+import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IFlex } from "./Flex.types";
 import { useMemo } from "react";
 
@@ -8,7 +8,7 @@ const defaultProps: Partial<IFlex> = {
 };
 
 export const Flex = (props: IFlex) => {
-  const theme = useComponentTheme("Flex");
+  const theme = useComponentStyle("Flex");
   const {
     children,
     className = "",
@@ -47,6 +47,6 @@ export const Flex = (props: IFlex) => {
 };
 
 export const Spacer = () => {
-  const theme = useComponentTheme("Flex");
+  const theme = useComponentStyle("Flex");
   return <div className={twMerge(theme.spacer())} />;
 };

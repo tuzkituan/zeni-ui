@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import { useComponentTheme } from "../../theme/theme.context";
+import { useComponentStyle } from "../../customization/styles/theme.context";
 import { ICenter, ICircle } from "./Center.styles";
 import { useMemo } from "react";
 
@@ -8,7 +8,7 @@ const defaultProps: Partial<ICenter> = {
 };
 
 export const Center = (props: ICenter) => {
-  const theme = useComponentTheme("Center");
+  const theme = useComponentStyle("Center");
   const {
     children,
     className = "",
@@ -28,7 +28,7 @@ export const Center = (props: ICenter) => {
 
 export const Circle = (props: ICircle) => {
   const { size = 40, className, ...rest } = props;
-  const theme = useComponentTheme("Center");
+  const theme = useComponentStyle("Center");
 
   const classes = useMemo(() => {
     return twMerge(theme.circle(), className);

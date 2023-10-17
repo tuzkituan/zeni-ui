@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import { useComponentTheme } from "../../theme/theme.context";
+import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IText } from "./Text.types";
 import { useMemo } from "react";
 
@@ -8,7 +8,7 @@ const defaultProps: Partial<IText> = {
 };
 
 export const Text = (props: IText) => {
-  const theme = useComponentTheme("Text");
+  const theme = useComponentStyle("Text");
   const {
     children,
     className = "",

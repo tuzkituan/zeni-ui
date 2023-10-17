@@ -1,5 +1,5 @@
 import { IButton } from "./Button.types";
-import { useComponentTheme } from "../../theme/theme.context";
+import { useComponentStyle } from "../../customization/styles/theme.context";
 import { CircleNotch } from "@phosphor-icons/react";
 import { twMerge } from "tailwind-merge";
 import { useMemo } from "react";
@@ -13,7 +13,7 @@ const defaultProps: Partial<IButton> = {
 };
 
 export const Button = (props: IButton) => {
-  const theme = useComponentTheme("Button");
+  const theme = useComponentStyle("Button");
 
   const {
     className = "",
@@ -41,8 +41,8 @@ export const Button = (props: IButton) => {
   const containerStyles: React.CSSProperties = {
     ...(iconSpacing
       ? {
-          gap: iconSpacing,
-        }
+        gap: iconSpacing,
+      }
       : {}),
   };
 

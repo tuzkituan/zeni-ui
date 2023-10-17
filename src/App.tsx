@@ -1,5 +1,5 @@
 import { Box, Button, Center, Popover, Text } from "../lib/main";
-import { useChangeTheme } from "../lib/theme/themes/useChangeTheme";
+import { useChangeTheme } from "../lib/customization/theme/useChangeTheme";
 
 function App() {
   const { theme, setTheme } = useChangeTheme();

@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import { useComponentTheme } from "../../theme/theme.context";
+import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IBox } from "./Box.types";
 
 const defaultProps: Partial<IBox> = {
@@ -7,7 +7,7 @@ const defaultProps: Partial<IBox> = {
 };
 
 export const Box = (props: IBox) => {
-  const theme = useComponentTheme("Box");
+  const theme = useComponentStyle("Box");
   const {
     children,
     className = "",

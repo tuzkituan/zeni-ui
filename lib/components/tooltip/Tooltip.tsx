@@ -1,6 +1,6 @@
 import { useHover, useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
-import { useComponentTheme } from "../../theme/theme.context";
+import { useComponentStyle } from "../../customization/styles/theme.context";
 import { AnimatePresence, motion } from "framer-motion";
 import { ITooltip } from "./Tooltip.types";
 import { useMemo } from "react";
@@ -13,7 +13,7 @@ export const Tooltip = ({
 }: ITooltip) => {
   const [isHover, hoverProps] = useHover();
 
-  const theme = useComponentTheme("Tooltip");
+  const theme = useComponentStyle("Tooltip");
 
   const { triggerProps, layerProps, renderLayer } = useLayer({
     isOpen: isHover,
