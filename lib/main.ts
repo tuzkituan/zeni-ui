@@ -8,6 +8,10 @@ export * from "./components/popover/Popover";
 export * from "./components/flex/Flex";
 export * from "./components/box/Box";
 
+// PROVIDERS
+export * from "./providers/SkyProvider";
+
+// UTILS
 export * from "./theme/theme.context";
 export * from "./theme/themes/index";
 export * from "./theme/themes/useChangeTheme";
