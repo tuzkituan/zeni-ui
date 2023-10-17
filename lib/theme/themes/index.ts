@@ -10,6 +10,8 @@ export const THEMES = {
   baseLight: "baseLight",
   baseDark: "baseDark",
 };
+export type ThemeType = keyof typeof THEMES;
+
 export const DEFAULT_THEME = THEMES.baseLight;
 
 export const themes: IThemes = {
