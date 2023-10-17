@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Center, Circle } from "./Center";
+import { twMerge } from "tailwind-merge";
 
 const meta = {
   title: "LAVENDER/Center",
@@ -16,14 +17,16 @@ export const Primary: Story = {
   render: (args) => {
     const { children, ...rest } = args;
     return (
-      <Center {...rest} className="h-[100px] bg-slate-200">
+      <Center
+        {...rest}
+        className={twMerge("h-[100px] bg-slate-200", rest.className)}
+      >
         {children}
       </Center>
     );
   },
   args: {
     children: "Center",
-    className: "",
   },
 };
 
@@ -31,7 +34,10 @@ export const CircleComponent: StoryObj<typeof Circle> = {
   render: (args) => {
     const { children, ...rest } = args;
     return (
-      <Circle {...rest} className="bg-slate-600 text-white">
+      <Circle
+        {...rest}
+        className={twMerge("bg-slate-600 text-white", rest.className)}
+      >
         {children}
       </Circle>
     );

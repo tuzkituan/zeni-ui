@@ -1,6 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import { useComponentTheme } from "../../theme/theme.context";
 import { IFlex } from "./Flex.types";
+import { useMemo } from "react";
 
 const defaultProps: Partial<IFlex> = {
   children: undefined,
@@ -19,17 +20,21 @@ export const Flex = (props: IFlex) => {
     ...restProps
   } = { ...defaultProps, ...props };
 
+  const classes = useMemo(() => {
+    return twMerge(
+      theme.base({
+        direction,
+        justify,
+        align,
+        wrap,
+      }),
+      className
+    );
+  }, [align, className, direction, justify, theme, wrap]);
+
   return (
     <div
-      className={twMerge(
-        theme.base({
-          direction,
-          justify,
-          align,
-          wrap,
-        }),
-        className
-      )}
+      className={classes}
       style={{
         gap,
         ...restProps.style,

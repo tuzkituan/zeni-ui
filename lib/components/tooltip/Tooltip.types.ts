@@ -14,4 +14,5 @@ export interface ITooltip {
     | "bottom-end";
   content?: string;
   children?: React.ReactNode;
+  tooltipClassName?: string;
 }

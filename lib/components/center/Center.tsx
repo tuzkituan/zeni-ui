@@ -1,6 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import { useComponentTheme } from "../../theme/theme.context";
 import { ICenter, ICircle } from "./Center.styles";
+import { useMemo } from "react";
 
 const defaultProps: Partial<ICenter> = {
   children: undefined,
@@ -14,8 +15,12 @@ export const Center = (props: ICenter) => {
     ...restProps
   } = { ...defaultProps, ...props };
 
+  const classes = useMemo(() => {
+    return twMerge(theme.base(), className);
+  }, [className, theme]);
+
   return (
-    <div className={twMerge(theme.base(), className)} {...restProps}>
+    <div className={classes} {...restProps}>
       {children}
     </div>
   );
@@ -24,9 +29,14 @@ export const Center = (props: ICenter) => {
 export const Circle = (props: ICircle) => {
   const { size = 40, className, ...rest } = props;
   const theme = useComponentTheme("Center");
+
+  const classes = useMemo(() => {
+    return twMerge(theme.circle(), className);
+  }, [className, theme]);
+
   return Center({
     ...rest,
-    className: twMerge(theme.circle(), className),
+    className: classes,
     style: {
       ...props.style,
       width: size,

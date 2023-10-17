@@ -3,8 +3,14 @@ import { twMerge } from "tailwind-merge";
 import { useComponentTheme } from "../../theme/theme.context";
 import { AnimatePresence, motion } from "framer-motion";
 import { ITooltip } from "./Tooltip.types";
+import { useMemo } from "react";
 
-export const Tooltip = ({ children, content, placement }: ITooltip) => {
+export const Tooltip = ({
+  children,
+  content,
+  placement,
+  tooltipClassName,
+}: ITooltip) => {
   const [isHover, hoverProps] = useHover();
 
   const theme = useComponentTheme("Tooltip");
@@ -15,6 +21,10 @@ export const Tooltip = ({ children, content, placement }: ITooltip) => {
     auto: true,
     triggerOffset: 5,
   });
+
+  const classes = useMemo(() => {
+    return twMerge(theme.base(), tooltipClassName);
+  }, [tooltipClassName, theme]);
 
   return (
     <>
@@ -28,7 +38,7 @@ export const Tooltip = ({ children, content, placement }: ITooltip) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className={twMerge(theme.base())}
+              className={classes}
               {...layerProps}
             >
               {content}

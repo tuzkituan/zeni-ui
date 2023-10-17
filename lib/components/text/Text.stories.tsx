@@ -15,6 +15,5 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     children: "This is a span",
-    className: "",
   },
 };

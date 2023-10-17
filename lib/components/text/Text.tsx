@@ -1,6 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import { useComponentTheme } from "../../theme/theme.context";
 import { IText } from "./Text.types";
+import { useMemo } from "react";
 
 const defaultProps: Partial<IText> = {
   children: undefined,
@@ -14,8 +15,12 @@ export const Text = (props: IText) => {
     ...restProps
   } = { ...defaultProps, ...props };
 
+  const classes = useMemo(() => {
+    return twMerge(theme.base(), className);
+  }, [className, theme]);
+
   return (
-    <span className={twMerge(theme.base(), className)} {...restProps}>
+    <span className={classes} {...restProps}>
       {children}
     </span>
   );

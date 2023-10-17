@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
 import { useComponentTheme } from "../../theme/theme.context";
@@ -11,6 +11,7 @@ export const Popover = ({
   placement,
   open,
   onOpenChange,
+  popoverClassName,
 }: IPopover) => {
   const [isOpen, setOpen] = useState(false);
 
@@ -26,6 +27,10 @@ export const Popover = ({
       setOpen(false);
     },
   });
+
+  const classes = useMemo(() => {
+    return twMerge(theme.base(), popoverClassName);
+  }, [popoverClassName, theme]);
 
   return (
     <>
@@ -46,7 +51,7 @@ export const Popover = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className={twMerge(theme.base())}
+              className={classes}
               {...layerProps}
             >
               {content}

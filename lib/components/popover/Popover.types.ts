@@ -16,4 +16,5 @@ export interface IPopover {
   onOpenChange?: (open: boolean) => void;
   content?: React.ReactNode;
   children?: React.ReactNode;
+  popoverClassName?: string;
 }
