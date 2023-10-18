@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "./Text";
 
 const meta = {
-  title: "PEACE-UI/Text",
+  title: "ZENI-UI/Text",
   component: Text,
   parameters: {
     layout: "centered",

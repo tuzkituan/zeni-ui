@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Box } from "./Box";
 
 const meta = {
-  title: "PEACE-UI/Box",
+  title: "ZENI-UI/Box",
   component: Box,
   tags: ["autodocs"],
   argTypes: {},

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { applyTheme } from "../main";
 import { ThemeType } from "../customization/theme";
 
-export const PeaceProvider = ({
+export const ZeniProvider = ({
   initialTheme,
   children,
 }: {
