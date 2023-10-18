@@ -12,6 +12,7 @@ const defaultProps: Partial<IAvatar> = {
   size: "md",
   name: "",
   bgColor: "",
+  borderColor: "white",
 };
 
 export const Avatar = (props: IAvatar) => {
@@ -23,11 +24,12 @@ export const Avatar = (props: IAvatar) => {
     size,
     name,
     bgColor,
+    borderColor,
     style,
     ...restProps
   } = { ...defaultProps, ...props };
 
-  const { loading, error } = useImageStatus(src);
+  const { error } = useImageStatus(src);
 
   const classes = useMemo(() => {
     return twMerge(
@@ -66,6 +68,7 @@ export const Avatar = (props: IAvatar) => {
       className={classes}
       style={{
         backgroundColor: bgColor,
+        borderColor,
         ...style,
       }}
       {...restProps}

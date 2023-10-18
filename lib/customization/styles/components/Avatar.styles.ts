@@ -9,6 +9,8 @@ const base = cva(
     "overflow-hidden",
     "uppercase",
     "bg-positive",
+    "border",
+    "border-sec-background",
   ],
   {
     variants: {

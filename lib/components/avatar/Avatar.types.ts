@@ -8,4 +8,5 @@ export interface IAvatar
   size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
   name?: string;
   bgColor?: string;
+  borderColor?: string;
 }
