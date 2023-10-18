@@ -28,8 +28,6 @@ export const Avatar = (props: IAvatar) => {
   } = { ...defaultProps, ...props };
 
   const { loading, error } = useImageStatus(src);
-  console.log("🚀 ~ file: Avatar.tsx:31 ~ Avatar ~ error:", error);
-  console.log("🚀 ~ file: Avatar.tsx:31 ~ Avatar ~ loading:", loading);
 
   const classes = useMemo(() => {
     return twMerge(
