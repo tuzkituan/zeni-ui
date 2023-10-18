@@ -1,6 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IBox } from "./Box.types";
+import { useMemo } from "react";
 
 const defaultProps: Partial<IBox> = {
   children: undefined,
@@ -14,8 +15,12 @@ export const Box = (props: IBox) => {
     ...restProps
   } = { ...defaultProps, ...props };
 
+  const classes = useMemo(() => {
+    return twMerge(theme.base(), className);
+  }, [className, theme]);
+
   return (
-    <div className={twMerge(theme.base(), className)} {...restProps}>
+    <div className={classes} {...restProps}>
       {children}
     </div>
   );

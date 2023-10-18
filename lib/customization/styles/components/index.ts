@@ -5,3 +5,4 @@ export * from "./Tooltip.styles";
 export * from "./Popover.styles";
 export * from "./Center.styles";
 export * from "./Flex.styles";
+export * from "./Avatar.styles";

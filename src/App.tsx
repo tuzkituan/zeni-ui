@@ -9,6 +9,7 @@ import {
 } from "../lib/main";
 import { useChangeTheme } from "../lib/customization/theme/useChangeTheme";
 import { twMerge } from "tailwind-merge";
+import { Avatar } from "../lib/components/avatar/Avatar";
 
 function App() {
   const { theme, setTheme } = useChangeTheme();
@@ -59,6 +60,11 @@ function App() {
         <Popover content="Popover content" placement="bottom-start">
           <Button variant="outline">Click me</Button>
         </Popover>
+        <Avatar
+          src="https://picsum.photos/200/300"
+          size="lg"
+          name="letter tuan"
+        />
       </Box>
     </Center>
   );

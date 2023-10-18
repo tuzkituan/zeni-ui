@@ -13,6 +13,7 @@ interface StyleComponents {
   Popover: typeof styles.popoverStyles;
   Center: typeof styles.centerStyles;
   Flex: typeof styles.flexStyles;
+  Avatar: typeof styles.avatarStyles;
 }
 
 const defaultStyle: Style = {
@@ -24,6 +25,7 @@ const defaultStyle: Style = {
     Popover: styles.popoverStyles,
     Center: styles.centerStyles,
     Flex: styles.flexStyles,
+    Avatar: styles.avatarStyles,
   },
 };
 

@@ -1,0 +1,90 @@
+import { User } from "@phosphor-icons/react";
+import { useMemo } from "react";
+import { renderToString } from "react-dom/server";
+import { twMerge } from "tailwind-merge";
+import { useComponentStyle } from "../../customization/styles/theme.context";
+import useImageStatus from "../../hooks/image.hook";
+import { IAvatar } from "./Avatar.types";
+
+const defaultProps: Partial<IAvatar> = {
+  src: "",
+  alt: "",
+  size: "md",
+  name: "",
+  bgColor: "",
+};
+
+export const Avatar = (props: IAvatar) => {
+  const theme = useComponentStyle("Avatar");
+  const {
+    className = "",
+    src,
+    alt,
+    size,
+    name,
+    bgColor,
+    style,
+    ...restProps
+  } = { ...defaultProps, ...props };
+
+  const { loading, error } = useImageStatus(src);
+  console.log("🚀 ~ file: Avatar.tsx:31 ~ Avatar ~ error:", error);
+  console.log("🚀 ~ file: Avatar.tsx:31 ~ Avatar ~ loading:", loading);
+
+  const classes = useMemo(() => {
+    return twMerge(
+      theme.base({
+        size,
+      }),
+      className
+    );
+  }, [className, size, theme]);
+
+  const letterClasses = useMemo(() => {
+    return twMerge(
+      theme.name({
+        size,
+      })
+    );
+  }, [size, theme]);
+
+  const getInitials = (str: string) => {
+    const words = str.split(" ");
+    const initials = words
+      .map((word) => word.charAt(0))
+      .slice(0, 2)
+      .join("");
+    return initials.toUpperCase();
+  };
+
+  const defaultSvgString = renderToString(
+    <User className="h-16 w-16" color="white" />
+  );
+  const defaultImgSrc = `data:image/svg+xml;base64,${btoa(defaultSvgString)}`;
+  const nameLetters = name ? getInitials(name) : "";
+
+  return (
+    <div
+      className={classes}
+      style={{
+        backgroundColor: bgColor,
+        ...style,
+      }}
+      {...restProps}
+    >
+      {!error ? (
+        <img src={src} alt={alt} className={theme.img()} />
+      ) : name ? (
+        <span className={letterClasses}>{nameLetters}</span>
+      ) : (
+        <img
+          src={defaultImgSrc}
+          alt={alt}
+          className={theme.img({
+            size,
+          })}
+        />
+      )}
+    </div>
+  );
+};
