@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { applyTheme } from "../main";
 import { ThemeType } from "../customization/theme";
 
-
-export const SkyProvider = ({
+export const PeaceProvider = ({
   initialTheme,
   children,
 }: {
@@ -12,7 +11,8 @@ export const SkyProvider = ({
 }) => {
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    const defaultTheme = (savedTheme as ThemeType) || initialTheme || "baseLight";
+    const defaultTheme =
+      (savedTheme as ThemeType) || initialTheme || "baseLight";
     applyTheme(defaultTheme);
     localStorage.setItem("theme", defaultTheme);
   }, [initialTheme]);

@@ -4,7 +4,7 @@ import { Box } from "../box/Box";
 import { Flex } from "./Flex";
 
 const meta = {
-  title: "SKY-UI/Flex",
+  title: "PEACE-UI/Flex",
   component: Flex,
   tags: ["autodocs"],
   argTypes: {

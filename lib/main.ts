@@ -9,7 +9,7 @@ export * from "./components/flex/Flex";
 export * from "./components/box/Box";
 
 // PROVIDERS
-export * from "./providers/SkyProvider";
+export * from "./providers/PeaceProvider";
 
 // UTILS
 export * from "./customization/styles/theme.context";

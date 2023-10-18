@@ -4,7 +4,7 @@ import { Center, Circle } from "./Center";
 import { twMerge } from "tailwind-merge";
 
 const meta = {
-  title: "SKY-UI/Center",
+  title: "PEACE-UI/Center",
   component: Center,
   tags: ["autodocs"],
   argTypes: {},
