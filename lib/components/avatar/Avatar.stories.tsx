@@ -21,6 +21,7 @@ export const Primary: Story = {
   args: {
     src: "https://picsum.photos/200/300",
     size: "2xl",
+    alt: "",
     name: "Lewis Nguyen",
     bgColor: "",
     borderColor: "",
