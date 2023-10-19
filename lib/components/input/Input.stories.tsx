@@ -4,7 +4,7 @@ import { Check } from "@phosphor-icons/react";
 import { Input, InputLeftElement, InputGroup as TInputGroup } from "./Input";
 
 const meta = {
-  title: "ZENI-UI/Input",
+  title: "INPUTS/Input",
   component: Input,
   tags: ["autodocs"],
   argTypes: {

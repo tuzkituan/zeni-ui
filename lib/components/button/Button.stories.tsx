@@ -4,7 +4,7 @@ import { Button } from "./Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: "ZENI-UI/Button",
+  title: "ATOMS/Button",
   component: Button,
   parameters: {
     layout: "centered",

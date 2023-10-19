@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Tooltip } from "./Tooltip";
 
 const meta = {
-  title: "ZENI-UI/Tooltip",
+  title: "TOOLTIP & POPOVER/Tooltip",
   component: Tooltip,
   tags: ["autodocs"],
   parameters: {

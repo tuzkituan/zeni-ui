@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Box } from "./Box";
 
 const meta = {
-  title: "ZENI-UI/Box",
+  title: "LAYOUT/Box",
   component: Box,
   tags: ["autodocs"],
   argTypes: {},

@@ -4,7 +4,7 @@ import { Center, Circle } from "./Center";
 import { twMerge } from "tailwind-merge";
 
 const meta = {
-  title: "ZENI-UI/Center",
+  title: "LAYOUT/Center",
   component: Center,
   tags: ["autodocs"],
   argTypes: {},

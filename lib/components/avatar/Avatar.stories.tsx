@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Avatar } from "./Avatar";
 
 const meta = {
-  title: "ZENI-UI/Avatar",
+  title: "ATOMS/Avatar",
   component: Avatar,
   tags: ["autodocs"],
   argTypes: {

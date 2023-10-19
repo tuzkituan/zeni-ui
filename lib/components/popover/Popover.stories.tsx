@@ -4,7 +4,7 @@ import { Text } from "../text/Text";
 import { Box } from "../box/Box";
 
 const meta = {
-  title: "ZENI-UI/Popover",
+  title: "TOOLTIP & POPOVER/Popover",
   component: Popover,
   tags: ["autodocs"],
   parameters: {

@@ -4,7 +4,7 @@ import { Box } from "../box/Box";
 import { Flex } from "./Flex";
 
 const meta = {
-  title: "ZENI-UI/Flex",
+  title: "LAYOUT/Flex",
   component: Flex,
   tags: ["autodocs"],
   argTypes: {
