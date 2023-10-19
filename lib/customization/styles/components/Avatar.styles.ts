@@ -10,7 +10,8 @@ const base = cva(
     "uppercase",
     "bg-positive",
     "border",
-    "border-sec-background",
+    "border-transparent",
+    "bg-clip-padding",
   ],
   {
     variants: {

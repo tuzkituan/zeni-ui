@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Input } from "./Input";
+import { Check } from "@phosphor-icons/react";
+import { Input, InputLeftElement, InputGroup as TInputGroup } from "./Input";
 
 const meta = {
   title: "ZENI-UI/Input",
@@ -19,12 +20,30 @@ const meta = {
 } satisfies Meta<typeof Input>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    className: "",
+    className: "w-[200px]",
     variant: "outline",
     size: "md",
+    placeholder: "Input your name",
   },
+};
+
+type InputGroupStory = StoryObj<typeof TInputGroup>;
+
+export const InputGroup: InputGroupStory = {
+  render: ({ ...args }) => {
+    return (
+      <TInputGroup {...args}>
+        <InputLeftElement>
+          <Check />
+        </InputLeftElement>
+        <Input size="md" variant="filled" placeholder="Enter your email" />
+      </TInputGroup>
+    );
+  },
+  args: {},
 };
