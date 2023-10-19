@@ -14,6 +14,7 @@ interface StyleComponents {
   Center: typeof styles.centerStyles;
   Flex: typeof styles.flexStyles;
   Avatar: typeof styles.avatarStyles;
+  Input: typeof styles.inputStyles;
 }
 
 const defaultStyle: Style = {
@@ -26,6 +27,7 @@ const defaultStyle: Style = {
     Center: styles.centerStyles,
     Flex: styles.flexStyles,
     Avatar: styles.avatarStyles,
+    Input: styles.inputStyles,
   },
 };
 
