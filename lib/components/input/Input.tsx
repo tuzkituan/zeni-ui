@@ -11,15 +11,9 @@ const defaultProps: Partial<IInput> = {
   isInGroup: false,
 };
 
-export const Input = (props: IInput) => {
+export const InputContainer = (props: IInput) => {
+  const { children, variant, className, isInGroup } = props;
   const theme = useComponentStyle("Input");
-  const {
-    className = "",
-    size,
-    variant,
-    isInGroup,
-    ...restProps
-  } = { ...defaultProps, ...props };
 
   const containerClasses = useMemo(() => {
     return twMerge(
@@ -31,6 +25,18 @@ export const Input = (props: IInput) => {
       className
     );
   }, [isInGroup, theme, variant, className]);
+
+  return <div className={containerClasses}>{children}</div>;
+};
+export const Input = (props: IInput) => {
+  const theme = useComponentStyle("Input");
+  const {
+    className = "",
+    size,
+    variant,
+    isInGroup,
+    ...restProps
+  } = { ...defaultProps, ...props };
 
   const inputClasses = useMemo(() => {
     return twMerge(
@@ -44,13 +50,13 @@ export const Input = (props: IInput) => {
   }, [theme, size, isInGroup, variant, className]);
 
   return (
-    <div className={containerClasses}>
+    <InputContainer {...props}>
       <input
         placeholder="Placeholder"
         className={inputClasses}
         {...restProps}
       />
-    </div>
+    </InputContainer>
   );
 };
 

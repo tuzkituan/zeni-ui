@@ -15,6 +15,7 @@ interface StyleComponents {
   Flex: typeof styles.flexStyles;
   Avatar: typeof styles.avatarStyles;
   Input: typeof styles.inputStyles;
+  NumberInput: typeof styles.numberInputStyles;
 }
 
 const defaultStyle: Style = {
@@ -28,6 +29,7 @@ const defaultStyle: Style = {
     Flex: styles.flexStyles,
     Avatar: styles.avatarStyles,
     Input: styles.inputStyles,
+    NumberInput: styles.numberInputStyles,
   },
 };
 

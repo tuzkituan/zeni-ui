@@ -7,3 +7,4 @@ export * from "./Center.styles";
 export * from "./Flex.styles";
 export * from "./Avatar.styles";
 export * from "./Input.styles";
+export * from "./NumberInput.styles";

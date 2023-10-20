@@ -4,11 +4,15 @@ const container = cva(
   [
     "rounded-md",
     "text-primary-text",
-    "w-fit",
+    "w-full ",
+    "h-full",
     "outline",
     "outline-1",
     "outline-transparent",
-    "w-full",
+    "flex",
+    "justify-between",
+    "items-center",
+    "overflow-hidden",
   ],
   {
     variants: {
@@ -91,15 +95,30 @@ const input = cva(
   }
 );
 
-const group = cva(["flex", "items-center"]);
-const leftElement = cva(["flex", "items-center", "justify-center", "px-2"]);
-const rightElement = cva(["flex", "items-center", "justify-center", "px-2"]);
-const inputStyles = {
+const arrowContainer = cva([
+  "flex",
+  "flex-col",
+  "border-l",
+  "border-l-line-primary",
+  "grow",
+  "justify-stretch",
+]);
+const arrow = cva([
+  "flex",
+  "justify-center",
+  "items-center",
+  "px-1.5",
+  "leading-none",
+  "hover:bg-line-primary",
+  "text-xs",
+  "grow",
+]);
+
+const numberInputStyles = {
   container,
   input,
-  group,
-  leftElement,
-  rightElement,
+  arrowContainer,
+  arrow,
 };
 
-export { inputStyles };
+export { numberInputStyles };

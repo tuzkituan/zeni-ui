@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    className: "w-[200px]",
+    className: "",
     variant: "outline",
     size: "md",
     placeholder: "Input your name",
