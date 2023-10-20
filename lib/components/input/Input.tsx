@@ -12,19 +12,22 @@ const defaultProps: Partial<IInput> = {
 };
 
 export const InputContainer = (props: IInput) => {
-  const { children, variant, className, isInGroup } = props;
+  const { children, variant, size, className, isInGroup } = props;
   const theme = useComponentStyle("Input");
 
   const containerClasses = useMemo(() => {
     return twMerge(
       isInGroup
-        ? ""
+        ? theme.container({
+            size,
+          })
         : theme.container({
             variant,
+            size,
           }),
       className
     );
-  }, [isInGroup, theme, variant, className]);
+  }, [isInGroup, theme, size, variant, className]);
 
   return <div className={containerClasses}>{children}</div>;
 };
@@ -47,7 +50,7 @@ export const Input = (props: IInput) => {
       }),
       className
     );
-  }, [theme, size, isInGroup, variant, className]);
+  }, [theme, size, variant, isInGroup, className]);
 
   return (
     <InputContainer {...props}>

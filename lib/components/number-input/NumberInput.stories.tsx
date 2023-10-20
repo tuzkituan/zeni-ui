@@ -37,6 +37,7 @@ export const Primary: Story = {
     defaultValue: 3,
     min: 0,
     max: 20,
+    // showArrow: false,
     // step: 3,
   },
 };

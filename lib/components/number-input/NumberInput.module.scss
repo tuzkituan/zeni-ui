@@ -1,13 +1,13 @@
 .NumberInput {
-  // /* Chrome, Safari, Edge, Opera */
-  // &::-webkit-outer-spin-button,
-  // &::-webkit-inner-spin-button {
-  //   -webkit-appearance: none;
-  //   margin: 0;
-  // }
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
-  // /* Firefox */
-  // &[type="number"] {
-  //   -moz-appearance: textfield;
-  // }
+  /* Firefox */
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
 }
