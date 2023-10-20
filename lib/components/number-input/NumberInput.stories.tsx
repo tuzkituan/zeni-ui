@@ -15,6 +15,12 @@ const meta = {
       control: "radio",
       options: ["xs", "sm", "md", "lg"],
     },
+    value: {
+      control: "number",
+    },
+    onChange: {
+      action: "change",
+    },
   },
 } satisfies Meta<typeof NumberInput>;
 
