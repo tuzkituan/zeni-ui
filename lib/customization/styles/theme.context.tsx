@@ -16,6 +16,7 @@ interface StyleComponents {
   Avatar: typeof styles.avatarStyles;
   Input: typeof styles.inputStyles;
   NumberInput: typeof styles.numberInputStyles;
+  Checkbox: typeof styles.checkboxStyles;
 }
 
 const defaultStyle: Style = {
@@ -30,6 +31,7 @@ const defaultStyle: Style = {
     Avatar: styles.avatarStyles,
     Input: styles.inputStyles,
     NumberInput: styles.numberInputStyles,
+    Checkbox: styles.checkboxStyles,
   },
 };
 

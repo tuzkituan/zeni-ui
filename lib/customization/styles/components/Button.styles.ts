@@ -8,6 +8,7 @@ const base = cva(
     "transition-opacity",
     "duration-400",
     "ease-in-out",
+    "active:brightness-90",
   ],
   {
     variants: {
@@ -40,8 +41,8 @@ const base = cva(
       size: {
         xs: ["text-xs", "py-1", "px-2"],
         sm: ["text-sm", "py-1", "px-2"],
-        md: ["text-base", "py-2", "px-4"],
-        lg: ["text-xl", "py-4", "px-8"],
+        md: ["text-base", "py-1.5", "px-3"],
+        lg: ["text-xl", "py-3", "px-6"],
       },
     },
 

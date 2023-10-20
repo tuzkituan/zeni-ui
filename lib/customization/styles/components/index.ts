@@ -8,3 +8,4 @@ export * from "./Flex.styles";
 export * from "./Avatar.styles";
 export * from "./Input.styles";
 export * from "./NumberInput.styles";
+export * from "./Checkbox.styles";

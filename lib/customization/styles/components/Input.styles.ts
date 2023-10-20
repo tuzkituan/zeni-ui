@@ -55,11 +55,11 @@ const container = cva(
         unstyled: ["!border-none", "!bg-none", "!outline-none", "!px-0"],
       },
       addonRight: {
-        true: ["pl-2"],
+        true: ["!pl-3"],
         false: [],
       },
       addonLeft: {
-        true: ["pr-2"],
+        true: ["!pr-3"],
         false: [],
       },
     },
@@ -78,8 +78,8 @@ const input = cva(
   {
     variants: {
       size: {
-        xs: ["px-2", "text-xs"],
-        sm: ["px-2", "text-sm"],
+        xs: ["px-3", "text-xs"],
+        sm: ["px-3", "text-sm"],
         md: ["px-3", "text-base"],
         lg: ["px-3", "text-lg"],
       },

@@ -1,7 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Check } from "@phosphor-icons/react";
-import { Input, InputLeftElement, InputGroup as TInputGroup } from "./Input";
+import { Activity, Check } from "@phosphor-icons/react";
+import {
+  Input,
+  InputLeftElement,
+  InputGroup as InputGroup,
+  InputRightElement,
+} from "./Input";
+import { Button } from "../button/Button";
 
 const meta = {
   title: "INPUTS/Input",
@@ -38,17 +44,35 @@ export const Primary: Story = {
   },
 };
 
-type InputGroupStory = StoryObj<typeof TInputGroup>;
+type InputGroupStory = StoryObj<typeof InputGroup>;
 
-export const InputGroup: InputGroupStory = {
+export const InputGroupWithLeftElement: InputGroupStory = {
   render: ({ ...args }) => {
     return (
-      <TInputGroup {...args}>
+      <InputGroup {...args}>
         <InputLeftElement>
           <Check />
         </InputLeftElement>
         <Input size="md" variant="filled" placeholder="Enter your email" />
-      </TInputGroup>
+      </InputGroup>
+    );
+  },
+  args: {},
+};
+
+export const InputGroupWithRightElement: InputGroupStory = {
+  render: ({ ...args }) => {
+    return (
+      <InputGroup {...args}>
+        <Input
+          size="md"
+          variant="outline"
+          placeholder="Enter your value here"
+        />
+        <InputRightElement>
+          <Button size="xs">Show</Button>
+        </InputRightElement>
+      </InputGroup>
     );
   },
   args: {},

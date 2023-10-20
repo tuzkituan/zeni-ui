@@ -6,6 +6,9 @@ const meta = {
   title: "ATOMS/Avatar",
   component: Avatar,
   tags: ["autodocs"],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     size: {
       control: { type: "radio" },
