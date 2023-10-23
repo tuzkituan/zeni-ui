@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Activity, Check } from "@phosphor-icons/react";
+import { Check } from "@phosphor-icons/react";
+import { Button } from "../button/Button";
 import {
   Input,
+  InputGroup,
   InputLeftElement,
-  InputGroup as InputGroup,
   InputRightElement,
 } from "./Input";
-import { Button } from "../button/Button";
 
 const meta = {
   title: "INPUTS/Input",
