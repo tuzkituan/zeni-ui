@@ -9,3 +9,4 @@ export * from "./Avatar.styles";
 export * from "./Input.styles";
 export * from "./NumberInput.styles";
 export * from "./Checkbox.styles";
+export * from "./Modal.styles";

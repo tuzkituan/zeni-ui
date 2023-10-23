@@ -37,3 +37,20 @@ export const Primary: Story = {
     isChecked: undefined,
   },
 };
+
+export const DefaultChecked: Story = {
+  args: {
+    children: "I agree to this terms and conditions",
+    size: "md",
+    defaultChecked: true,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    children: "I agree to this terms and conditions",
+    size: "md",
+    defaultChecked: true,
+    isDisabled: true,
+  },
+};
