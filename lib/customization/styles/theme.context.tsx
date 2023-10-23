@@ -18,6 +18,7 @@ interface StyleComponents {
   NumberInput: typeof styles.numberInputStyles;
   Checkbox: typeof styles.checkboxStyles;
   Modal: typeof styles.modalStyles;
+  Alert: typeof styles.alertStyles;
 }
 
 const defaultStyle: Style = {
@@ -34,6 +35,7 @@ const defaultStyle: Style = {
     NumberInput: styles.numberInputStyles,
     Checkbox: styles.checkboxStyles,
     Modal: styles.modalStyles,
+    Alert: styles.alertStyles,
   },
 };
 
