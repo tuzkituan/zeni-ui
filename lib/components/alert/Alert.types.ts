@@ -9,4 +9,5 @@ export interface IAlert
   iconSize?: string | number;
   spacing?: string | number;
   contentClassName?: string;
+  icon?: React.ReactNode;
 }

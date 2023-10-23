@@ -18,6 +18,7 @@ export const Alert = (props: IAlert) => {
     iconSize,
     spacing,
     contentClassName = "",
+    icon,
     ...restProps
   } = { ...defaultProps, ...props };
 
@@ -51,6 +52,9 @@ export const Alert = (props: IAlert) => {
   }, [contentClassName, status, theme, variant]);
 
   const getIcon = (stt: string) => {
+    if (icon) {
+      return icon;
+    }
     switch (stt) {
       case "success":
         return <CheckCircle weight="fill" />;
