@@ -10,3 +10,4 @@ export * from "./Input.styles";
 export * from "./NumberInput.styles";
 export * from "./Checkbox.styles";
 export * from "./Modal.styles";
+export * from "./Alert.styles";
