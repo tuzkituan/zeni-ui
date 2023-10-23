@@ -6,7 +6,7 @@ import React from "react";
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <ZeniProvider initialTheme="baseDark">
+      <ZeniProvider initialTheme="baseLight">
         <Story />
       </ZeniProvider>
     ),

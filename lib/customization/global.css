@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --color-primary: #4682A9;
   --color-secondary: #749BC2;
   --color-positive: #A3D9B1;
@@ -11,4 +11,4 @@
   --background-primary: #F6F4EB;
   --background-sec: #fff;
   --line-primary: #e3e8ef;
-}
+} */

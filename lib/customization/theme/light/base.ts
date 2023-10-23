@@ -5,6 +5,6 @@ export default {
   positive: "#A3D9B1",
   textPrimary: "#333",
   backgroundPrimary: "#F6F4EB",
-  backgroundSecondary: "#fff ",
+  backgroundSecondary: "#fff",
   linePrimary: "#e3e8ef",
 };

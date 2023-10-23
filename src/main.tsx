@@ -6,7 +6,7 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ZeniProvider initialTheme="baseDark">
+    <ZeniProvider initialTheme="baseLight">
       <App />
     </ZeniProvider>
   </React.StrictMode>
