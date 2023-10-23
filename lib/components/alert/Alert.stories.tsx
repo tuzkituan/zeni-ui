@@ -21,6 +21,9 @@ const meta = {
     spacing: {
       control: { type: "number" },
     },
+    icon: {
+      control: false,
+    },
   },
 } satisfies Meta<typeof Alert>;
 
