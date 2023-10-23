@@ -10,7 +10,7 @@ import {
 import { useChangeTheme } from "../lib/customization/theme/useChangeTheme";
 import { twMerge } from "tailwind-merge";
 import { Avatar } from "../lib/components/avatar/Avatar";
-import { useToast } from "../lib/contexts/ToastContext";
+import { useToast } from "../lib/components/toast/ToastContext";
 import { useState } from "react";
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
       duration: 4000,
       placement: "top-left",
       status: "success",
+      variant: "solid",
     });
   };
 

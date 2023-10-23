@@ -18,13 +18,13 @@ const base = cva(
         solid: [],
         "left-accent": [
           "before:h-full",
-          "before:w-[4px]",
+          "before:w-1",
           "before:top-0",
           "before:absolute",
           "before:left-0",
         ],
         "top-accent": [
-          "before:h-[4px]",
+          "before:h-1",
           "before:w-full",
           "before:top-0",
           "before:absolute",
@@ -132,7 +132,7 @@ const icon = cva(["text-2xl"], {
   ],
 });
 
-const text = cva(["text-sm"], {
+const text = cva(["text-base"], {
   variants: {
     status: {
       info: ["text-blue-400"],
@@ -161,7 +161,7 @@ const text = cva(["text-sm"], {
     },
   ],
 });
-
+const close = cva(["font-medium", "absolute", "top-2", "right-0"], {});
 const titleText = cva(["font-medium", "m-0"]);
 const descriptionText = cva(["m-0"]);
 
@@ -169,6 +169,7 @@ const alertStyles = {
   base,
   icon,
   text,
+  close,
   titleText,
   descriptionText,
 };

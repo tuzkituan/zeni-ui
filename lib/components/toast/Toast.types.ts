@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { IAlert } from "../alert/Alert.types";
 
 export type IPlacement =
   | "top-left"
@@ -13,12 +13,8 @@ export const TOAST_PLACEMENTS: IPlacement[] = [
   "bottom-right",
 ];
 
-export interface IToast {
+export interface IToast extends IAlert {
   id?: string;
-  title?: ReactNode;
-  description?: ReactNode;
   placement?: IPlacement;
-  status?: "info" | "success" | "warning" | "error";
-  variant?: "subtle" | "solid" | "left-accent" | "top-accent";
   duration?: number;
 }

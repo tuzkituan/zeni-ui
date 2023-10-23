@@ -14,4 +14,6 @@ export interface IAlert
   spacing?: string | number;
   contentClassName?: string;
   icon?: React.ReactNode;
+  isClosable?: boolean;
+  onClose?: (id?: string) => void;
 }

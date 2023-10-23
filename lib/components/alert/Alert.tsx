@@ -1,8 +1,9 @@
-import { CheckCircle, Info, WarningCircle } from "@phosphor-icons/react";
-import { useMemo } from "react";
+import { CheckCircle, Info, WarningCircle, X } from "@phosphor-icons/react";
+import { useMemo, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IAlert } from "./Alert.types";
+import { Button } from "../button/Button";
 
 export const Alert = (props: IAlert) => {
   const theme = useComponentStyle("Alert");
@@ -16,8 +17,12 @@ export const Alert = (props: IAlert) => {
     spacing,
     contentClassName = "",
     icon,
+    isClosable,
+    onClose,
     ...restProps
   } = props;
+
+  const [show, setShow] = useState(true);
 
   const classes = useMemo(() => {
     return twMerge(
@@ -48,6 +53,13 @@ export const Alert = (props: IAlert) => {
     );
   }, [contentClassName, status, theme, variant]);
 
+  const closeClasses = useMemo(() => {
+    return twMerge(
+      theme.close(),
+      contentClasses
+    );
+  }, [contentClasses, theme]);
+
   const getIcon = (stt: string) => {
     if (icon) {
       return icon;
@@ -63,6 +75,10 @@ export const Alert = (props: IAlert) => {
         return <Info weight="fill" />;
     }
   };
+
+  if (!show) {
+    return null;
+  }
   return (
     <div
       className={classes}
@@ -91,6 +107,18 @@ export const Alert = (props: IAlert) => {
         <p className={theme.titleText()}>{title}</p>
         <p className={theme.descriptionText()}>{description}</p>
       </div>
+      {isClosable && (
+        <Button
+          variant="unstyled"
+          className={closeClasses}
+          onClick={() => {
+            if (onClose) onClose();
+            else setShow(false);
+          }}
+        >
+          <X />
+        </Button>
+      )}
     </div>
   );
 };

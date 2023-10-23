@@ -12,7 +12,7 @@ const defaultProps: Partial<INumberInput> = {
   showArrow: true,
 };
 
-export const InputContainer = (props: INumberInput) => {
+const InputContainer = (props: INumberInput) => {
   const { children, variant, size, className } = props;
   const theme = useComponentStyle("NumberInput");
 

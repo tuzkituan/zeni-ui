@@ -1,24 +1,27 @@
 import { Alert } from "../alert/Alert";
 import { IToast } from "./Toast.types";
+import { motion } from "framer-motion";
 
-interface ToastProps {
-  toast: IToast;
-}
+export const Toast = (props: IToast) => {
+  const { id, placement, onClose, ...rest } = props;
 
-const Toast = ({ toast }: ToastProps) => {
-  const { description, title, status, variant } = toast;
-
+  const isRighty = placement?.includes("right");
   return (
-    <div className="rounded-lg overflow-hidden">
+    <motion.div
+      initial={{ opacity: 0, x: isRighty ? 20 : -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: isRighty ? 20 : -20 }}
+      transition={{ duration: 0.3 }}
+    >
       <Alert
-        title={title}
-        description={description}
-        status={status}
-        variant={variant}
-        className="min-w-[300px]"
+        {...rest}
+        className="min-w-[300px] rounded-lg overflow-hidden"
+        {...(onClose && id
+          ? {
+              onClose: () => onClose(id),
+            }
+          : null)}
       />
-    </div>
+    </motion.div>
   );
 };
-
-export default Toast;

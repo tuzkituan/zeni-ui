@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { applyTheme } from "../main";
 import { ThemeType } from "../customization/theme";
-import { ToastProvider } from "../contexts/ToastContext";
+import { ToastProvider } from "../components/toast/ToastContext";
 
 export const ZeniProvider = ({
   initialTheme,

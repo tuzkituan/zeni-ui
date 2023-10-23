@@ -25,10 +25,13 @@ const meta = {
       control: false,
     },
     title: {
-      control: 'text',
+      control: "text",
     },
     description: {
-      control: 'text',
+      control: "text",
+    },
+    isClosable: {
+      control: "boolean",
     },
   },
 } satisfies Meta<typeof Alert>;
@@ -42,5 +45,6 @@ export const Primary: Story = {
     description: "Data uploaded to the server. Fire on!",
     status: "info",
     variant: "subtle",
+    isClosable: true,
   },
 };

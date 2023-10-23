@@ -1,6 +1,12 @@
-import { ReactNode, createContext, useContext, useState } from "react";
-import Toast from "../components/toast/Toast";
-import { IToast, TOAST_PLACEMENTS } from "../components/toast/Toast.types";
+import {
+  CSSProperties,
+  ReactNode,
+  createContext,
+  useContext,
+  useState,
+} from "react";
+import { IToast, TOAST_PLACEMENTS } from "./Toast.types";
+import { Toast } from "./Toast";
 
 interface ToastContextType {
   show: (toast: IToast) => void;
@@ -27,8 +33,10 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
     }, toast.duration || 5000);
   };
 
-  const removeToast = (id: string) => {
-    setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
+  const removeToast = (id?: string) => {
+    if (id) {
+      setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
+    }
   };
 
   const getPosition = (placement: string) => {
@@ -56,12 +64,12 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
         className="flex flex-col gap-2"
         style={{
           position: "fixed",
-          ...getPosition(x),
+          ...(getPosition(x) as CSSProperties),
         }}
         key={x}
       >
         {filter.map((toast) => (
-          <Toast key={toast.id} toast={toast} />
+          <Toast key={toast.id} {...toast} onClose={removeToast} />
         ))}
       </div>
     );
