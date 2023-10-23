@@ -35,3 +35,27 @@ export const Primary: Story = {
     loadingText: "Loading...",
   },
 };
+
+export const Outline: Story = {
+  args: {
+    children: "Button",
+    size: "md",
+    variant: "outline",
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    children: "Button",
+    size: "md",
+    variant: "ghost",
+  },
+};
+
+export const Unstyled: Story = {
+  args: {
+    children: "Button",
+    size: "md",
+    variant: "unstyled",
+  },
+};

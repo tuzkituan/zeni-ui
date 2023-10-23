@@ -31,14 +31,14 @@ const container = cva(
     },
   }
 );
-const close = cva(["absolute", "right-2", "top-2"]);
+const close = cva(["absolute", "right-1", "top-2"]);
 const header = cva([]);
 const title = cva(["text-lg", "font-medium"]);
 const content = cva([], {
   variants: {
     showHeader: {
       true: ["pt-3"],
-      false: ["pt-6"],
+      false: ["pt-4"],
     },
   },
 });

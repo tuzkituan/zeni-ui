@@ -7,7 +7,6 @@ import { Modal } from "./Modal";
 const meta = {
   title: "ATOMS/Modal",
   component: Modal,
-  tags: ["autodocs"],
   argTypes: {
     className: {
       description: "Modal class name",
@@ -28,17 +27,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: ({ children, ...args }) => {
-    const [open, setOpen] = useState(false);
-    return (
-      <>
-        <Modal isOpen={open} onCancel={() => setOpen(false)} {...args}>
-          {children}
-        </Modal>
-        <Button onClick={() => setOpen((prev) => !prev)}>Show Modal</Button>
-      </>
-    );
-  },
   args: {
     children: "Hey, this is your modal mate!",
     maskClosable: true,
@@ -48,5 +36,38 @@ export const Primary: Story = {
     backdropClassName: "",
     className: "w-[500px]",
     closeIcon: null,
+    isOpen: true,
+  },
+};
+
+export const OpenWithButton = (props: Story) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <Modal {...props} isOpen={open} onCancel={() => setOpen(false)}>
+        Hey, this is your modal mate!
+      </Modal>
+      <Button onClick={() => setOpen((prev) => !prev)}>Show Modal</Button>
+    </>
+  );
+};
+
+export const CenteredModal: Story = {
+  args: {
+    children: "Hey, this is your modal mate!",
+    isCentered: true,
+    isOpen: true,
+    title: "Modal Title",
+    showHeader: true,
+    className: "w-[500px]",
+  },
+};
+
+export const NoHeaderModal: Story = {
+  args: {
+    children: "Hey, this is your modal mate!",
+    isOpen: true,
+    showHeader: false,
+    className: "w-[400px]",
   },
 };
