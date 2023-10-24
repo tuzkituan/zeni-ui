@@ -1,6 +1,6 @@
+import { motion } from "framer-motion";
 import { Alert } from "../alert/Alert";
 import { IToast } from "./Toast.types";
-import { motion } from "framer-motion";
 
 export const Toast = (props: IToast) => {
   const { id, placement, onClose, ...rest } = props;
@@ -11,7 +11,8 @@ export const Toast = (props: IToast) => {
       initial={{ opacity: 0, x: isRighty ? 20 : -20 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: isRighty ? 20 : -20 }}
-      transition={{ duration: 0.3 }}
+      transition={{ type: "spring", duration: 0.3 }}
+      layout
     >
       <Alert
         {...rest}

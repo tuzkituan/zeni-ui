@@ -161,9 +161,9 @@ const text = cva(["text-base"], {
     },
   ],
 });
-const close = cva(["font-medium", "absolute", "top-2", "right-0"], {});
+const close = cva(["font-medium", "absolute", "top-2", "right-0"]);
 const titleText = cva(["font-medium", "m-0"]);
-const descriptionText = cva(["m-0"]);
+const descriptionText = cva(["m-0", "text-base"]);
 
 const alertStyles = {
   base,

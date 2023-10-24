@@ -7,6 +7,7 @@ import {
 } from "react";
 import { IToast, TOAST_PLACEMENTS } from "./Toast.types";
 import { Toast } from "./Toast";
+import { AnimatePresence } from "framer-motion";
 
 interface ToastContextType {
   show: (toast: IToast) => void;
@@ -26,11 +27,17 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
   const [toasts, setToasts] = useState<IToast[]>([]);
 
   const show = (toast: IToast) => {
-    const newToast = { ...toast, id: Math.random().toString() };
+    const newToast: IToast = {
+      isClosable: true,
+      ...toast,
+      id: Math.random().toString(),
+    };
     setToasts((prevToasts) => [...prevToasts, newToast]);
-    setTimeout(() => {
-      removeToast(newToast.id);
-    }, toast.duration || 5000);
+    if (toast.duration !== 0) {
+      setTimeout(() => {
+        removeToast(newToast.id);
+      }, toast.duration || 5000);
+    }
   };
 
   const removeToast = (id?: string) => {
@@ -68,9 +75,11 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
         }}
         key={x}
       >
-        {filter.map((toast) => (
-          <Toast key={toast.id} {...toast} onClose={removeToast} />
-        ))}
+        <AnimatePresence mode={"sync"}>
+          {filter.map((toast) => (
+            <Toast key={toast.id} {...toast} onClose={removeToast} />
+          ))}
+        </AnimatePresence>
       </div>
     );
   });
