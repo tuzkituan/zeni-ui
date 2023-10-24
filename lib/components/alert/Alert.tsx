@@ -4,14 +4,11 @@ import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IAlert } from "./Alert.types";
 
-const defaultProps: Partial<IAlert> = {
-  children: undefined,
-};
-
 export const Alert = (props: IAlert) => {
   const theme = useComponentStyle("Alert");
   const {
-    children,
+    title,
+    description,
     className = "",
     status = "info",
     variant = "subtle",
@@ -20,7 +17,7 @@ export const Alert = (props: IAlert) => {
     contentClassName = "",
     icon,
     ...restProps
-  } = { ...defaultProps, ...props };
+  } = props;
 
   const classes = useMemo(() => {
     return twMerge(
@@ -90,7 +87,10 @@ export const Alert = (props: IAlert) => {
       >
         {getIcon(status)}
       </div>
-      <div className={contentClasses}>{children}</div>
+      <div className={contentClasses}>
+        <p className={theme.titleText()}>{title}</p>
+        <p className={theme.descriptionText()}>{description}</p>
+      </div>
     </div>
   );
 };

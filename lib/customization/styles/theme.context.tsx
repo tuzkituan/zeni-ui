@@ -1,5 +1,5 @@
+import { createContext, useContext } from "react";
 import * as styles from "./components";
-import { createContext, Provider, useContext } from "react";
 
 export interface Style {
   components: StyleComponents;
@@ -47,7 +47,7 @@ const StyleContext = createContext<StyleContextType>({
   style: defaultStyle,
 });
 
-export const StyleProvider: Provider<StyleContextType> = StyleContext.Provider;
+// export const StyleProvider: Provider<StyleContextType> = StyleContext.Provider;
 
 export function useStyle(): Style {
   return useContext(StyleContext)?.style || defaultStyle;

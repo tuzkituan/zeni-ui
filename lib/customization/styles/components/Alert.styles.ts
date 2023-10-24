@@ -8,8 +8,8 @@ const base = cva(
     "items-start",
     "justify-start",
     "gap-3",
-    "py-4",
-    "px-4",
+    "py-3",
+    "px-3",
   ],
   {
     variants: {
@@ -132,7 +132,7 @@ const icon = cva(["text-2xl"], {
   ],
 });
 
-const text = cva(["text-base"], {
+const text = cva(["text-sm"], {
   variants: {
     status: {
       info: ["text-blue-400"],
@@ -162,10 +162,15 @@ const text = cva(["text-base"], {
   ],
 });
 
+const titleText = cva(["font-medium", "m-0"]);
+const descriptionText = cva(["m-0"]);
+
 const alertStyles = {
   base,
   icon,
   text,
+  titleText,
+  descriptionText,
 };
 
 export { alertStyles };

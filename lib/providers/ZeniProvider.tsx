@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { applyTheme } from "../main";
 import { ThemeType } from "../customization/theme";
+import { ToastProvider } from "../contexts/ToastContext";
 
 export const ZeniProvider = ({
   initialTheme,
@@ -17,5 +18,5 @@ export const ZeniProvider = ({
     localStorage.setItem("theme", defaultTheme);
   }, [initialTheme]);
 
-  return <>{children}</>;
+  return <ToastProvider>{children}</ToastProvider>;
 };

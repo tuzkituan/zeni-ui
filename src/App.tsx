@@ -10,9 +10,24 @@ import {
 import { useChangeTheme } from "../lib/customization/theme/useChangeTheme";
 import { twMerge } from "tailwind-merge";
 import { Avatar } from "../lib/components/avatar/Avatar";
+import { useToast } from "../lib/contexts/ToastContext";
+import { useState } from "react";
 
 function App() {
   const { theme, setTheme } = useChangeTheme();
+  const { show } = useToast();
+  const [count, setCount] = useState(0);
+
+  const showToast = () => {
+    setCount((prevCount) => prevCount + 1);
+    show({
+      title: "Success",
+      description: `You clicked ${count} times`,
+      duration: 4000,
+      placement: "top-left",
+      status: "success",
+    });
+  };
 
   const items: {
     label: string;
@@ -65,6 +80,7 @@ function App() {
           size="lg"
           name="letter tuan"
         />
+        <Button onClick={showToast}>Show toast</Button>
       </Box>
     </Center>
   );
