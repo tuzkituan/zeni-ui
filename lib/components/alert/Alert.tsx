@@ -54,10 +54,7 @@ export const Alert = (props: IAlert) => {
   }, [contentClassName, status, theme, variant]);
 
   const closeClasses = useMemo(() => {
-    return twMerge(
-      theme.close(),
-      contentClasses
-    );
+    return twMerge(theme.close(), contentClasses);
   }, [contentClasses, theme]);
 
   const getIcon = (stt: string) => {
@@ -113,7 +110,7 @@ export const Alert = (props: IAlert) => {
           className={closeClasses}
           onClick={() => {
             if (onClose) onClose();
-            else setShow(false);
+            setShow(false);
           }}
         >
           <X />

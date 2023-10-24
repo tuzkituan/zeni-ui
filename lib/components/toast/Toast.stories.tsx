@@ -32,5 +32,6 @@ export const PushToast: Story = {
     title: "Hi there!",
     description: "Welcome to Zeni UI",
     isClosable: true,
+    placement: "bottom-right",
   },
 };

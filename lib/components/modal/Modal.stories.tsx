@@ -44,7 +44,12 @@ export const OpenWithButton = (props: Story) => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <Modal {...props} isOpen={open} onCancel={() => setOpen(false)}>
+      <Modal
+        {...props}
+        title="Modal Title"
+        isOpen={open}
+        onCancel={() => setOpen(false)}
+      >
         Hey, this is your modal mate!
       </Modal>
       <Button onClick={() => setOpen((prev) => !prev)}>Show Modal</Button>

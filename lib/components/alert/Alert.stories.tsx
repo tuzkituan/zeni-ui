@@ -45,6 +45,6 @@ export const Primary: Story = {
     description: "Data uploaded to the server. Fire on!",
     status: "info",
     variant: "subtle",
-    isClosable: true,
+    isClosable: false,
   },
 };
