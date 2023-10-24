@@ -1,13 +1,19 @@
 export interface IAlert
-  extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
+  extends Omit<
+    React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLDivElement>,
+      HTMLDivElement
+    >,
+    "title"
   > {
-  children?: React.ReactNode;
+  title?: React.ReactNode;
+  description?: React.ReactNode;
   status?: "info" | "success" | "warning" | "error";
   variant?: "subtle" | "solid" | "left-accent" | "top-accent";
   iconSize?: string | number;
   spacing?: string | number;
   contentClassName?: string;
   icon?: React.ReactNode;
+  isClosable?: boolean;
+  onClose?: (id?: string) => void;
 }

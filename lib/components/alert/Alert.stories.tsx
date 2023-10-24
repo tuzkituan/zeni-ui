@@ -24,6 +24,15 @@ const meta = {
     icon: {
       control: false,
     },
+    title: {
+      control: "text",
+    },
+    description: {
+      control: "text",
+    },
+    isClosable: {
+      control: "boolean",
+    },
   },
 } satisfies Meta<typeof Alert>;
 
@@ -32,8 +41,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: "Data uploaded to the server. Fire on!",
+    title: "Success",
+    description: "Data uploaded to the server. Fire on!",
     status: "info",
     variant: "subtle",
+    isClosable: true,
   },
 };

@@ -1,5 +1,5 @@
+import { Provider, createContext, useContext } from "react";
 import * as styles from "./components";
-import { createContext, Provider, useContext } from "react";
 
 export interface Style {
   components: StyleComponents;

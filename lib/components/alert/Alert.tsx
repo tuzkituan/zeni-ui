@@ -1,17 +1,15 @@
-import { CheckCircle, Info, WarningCircle } from "@phosphor-icons/react";
-import { useMemo } from "react";
+import { CheckCircle, Info, WarningCircle, X } from "@phosphor-icons/react";
+import { useMemo, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IAlert } from "./Alert.types";
-
-const defaultProps: Partial<IAlert> = {
-  children: undefined,
-};
+import { Button } from "../button/Button";
 
 export const Alert = (props: IAlert) => {
   const theme = useComponentStyle("Alert");
   const {
-    children,
+    title,
+    description,
     className = "",
     status = "info",
     variant = "subtle",
@@ -19,8 +17,12 @@ export const Alert = (props: IAlert) => {
     spacing,
     contentClassName = "",
     icon,
+    isClosable,
+    onClose,
     ...restProps
-  } = { ...defaultProps, ...props };
+  } = props;
+
+  const [show, setShow] = useState(true);
 
   const classes = useMemo(() => {
     return twMerge(
@@ -51,6 +53,13 @@ export const Alert = (props: IAlert) => {
     );
   }, [contentClassName, status, theme, variant]);
 
+  const closeClasses = useMemo(() => {
+    return twMerge(
+      theme.close(),
+      contentClasses
+    );
+  }, [contentClasses, theme]);
+
   const getIcon = (stt: string) => {
     if (icon) {
       return icon;
@@ -66,6 +75,10 @@ export const Alert = (props: IAlert) => {
         return <Info weight="fill" />;
     }
   };
+
+  if (!show) {
+    return null;
+  }
   return (
     <div
       className={classes}
@@ -90,7 +103,22 @@ export const Alert = (props: IAlert) => {
       >
         {getIcon(status)}
       </div>
-      <div className={contentClasses}>{children}</div>
+      <div className={contentClasses}>
+        <p className={theme.titleText()}>{title}</p>
+        <p className={theme.descriptionText()}>{description}</p>
+      </div>
+      {isClosable && (
+        <Button
+          variant="unstyled"
+          className={closeClasses}
+          onClick={() => {
+            if (onClose) onClose();
+            else setShow(false);
+          }}
+        >
+          <X />
+        </Button>
+      )}
     </div>
   );
 };
