@@ -28,6 +28,6 @@ jobs:
           node-version: "lts/*"
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
-      - run: npm publish
+      - run: npm publish --registry=https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
