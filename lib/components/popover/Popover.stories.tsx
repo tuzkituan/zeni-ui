@@ -4,7 +4,7 @@ import { Text } from "../text/Text";
 import { Box } from "../box/Box";
 
 const meta = {
-  title: "TOOLTIP & POPOVER/Popover",
+  title: "OVERLAY/Popover",
   component: Popover,
   tags: ["autodocs"],
   parameters: {

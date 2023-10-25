@@ -4,7 +4,7 @@ import { ICheckboxGroup } from "./Checkbox.types";
 import { Checkbox, CheckboxGroup } from "./Checkbox";
 
 const meta = {
-  title: "ATOMS/Checkbox/CheckboxGroup",
+  title: "FORMS/Checkbox/CheckboxGroup",
   component: CheckboxGroup,
   tags: ["autodocs"],
   argTypes: {

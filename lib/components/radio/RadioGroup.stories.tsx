@@ -4,7 +4,7 @@ import { IRadioGroup } from "./Radio.types";
 import { Radio, RadioGroup } from "./Radio";
 
 const meta = {
-  title: "ATOMS/Radio/RadioGroup",
+  title: "FORMS/Radio/RadioGroup",
   component: RadioGroup,
   tags: ["autodocs"],
   argTypes: {
