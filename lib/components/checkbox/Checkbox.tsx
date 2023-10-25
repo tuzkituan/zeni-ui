@@ -22,8 +22,14 @@ export const Checkbox = (props: ICheckbox) => {
   } = { ...defaultProps, ...props };
 
   const containerClasses = useMemo(() => {
-    return twMerge(theme.container(), className);
-  }, [className, theme]);
+    return twMerge(
+      theme.container(),
+      theme.label({
+        disabled: isDisabled,
+      }),
+      className
+    );
+  }, [className, isDisabled, theme]);
 
   const inputClasses = useMemo(() => {
     return twMerge(
@@ -36,17 +42,8 @@ export const Checkbox = (props: ICheckbox) => {
     );
   }, [className, size, isReadOnly, isIndeterminate, theme]);
 
-  const labelClasses = useMemo(() => {
-    return twMerge(
-      theme.label({
-        disabled: isDisabled,
-      }),
-      className
-    );
-  }, [className, isDisabled, theme]);
-
   return (
-    <div
+    <label
       className={containerClasses}
       style={{
         ...(spacing
@@ -57,7 +54,6 @@ export const Checkbox = (props: ICheckbox) => {
       }}
     >
       <input
-        id="checkbox"
         aria-describedby="checkbox"
         type="checkbox"
         className={inputClasses}
@@ -71,10 +67,8 @@ export const Checkbox = (props: ICheckbox) => {
         }}
         {...restProps}
       />
-      <label htmlFor="checkbox" className={labelClasses}>
-        {children}
-      </label>
-    </div>
+      {children}
+    </label>
   );
 };
 

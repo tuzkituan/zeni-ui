@@ -59,7 +59,7 @@ export const CheckboxGroup = () => {
   return (
     <Checkbox.Group
       value={["1"]}
-      layout="vertical"
+      layout="horizontal"
       onChange={(val) => console.log("checked: ", val)}
     >
       <Checkbox value="1">Option A</Checkbox>
