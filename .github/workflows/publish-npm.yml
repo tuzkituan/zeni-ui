@@ -2,7 +2,7 @@ name: Publish NPM
 
 on:
   release:
-    types: [release]
+    types: [published]
 
 jobs:
   build:
