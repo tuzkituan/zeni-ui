@@ -72,7 +72,7 @@ export const Checkbox = (props: ICheckbox) => {
   );
 };
 
-const CheckboxGroup = ({
+export const CheckboxGroup = ({
   children,
   defaultValue,
   value,
@@ -158,6 +158,3 @@ const CheckboxGroup = ({
     </div>
   );
 };
-
-Checkbox.Group = CheckboxGroup;
-export default Checkbox;

@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Radio } from "./Radio";
+import { IRadioGroup } from "./Radio.types";
 
 const meta = {
-  title: "ATOMS/Radio",
+  title: "ATOMS/Radio/Radio",
   component: Radio,
   tags: ["autodocs"],
   argTypes: {
@@ -60,16 +61,21 @@ export const Disabled: Story = {
   },
 };
 
-export const RadioGroup = () => {
+const radioGroupArgs: IRadioGroup = {
+  value: "1",
+  layout: "horizontal",
+  onChange: (val) => console.log("checked: ", val),
+};
+
+export const RadioGroup = (props: IRadioGroup) => {
+  const all = { ...radioGroupArgs, ...props };
   return (
-    <Radio.Group
-      value="1"
-      layout="horizontal"
-      onChange={(val) => console.log("checked: ", val)}
-    >
+    <Radio.Group {...all}>
       <Radio value="1">Option A</Radio>
       <Radio value="2">Option B</Radio>
       <Radio value="3">Option C</Radio>
     </Radio.Group>
   );
 };
+
+RadioGroup.args = radioGroupArgs;

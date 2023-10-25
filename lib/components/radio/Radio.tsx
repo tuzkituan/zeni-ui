@@ -65,7 +65,7 @@ export const Radio = (props: IRadio) => {
   );
 };
 
-const RadioGroup = ({
+export const RadioGroup = ({
   children,
   defaultValue,
   value,
@@ -142,6 +142,3 @@ const RadioGroup = ({
     </div>
   );
 };
-
-Radio.Group = RadioGroup;
-export default Radio;

@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-const container = cva(["flex", "items-center", "w-fit", "gap-3"]);
+const container = cva(["flex", "items-center", "w-fit", "gap-2"]);
 const input = cva(
   [
     "bg-primary-background",
