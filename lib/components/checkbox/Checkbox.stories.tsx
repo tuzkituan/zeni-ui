@@ -54,3 +54,17 @@ export const Disabled: Story = {
     isDisabled: true,
   },
 };
+
+export const CheckboxGroup = () => {
+  return (
+    <Checkbox.Group
+      value={["1"]}
+      layout="horizontal"
+      onChange={(val) => console.log("checked: ", val)}
+    >
+      <Checkbox value="1">Option A</Checkbox>
+      <Checkbox value="2">Option B</Checkbox>
+      <Checkbox value="3">Option C</Checkbox>
+    </Checkbox.Group>
+  );
+};

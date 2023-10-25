@@ -1,7 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
-import { ICheckbox } from "./Checkbox.types";
-import { useMemo } from "react";
+import { ICheckbox, ICheckboxGroup } from "./Checkbox.types";
+import React, { ChangeEvent, useEffect, useMemo, useState } from "react";
 
 const defaultProps: Partial<ICheckbox> = {
   children: undefined,
@@ -22,8 +22,14 @@ export const Checkbox = (props: ICheckbox) => {
   } = { ...defaultProps, ...props };
 
   const containerClasses = useMemo(() => {
-    return twMerge(theme.container(), className);
-  }, [className, theme]);
+    return twMerge(
+      theme.container(),
+      theme.label({
+        disabled: isDisabled,
+      }),
+      className
+    );
+  }, [className, isDisabled, theme]);
 
   const inputClasses = useMemo(() => {
     return twMerge(
@@ -36,17 +42,8 @@ export const Checkbox = (props: ICheckbox) => {
     );
   }, [className, size, isReadOnly, isIndeterminate, theme]);
 
-  const labelClasses = useMemo(() => {
-    return twMerge(
-      theme.label({
-        disabled: isDisabled,
-      }),
-      className
-    );
-  }, [className, isDisabled, theme]);
-
   return (
-    <div
+    <label
       className={containerClasses}
       style={{
         ...(spacing
@@ -57,7 +54,6 @@ export const Checkbox = (props: ICheckbox) => {
       }}
     >
       <input
-        id="checkbox"
         aria-describedby="checkbox"
         type="checkbox"
         className={inputClasses}
@@ -71,9 +67,97 @@ export const Checkbox = (props: ICheckbox) => {
         }}
         {...restProps}
       />
-      <label htmlFor="checkbox" className={labelClasses}>
-        {children}
-      </label>
+      {children}
+    </label>
+  );
+};
+
+const CheckboxGroup = ({
+  children,
+  defaultValue,
+  value,
+  onChange,
+  layout = "horizontal",
+  spacing,
+}: ICheckboxGroup) => {
+  const theme = useComponentStyle("Checkbox");
+  const [selectedValues, setSelectedValues] = useState(defaultValue || []);
+
+  useEffect(() => {
+    setSelectedValues(value || defaultValue || []);
+  }, [value, defaultValue]);
+
+  const handleCheckboxChange = (
+    optionValue?: string | number,
+    isChecked?: boolean
+  ) => {
+    if (!optionValue) {
+      return;
+    }
+    if (isChecked) {
+      setSelectedValues((prevSelectedValues) => [
+        ...prevSelectedValues,
+        optionValue,
+      ]);
+    } else {
+      setSelectedValues((prevSelectedValues) =>
+        prevSelectedValues.filter((value) => value !== optionValue)
+      );
+    }
+  };
+
+  useEffect(() => {
+    if (onChange) {
+      onChange(selectedValues);
+    }
+  }, [selectedValues, onChange]);
+
+  const containerClasses = useMemo(() => {
+    return twMerge(
+      theme.group({
+        layout,
+      })
+    );
+  }, [layout, theme]);
+
+  if (!children) {
+    return null;
+  }
+  return (
+    <div
+      className={containerClasses}
+      style={{
+        ...(spacing
+          ? {
+              gap: spacing,
+            }
+          : null),
+      }}
+    >
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child) && child.type === Checkbox) {
+          const { value: optionValue, ...checkboxProps } =
+            child.props as ICheckbox;
+          const isChecked = selectedValues.includes(optionValue || "");
+          return (
+            <Checkbox
+              {...checkboxProps}
+              isChecked={isChecked}
+              onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                handleCheckboxChange(optionValue, event.target.checked)
+              }
+            />
+          );
+        } else {
+          console.error(
+            "CheckboxGroup only accepts Checkbox components as children"
+          );
+          return null;
+        }
+      })}
     </div>
   );
 };
+
+Checkbox.Group = CheckboxGroup;
+export default Checkbox;
