@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Checkbox } from "./Checkbox";
+import { Radio } from "./Radio";
 
 const meta = {
-  title: "ATOMS/Checkbox",
-  component: Checkbox,
+  title: "ATOMS/Radio",
+  component: Radio,
   tags: ["autodocs"],
   argTypes: {
     size: {
@@ -27,7 +27,7 @@ const meta = {
       control: { type: "text" },
     },
   },
-} satisfies Meta<typeof Checkbox>;
+} satisfies Meta<typeof Radio>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -36,7 +36,6 @@ export const Primary: Story = {
   args: {
     children: "I agree to this terms and conditions",
     size: "md",
-    isIndeterminate: false,
     isReadOnly: undefined,
     isDisabled: undefined,
     defaultChecked: false,
@@ -61,16 +60,16 @@ export const Disabled: Story = {
   },
 };
 
-export const CheckboxGroup = () => {
+export const RadioGroup = () => {
   return (
-    <Checkbox.Group
-      value={["1"]}
+    <Radio.Group
+      value="1"
       layout="horizontal"
       onChange={(val) => console.log("checked: ", val)}
     >
-      <Checkbox value="1">Option A</Checkbox>
-      <Checkbox value="2">Option B</Checkbox>
-      <Checkbox value="3">Option C</Checkbox>
-    </Checkbox.Group>
+      <Radio value="1">Option A</Radio>
+      <Radio value="2">Option B</Radio>
+      <Radio value="3">Option C</Radio>
+    </Radio.Group>
   );
 };
