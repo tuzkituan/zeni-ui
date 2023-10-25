@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-const container = cva(["flex", "items-center", "mb-4"]);
+const container = cva(["flex", "items-center", "w-fit"]);
 const input = cva(
   [
     "bg-primary-background",
@@ -38,11 +38,20 @@ const label = cva(["text-sm", "ml-3", "font-medium", "text-primary-text"], {
     },
   },
 });
+const group = cva(["flex"], {
+  variants: {
+    layout: {
+      vertical: ["flex-col", "gap-2"],
+      horizontal: ["flex-row", "gap-4"],
+    },
+  },
+});
 
 const checkboxStyles = {
   container,
   input,
   label,
+  group,
 };
 
 export { checkboxStyles };
