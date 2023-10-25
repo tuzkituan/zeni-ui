@@ -20,6 +20,7 @@ interface StyleComponents {
   Modal: typeof styles.modalStyles;
   Alert: typeof styles.alertStyles;
   Tabs: typeof styles.tabsStyles;
+  Radio: typeof styles.radioStyles;
 }
 
 const defaultStyle: Style = {
@@ -38,6 +39,7 @@ const defaultStyle: Style = {
     Modal: styles.modalStyles,
     Alert: styles.alertStyles,
     Tabs: styles.tabsStyles,
+    Radio: styles.radioStyles,
   },
 };
 
