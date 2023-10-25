@@ -77,6 +77,12 @@ export const Primary: Story = {
         label: "Tab 2",
         key: "2",
       },
+      {
+        content: "Tab 3",
+        label: "Tab 3",
+        key: "3",
+        disabled: true,
+      },
     ],
     variant: "underline",
     isFitted: false,

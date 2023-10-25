@@ -78,11 +78,12 @@ export const Tabs = (props: ITabs) => {
                   variant,
                   isFitted,
                   isSelected: item.key === active,
+                  isDisabled: !!item.disabled,
                 }),
                 tabClassName
               )}
               onClick={() => {
-                if (item.key) {
+                if (item.key && !item.disabled) {
                   setActive(item.key);
                   onTabChange?.(item.key);
                 }
@@ -108,7 +109,7 @@ export const Tabs = (props: ITabs) => {
             initial={{ y: 5, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -5, opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.1 }}
             className={contentClasses}
           >
             {activeTabItem?.content}
