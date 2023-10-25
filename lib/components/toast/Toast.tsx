@@ -8,10 +8,10 @@ export const Toast = (props: IToast) => {
   const isRighty = placement?.includes("right");
   return (
     <motion.div
-      initial={{ opacity: 0, x: isRighty ? 20 : -20 }}
+      initial={{ opacity: 0, x: isRighty ? 30 : -30 }}
       animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: isRighty ? 20 : -20 }}
-      transition={{ type: "spring", duration: 0.3 }}
+      exit={{ opacity: 0, x: isRighty ? 30 : -30 }}
+      transition={{ duration: 0.3 }}
       layout
     >
       <Alert

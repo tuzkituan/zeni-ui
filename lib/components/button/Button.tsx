@@ -41,8 +41,8 @@ export const Button = (props: IButton) => {
   const containerStyles: React.CSSProperties = {
     ...(iconSpacing
       ? {
-        gap: iconSpacing,
-      }
+          gap: iconSpacing,
+        }
       : {}),
   };
 

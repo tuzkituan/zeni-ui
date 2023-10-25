@@ -16,6 +16,8 @@ export interface IModal
   isCentered?: boolean;
   showHeader?: boolean;
   title?: React.ReactNode;
+  customHeader?: React.ReactNode;
+  footer?: React.ReactNode;
   backdropClassName?: string;
   isClosable?: boolean;
 }
