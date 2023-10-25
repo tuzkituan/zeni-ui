@@ -10,17 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Install dependencies
         run: npm install
-
-      - name: Build
-        run: npm run build
 
       - name: Publish to NPM
         env:
