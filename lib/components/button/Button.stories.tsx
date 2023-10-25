@@ -44,6 +44,14 @@ export const Outline: Story = {
   },
 };
 
+export const Link: Story = {
+  args: {
+    children: "Button",
+    size: "md",
+    variant: "link",
+  },
+};
+
 export const Ghost: Story = {
   args: {
     children: "Button",

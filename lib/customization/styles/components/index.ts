@@ -11,3 +11,4 @@ export * from "./NumberInput.styles";
 export * from "./Checkbox.styles";
 export * from "./Modal.styles";
 export * from "./Alert.styles";
+export * from "./Tabs.styles";

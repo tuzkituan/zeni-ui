@@ -19,6 +19,7 @@ interface StyleComponents {
   Checkbox: typeof styles.checkboxStyles;
   Modal: typeof styles.modalStyles;
   Alert: typeof styles.alertStyles;
+  Tabs: typeof styles.tabsStyles;
 }
 
 const defaultStyle: Style = {
@@ -36,6 +37,7 @@ const defaultStyle: Style = {
     Checkbox: styles.checkboxStyles,
     Modal: styles.modalStyles,
     Alert: styles.alertStyles,
+    Tabs: styles.tabsStyles,
   },
 };
 

@@ -19,7 +19,6 @@ const container = cva(
     "min-w-[350px] max-w-[90%]",
     "h-fit",
     "rounded-lg",
-    "p-4",
     "relative",
   ],
   {
@@ -32,13 +31,13 @@ const container = cva(
   }
 );
 const close = cva(["absolute", "right-1", "top-2"]);
-const header = cva([]);
+const header = cva(["px-4", "pt-4"]);
 const title = cva(["text-lg", "font-medium"]);
-const content = cva([], {
+const content = cva(["px-4", "pb-4"], {
   variants: {
     showHeader: {
       true: ["pt-3"],
-      false: ["pt-4"],
+      false: ["pt-8"],
     },
   },
 });

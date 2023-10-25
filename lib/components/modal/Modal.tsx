@@ -25,6 +25,8 @@ export const Modal = (props: IModal) => {
     title,
     backdropClassName = "",
     isClosable = true,
+    customHeader,
+    footer,
   } = { ...defaultProps, ...props };
 
   const backdropClasses = useMemo(() => {
@@ -111,12 +113,14 @@ export const Modal = (props: IModal) => {
                 </Button>
               </div>
             )}
-            {showHeader && title && (
+            {showHeader && title && !customHeader && (
               <div className={theme.header()}>
                 <div className={theme.title()}>{title}</div>
               </div>
             )}
+            {customHeader || null}
             <div className={contentClasses}>{children}</div>
+            {footer || null}
           </motion.div>
         </motion.div>
       )}
