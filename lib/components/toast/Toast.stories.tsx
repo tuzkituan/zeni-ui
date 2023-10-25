@@ -6,7 +6,7 @@ import { useToast } from "./ToastContext";
 import { IToast } from "./Toast.types";
 
 const meta = {
-  title: "HOOKS/useToast",
+  title: "SYSTEM/Toast/useToast",
   component: Toast,
   parameters: {
     layout: "centered",
