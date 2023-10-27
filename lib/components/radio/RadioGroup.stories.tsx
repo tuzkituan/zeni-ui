@@ -45,6 +45,6 @@ export const Primary: Story = (props: IRadioGroup) => {
       <Radio value="3">Option C</Radio>
     </RadioGroup>
   );
-};
+};``
 
 Primary.args = radioGroupArgs;
