@@ -47,11 +47,11 @@ const group = cva(["flex"], {
   },
 });
 
-const checkboxStyles = {
+const radioStyles = {
   container,
   input,
   label,
   group,
 };
 
-export { checkboxStyles };
+export { radioStyles };

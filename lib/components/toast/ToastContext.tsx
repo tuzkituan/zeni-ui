@@ -8,6 +8,7 @@ import {
 import { IToast, TOAST_PLACEMENTS } from "./Toast.types";
 import { Toast } from "./Toast";
 import { AnimatePresence } from "framer-motion";
+import { createPortal } from "react-dom";
 
 interface ToastContextType {
   show: (toast: IToast) => void;
@@ -87,7 +88,7 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
   return (
     <ToastContext.Provider value={{ show }}>
       {children}
-      {renders}
+      {createPortal(renders, document.body)}
     </ToastContext.Provider>
   );
 };

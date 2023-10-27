@@ -10,12 +10,12 @@ const nav = cva(["block"], {
     },
   },
 });
-const ul = cva(["flex", "w-full", "list-none", "p-0", "m-0", "gap-3"], {
+const ul = cva(["flex", "w-full", "list-none", "p-0", "m-0"], {
   variants: {
     variant: {
-      underline: [],
-      solid: [],
-      outline: [],
+      underline: ["gap-8"],
+      solid: ["gap-3"],
+      outline: ["gap-3"],
     },
   },
 });
@@ -43,6 +43,10 @@ const li = cva(
       },
       isFitted: {
         true: ["w-full", "justify-center"],
+        false: [],
+      },
+      isDisabled: {
+        true: ["!cursor-not-allowed", "!text-gray-400"],
         false: [],
       },
     },

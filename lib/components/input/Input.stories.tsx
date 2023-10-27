@@ -2,15 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Check } from "@phosphor-icons/react";
 import { Button } from "../button/Button";
-import {
-  Input,
-  InputGroup,
-  InputLeftElement,
-  InputRightElement,
-} from "./Input";
+import { Input } from "./Input";
 
 const meta = {
-  title: "INPUTS/Input",
+  title: "FORMS/Input",
   component: Input,
   tags: ["autodocs"],
   argTypes: {
@@ -37,42 +32,35 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    className: "",
     variant: "outline",
     size: "md",
     placeholder: "Input your name",
   },
 };
 
-type InputGroupStory = StoryObj<typeof InputGroup>;
-
-export const InputGroupWithLeftElement: InputGroupStory = {
-  render: ({ ...args }) => {
+export const InputWithLeftElement: Story = {
+  render: () => {
     return (
-      <InputGroup {...args}>
-        <InputLeftElement>
-          <Check />
-        </InputLeftElement>
-        <Input size="md" variant="filled" placeholder="Enter your email" />
-      </InputGroup>
+      <Input
+        leftElement={<Check />}
+        size="md"
+        variant="filled"
+        placeholder="Enter your email"
+      />
     );
   },
   args: {},
 };
 
-export const InputGroupWithRightElement: InputGroupStory = {
-  render: ({ ...args }) => {
+export const InputWithRightElement: Story = {
+  render: () => {
     return (
-      <InputGroup {...args}>
-        <Input
-          size="md"
-          variant="outline"
-          placeholder="Enter your value here"
-        />
-        <InputRightElement>
-          <Button size="xs">Show</Button>
-        </InputRightElement>
-      </InputGroup>
+      <Input
+        rightElement={<Button size="xs">Show</Button>}
+        size="md"
+        variant="outline"
+        placeholder="Enter your email"
+      />
     );
   },
   args: {},

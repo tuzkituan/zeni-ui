@@ -3,9 +3,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Toast } from "./Toast";
 import { Button } from "../button/Button";
 import { useToast } from "./ToastContext";
+import { IToast } from "./Toast.types";
 
 const meta = {
-  title: "ATOMS/Toast",
+  title: "FEEDBACK/Toast/useToast",
   component: Toast,
   parameters: {
     layout: "centered",
@@ -16,22 +17,23 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const PushToast: Story = {
-  render: (args) => {
-    const { show } = useToast();
-    return (
-      <Button variant="outline" onClick={() => show(args)}>
-        Show Toast
-      </Button>
-    );
-  },
-  args: {
-    variant: "solid",
-    status: "success",
-    duration: 7000,
-    title: "Hi there!",
-    description: "Welcome to Zeni UI",
-    isClosable: true,
-    placement: "bottom-right",
-  },
+const args: IToast = {
+  variant: "solid",
+  status: "success",
+  duration: 7000,
+  title: "Hi there!",
+  description: "Welcome to Zeni UI",
+  isClosable: true,
+  placement: "bottom-right",
 };
+
+export const PushToast = (props: Story) => {
+  const allProps = { ...args, ...props };
+  const { show } = useToast();
+  return (
+    <Button variant="outline" onClick={() => show(allProps)}>
+      Show Toast
+    </Button>
+  );
+};
+PushToast.args = args;

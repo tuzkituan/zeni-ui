@@ -1,19 +1,18 @@
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
-import { ICheckbox, ICheckboxGroup } from "./Checkbox.types";
+import { IRadio, IRadioGroup } from "./Radio.types";
 import React, { ChangeEvent, useEffect, useMemo, useState } from "react";
 
-const defaultProps: Partial<ICheckbox> = {
+const defaultProps: Partial<IRadio> = {
   children: undefined,
 };
 
-export const Checkbox = (props: ICheckbox) => {
-  const theme = useComponentStyle("Checkbox");
+export const Radio = (props: IRadio) => {
+  const theme = useComponentStyle("Radio");
   const {
     children,
     className = "",
     size = "md",
-    isIndeterminate = false,
     isDisabled = false,
     isReadOnly = false,
     isChecked = undefined,
@@ -35,12 +34,11 @@ export const Checkbox = (props: ICheckbox) => {
     return twMerge(
       theme.input({
         size,
-        indeterminate: isIndeterminate,
         readOnly: isReadOnly,
       }),
       className
     );
-  }, [className, size, isReadOnly, isIndeterminate, theme]);
+  }, [className, size, isReadOnly, theme]);
 
   return (
     <label
@@ -54,17 +52,12 @@ export const Checkbox = (props: ICheckbox) => {
       }}
     >
       <input
-        aria-describedby="checkbox"
-        type="checkbox"
+        aria-describedby="radio"
+        type="radio"
         className={inputClasses}
         disabled={isDisabled}
         readOnly={isReadOnly}
         checked={isChecked !== undefined ? isChecked : undefined}
-        ref={(input) => {
-          if (input) {
-            input.indeterminate = isIndeterminate;
-          }
-        }}
         {...restProps}
       />
       {children}
@@ -72,22 +65,22 @@ export const Checkbox = (props: ICheckbox) => {
   );
 };
 
-export const CheckboxGroup = ({
+export const RadioGroup = ({
   children,
   defaultValue,
   value,
   onChange,
   layout = "horizontal",
   spacing,
-}: ICheckboxGroup) => {
-  const theme = useComponentStyle("Checkbox");
-  const [selectedValues, setSelectedValues] = useState(defaultValue || []);
+}: IRadioGroup) => {
+  const theme = useComponentStyle("Radio");
+  const [selectedValue, setSelectedValue] = useState(defaultValue);
 
   useEffect(() => {
-    setSelectedValues(value || defaultValue || []);
+    setSelectedValue(value || defaultValue);
   }, [value, defaultValue]);
 
-  const handleCheckboxChange = (
+  const handleRadioChange = (
     optionValue?: string | number,
     isChecked?: boolean
   ) => {
@@ -95,22 +88,15 @@ export const CheckboxGroup = ({
       return;
     }
     if (isChecked) {
-      setSelectedValues((prevSelectedValues) => [
-        ...prevSelectedValues,
-        optionValue,
-      ]);
-    } else {
-      setSelectedValues((prevSelectedValues) =>
-        prevSelectedValues.filter((value) => value !== optionValue)
-      );
+      setSelectedValue(optionValue);
     }
   };
 
   useEffect(() => {
     if (onChange) {
-      onChange(selectedValues);
+      onChange(selectedValue);
     }
-  }, [selectedValues, onChange]);
+  }, [selectedValue, onChange]);
 
   const containerClasses = useMemo(() => {
     return twMerge(
@@ -135,23 +121,21 @@ export const CheckboxGroup = ({
       }}
     >
       {React.Children.map(children, (child) => {
-        if (React.isValidElement(child) && child.type === Checkbox) {
+        if (React.isValidElement(child) && child.type === Radio) {
           const { value: optionValue, ...checkboxProps } =
-            child.props as ICheckbox;
-          const isChecked = selectedValues.includes(optionValue || "");
+            child.props as IRadio;
+          const isChecked = selectedValue === optionValue;
           return (
-            <Checkbox
+            <Radio
               {...checkboxProps}
               isChecked={isChecked}
               onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                handleCheckboxChange(optionValue, event.target.checked)
+                handleRadioChange(optionValue, event.target.checked)
               }
             />
           );
         } else {
-          console.error(
-            "CheckboxGroup only accepts Checkbox components as children"
-          );
+          console.error("RadioGroup only accepts Radio components as children");
           return null;
         }
       })}

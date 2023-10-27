@@ -5,7 +5,7 @@ import { Button } from "../button/Button";
 import { Modal } from "./Modal";
 
 const meta = {
-  title: "ATOMS/Modal",
+  title: "OVERLAY/Modal",
   component: Modal,
   argTypes: {
     className: {
