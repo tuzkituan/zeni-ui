@@ -16,7 +16,7 @@ export const Toast = (props: IToast) => {
     >
       <Alert
         {...rest}
-        className="min-w-[300px] rounded-lg overflow-hidden"
+        className="min-w-[300px] rounded-lg overflow-hidden shadow-md"
         {...(onClose && id
           ? {
               onClose: () => onClose(id),

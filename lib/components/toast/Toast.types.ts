@@ -1,12 +1,12 @@
 import { IAlert } from "../alert/Alert.types";
 
-export type IPlacement =
+export type ToastPlacement =
   | "top-left"
   | "top-right"
   | "bottom-left"
   | "bottom-right";
 
-export const TOAST_PLACEMENTS: IPlacement[] = [
+export const ToastPlacementArr: ToastPlacement[] = [
   "top-left",
   "top-right",
   "bottom-left",
@@ -15,6 +15,6 @@ export const TOAST_PLACEMENTS: IPlacement[] = [
 
 export interface IToast extends IAlert {
   id?: string;
-  placement?: IPlacement;
+  placement?: ToastPlacement;
   duration?: number;
 }

@@ -4,6 +4,7 @@ import { Toast } from "./Toast";
 import { Button } from "../button/Button";
 import { useToast } from "./ToastContext";
 import { IToast } from "./Toast.types";
+import { Flex } from "../flex/Flex";
 
 const meta = {
   title: "FEEDBACK/Toast/useToast",
@@ -18,6 +19,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const args: IToast = {
+  id: "1",
   variant: "solid",
   status: "success",
   duration: 7000,
@@ -29,11 +31,28 @@ const args: IToast = {
 
 export const PushToast = (props: Story) => {
   const allProps = { ...args, ...props };
-  const { show } = useToast();
+  const { show, closeAll } = useToast();
   return (
-    <Button variant="outline" onClick={() => show(allProps)}>
-      Show Toast
-    </Button>
+    <Flex direction="column" gap={20} >
+      <Button variant="outline" onClick={() => show(allProps)}>
+        Show Toast
+      </Button>
+      <Button onClick={() => closeAll()}>Close all toast</Button>
+    </Flex>
   );
 };
 PushToast.args = args;
+
+
+export const StandaloneToast = (props: Story) => {
+  const allProps = { ...args, ...props };
+  const { show } = useToast();
+  return (
+    <Flex direction="column" gap={20} >
+      <Button variant="outline" onClick={() => show(allProps)}>
+        Show Toast
+      </Button>
+    </Flex>
+  );
+};
+StandaloneToast.args = args;

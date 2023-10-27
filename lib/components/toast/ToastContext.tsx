@@ -5,13 +5,15 @@ import {
   useContext,
   useState,
 } from "react";
-import { IToast, TOAST_PLACEMENTS } from "./Toast.types";
+import { IToast, ToastPlacementArr } from "./Toast.types";
 import { Toast } from "./Toast";
 import { AnimatePresence } from "framer-motion";
 import { createPortal } from "react-dom";
 
 interface ToastContextType {
   show: (toast: IToast) => void;
+  close: (id: string) => void;
+  closeAll: () => void;
 }
 
 const ToastContext = createContext<ToastContextType | undefined>(undefined);
@@ -30,8 +32,8 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
   const show = (toast: IToast) => {
     const newToast: IToast = {
       isClosable: true,
-      ...toast,
       id: Math.random().toString(),
+      ...toast,
     };
     setToasts((prevToasts) => [...prevToasts, newToast]);
     if (toast.duration !== 0) {
@@ -45,6 +47,10 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
     if (id) {
       setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
     }
+  };
+
+  const removeAll = () => {
+    setToasts([]);
   };
 
   const getPosition = (placement: string) => {
@@ -62,7 +68,7 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const renders = TOAST_PLACEMENTS.map((x) => {
+  const renders = ToastPlacementArr.map((x) => {
     const filter = toasts.filter(
       (toast) =>
         toast.placement === x || (x === "bottom-right" && !toast.placement)
@@ -86,7 +92,9 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
   });
 
   return (
-    <ToastContext.Provider value={{ show }}>
+    <ToastContext.Provider
+      value={{ show, close: removeToast, closeAll: removeAll }}
+    >
       {children}
       {createPortal(renders, document.body)}
     </ToastContext.Provider>
