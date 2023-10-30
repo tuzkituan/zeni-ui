@@ -1,60 +1,23 @@
-import { Alert } from "../alert/Alert";
 import { toastStore } from "./Toast.store";
-import { RenderProps, ToastId } from "./Toast.types";
-import { UseToastOptions } from "./useToast";
+import { ToastId, ToastOptions } from "./Toast.types";
 
-export interface ToastProps extends UseToastOptions {
-  onClose?: () => void;
-}
 
-export const Toast = (props: ToastProps) => {
-  const { title, description, status, icon, isClosable, id } = props;
-  return (
-    <Alert
-      description={description}
-      title={title}
-      id={id?.toString()}
-      isClosable={isClosable}
-      status={status}
-      icon={icon}
-      className="min-w-[250px] max-w-[500px] rounded-lg overflow-hidden shadow-sm"
-    />
-  );
-};
-
-export function createRenderToast(
-  options: UseToastOptions & {
-    toastComponent?: React.FC<ToastProps>;
-  } = {}
-) {
-  const { render, toastComponent: ToastComponent = Toast } = options;
-  const renderToast: React.FC<RenderProps> = (props) => {
-    if (typeof render === "function") {
-      return render({ ...props, ...options }) as JSX.Element;
-    }
-    return <ToastComponent {...props} {...options} />;
-  };
-  return renderToast;
-}
-
-export function createToastFn(defaultOptions?: UseToastOptions) {
-  const normalizeToastOptions = (options?: UseToastOptions) => ({
+export function createToastFn(defaultOptions?: ToastOptions) {
+  const normalizeToastOptions = (options?: ToastOptions) => ({
     ...defaultOptions,
     ...options,
     position: options?.position || defaultOptions?.position || "top-right",
   });
 
-  const toast = (options?: UseToastOptions) => {
-    const normalizedToastOptions = normalizeToastOptions(options);
-    const Message = createRenderToast(normalizedToastOptions);
-    return toastStore.notify(Message, normalizedToastOptions);
+  const toast = (options?: ToastOptions) => {
+    return toastStore.notify(options);
   };
 
-  toast.update = (id: ToastId, options: Omit<UseToastOptions, "id">) => {
+  toast.update = (id: ToastId, options: Omit<ToastOptions, "id">) => {
     toastStore.update(id, normalizeToastOptions(options));
   };
 
-  // toast.closeAll = toastStore.closeAll
+  toast.closeAll = toastStore.closeAll
   toast.close = toastStore.close;
   toast.isActive = toastStore.isActive;
 

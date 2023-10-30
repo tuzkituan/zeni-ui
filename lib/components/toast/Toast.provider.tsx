@@ -1,41 +1,32 @@
 import { createContext, useContext, useSyncExternalStore } from "react";
-import { CloseAllToastsOptions, ToastId, ToastMessage, ToastOptions } from "./Toast.types";
+import { CloseAllToastsOptions, ToastId, ToastOptions } from "./Toast.types";
 import { toastStore } from "./Toast.store";
 import { createPortal } from "react-dom";
 import { AnimatePresence } from "framer-motion";
-import { UseToastOptions } from "./useToast";
-import { ToastComponent, ToastComponentProps } from "./Toast.component";
+import { ToastComponent } from "./Toast.component";
 import { getToastListStyle } from "./Toast.utils";
 
-export type CreateToastOptions = Partial<
-  Pick<
-    ToastOptions,
-    | "status"
-    | "duration"
-    | "position"
-    | "id"
-  >
->
-
 export interface ToastMethods {
-  notify: (message: ToastMessage, options?: CreateToastOptions) => ToastId;
+  notify: (options?: ToastOptions) => ToastId;
   close: (id: ToastId) => void;
-  closeAll: (options?: CloseAllToastsOptions) => void
-  update: (id: ToastId, options: Omit<UseToastOptions, "id">) => void;
+  closeAll: (options?: CloseAllToastsOptions) => void;
+  update: (id: ToastId, options: Omit<ToastOptions, "id">) => void;
   isActive: (id: ToastId) => boolean;
 }
 
 export type ToastProviderProps = React.PropsWithChildren<{
-  defaultOptions?: UseToastOptions;
+  defaultOptions?: ToastOptions;
   toastSpacing?: string | number;
-  component?: React.FC<ToastComponentProps>
 }>;
 
-const ToastOptionContext = createContext<UseToastOptions | undefined>(undefined);
+const ToastOptionContext = createContext<ToastOptions | undefined>(undefined);
 
-export const ToastOptionProvider = ({ children, value }: {
-  children: React.ReactNode
-  value?: UseToastOptions
+export const ToastOptionProvider = ({
+  children,
+  value,
+}: {
+  children: React.ReactNode;
+  value?: ToastOptions;
 }) => {
   return (
     <ToastOptionContext.Provider value={value || {}}>
@@ -47,22 +38,20 @@ export const ToastOptionProvider = ({ children, value }: {
 export const useToastOptionContext = () => {
   const context = useContext(ToastOptionContext);
   if (context === undefined) {
-    throw new Error('useToastOptionContext must be used within a ToastOptionProvider');
+    throw new Error(
+      "useToastOptionContext must be used within a ToastOptionProvider"
+    );
   }
   return context;
 };
 
-
 export const ToastProvider = (props: ToastProviderProps) => {
+  const { toastSpacing } = props;
   const state = useSyncExternalStore(
     toastStore.subscribe,
     toastStore.getState,
     toastStore.getState
   );
-
-  const {
-    component: Component = ToastComponent,
-  } = props
 
   const stateKeys = Object.keys(state) as (keyof typeof state)[];
   const toastList = stateKeys.map((position) => {
@@ -79,7 +68,11 @@ export const ToastProvider = (props: ToastProviderProps) => {
       >
         <AnimatePresence initial={false}>
           {toasts.map((toast) => (
-            <Component key={toast.id} {...toast} />
+            <ToastComponent
+              key={toast.id}
+              toastSpacing={toastSpacing}
+              {...toast}
+            />
           ))}
         </AnimatePresence>
       </div>

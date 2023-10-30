@@ -24,17 +24,18 @@ function App() {
   const showToast = () => {
     setCount((prevCount) => prevCount + 1);
     toast({
-      id: count,
-      description: "Test toast from App",
+      description: `Test toast ${count} from App`,
       title: "Tuan ne",
-      position: "top"
+      position: "bottom-right",
+      isClosable: true,
+      variant: "solid",
+      status: "success"
     })
   };
 
   const showStandaloneToast = () => {
     setCount((prevCount) => prevCount + 1);
     standaloneToast.toast({
-      id: count,
       description: "You can create toast outside components",
       title: "Success",
       position: "top-right",

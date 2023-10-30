@@ -1,8 +1,7 @@
-import { createRenderToast } from "./Toast";
-import { CreateToastOptions, ToastMethods } from "./Toast.provider";
+import { ToastMethods } from "./Toast.provider";
 import {
   ToastId,
-  ToastMessage,
+  ToastOptions,
   ToastPosition,
   ToastState,
 } from "./Toast.types";
@@ -90,9 +89,9 @@ function createStore(initialState: ToastState): ToastStore {
       })
     },
 
-    notify: (message, options) => {
+    notify: (options) => {
       if (options) {
-        const toast = createToast(message, options);
+        const toast = createToast(options);
         const { position, id } = toast;
 
         setState((prevToasts) => {
@@ -131,7 +130,6 @@ function createStore(initialState: ToastState): ToastStore {
           nextState[position][index] = {
             ...nextState[position][index],
             ...options,
-            message: createRenderToast(options),
           };
         }
 
@@ -167,19 +165,17 @@ function createStore(initialState: ToastState): ToastStore {
 }
 
 let counter = 0;
-function createToast(message: ToastMessage, options: CreateToastOptions ) {
+function createToast(options: ToastOptions ) {
   counter += 1;
   const id = options.id ?? counter;
 
   const position = options.position ?? "bottom";
 
   return {
+    ...options,
     id,
-    message,
     position,
-    duration: options.duration,
     onRequestRemove: () => toastStore.removeToast(String(id), position),
-    status: options.status,
     requestClose: false,
   };
 }

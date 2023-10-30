@@ -1,14 +1,14 @@
 import { CreateToastFnReturn, createToastFn } from "./Toast";
 import { ToastProvider, ToastProviderProps } from "./Toast.provider";
-import { UseToastOptions } from "./useToast";
+import { ToastOptions } from "./Toast.types";
 
-const defaults: UseToastOptions = {
+const defaults: ToastOptions = {
   duration: 5000,
 };
 
 export interface CreateStandAloneToastParam
   extends Partial<{
-      defaultOptions: UseToastOptions;
+      defaultOptions: ToastOptions;
     }>,
     ToastProviderProps {}
 
@@ -28,13 +28,11 @@ export interface CreateStandaloneToastReturn {
 export function createStandaloneToast({
   defaultOptions = defaultStandaloneParam.defaultOptions,
   toastSpacing,
-  component,
 }: CreateStandAloneToastParam = defaultStandaloneParam): CreateStandaloneToastReturn {
   const ToastContainer = () => (
     <ToastProvider
       defaultOptions={defaultOptions}
       toastSpacing={toastSpacing}
-      component={component}
     />
   );
 

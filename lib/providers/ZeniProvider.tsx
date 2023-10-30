@@ -24,7 +24,7 @@ export const ZeniProvider = ({
   return (
     <>
       <ToastOptionProvider value={toastOptions?.defaultOptions}>{children}</ToastOptionProvider>
-      <ToastProvider />
+      <ToastProvider toastSpacing={toastOptions?.toastSpacing} />
     </>
   );
 };

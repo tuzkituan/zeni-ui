@@ -15,5 +15,5 @@ export interface IAlert
   contentClassName?: string;
   icon?: React.ReactNode;
   isClosable?: boolean;
-  onClose?: (id?: string) => void;
+  onClose?: () => void;
 }

@@ -1,4 +1,4 @@
-import { UseToastOptions } from "./useToast";
+import { IAlert } from "../alert/Alert.types";
 
 export type ToastId = number | string;
 export type ToastPosition =
@@ -8,15 +8,16 @@ export type ToastPosition =
   | "bottom-right"
   | "top-left"
   | "top-right";
-export type ToastMessage = (props: RenderProps) => React.ReactNode;
-export interface ToastOptions {
-  message: ToastMessage;
-  id: ToastId;
-  duration: number | null;
-  status: ToastStatus;
-  position: ToastPosition;
-  onRequestRemove(): void;
-  onCloseComplete?(): void;
+export interface ToastOptions
+  extends Pick<IAlert, "variant" | "icon" | "isClosable" | "onClose"> {
+  title?: React.ReactNode;
+  description?: React.ReactNode;
+  id?: ToastId;
+  duration?: number;
+  status?: ToastStatus;
+  position?: ToastPosition;
+  onRequestRemove?: () => void;
+  onCloseComplete?: () => void;
   requestClose?: boolean;
 }
 export type ToastState = {
@@ -24,13 +25,6 @@ export type ToastState = {
 };
 
 export type ToastStatus = "success" | "error" | "warning" | "info";
-
-export interface RenderProps extends UseToastOptions {
-  /**
-   * Function to close the toast
-   */
-  onClose(): void;
-}
 
 export interface CloseAllToastsOptions {
   positions?: ToastPosition[];
