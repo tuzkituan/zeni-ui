@@ -71,6 +71,7 @@ export const ToastProvider = (props: ToastProviderProps) => {
             <ToastComponent
               key={toast.id}
               toastSpacing={toastSpacing}
+              
               {...toast}
             />
           ))}

@@ -110,7 +110,7 @@ export const Alert = (props: IAlert) => {
           className={closeClasses}
           onClick={() => {
             if (onClose) onClose();
-            setShow(false);
+            else setShow(false);
           }}
         >
           <X />

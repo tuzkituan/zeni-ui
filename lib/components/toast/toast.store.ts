@@ -139,6 +139,7 @@ function createStore(initialState: ToastState): ToastStore {
 
 
     close: (id) => {
+    
       setState((prevState) => {
         const position = getToastPosition(prevState, id);
 

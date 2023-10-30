@@ -1,5 +1,5 @@
 import { Variants, motion, useIsPresent } from "framer-motion";
-import { memo, useEffect, useMemo, useState } from "react";
+import { CSSProperties, memo, useEffect, useMemo, useState } from "react";
 import { ToastProviderProps } from "./toast.provider";
 import { ToastOptions } from "./toast.types";
 import { getToastStyle, useTimeout } from "./toast.utils";
@@ -45,11 +45,10 @@ export interface ToastComponentProps
 
 export const ToastComponent = memo((props: ToastComponentProps) => {
   const {
-    id,
+    // id,
     description,
     icon,
     isClosable,
-    onClose,
     status,
     title,
     variant,
@@ -60,9 +59,8 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
     duration = 5000,
     toastSpacing = "6px",
   } = props;
- 
-
-  const [delay, setDelay] = useState(duration);
+  
+  const [delay, setDelay] = useState<number | null>(duration);
   const isPresent = useIsPresent();
 
   useEffect(() => {
@@ -75,7 +73,7 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
     setDelay(duration);
   }, [duration]);
 
-  const onMouseEnter = () => setDelay(0);
+  const onMouseEnter = () => setDelay(null);
   const onMouseLeave = () => setDelay(duration);
 
   const close = () => {
@@ -90,8 +88,9 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
 
   useTimeout(close, delay);
 
-  const containerStyles = useMemo(
+  const containerStyles: CSSProperties = useMemo(
     () => ({
+      pointerEvents: "auto",
       margin: toastSpacing,
     }),
     [toastSpacing]
@@ -115,13 +114,12 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
         <Alert
           description={description}
           title={title}
-          id={id?.toString()}
           isClosable={isClosable}
           status={status}
           icon={icon}
           variant={variant}
           className="min-w-[250px] max-w-[500px] rounded-lg overflow-hidden shadow-sm"
-          onClose={onClose}
+          onClose={close}
         />
       </div>
     </motion.div>
