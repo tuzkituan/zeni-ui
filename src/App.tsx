@@ -10,25 +10,36 @@ import {
 import { useChangeTheme } from "../lib/customization/theme/useChangeTheme";
 import { twMerge } from "tailwind-merge";
 import { Avatar } from "../lib/components/avatar/Avatar";
-import { useToast } from "../lib/components/toast/ToastContext";
 import { useState } from "react";
+import useToast from "../lib/components/new-toast/useToast";
+import { createStandaloneToast } from "../lib/components/new-toast/CreateStandaloneToast";
+
+const standaloneToast = createStandaloneToast()
 
 function App() {
   const { theme, setTheme } = useChangeTheme();
-  const { show } = useToast();
   const [count, setCount] = useState(0);
+  const toast = useToast()
 
   const showToast = () => {
     setCount((prevCount) => prevCount + 1);
-    show({
-      title: "Success",
-      description: `You clicked ${count} times`,
-      duration: 4000,
-      placement: "top-left",
-      status: "success",
-      variant: "solid",
-    });
+    toast({
+      id: count,
+      description: "Test toast from App",
+      title: "Tuan ne",
+      position: "top-right"
+    })
   };
+
+  const showStandaloneToast = () => {
+    setCount((prevCount) => prevCount + 1);
+    standaloneToast.toast({
+      id: count,
+      description: "You can create toast outside components",
+      title: "Success",
+      position: "top-right",
+    })
+  }
 
   const items: {
     label: string;
@@ -82,6 +93,7 @@ function App() {
           name="letter tuan"
         />
         <Button onClick={showToast}>Show toast</Button>
+        <Button onClick={showStandaloneToast}>Create Standalone Toast</Button>
       </Box>
     </Center>
   );
