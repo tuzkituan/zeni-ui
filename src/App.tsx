@@ -9,9 +9,9 @@ import {
   createStandaloneToast,
   useToast,
 } from "../lib/main";
-import { useChangeTheme } from "../lib/customization/theme/useChangeTheme";
+import { useChangeTheme } from "../lib/customization/theme/use-change-theme";
 import { twMerge } from "tailwind-merge";
-import { Avatar } from "../lib/components/avatar/Avatar";
+import { Avatar } from "../lib/components/avatar/avatar";
 import { useState } from "react";
 
 const standaloneToast = createStandaloneToast()
