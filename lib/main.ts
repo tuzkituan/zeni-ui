@@ -10,10 +10,10 @@ export * from "./components/box/Box";
 export * from "./components/input/Input";
 export * from "./components/number-input/NumberInput";
 export * from "./components/modal/Modal";
-export * from "./components/toast/Toast";
 export * from "./components/avatar/Avatar";
 export * from "./components/checkbox/Checkbox";
 export * from "./components/alert/Alert";
+export * from "./components/toast/index"
 
 // PROVIDERS
 export * from "./providers/ZeniProvider";

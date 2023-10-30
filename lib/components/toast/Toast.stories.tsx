@@ -1,10 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Toast } from "./Toast";
-import { Button } from "../button/Button";
-import { useToast } from "./ToastContext";
-import { IToast } from "./Toast.types";
 import { Flex } from "../flex/Flex";
+import { Toast } from ".";
 
 const meta = {
   title: "FEEDBACK/Toast/useToast",
@@ -29,30 +26,30 @@ const args: IToast = {
   placement: "bottom-right",
 };
 
-export const PushToast = (props: Story) => {
-  const allProps = { ...args, ...props };
-  const { show, closeAll } = useToast();
-  return (
-    <Flex direction="column" gap={20} >
-      <Button variant="outline" onClick={() => show(allProps)}>
-        Show Toast
-      </Button>
-      <Button onClick={() => closeAll()}>Close all toast</Button>
-    </Flex>
-  );
-};
-PushToast.args = args;
+// export const PushToast = (props: Story) => {
+//   const allProps = { ...args, ...props };
+//   const { show, closeAll } = useToast();
+//   return (
+//     <Flex direction="column" gap={20} >
+//       <Button variant="outline" onClick={() => show(allProps)}>
+//         Show Toast
+//       </Button>
+//       <Button onClick={() => closeAll()}>Close all toast</Button>
+//     </Flex>
+//   );
+// };
+// PushToast.args = args;
 
 
-export const StandaloneToast = (props: Story) => {
-  const allProps = { ...args, ...props };
-  const { show } = useToast();
-  return (
-    <Flex direction="column" gap={20} >
-      <Button variant="outline" onClick={() => show(allProps)}>
-        Show Toast
-      </Button>
-    </Flex>
-  );
-};
-StandaloneToast.args = args;
+// export const StandaloneToast = (props: Story) => {
+//   const allProps = { ...args, ...props };
+//   const { show } = useToast();
+//   return (
+//     <Flex direction="column" gap={20} >
+//       <Button variant="outline" onClick={() => show(allProps)}>
+//         Show Toast
+//       </Button>
+//     </Flex>
+//   );
+// };
+// StandaloneToast.args = args;

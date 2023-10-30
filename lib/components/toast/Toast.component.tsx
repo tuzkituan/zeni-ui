@@ -2,7 +2,7 @@ import { motion, useIsPresent } from "framer-motion";
 import { memo, useEffect, useMemo, useState } from "react";
 import { ToastProviderProps } from "./Toast.provider";
 import { ToastOptions } from "./Toast.types";
-import { runIfFn, useTimeout } from "./Toast.utils";
+import { getToastStyle, useTimeout } from "./Toast.utils";
 
 export interface ToastComponentProps
   extends ToastOptions,
@@ -55,19 +55,21 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
     [toastSpacing]
   );
 
+  const toastStyle = useMemo(() => getToastStyle(position), [position])
+
   return (
     <motion.div
       layout
-      className="chakra-toast"
       initial="initial"
       animate="animate"
       exit="exit"
       onHoverStart={onMouseEnter}
       onHoverEnd={onMouseLeave}
       custom={{ position }}
+      style={toastStyle}
     >
       <div style={containerStyles}>
-        {runIfFn(message, { id, onClose: close })}
+        {message({ id, onClose: close })}
       </div>
     </motion.div>
   );

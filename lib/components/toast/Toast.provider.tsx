@@ -33,13 +33,12 @@ export type ToastProviderProps = React.PropsWithChildren<{
 
 const ToastOptionContext = createContext<UseToastOptions | undefined>(undefined);
 
-export const ToastOptionProvider = ({ children }: {
+export const ToastOptionProvider = ({ children, value }: {
   children: React.ReactNode
+  value?: UseToastOptions
 }) => {
-  const toastOptions = { /* Define your toast options here */ };
-  
   return (
-    <ToastOptionContext.Provider value={toastOptions}>
+    <ToastOptionContext.Provider value={value || {}}>
       {children}
     </ToastOptionContext.Provider>
   );

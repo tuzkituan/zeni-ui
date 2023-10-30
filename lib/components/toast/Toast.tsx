@@ -1,28 +1,64 @@
-import { motion } from "framer-motion";
 import { Alert } from "../alert/Alert";
-import { IToast } from "./Toast.types";
+import { toastStore } from "./Toast.store";
+import { RenderProps, ToastId } from "./Toast.types";
+import { UseToastOptions } from "./useToast";
 
-export const Toast = (props: IToast) => {
-  const { id, placement, onClose, ...rest } = props;
+export interface ToastProps extends UseToastOptions {
+  onClose?: () => void;
+}
 
-  const isRighty = placement?.includes("right");
+export const Toast = (props: ToastProps) => {
+  const { title, description, status, icon, isClosable, id } = props;
   return (
-    <motion.div
-      initial={{ opacity: 0, x: isRighty ? 30 : -30 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: isRighty ? 30 : -30 }}
-      transition={{ duration: 0.3 }}
-      layout
-    >
-      <Alert
-        {...rest}
-        className="min-w-[300px] rounded-lg overflow-hidden shadow-md"
-        {...(onClose && id
-          ? {
-              onClose: () => onClose(id),
-            }
-          : null)}
-      />
-    </motion.div>
+    <Alert
+      description={description}
+      title={title}
+      id={id?.toString()}
+      isClosable={isClosable}
+      status={status}
+      icon={icon}
+      className="min-w-[250px] max-w-[500px] rounded-lg overflow-hidden shadow-sm"
+    />
   );
 };
+
+export function createRenderToast(
+  options: UseToastOptions & {
+    toastComponent?: React.FC<ToastProps>;
+  } = {}
+) {
+  const { render, toastComponent: ToastComponent = Toast } = options;
+  const renderToast: React.FC<RenderProps> = (props) => {
+    if (typeof render === "function") {
+      return render({ ...props, ...options }) as JSX.Element;
+    }
+    return <ToastComponent {...props} {...options} />;
+  };
+  return renderToast;
+}
+
+export function createToastFn(defaultOptions?: UseToastOptions) {
+  const normalizeToastOptions = (options?: UseToastOptions) => ({
+    ...defaultOptions,
+    ...options,
+    position: options?.position || defaultOptions?.position || "top-right",
+  });
+
+  const toast = (options?: UseToastOptions) => {
+    const normalizedToastOptions = normalizeToastOptions(options);
+    const Message = createRenderToast(normalizedToastOptions);
+    return toastStore.notify(Message, normalizedToastOptions);
+  };
+
+  toast.update = (id: ToastId, options: Omit<UseToastOptions, "id">) => {
+    toastStore.update(id, normalizeToastOptions(options));
+  };
+
+  // toast.closeAll = toastStore.closeAll
+  toast.close = toastStore.close;
+  toast.isActive = toastStore.isActive;
+
+  return toast;
+}
+
+export type CreateToastFnReturn = ReturnType<typeof createToastFn>;

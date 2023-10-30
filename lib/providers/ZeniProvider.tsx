@@ -1,19 +1,18 @@
 import { useEffect } from "react";
-import { applyTheme } from "../main";
+import { ToastOptionProvider, ToastProvider, ToastProviderProps, applyTheme } from "../main";
 import { ThemeType } from "../customization/theme";
-import {
-  ToastOptionProvider,
-  ToastProvider,
-} from "../components/new-toast/Toast.provider";
-// import { ToastProvider } from "../components/toast/ToastContext";
+
 
 export const ZeniProvider = ({
   initialTheme,
   children,
+  toastOptions,
 }: {
   initialTheme?: ThemeType;
   children: React.ReactNode;
+  toastOptions?: ToastProviderProps;
 }) => {
+  
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const defaultTheme =
@@ -24,7 +23,7 @@ export const ZeniProvider = ({
 
   return (
     <>
-      <ToastOptionProvider>{children}</ToastOptionProvider>
+      <ToastOptionProvider value={toastOptions?.defaultOptions}>{children}</ToastOptionProvider>
       <ToastProvider />
     </>
   );

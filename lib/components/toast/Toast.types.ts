@@ -1,20 +1,37 @@
-import { IAlert } from "../alert/Alert.types";
+import { UseToastOptions } from "./useToast";
 
-export type ToastPlacement =
-  | "top-left"
-  | "top-right"
+export type ToastId = number | string;
+export type ToastPosition =
+  | "top"
+  | "bottom"
   | "bottom-left"
-  | "bottom-right";
+  | "bottom-right"
+  | "top-left"
+  | "top-right";
+export type ToastMessage = (props: RenderProps) => React.ReactNode;
+export interface ToastOptions {
+  message: ToastMessage;
+  id: ToastId;
+  duration: number | null;
+  status: ToastStatus;
+  position: ToastPosition;
+  onRequestRemove(): void;
+  onCloseComplete?(): void;
+  requestClose?: boolean;
+}
+export type ToastState = {
+  [K in ToastPosition]: ToastOptions[];
+};
 
-export const ToastPlacementArr: ToastPlacement[] = [
-  "top-left",
-  "top-right",
-  "bottom-left",
-  "bottom-right",
-];
+export type ToastStatus = "success" | "error" | "warning" | "info";
 
-export interface IToast extends IAlert {
-  id?: string;
-  placement?: ToastPlacement;
-  duration?: number;
+export interface RenderProps extends UseToastOptions {
+  /**
+   * Function to close the toast
+   */
+  onClose(): void;
+}
+
+export interface CloseAllToastsOptions {
+  positions?: ToastPosition[];
 }

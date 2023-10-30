@@ -6,13 +6,13 @@ import {
   Popover,
   Text,
   ThemeType,
+  createStandaloneToast,
+  useToast,
 } from "../lib/main";
 import { useChangeTheme } from "../lib/customization/theme/useChangeTheme";
 import { twMerge } from "tailwind-merge";
 import { Avatar } from "../lib/components/avatar/Avatar";
 import { useState } from "react";
-import useToast from "../lib/components/new-toast/useToast";
-import { createStandaloneToast } from "../lib/components/new-toast/CreateStandaloneToast";
 
 const standaloneToast = createStandaloneToast()
 
@@ -27,7 +27,7 @@ function App() {
       id: count,
       description: "Test toast from App",
       title: "Tuan ne",
-      position: "top-right"
+      position: "top"
     })
   };
 

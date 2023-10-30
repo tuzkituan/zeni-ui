@@ -10,7 +10,7 @@ export interface CreateStandAloneToastParam
   extends Partial<{
       defaultOptions: UseToastOptions;
     }>,
-    Omit<ToastProviderProps, "children"> {}
+    ToastProviderProps {}
 
 export const defaultStandaloneParam: CreateStandAloneToastParam &
   Required<Omit<CreateStandAloneToastParam, keyof ToastProviderProps>> = {
