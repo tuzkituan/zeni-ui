@@ -11,9 +11,10 @@ const base = cva([
   "border-line-primary",
   "shadow-sm",
 ]);
-
+const arrow = cva([]);
 const popoverStyles = {
   base,
+  arrow,
 };
 
 export { popoverStyles };
