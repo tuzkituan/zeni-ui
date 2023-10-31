@@ -1,4 +1,4 @@
-import { useHover, useLayer } from "react-laag";
+import { Arrow, useHover, useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { AnimatePresence, motion } from "framer-motion";
@@ -15,16 +15,20 @@ export const Tooltip = ({
 
   const theme = useComponentStyle("Tooltip");
 
-  const { triggerProps, layerProps, renderLayer } = useLayer({
+  const { triggerProps, layerProps, arrowProps, renderLayer } = useLayer({
     isOpen: isHover,
     placement,
     auto: true,
-    triggerOffset: 5,
+    triggerOffset: 10,
   });
 
   const classes = useMemo(() => {
     return twMerge(theme.base(), tooltipClassName);
   }, [tooltipClassName, theme]);
+
+  const arrowClasses = useMemo(() => {
+    return twMerge(theme.arrow());
+  }, [theme]);
 
   return (
     <>
@@ -42,6 +46,13 @@ export const Tooltip = ({
               {...layerProps}
             >
               {content}
+              <Arrow
+                {...arrowProps}
+                backgroundColor="black"
+                className={arrowClasses}
+                borderWidth={1}
+                size={8}
+              />
             </motion.div>
           </AnimatePresence>
         )}

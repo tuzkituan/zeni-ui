@@ -10,7 +10,7 @@ const base = cva([
   "shadow-md",
 ]);
 
-const arrow = cva([""]);
+const arrow = cva([]);
 const tooltipStyles = {
   base,
   arrow,
