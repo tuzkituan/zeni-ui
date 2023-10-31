@@ -23,6 +23,7 @@ interface StyleComponents {
   Radio: typeof styles.radioStyles;
   Toast: typeof styles.toastStyles;
   Select: typeof styles.selectStyles;
+  Menu: typeof styles.menuStyles;
 }
 
 const defaultStyle: Style = {
@@ -44,6 +45,7 @@ const defaultStyle: Style = {
     Radio: styles.radioStyles,
     Toast: styles.toastStyles,
     Select: styles.selectStyles,
+    Menu: styles.menuStyles,
   },
 };
 
