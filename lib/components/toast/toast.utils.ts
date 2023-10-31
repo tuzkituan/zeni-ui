@@ -45,25 +45,6 @@ export const isVisible = (toasts: ToastState, id: ToastId) =>
   !!getToastPosition(toasts, id)
 
 /**
- * Gets the styles to be applied to a toast's container
- * based on its position in the manager
- */
-export function getToastStyle(position: ToastPosition): React.CSSProperties {
-  const isRighty = position.includes("right")
-  const isLefty = position.includes("left")
-
-  let alignItems = "center"
-  if (isRighty) alignItems = "flex-end"
-  if (isLefty) alignItems = "flex-start"
-
-  return {
-    display: "flex",
-    flexDirection: "column",
-    alignItems,
-  }
-}
-
-/**
  * Compute the style of a toast based on its position
  */
 export function getToastListStyle(

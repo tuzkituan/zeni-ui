@@ -1,23 +1,25 @@
 import { Variants, motion, useIsPresent } from "framer-motion";
-import { CSSProperties, memo, useEffect, useMemo, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
+import { twMerge } from "tailwind-merge";
+import { useComponentStyle } from "../../main";
+import { Alert } from "../alert/alert";
 import { ToastProviderProps } from "./toast.provider";
 import { ToastOptions } from "./toast.types";
-import { getToastStyle, useTimeout } from "./toast.utils";
-import { Alert } from "../alert/alert";
+import { useTimeout } from "./toast.utils";
 
 const toastMotionVariants: Variants = {
   initial: (props: ToastOptions) => {
-    const { position = '' } = props
-    
-    const dir = ["top", "bottom"].includes(position) ? "y" : "x"
+    const { position = "" } = props;
 
-    let factor = ["top-right", "bottom-right"].includes(position) ? 1 : -1
-    if (position === "bottom") factor = 1
+    const dir = ["top", "bottom"].includes(position) ? "y" : "x";
+
+    let factor = ["top-right", "bottom-right"].includes(position) ? 1 : -1;
+    if (position === "bottom") factor = 1;
 
     return {
       opacity: 0,
       [dir]: factor * 24,
-    }
+    };
   },
   animate: {
     opacity: 1,
@@ -25,8 +27,8 @@ const toastMotionVariants: Variants = {
     x: 0,
     scale: 1,
     transition: {
-      duration: 0.4,
-      ease: [0.4, 0, 0.2, 1],
+      duration: 0.3,
+      ease: [0.3, 0, 0.2, 1],
     },
   },
   exit: {
@@ -37,13 +39,14 @@ const toastMotionVariants: Variants = {
       ease: [0.4, 0, 1, 1],
     },
   },
-}
+};
 
 export interface ToastComponentProps
   extends ToastOptions,
     Pick<ToastProviderProps, "toastSpacing"> {}
 
 export const ToastComponent = memo((props: ToastComponentProps) => {
+  const theme = useComponentStyle("Toast");
   const {
     // id,
     description,
@@ -57,9 +60,8 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
     requestClose = false,
     position = "bottom",
     duration = 5000,
-    toastSpacing = "6px",
   } = props;
-  
+
   const [delay, setDelay] = useState<number | null>(duration);
   const isPresent = useIsPresent();
 
@@ -88,15 +90,18 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
 
   useTimeout(close, delay);
 
-  const containerStyles: CSSProperties = useMemo(
-    () => ({
-      pointerEvents: "auto",
-      margin: toastSpacing,
-    }),
-    [toastSpacing]
-  );
+  const toastClasses = useMemo(() => {
+    return twMerge(theme.alert());
+  }, [theme]);
 
-  const toastStyle = useMemo(() => getToastStyle(position), [position]);
+  const toastContainer = useMemo(() => {
+    return twMerge(
+      theme.alertContainer({
+        isRighty: position.includes("right"),
+        isLefty: position.includes("left"),
+      })
+    );
+  }, [theme, position]);
 
   return (
     <motion.div
@@ -108,9 +113,13 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
       onHoverStart={onMouseEnter}
       onHoverEnd={onMouseLeave}
       custom={{ position }}
-      style={toastStyle}
+      className={toastContainer}
     >
-      <div style={containerStyles}>
+      <div
+        style={{
+          pointerEvents: "auto",
+        }}
+      >
         <Alert
           description={description}
           title={title}
@@ -118,7 +127,7 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
           status={status}
           icon={icon}
           variant={variant}
-          className="min-w-[250px] max-w-[500px] rounded-lg overflow-hidden shadow-sm"
+          className={toastClasses}
           onClose={close}
         />
       </div>

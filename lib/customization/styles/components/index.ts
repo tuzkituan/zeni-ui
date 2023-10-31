@@ -13,3 +13,4 @@ export * from "./modal.styles";
 export * from "./alert.styles";
 export * from "./tabs.styles";
 export * from "./radio.styles";
+export * from './toast.styles';

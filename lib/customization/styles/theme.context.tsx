@@ -21,6 +21,7 @@ interface StyleComponents {
   Alert: typeof styles.alertStyles;
   Tabs: typeof styles.tabsStyles;
   Radio: typeof styles.radioStyles;
+  Toast: typeof styles.toastStyles;
 }
 
 const defaultStyle: Style = {
@@ -40,6 +41,7 @@ const defaultStyle: Style = {
     Alert: styles.alertStyles,
     Tabs: styles.tabsStyles,
     Radio: styles.radioStyles,
+    Toast: styles.toastStyles,
   },
 };
 
