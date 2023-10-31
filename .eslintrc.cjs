@@ -24,5 +24,6 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "@typescript-eslint/prefer-nullish-coalescing": 0,
+    "@typescript-eslint/no-explicit-any": ["off"]
   },
 };

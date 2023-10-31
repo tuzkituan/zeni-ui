@@ -6,7 +6,12 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ZeniProvider initialTheme="baseLight">
+    <ZeniProvider
+      initialTheme="baseLight"
+      toastOptions={{
+        toastSpacing: "6px",
+      }}
+    >
       <App />
     </ZeniProvider>
   </React.StrictMode>
