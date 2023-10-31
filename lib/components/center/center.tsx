@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
-import { ICenter, ICircle } from "./center.styles";
+import { ICenter, ICircle } from "./center.types";
 import { useMemo } from "react";
 
 const defaultProps: Partial<ICenter> = {
