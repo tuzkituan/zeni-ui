@@ -1,25 +1,40 @@
 import "./customization/global.css";
 
-export * from "./components/button/Button";
-export * from "./components/center/Center";
-export * from "./components/text/Text";
-export * from "./components/tooltip/Tooltip";
-export * from "./components/popover/Popover";
-export * from "./components/flex/Flex";
-export * from "./components/box/Box";
-export * from "./components/input/Input";
-export * from "./components/number-input/NumberInput";
-export * from "./components/modal/Modal";
-export * from "./components/toast/Toast";
-export * from "./components/avatar/Avatar";
-export * from "./components/checkbox/Checkbox";
-export * from "./components/alert/Alert";
+export * from "./components/button/button";
+export * from "./components/button/button.types";
+export * from "./components/center/center";
+export * from "./components/center/center.types";
+export * from "./components/text/text";
+export * from "./components/text/text.types";
+export * from "./components/tooltip/tooltip";
+export * from "./components/tooltip/tooltip.types";
+export * from "./components/popover/popover";
+export * from "./components/popover/popover.types";
+export * from "./components/flex/flex";
+export * from "./components/flex/flex.types";
+export * from "./components/box/box";
+export * from "./components/box/box.types";
+export * from "./components/input/input";
+export * from "./components/input/input.types";
+export * from "./components/number-input/number-input";
+export * from "./components/number-input/number-input.types";
+export * from "./components/modal/modal";
+export * from "./components/modal/modal.types";
+export * from "./components/avatar/avatar";
+export * from "./components/avatar/avatar.types";
+export * from "./components/checkbox/checkbox";
+export * from "./components/checkbox/checkbox.types";
+export * from "./components/alert/alert";
+export * from "./components/alert/alert.types";
+export * from "./components/toast";
+export * from "./components/select/select";
+export * from "./components/select/select.types";
 
 // PROVIDERS
-export * from "./providers/ZeniProvider";
+export * from "./providers/zeni-provider";
 
 // UTILS
 export * from "./customization/styles/theme.context";
 export * from "./customization/theme/index";
-export * from "./customization/theme/useChangeTheme";
+export * from "./customization/theme/use-change-theme";
 export * from "./customization/theme/utils";

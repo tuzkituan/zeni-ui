@@ -12,3 +12,18 @@
   --background-sec: #fff;
   --line-primary: #e3e8ef;
 } */
+
+@layer components {
+  .env-safe-area-inset-top-0 {
+    top: env(safe-area-inset-top, 0px);
+  }
+  .env-safe-area-inset-bottom-0 {
+    bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .env-safe-area-inset-left-0 {
+    left: env(safe-area-inset-left, 0px);
+  }
+  .env-safe-area-inset-right-0 {
+    right: env(safe-area-inset-right, 0px);
+  }
+}
