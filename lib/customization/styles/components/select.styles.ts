@@ -132,6 +132,10 @@ const dropdown = cva([
 const option = cva(
   [
     "w-full",
+    "flex",
+    "items-center",
+    "justify-between",
+    "gap-4",
     "px-2",
     "py-1.5",
     "my-0.5",
@@ -148,6 +152,8 @@ const option = cva(
     },
   }
 );
+const optionLabel = cva(["truncate", "inline-block"]);
+const optionCheckIcon = cva(["text-primary", "text-[18px]"]);
 const group = cva(["flex", "items-center"]);
 const placeholder = cva(["text-opacity-40", "text-black"]);
 const leftElement = cva([
@@ -179,6 +185,8 @@ const selectStyles = {
   input,
   dropdown,
   option,
+  optionLabel,
+  optionCheckIcon,
   group,
   placeholder,
   leftElement,

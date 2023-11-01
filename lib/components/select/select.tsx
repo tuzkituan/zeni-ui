@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { ISelect, ISelectOption } from "./select.types";
 import { Box } from "../box/box";
-import { CaretDown, CaretUp, X } from "@phosphor-icons/react";
+import { CaretDown, CaretUp, Check, X } from "@phosphor-icons/react";
 
 export const Select = ({
   options = [],
@@ -30,7 +30,11 @@ export const Select = ({
   // VARS
   const theme = useComponentStyle("Select");
   const rightElement = useMemo(() => {
-    return rightElementProp || isOpen ? <CaretUp /> : <CaretDown />;
+    return rightElementProp || isOpen ? (
+      <CaretUp size={18} />
+    ) : (
+      <CaretDown size={18} />
+    );
   }, [isOpen, rightElementProp]);
 
   const { triggerProps, layerProps, renderLayer } = useLayer({
@@ -91,7 +95,7 @@ export const Select = ({
 
   // FUNCTIONS
   const onClear = (e: React.MouseEvent<HTMLElement>) => {
-    e.stopPropagation()
+    e.stopPropagation();
     setOpen(false);
     setValueState(undefined);
   };
@@ -108,24 +112,28 @@ export const Select = ({
 
   // UI
   const renderOptions = () => {
-    return options.map((x: ISelectOption) => (
-      <li
-        key={x.value}
-        value={x.value}
-        className={twMerge(
-          theme.option({
-            isSelected: x.value === valueState?.value,
-          })
-        )}
-        onClick={() => {
-          onChange?.(x);
-          setValueState(x);
-          setOpen(false);
-        }}
-      >
-        {x.label}
-      </li>
-    ));
+    return options.map((x: ISelectOption) => {
+      const isSelected = x.value === valueState?.value;
+      return (
+        <li
+          key={x.value}
+          value={x.value}
+          className={twMerge(
+            theme.option({
+              isSelected,
+            })
+          )}
+          onClick={() => {
+            onChange?.(x);
+            setValueState(x);
+            setOpen(false);
+          }}
+        >
+          <span className={theme.optionLabel()}>{x.label}</span>
+          {isSelected && <Check className={theme.optionCheckIcon()} />}
+        </li>
+      );
+    });
   };
 
   return (
@@ -149,7 +157,7 @@ export const Select = ({
           </div>
           {isClearable && !!valueState?.value && (
             <Box className={clearElementClasses} onClick={onClear}>
-              <X />
+              <X size={16} />
             </Box>
           )}
           {!!rightElement && (
