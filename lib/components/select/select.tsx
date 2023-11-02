@@ -155,8 +155,8 @@ export const Select = ({
             })
           )}
           onClick={() => {
-            const newValue = isSelected ? undefined : x
-            onChange?.(newValue)
+            const newValue = isSelected ? undefined : x;
+            onChange?.(newValue);
             setValueState(newValue);
             setSearchValue("");
             setOpen(false);
@@ -174,8 +174,14 @@ export const Select = ({
       <div
         {...triggerProps}
         onClick={() => {
-          const _isOpen = !isOpen;
-          setOpen(_isOpen);
+          // when searching, disable closing dropdown when clicking on the input 
+          setOpen((prev) => {
+            if (isSearchable && !!prev) {
+              return true;
+            }
+            return !prev;
+          });
+
           inputRef.current?.focus();
         }}
         className={containerClasses}

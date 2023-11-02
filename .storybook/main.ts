@@ -16,9 +16,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
-  core: {
-    builder: "@storybook/builder-vite", // 👈 The builder enabled here.
-  },
+  core: {},
   async viteFinal(config, { configType }) {
     // if (configType === 'DEVELOPMENT') {
     //   // Your development configuration goes here
