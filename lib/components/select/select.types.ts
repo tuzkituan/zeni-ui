@@ -10,7 +10,7 @@ export interface ISelect
   variant?: "outline" | "filled" | "flushed" | "unstyled";
   value?: ISelectOption;
   defaultValue?: ISelectOption;
-  onChange?: (value: ISelectOption) => void;
+  onChange?: (value?: ISelectOption) => void;
   leftElement?: React.ReactNode;
   rightElement?: React.ReactNode;
   isClearable?: boolean;

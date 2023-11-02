@@ -155,8 +155,9 @@ export const Select = ({
             })
           )}
           onClick={() => {
-            onChange?.(x);
-            setValueState(x);
+            const newValue = isSelected ? undefined : x
+            onChange?.(newValue)
+            setValueState(newValue);
             setSearchValue("");
             setOpen(false);
           }}
