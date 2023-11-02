@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { ISelect, ISelectOption } from "./select.types";
 import { Box } from "../box/box";
-import { CaretDown, CaretUp, Check, X } from "@phosphor-icons/react";
+import { CaretDown, CaretUp, Check, Tray, X } from "@phosphor-icons/react";
 
 export const Select = ({
   options = [],
@@ -17,12 +17,17 @@ export const Select = ({
   leftElement,
   rightElement: rightElementProp,
   isClearable = false,
+  isSearchable = true,
+  className = "",
+  dropdownClassName = "",
 }: ISelect) => {
-  const inputRef = useRef<HTMLDivElement | null>(null);
+  const secContainerRef = useRef<HTMLDivElement | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   // STATE
   const [isOpen, setOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState<string>("");
   const [valueState, setValueState] = useState<ISelectOption | undefined>(
     value || defaultValue
   );
@@ -54,22 +59,24 @@ export const Select = ({
         variant,
         size,
       }),
-      theme.group()
+      theme.group(),
+      className
     );
-  }, [size, theme, variant]);
+  }, [size, theme, variant, className]);
 
   const secContainerClasses = useMemo(() => {
     return twMerge(
       theme.secContainer({
         addonLeft: !!leftElement,
         addonRight: !!rightElement,
+        isSearchable,
       })
     );
-  }, [leftElement, rightElement, theme]);
+  }, [isSearchable, leftElement, rightElement, theme]);
 
-  const inputClasses = useMemo(() => {
+  const inputGroupClasses = useMemo(() => {
     return twMerge(
-      theme.input({
+      theme.inputGroup({
         variant,
         size,
         isInGroup: !!leftElement || !!rightElement,
@@ -77,9 +84,13 @@ export const Select = ({
     );
   }, [leftElement, rightElement, size, theme, variant]);
 
-  const dropdownClasses = useMemo(() => {
-    return twMerge(theme.dropdown());
+  const inputClasses = useMemo(() => {
+    return twMerge(theme.input());
   }, [theme]);
+
+  const dropdownClasses = useMemo(() => {
+    return twMerge(theme.dropdown(), dropdownClassName);
+  }, [theme, dropdownClassName]);
 
   const leftElementClasses = useMemo(() => {
     return twMerge(theme.leftElement());
@@ -93,18 +104,23 @@ export const Select = ({
     return twMerge(theme.clearElement());
   }, [theme]);
 
+  const emptyClasses = useMemo(() => {
+    return twMerge(theme.empty());
+  }, [theme]);
+
   // FUNCTIONS
   const onClear = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
     setOpen(false);
+    setSearchValue("");
     setValueState(undefined);
   };
   useEffect(() => {
-    if (inputRef.current && dropdownRef.current) {
-      const inputWidth = inputRef.current.offsetWidth;
+    if (secContainerRef.current && dropdownRef.current) {
+      const inputWidth = secContainerRef.current.offsetWidth;
       dropdownRef.current.style.width = `${inputWidth}px`;
     }
-  }, [isOpen, inputRef.current?.offsetWidth]);
+  }, [isOpen, secContainerRef.current?.offsetWidth]);
 
   useEffect(() => {
     setValueState(value);
@@ -112,7 +128,22 @@ export const Select = ({
 
   // UI
   const renderOptions = () => {
-    return options.map((x: ISelectOption) => {
+    const _options = searchValue
+      ? options.filter((x) =>
+          JSON.stringify(x.label)
+            .toLowerCase()
+            .includes(searchValue.toLowerCase())
+        )
+      : options;
+
+    if (_options.length === 0)
+      return (
+        <div className={emptyClasses}>
+          <Tray size={40} className="text-gray-500" />
+        </div>
+      );
+
+    return _options.map((x: ISelectOption) => {
       const isSelected = x.value === valueState?.value;
       return (
         <li
@@ -126,6 +157,7 @@ export const Select = ({
           onClick={() => {
             onChange?.(x);
             setValueState(x);
+            setSearchValue("");
             setOpen(false);
           }}
         >
@@ -143,19 +175,47 @@ export const Select = ({
         onClick={() => {
           const _isOpen = !isOpen;
           setOpen(_isOpen);
+          inputRef.current?.focus();
         }}
         className={containerClasses}
       >
-        <div ref={inputRef} className={secContainerClasses}>
+        <div ref={secContainerRef} className={secContainerClasses}>
           {!!leftElement && (
             <Box className={leftElementClasses}>{leftElement}</Box>
           )}
-          <div className={inputClasses}>
-            {valueState?.label || (
-              <span className={theme.placeholder()}>Placeholder</span>
+          <div className={inputGroupClasses}>
+            <input
+              className={inputClasses}
+              ref={inputRef}
+              style={{
+                backgroundImage: "initial",
+                backgroundPositionX: 0,
+                backgroundPositionY: 0,
+                backgroundSize: "initial",
+                backgroundRepeat: "initial",
+                backgroundAttachment: "initial",
+                backgroundOrigin: "initial",
+                backgroundClip: "initial",
+                backgroundColor: "initial",
+              }}
+              readOnly={!isSearchable}
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+
+            {!searchValue && (
+              <>
+                {valueState?.label ? (
+                  <span className={theme.inputLabel()}>
+                    {valueState?.label}
+                  </span>
+                ) : (
+                  <span className={theme.placeholder()}>Placeholder</span>
+                )}
+              </>
             )}
           </div>
-          {isClearable && !!valueState?.value && (
+          {((isClearable && !!valueState?.value) || !!searchValue) && (
             <Box className={clearElementClasses} onClick={onClear}>
               <X size={16} />
             </Box>

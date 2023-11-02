@@ -57,7 +57,7 @@ const container = cva(
     },
   }
 );
-const secContainer = cva(["w-full", "flex", "items-center"], {
+const secContainer = cva(["w-full", "h-full", "flex", "items-center"], {
   variants: {
     addonRight: {
       true: ["!pl-3", "!pr-1"],
@@ -66,6 +66,10 @@ const secContainer = cva(["w-full", "flex", "items-center"], {
     addonLeft: {
       true: ["!pr-3"],
       false: [],
+    },
+    isSearchable: {
+      true: ["cursor-text"],
+      false: ["cursor-pointer"],
     },
   },
   compoundVariants: [
@@ -76,18 +80,17 @@ const secContainer = cva(["w-full", "flex", "items-center"], {
     },
   ],
 });
-const input = cva(
+const inputGroup = cva(
   [
-    "rounded-md",
     "w-full",
     "h-full",
     "!bg-transparent",
     "outline-none",
     "flex",
     "items-center",
-    "cursor-pointer",
+    // "cursor-pointer",
     "truncate",
-    "inline-block",
+    "relative",
   ],
   {
     variants: {
@@ -115,12 +118,27 @@ const input = cva(
     },
   }
 );
+
+const input = cva([
+  "outline-none",
+  "border-none",
+  "p-0",
+  "m-0",
+  "min-w-[2px]",
+  "absolute",
+  "top-0",
+  "h-full",
+  "w-full",
+  "appearance-none",
+  "cursor-inherit"
+]);
+
 const dropdown = cva([
   "max-h-[300px]",
   "overflow-y-auto",
   "rounded-lg",
   "px-1",
-  "py-1",
+  "py-0.5",
   "bg-sec-background",
   "text-primary-text",
   "text-base",
@@ -155,7 +173,13 @@ const option = cva(
 const optionLabel = cva(["truncate", "inline-block"]);
 const optionCheckIcon = cva(["text-primary", "text-[18px]"]);
 const group = cva(["flex", "items-center"]);
-const placeholder = cva(["text-opacity-40", "text-black"]);
+const inputLabel = cva(["truncate", "inline-block", "w-full"]);
+const placeholder = cva([
+  "text-opacity-40",
+  "text-black",
+  "inline-block",
+  "w-full",
+]);
 const leftElement = cva([
   "flex",
   "items-center",
@@ -179,10 +203,13 @@ const clearElement = cva([
   "hover:bg-gray-100",
   "hover:rounded-lg",
 ]);
+const empty = cva(["p-6", "flex", "justify-center", "items-center"]);
 const selectStyles = {
   container,
   secContainer,
+  inputGroup,
   input,
+  inputLabel,
   dropdown,
   option,
   optionLabel,
@@ -192,6 +219,7 @@ const selectStyles = {
   leftElement,
   rightElement,
   clearElement,
+  empty,
 };
 
 export { selectStyles };
