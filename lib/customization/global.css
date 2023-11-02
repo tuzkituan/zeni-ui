@@ -26,4 +26,7 @@
   .env-safe-area-inset-right-0 {
     right: env(safe-area-inset-right, 0px);
   }
+  .cursor-inherit {
+    cursor: inherit;
+  }
 }

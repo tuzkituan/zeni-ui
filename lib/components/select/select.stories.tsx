@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Select } from "./select";
-import { MapPinLine } from "@phosphor-icons/react";
 
 const meta = {
   title: "FORMS/Select",
@@ -18,6 +17,7 @@ export const Primary: Story = {
     variant: "outline",
     size: "md",
     isClearable: true,
+    isSearchable: false,
     // leftElement: <MapPinLine />,
     options: [
       {
