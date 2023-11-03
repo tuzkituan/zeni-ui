@@ -54,7 +54,7 @@ export const Select = ({
             duration: 0.1,
           }}
         >
-          <CaretUp size={18} className={theme.iconColor()} />
+          <CaretDown size={18} className={theme.iconColor()} />
         </motion.div>
       )
     );
