@@ -13,6 +13,9 @@ const meta = {
     value: {
       control: "text",
     },
+    defaultValue: {
+      control: "text",
+    },
     onChange: {
       action: "change",
     },

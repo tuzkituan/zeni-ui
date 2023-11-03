@@ -17,6 +17,9 @@ const meta = {
       control: "radio",
       options: ["xs", "sm", "md", "lg"],
     },
+    defaultValue: {
+      control: "text",
+    },
     value: {
       control: "text",
     },
