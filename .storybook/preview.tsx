@@ -2,6 +2,7 @@ import type { Preview } from "@storybook/react";
 import "../lib/customization/global.css";
 import { ZeniProvider } from "../lib/main";
 import React from "react";
+import { themes } from "@storybook/theming";
 
 const preview: Preview = {
   decorators: [
@@ -18,6 +19,13 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/,
       },
+    },
+    darkMode: {
+      current: "dark",
+      dark: themes.dark,
+      light: themes.light,
+      stylePreview: true,
+      
     },
   },
 };

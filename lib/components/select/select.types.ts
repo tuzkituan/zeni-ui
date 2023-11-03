@@ -1,4 +1,4 @@
-import { ReactNode, SelectHTMLAttributes } from "react";
+import { SelectHTMLAttributes } from "react";
 
 export interface ISelect
   extends Omit<
@@ -8,20 +8,31 @@ export interface ISelect
   options?: ISelectOption[];
   size?: "xs" | "sm" | "md" | "lg";
   variant?: "outline" | "filled" | "flushed" | "unstyled";
-  value?: ISelectOption;
-  defaultValue?: ISelectOption;
-  onChange?: (value?: ISelectOption) => void;
+  value?: ISelectOption | ISelectOption[];
+  defaultValue?: ISelectOption | ISelectOption[];
+  onChange?: (value?: ISelectOption | ISelectOption[]) => void;
   leftElement?: React.ReactNode;
   rightElement?: React.ReactNode;
   isClearable?: boolean;
   isSearchable?: boolean;
-  className?: string
-  dropdownClassName?: string
+  className?: string;
+  dropdownClassName?: string;
+  placeholder?: string;
+  placement?: "top" | "bottom";
+  isMultiple?: boolean;
+  tagRender?: ({
+    item,
+    onClose,
+  }: {
+    item: ISelectOption;
+    onClose?: () => void;
+  }) => React.ReactNode;
 }
 
 export type ISelectValue = string | number;
 
 export interface ISelectOption {
-  label?: ReactNode;
+  label?: React.ReactNode;
   value?: ISelectValue;
+  isDisabled?: boolean;
 }

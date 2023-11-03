@@ -13,10 +13,10 @@ const container = cva(
   {
     variants: {
       size: {
-        xs: ["h-6"],
-        sm: ["h-8"],
-        md: ["h-10"],
-        lg: ["h-12"],
+        xs: ["min-h-[24px]"],
+        sm: ["min-h-[32px]"],
+        md: ["min-h-[40px]"],
+        lg: ["min-h-[48px]"],
       },
       variant: {
         outline: [
@@ -57,32 +57,40 @@ const container = cva(
     },
   }
 );
-const secContainer = cva(["w-full", "h-full", "flex", "items-center"], {
-  variants: {
-    addonRight: {
-      true: ["!pl-3", "!pr-1"],
-      false: [],
+const secContainer = cva(
+  ["w-full", "min-h-inherit", "h-full", "flex", "items-center"],
+  {
+    variants: {
+      addonRight: {
+        true: ["pl-3", "pr-1"],
+        false: [],
+      },
+      addonLeft: {
+        true: ["pr-3"],
+        false: [],
+      },
+      isSearchable: {
+        true: ["cursor-text"],
+        false: ["cursor-pointer"],
+      },
+      isMultiple: {
+        true: ["!pl-2"],
+        false: [],
+      },
     },
-    addonLeft: {
-      true: ["!pr-3"],
-      false: [],
-    },
-    isSearchable: {
-      true: ["cursor-text"],
-      false: ["cursor-pointer"],
-    },
-  },
-  compoundVariants: [
-    {
-      addonLeft: true,
-      addonRight: true,
-      class: "!px-0",
-    },
-  ],
-});
+    compoundVariants: [
+      {
+        addonLeft: true,
+        addonRight: true,
+        class: "!px-0",
+      },
+    ],
+  }
+);
 const inputGroup = cva(
   [
     "w-full",
+    "min-h-inherit",
     "h-full",
     "!bg-transparent",
     "outline-none",
@@ -119,19 +127,27 @@ const inputGroup = cva(
   }
 );
 
-const input = cva([
-  "outline-none",
-  "border-none",
-  "p-0",
-  "m-0",
-  "min-w-[2px]",
-  "absolute",
-  "top-0",
-  "h-full",
-  "w-full",
-  "appearance-none",
-  "cursor-inherit"
-]);
+const input = cva(
+  [
+    "outline-none",
+    "border-none",
+    "p-0",
+    "m-0",
+    "min-w-[2px]",
+    "min-h-inherit",
+    "h-full",
+    "appearance-none",
+    "cursor-inherit",
+  ],
+  {
+    variants: {
+      isMultiple: {
+        true: ["ml-0.5"],
+        false: ["absolute", "top-0", "bottom-0"],
+      },
+    },
+  }
+);
 
 const dropdown = cva([
   "max-h-[300px]",
@@ -167,6 +183,10 @@ const option = cva(
         true: ["font-medium", "bg-line-primary"],
         false: [],
       },
+      isDisabled: {
+        true: ["cursor-not-allowed", "text-gray-400"],
+        false: [],
+      },
     },
   }
 );
@@ -175,7 +195,7 @@ const optionCheckIcon = cva(["text-primary", "text-[18px]"]);
 const group = cva(["flex", "items-center"]);
 const inputLabel = cva(["truncate", "inline-block", "w-full"]);
 const placeholder = cva([
-  "text-opacity-40",
+  "text-opacity-50",
   "text-black",
   "inline-block",
   "w-full",
@@ -204,6 +224,29 @@ const clearElement = cva([
   "hover:rounded-lg",
 ]);
 const empty = cva(["p-6", "flex", "justify-center", "items-center"]);
+const tagContainer = cva([
+  "flex",
+  "items-center",
+  "gap-x-1",
+  "gap-y-1",
+  "flex-wrap",
+  "py-1",
+]);
+const tag = cva([
+  "border",
+  "rounded-md",
+  "border-line-primary",
+  "px-2",
+  "py-1.5",
+  "font-medium",
+  "flex",
+  "items-center",
+  "gap-2",
+  "leading-none",
+  "bg-sec-background",
+]);
+const tagX = cva(["cursor-pointer"]);
+const iconColor = cva(["text-gray-500"]);
 const selectStyles = {
   container,
   secContainer,
@@ -220,6 +263,10 @@ const selectStyles = {
   rightElement,
   clearElement,
   empty,
+  tagContainer,
+  tag,
+  tagX,
+  iconColor,
 };
 
 export { selectStyles };

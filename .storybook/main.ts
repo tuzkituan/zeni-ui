@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
+    "storybook-dark-mode",
   ],
   framework: {
     name: "@storybook/react-vite",
@@ -16,9 +17,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
-  core: {
-    builder: "@storybook/builder-vite", // 👈 The builder enabled here.
-  },
+  core: {},
   async viteFinal(config, { configType }) {
     // if (configType === 'DEVELOPMENT') {
     //   // Your development configuration goes here
