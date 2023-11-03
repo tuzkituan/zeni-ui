@@ -44,10 +44,19 @@ export const Select = ({
   const isSearchable = isSearchableProp || isMultiple;
 
   const rightElement = useMemo(() => {
-    return rightElementProp || isOpen ? (
-      <CaretUp size={18} className={theme.iconColor()} />
-    ) : (
-      <CaretDown size={18} className={theme.iconColor()} />
+    return (
+      rightElementProp || (
+        <motion.div
+          animate={{
+            rotate: isOpen ? 180 : 0,
+          }}
+          transition={{
+            duration: 0.1,
+          }}
+        >
+          <CaretUp size={18} className={theme.iconColor()} />
+        </motion.div>
+      )
     );
   }, [isOpen, rightElementProp, theme]);
 
