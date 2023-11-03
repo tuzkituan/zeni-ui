@@ -306,7 +306,7 @@ export const Select = ({
         <div className={tagContainerClasses}>
           {isValueStateArray && renderTags(valueState)}
           {renderInput()}
-          {isEmpty(valueState) && renderPlaceholder()}
+          {isEmpty(valueState) && !searchValue && renderPlaceholder()}
         </div>
       );
     }
