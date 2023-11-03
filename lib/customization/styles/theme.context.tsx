@@ -24,6 +24,7 @@ interface StyleComponents {
   Toast: typeof styles.toastStyles;
   Select: typeof styles.selectStyles;
   Menu: typeof styles.menuStyles;
+  Textarea: typeof styles.textareaStyles;
 }
 
 const defaultStyle: Style = {
@@ -46,6 +47,7 @@ const defaultStyle: Style = {
     Toast: styles.toastStyles,
     Select: styles.selectStyles,
     Menu: styles.menuStyles,
+    Textarea: styles.textareaStyles,
   },
 };
 
