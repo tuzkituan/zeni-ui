@@ -13,10 +13,10 @@ const container = cva(
   {
     variants: {
       size: {
-        xs: ["min-h-[24px]"],
-        sm: ["min-h-[32px]"],
-        md: ["min-h-[40px]"],
-        lg: ["min-h-[48px]"],
+        xs: ["min-h-6"],
+        sm: ["min-h-8"],
+        md: ["min-h-10"],
+        lg: ["min-h-12"],
       },
       variant: {
         outline: [
