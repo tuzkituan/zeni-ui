@@ -12,3 +12,13 @@ export const getChildrenProps = (
 
   return props;
 };
+
+export const isEmpty = (variable: any) => {
+  if (!variable) return true;
+  const isArray = Array.isArray(variable);
+  if (isArray) return variable.length === 0;
+  if (typeof variable === "object") {
+    return Object.keys(variable || {}).length === 0;
+  }
+  return false;
+};

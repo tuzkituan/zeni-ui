@@ -24,8 +24,9 @@ export const Primary: Story = {
     isClearable: true,
     isSearchable: false,
     // leftElement: <MapPinLine />,
-    placeholder: "Please select",
-    placement: "top",
+    placeholder: "This is the placeholder",
+    placement: "bottom",
+    isMultiple: false,
     options: [
       {
         label: "This is a really long option label, you see?",
@@ -38,6 +39,7 @@ export const Primary: Story = {
       {
         label: "Option 3",
         value: 3,
+        isDisabled: true,
       },
       {
         label: "Option 4",

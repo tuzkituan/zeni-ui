@@ -29,4 +29,7 @@
   .cursor-inherit {
     cursor: inherit;
   }
+  .min-h-inherit {
+    min-height: inherit;
+  }
 }
