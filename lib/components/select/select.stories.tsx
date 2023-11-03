@@ -6,7 +6,12 @@ const meta = {
   title: "FORMS/Select",
   component: Select,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    placement: {
+      options: ["top", "bottom"],
+      control: "radio",
+    },
+  },
 } satisfies Meta<typeof Select>;
 
 export default meta;
@@ -19,6 +24,8 @@ export const Primary: Story = {
     isClearable: true,
     isSearchable: false,
     // leftElement: <MapPinLine />,
+    placeholder: "Please select",
+    placement: "top",
     options: [
       {
         label: "This is a really long option label, you see?",

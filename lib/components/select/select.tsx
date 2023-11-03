@@ -20,6 +20,8 @@ export const Select = ({
   isSearchable = true,
   className = "",
   dropdownClassName = "",
+  placeholder = "Placeholder",
+  placement = 'bottom'
 }: ISelect) => {
   const secContainerRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -46,7 +48,7 @@ export const Select = ({
     isOpen: isOpen,
     auto: true,
     triggerOffset: 4,
-    placement: "bottom-start",
+    placement: placement === "top" ? "top-start" : "bottom-start",
     onOutsideClick: () => {
       setOpen(false);
     },
@@ -217,7 +219,7 @@ export const Select = ({
                     {valueState?.label}
                   </span>
                 ) : (
-                  <span className={theme.placeholder()}>Placeholder</span>
+                  <span className={theme.placeholder()}>{placeholder}</span>
                 )}
               </>
             )}

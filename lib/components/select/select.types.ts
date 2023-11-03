@@ -15,8 +15,10 @@ export interface ISelect
   rightElement?: React.ReactNode;
   isClearable?: boolean;
   isSearchable?: boolean;
-  className?: string
-  dropdownClassName?: string
+  className?: string;
+  dropdownClassName?: string;
+  placeholder?: string;
+  placement?:"top" | "bottom"
 }
 
 export type ISelectValue = string | number;

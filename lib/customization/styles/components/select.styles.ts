@@ -130,7 +130,7 @@ const input = cva([
   "h-full",
   "w-full",
   "appearance-none",
-  "cursor-inherit"
+  "cursor-inherit",
 ]);
 
 const dropdown = cva([
@@ -175,7 +175,7 @@ const optionCheckIcon = cva(["text-primary", "text-[18px]"]);
 const group = cva(["flex", "items-center"]);
 const inputLabel = cva(["truncate", "inline-block", "w-full"]);
 const placeholder = cva([
-  "text-opacity-40",
+  "text-opacity-50",
   "text-black",
   "inline-block",
   "w-full",
