@@ -11,13 +11,34 @@ const meta = {
       options: ["outline", "filled", "flushed", "unstyled"],
     },
     value: {
-      control: "text",
+      type: "string",
     },
     defaultValue: {
-      control: "text",
+      type: "string",
     },
     onChange: {
       action: "change",
+    },
+    autoComplete: {
+      type: "string",
+    },
+    maxLength: {
+      type: "number",
+    },
+    minLength: {
+      type: "number",
+    },
+    name: {
+      type: "string",
+    },
+    rows: {
+      type: "number",
+    },
+    isDisabled: {
+      type: "boolean",
+    },
+    isResizable: {
+      type: "boolean",
     },
   },
 } satisfies Meta<typeof Textarea>;

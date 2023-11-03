@@ -18,6 +18,8 @@ export const Input = forwardRef<HTMLInputElement, IInput>(
       variant,
       leftElement,
       rightElement,
+      isDisabled = false,
+      isReadOnly = false,
       ...restProps
     } = { ...defaultProps, ...props };
 
@@ -28,11 +30,20 @@ export const Input = forwardRef<HTMLInputElement, IInput>(
           variant,
           addonLeft: !!leftElement,
           addonRight: !!rightElement,
+          isDisabled,
         }),
         theme.group(),
         className
       );
-    }, [theme, size, variant, leftElement, rightElement, className]);
+    }, [
+      theme,
+      size,
+      isDisabled,
+      variant,
+      leftElement,
+      rightElement,
+      className,
+    ]);
 
     const inputClasses = useMemo(() => {
       return twMerge(
@@ -62,6 +73,8 @@ export const Input = forwardRef<HTMLInputElement, IInput>(
           placeholder="Placeholder"
           className={inputClasses}
           ref={ref}
+          disabled={isDisabled}
+          readOnly={isReadOnly}
           {...restProps}
         />
         {rightElement ? (

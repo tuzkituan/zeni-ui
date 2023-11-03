@@ -1,12 +1,12 @@
-import { CaretDown, CaretUp, Check, Tray, X } from "@phosphor-icons/react";
+import { CaretDown, Check, Tray, X } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
+import { isEmpty } from "../../functions";
 import { Box } from "../box/box";
 import { ISelect, ISelectOption } from "./select.types";
-import { isEmpty } from "../../functions";
 
 export const Select = ({
   options = [],

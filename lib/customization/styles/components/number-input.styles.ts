@@ -58,22 +58,11 @@ const container = cva(
         ],
         unstyled: ["!border-none", "!bg-none", "!outline-none", "!px-0"],
       },
-      addonRight: {
-        true: ["pl-2"],
-        false: [],
-      },
-      addonLeft: {
-        true: ["pr-2"],
+      isDisabled: {
+        true: ["!bg-line-primary"],
         false: [],
       },
     },
-    compoundVariants: [
-      {
-        addonLeft: true,
-        addonRight: true,
-        class: "!px-0",
-      },
-    ],
   }
 );
 

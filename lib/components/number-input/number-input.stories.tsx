@@ -16,10 +16,22 @@ const meta = {
       options: ["xs", "sm", "md", "lg"],
     },
     value: {
-      control: "number",
+      type: "number",
+    },
+    defaultValue: {
+      type: "number",
     },
     onChange: {
       action: "change",
+    },
+    autoComplete: {
+      type: "string",
+    },
+    isDisabled: {
+      type: "boolean",
+    },
+    isReadOnly: {
+      type: "boolean",
     },
   },
 } satisfies Meta<typeof NumberInput>;

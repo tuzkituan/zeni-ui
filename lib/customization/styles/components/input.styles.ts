@@ -62,6 +62,10 @@ const container = cva(
         true: ["!pr-3"],
         false: [],
       },
+      isDisabled: {
+        true: ["!bg-line-primary"],
+        false: [],
+      },
     },
     compoundVariants: [
       {

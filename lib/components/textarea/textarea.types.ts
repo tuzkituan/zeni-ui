@@ -1,6 +1,13 @@
-import { InputHTMLAttributes } from "react";
+import { TextareaHTMLAttributes } from "react";
 
-export interface ITextarea extends InputHTMLAttributes<HTMLTextAreaElement> {
+export interface ITextarea
+  extends Omit<
+    TextareaHTMLAttributes<HTMLTextAreaElement>,
+    "size" | "disabled" | "readOnly"
+  > {
   variant?: "outline" | "filled" | "flushed" | "unstyled";
-  placeholder?: string
+  placeholder?: string;
+  isDisabled?: boolean;
+  isReadOnly?: boolean;
+  isResizable?: boolean
 }

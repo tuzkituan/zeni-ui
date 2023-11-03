@@ -9,6 +9,9 @@ export const Textarea = (props: ITextarea) => {
     className = "",
     variant,
     placeholder = "Placeholder",
+    isDisabled = false,
+    isReadOnly = false,
+    isResizable = false,
     ...restProps
   } = props;
 
@@ -16,12 +19,20 @@ export const Textarea = (props: ITextarea) => {
     return twMerge(
       theme.base({
         variant,
+        isDisabled,
+        isResizable,
       }),
       className
     );
-  }, [theme, variant, className]);
+  }, [theme, variant, className, isResizable, isDisabled]);
 
   return (
-    <textarea className={classes} placeholder={placeholder} {...restProps} />
+    <textarea
+      className={classes}
+      placeholder={placeholder}
+      disabled={isDisabled}
+      readOnly={isReadOnly}
+      {...restProps}
+    />
   );
 };

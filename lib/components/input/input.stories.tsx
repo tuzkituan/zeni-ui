@@ -17,14 +17,23 @@ const meta = {
       control: "radio",
       options: ["xs", "sm", "md", "lg"],
     },
-    defaultValue: {
-      control: "text",
-    },
     value: {
-      control: "text",
+      type: "string",
+    },
+    defaultValue: {
+      type: "string",
     },
     onChange: {
       action: "change",
+    },
+    autoComplete: {
+      type: "string",
+    },
+    isDisabled: {
+      type: "boolean",
+    },
+    isReadOnly: {
+      type: "boolean",
     },
   },
 } satisfies Meta<typeof Input>;

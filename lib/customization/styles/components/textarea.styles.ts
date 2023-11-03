@@ -50,6 +50,14 @@ const base = cva(
         ],
         unstyled: ["!border-none", "!bg-none", "!outline-none", "!px-0"],
       },
+      isDisabled: {
+        true: ["!bg-line-primary"],
+        false: [],
+      },
+      isResizable: {
+        true: ["resize-y"],
+        false: ["resize-none"],
+      },
     },
   }
 );

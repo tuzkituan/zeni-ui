@@ -3,7 +3,7 @@ import { InputHTMLAttributes } from "react";
 export interface INumberInput
   extends Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    "size" | "onChange" | "value"
+    "size" | "onChange" | "value" | "readOnly" | "disabled"
   > {
   size?: "xs" | "sm" | "md" | "lg";
   variant?: "outline" | "filled" | "flushed" | "unstyled";
@@ -14,6 +14,8 @@ export interface INumberInput
   defaultValue?: number;
   onChange?: (value: number) => void;
   showArrow?: boolean;
+  isDisabled?: boolean;
+  isReadOnly?: boolean;
 }
 
 export interface INumberInputArrow {

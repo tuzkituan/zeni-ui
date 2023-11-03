@@ -8,7 +8,6 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
-    "storybook-dark-mode",
   ],
   framework: {
     name: "@storybook/react-vite",
@@ -28,9 +27,6 @@ const config: StorybookConfig = {
     // Merge custom configuration into the default config
     return mergeConfig(config, {
       // Add dependencies to pre-optimization
-      optimizeDeps: {
-        include: ["storybook-dark-mode"],
-      },
     });
   },
 };
