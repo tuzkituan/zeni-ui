@@ -25,6 +25,7 @@ interface StyleComponents {
   Select: typeof styles.selectStyles;
   Menu: typeof styles.menuStyles;
   Textarea: typeof styles.textareaStyles;
+  Spinner: typeof styles.spinnerStyles;
 }
 
 const defaultStyle: Style = {
@@ -48,6 +49,7 @@ const defaultStyle: Style = {
     Select: styles.selectStyles,
     Menu: styles.menuStyles,
     Textarea: styles.textareaStyles,
+    Spinner: styles.spinnerStyles,
   },
 };
 
