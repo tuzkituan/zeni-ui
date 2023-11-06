@@ -17,3 +17,4 @@ export * from "./text.styles";
 export * from "./toast.styles";
 export * from "./tooltip.styles";
 export * from "./textarea.styles";
+export * from "./table.styles";
