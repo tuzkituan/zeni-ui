@@ -5,7 +5,7 @@ const spinner = cva(["animate-spin", "text-primary", "!opacity-100"], {
   variants: {
     size: {
       xs: ["text-sm"],
-      sm: ["text-lg"],
+      sm: ["text-xl"],
       md: ["text-3xl"],
       lg: ["text-6xl"],
     },

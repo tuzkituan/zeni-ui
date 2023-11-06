@@ -21,6 +21,7 @@ const meta = {
       description: "Custom icon",
     },
     description: {
+      control: "text",
       description: "Use with inner children",
     },
     isLoading: {

@@ -4,6 +4,7 @@ import { ISpinner } from "./spinner.types";
 import { useMemo } from "react";
 import { CircleNotch } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";
+import { isEmpty } from "../../functions";
 
 export const Spinner = (props: ISpinner) => {
   const theme = useComponentStyle("Spinner");
@@ -12,7 +13,7 @@ export const Spinner = (props: ISpinner) => {
     className = "",
     size = "md",
     icon,
-    opacity = 0.6,
+    opacity = 0.4,
     isLoading = false,
     description,
   } = props;
@@ -68,7 +69,7 @@ export const Spinner = (props: ISpinner) => {
               }}
             >
               {renderSpinner()}
-              {!!description && (
+              {!isEmpty(description) && (
                 <p className={theme.description()}>{description}</p>
               )}
             </div>
