@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Spinner } from "./spinner";
-import { Box } from "../box/box";
 
 const meta = {
   title: "FEEDBACK/Spinner",
@@ -12,7 +11,21 @@ const meta = {
       control: "radio",
     },
     children: {
-      type: "text",
+      type: "string",
+    },
+    opacity: {
+      type: "number",
+      description: "From 0 to 1",
+    },
+    icon: {
+      description: "Custom icon",
+    },
+    description: {
+      description: "Use with inner children",
+    },
+    isLoading: {
+      type: "boolean",
+      description: "Loading overlay. Use with inner children",
     },
   },
 } satisfies Meta<typeof Spinner>;
@@ -22,17 +35,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: (
-      <Box>
-        Staring at the bottom of your glass
-        <br />
-        Hoping one day you'll make a dream last
-        <br />
-        But dreams come slow, and they go so fast
-        <br />
-        You see her when you close your eyes
-      </Box>
-    ),
+    children: undefined,
     size: "md",
     opacity: undefined,
     icon: undefined,
