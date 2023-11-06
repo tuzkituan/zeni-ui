@@ -3,6 +3,7 @@ import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { ITable, ITableRecord } from "./table.types";
+import { Spinner } from "../spinner/spinner";
 
 export const Table = (props: ITable) => {
   const theme = useComponentStyle("Table");
@@ -11,7 +12,7 @@ export const Table = (props: ITable) => {
     columns = [],
     data = [],
     isBordered = false,
-    // isLoading = false,
+    isLoading = false,
     onRow,
     showHeader = true,
     size,
@@ -115,8 +116,10 @@ export const Table = (props: ITable) => {
   };
 
   return (
-    <table className={classes} {...restProps}>
-      {renderTable()}
-    </table>
+    <Spinner isLoading={isLoading}>
+      <table className={classes} {...restProps}>
+        {renderTable()}
+      </table>
+    </Spinner>
   );
 };

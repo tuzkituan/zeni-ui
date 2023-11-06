@@ -10,7 +10,7 @@ export const Spinner = (props: ISpinner) => {
   const {
     children,
     className = "",
-    size,
+    size = "md",
     icon,
     opacity = 0.6,
     isLoading = false,
@@ -35,7 +35,11 @@ export const Spinner = (props: ISpinner) => {
   }, [theme]);
 
   const renderSpinner = () => {
-    return icon || <CircleNotch className={spinnerClasses} weight="bold" />;
+    return (
+      <div>
+        {icon || <CircleNotch className={spinnerClasses} weight="bold" />}
+      </div>
+    );
   };
 
   if (!children) {
@@ -64,7 +68,9 @@ export const Spinner = (props: ISpinner) => {
               }}
             >
               {renderSpinner()}
-              {!!description && <p className={theme.description()}>{description}</p>}
+              {!!description && (
+                <p className={theme.description()}>{description}</p>
+              )}
             </div>
           </motion.div>
         )}
