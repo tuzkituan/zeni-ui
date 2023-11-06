@@ -64,7 +64,7 @@ export const Spinner = (props: ISpinner) => {
             <div
               className={overlayClasses}
               style={{
-                backgroundColor: `rgba(255,255,255,${opacity})`,
+                backgroundColor: `rgba(255,255,255,${1 - opacity})`,
               }}
             >
               {renderSpinner()}
