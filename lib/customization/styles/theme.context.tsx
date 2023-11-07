@@ -27,6 +27,7 @@ interface StyleComponents {
   Textarea: typeof styles.textareaStyles;
   Table: typeof styles.tableStyles;
   Spinner: typeof styles.spinnerStyles;
+  Image: typeof styles.imageStyles
 }
 
 const defaultStyle: Style = {
@@ -52,6 +53,7 @@ const defaultStyle: Style = {
     Textarea: styles.textareaStyles,
     Table: styles.tableStyles,
     Spinner: styles.spinnerStyles,
+    Image: styles.imageStyles
   },
 };
 
