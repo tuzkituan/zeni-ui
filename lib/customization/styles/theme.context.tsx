@@ -24,6 +24,10 @@ interface StyleComponents {
   Toast: typeof styles.toastStyles;
   Select: typeof styles.selectStyles;
   Menu: typeof styles.menuStyles;
+  Textarea: typeof styles.textareaStyles;
+  Table: typeof styles.tableStyles;
+  Spinner: typeof styles.spinnerStyles;
+  Image: typeof styles.imageStyles
 }
 
 const defaultStyle: Style = {
@@ -46,6 +50,10 @@ const defaultStyle: Style = {
     Toast: styles.toastStyles,
     Select: styles.selectStyles,
     Menu: styles.menuStyles,
+    Textarea: styles.textareaStyles,
+    Table: styles.tableStyles,
+    Spinner: styles.spinnerStyles,
+    Image: styles.imageStyles
   },
 };
 

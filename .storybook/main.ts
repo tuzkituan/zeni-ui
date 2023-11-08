@@ -16,9 +16,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
-  core: {
-    builder: "@storybook/builder-vite", // 👈 The builder enabled here.
-  },
+  core: {},
   async viteFinal(config, { configType }) {
     // if (configType === 'DEVELOPMENT') {
     //   // Your development configuration goes here
@@ -29,9 +27,6 @@ const config: StorybookConfig = {
     // Merge custom configuration into the default config
     return mergeConfig(config, {
       // Add dependencies to pre-optimization
-      optimizeDeps: {
-        include: ["storybook-dark-mode"],
-      },
     });
   },
 };

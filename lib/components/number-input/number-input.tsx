@@ -13,7 +13,7 @@ const defaultProps: Partial<INumberInput> = {
 };
 
 const InputContainer = (props: INumberInput) => {
-  const { children, variant, size, className } = props;
+  const { children, variant, size, className, isDisabled } = props;
   const theme = useComponentStyle("NumberInput");
 
   const containerClasses = useMemo(() => {
@@ -21,10 +21,11 @@ const InputContainer = (props: INumberInput) => {
       theme.container({
         variant,
         size,
+        isDisabled,
       }),
       className
     );
-  }, [theme, variant, size, className]);
+  }, [theme, variant, size, className, isDisabled]);
 
   return <div className={containerClasses}>{children}</div>;
 };
@@ -42,6 +43,8 @@ export const NumberInput = (props: INumberInput) => {
     max,
     step = 1,
     showArrow = true,
+    isDisabled = false,
+    isReadOnly = false,
     ...restProps
   } = { ...defaultProps, ...props };
 
@@ -121,6 +124,8 @@ export const NumberInput = (props: INumberInput) => {
         min={min}
         max={max}
         step={step}
+        disabled={isDisabled}
+        readOnly={isReadOnly}
         {...restProps}
       />
       {showArrow && (

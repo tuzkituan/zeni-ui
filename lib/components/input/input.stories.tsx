@@ -18,10 +18,22 @@ const meta = {
       options: ["xs", "sm", "md", "lg"],
     },
     value: {
-      control: "text",
+      type: "string",
+    },
+    defaultValue: {
+      type: "string",
     },
     onChange: {
       action: "change",
+    },
+    autoComplete: {
+      type: "string",
+    },
+    isDisabled: {
+      type: "boolean",
+    },
+    isReadOnly: {
+      type: "boolean",
     },
   },
 } satisfies Meta<typeof Input>;

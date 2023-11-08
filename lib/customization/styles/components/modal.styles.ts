@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 const backdrop = cva([
   "fixed",
   "bg-black",
-  "bg-opacity-75",
+  "bg-opacity-50",
   "inset-0",
   "overflow-y-auto",
   "flex",
@@ -11,6 +11,7 @@ const backdrop = cva([
   "w-full",
   "h-full",
   "p-12",
+  "backdrop-blur-sm",
 ]);
 const container = cva(
   [
