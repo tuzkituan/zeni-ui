@@ -19,3 +19,4 @@ export * from "./tooltip.styles";
 export * from "./textarea.styles";
 export * from "./table.styles";
 export * from "./spinner.styles";
+export * from "./image.styles";
