@@ -18,6 +18,7 @@ export const ImagePreview = ({
   backdropClassName = "",
   isOpen = false,
   onCancel,
+  maskClosable = true,
 
   className = "",
   src,
@@ -32,7 +33,6 @@ export const ImagePreview = ({
   const {
     controls,
     dragControls,
-    scale,
     handleRotateLeft,
     handleRotateRight,
     handleZoomIn,
@@ -50,7 +50,7 @@ export const ImagePreview = ({
   }, [theme]);
 
   const imgClasses = useMemo(() => {
-    return twMerge(theme.base(), className);
+    return twMerge(theme.imgPreview(), className);
   }, [className, theme]);
 
   const toolsClasses = useMemo(() => {
@@ -126,6 +126,7 @@ export const ImagePreview = ({
           exit={{ opacity: 0 }}
           className={backdropClasses}
           onWheelCapture={handleScroll}
+          onClick={maskClosable ? onCancel : undefined}
         >
           <motion.div
             onClick={(e) => e.stopPropagation()}
@@ -174,9 +175,9 @@ export const ImagePreview = ({
               animate={controls}
               dragControls={dragControls}
               drag
-              dragMomentum={false}
-              dragSnapToOrigin={scale <= 1}
-              dragTransition={{ bounceStiffness: 0, bounceDamping: 0 }}
+              // dragMomentum={false}
+              dragSnapToOrigin
+              dragTransition={{ bounceStiffness: 100, bounceDamping: 5 }}
             />
           </motion.div>
           {renderTools()}

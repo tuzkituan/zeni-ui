@@ -25,7 +25,7 @@ export const useImagePreview = () => {
   };
 
   const handleZoomOut = () => {
-    setScale((scale) => (scale - FACTOR > 0 ? scale - FACTOR : scale));
+    setScale((scale) => (scale - FACTOR < 1 ? 1 : scale - FACTOR));
   };
 
   const handleRotateLeft = () => {
@@ -41,9 +41,7 @@ export const useImagePreview = () => {
     const delta = -e.deltaY / 120;
     const newScale = scale + delta * factor;
 
-    if (newScale > 0.5) {
-      setScale(newScale);
-    }
+    setScale(newScale < 1 ? 1 : newScale);
   };
 
   useEffect(() => {

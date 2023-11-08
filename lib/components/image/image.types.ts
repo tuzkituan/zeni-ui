@@ -16,5 +16,5 @@ export interface IImagePreview extends IImage {
   backdropClassName?: string;
   isOpen?: boolean;
   onCancel?: () => void;
-  // maskClosable?: boolean;
+  maskClosable?: boolean;
 }

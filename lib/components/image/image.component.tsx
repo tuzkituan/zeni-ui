@@ -18,7 +18,7 @@ export const ImageComponent = forwardRef<HTMLImageElement, IImage>(
     } = props;
 
     const classes = useMemo(() => {
-      return twMerge(theme.base(), className);
+      return twMerge(theme.img(), className);
     }, [className, theme]);
 
     return (

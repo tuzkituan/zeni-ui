@@ -1,6 +1,7 @@
 import { cva } from "class-variance-authority";
 
-const base = cva(["block", "h-auto", "select-none", "w-full"]);
+const img = cva(["block", "h-auto", "select-none"]);
+const imgPreview = cva(["block", "h-auto", "select-none", "w-full"]);
 const backdrop = cva([
   "fixed",
   "bg-black",
@@ -37,9 +38,12 @@ const toolIcon = cva([
   "text-white",
   "hover:brightness-75",
   "select-none",
+  "hover:scale-110",
+  "active:scale-100",
 ]);
 const imageStyles = {
-  base,
+  img,
+  imgPreview,
   backdrop,
   imgContainer,
   isPreviewable,
