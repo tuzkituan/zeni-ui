@@ -18,6 +18,9 @@ export default {
         "primary-text": "var(--color-text-primary)",
         "line-primary": "var(--line-primary)",
       },
+      minHeight: (theme) => ({
+        ...theme('spacing'),
+      })
     },
     backgroundColor: (theme) => ({
       ...theme("colors"),

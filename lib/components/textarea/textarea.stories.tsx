@@ -1,25 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
-import { NumberInput } from "./number-input";
+import { Textarea } from "./textarea";
 
 const meta = {
-  title: "FORMS/NumberInput",
-  component: NumberInput,
+  title: "FORMS/Textarea",
+  component: Textarea,
   tags: ["autodocs"],
   argTypes: {
     variant: {
       control: "radio",
       options: ["outline", "filled", "flushed", "unstyled"],
     },
-    size: {
-      control: "radio",
-      options: ["xs", "sm", "md", "lg"],
-    },
     value: {
-      type: "number",
+      type: "string",
     },
     defaultValue: {
-      type: "number",
+      type: "string",
     },
     onChange: {
       action: "change",
@@ -27,29 +22,33 @@ const meta = {
     autoComplete: {
       type: "string",
     },
+    maxLength: {
+      type: "number",
+    },
+    minLength: {
+      type: "number",
+    },
+    name: {
+      type: "string",
+    },
+    rows: {
+      type: "number",
+    },
     isDisabled: {
       type: "boolean",
     },
-    isReadOnly: {
+    isResizable: {
       type: "boolean",
     },
   },
-} satisfies Meta<typeof NumberInput>;
+} satisfies Meta<typeof Textarea>;
 
 export default meta;
-
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    className: "",
     variant: "outline",
-    size: "md",
-    placeholder: "Enter value",
-    defaultValue: 3,
-    min: 0,
-    max: 20,
-    // showArrow: false,
-    // step: 3,
+    placeholder: "Description",
   },
 };

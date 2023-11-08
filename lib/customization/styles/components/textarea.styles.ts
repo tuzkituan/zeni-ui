@@ -1,27 +1,19 @@
 import { cva } from "class-variance-authority";
 
-const container = cva(
+const base = cva(
   [
+    "block",
     "rounded-md",
     "text-primary-text",
-    "w-full ",
-    "h-full",
+    "w-fit",
     "outline",
     "outline-1",
     "outline-transparent",
-    "flex",
-    "justify-between",
-    "items-center",
-    "overflow-hidden",
+    "w-full",
+    "p-2",
   ],
   {
     variants: {
-      size: {
-        xs: ["h-6"],
-        sm: ["h-8"],
-        md: ["h-10"],
-        lg: ["h-12"],
-      },
       variant: {
         outline: [
           "border",
@@ -62,62 +54,16 @@ const container = cva(
         true: ["!bg-line-primary"],
         false: [],
       },
-    },
-  }
-);
-
-const input = cva(
-  ["rounded-md", "w-full", "h-full", "!bg-transparent", "outline-none"],
-  {
-    variants: {
-      size: {
-        xs: ["px-2", "text-xs"],
-        sm: ["px-2", "text-sm"],
-        md: ["px-3", "text-base"],
-        lg: ["px-3", "text-lg"],
-      },
-      variant: {
-        outline: [],
-        filled: [],
-        flushed: ["!px-0"],
-        unstyled: ["!px-0"],
-      },
-      isInGroup: {
-        true: ["!px-0"],
-        false: [],
+      isResizable: {
+        true: ["resize-y"],
+        false: ["resize-none"],
       },
     },
   }
 );
 
-const arrowContainer = cva([
-  "flex",
-  "flex-col",
-  "border-l",
-  "border-l-line-primary",
-  "justify-stretch",
-  "h-full",
-]);
-
-const arrow = cva([
-  "flex",
-  "justify-center",
-  "items-center",
-  "px-1.5",
-  "leading-none",
-  "hover:bg-line-primary",
-  "text-xs",
-  "grow",
-]);
-
-const arrowDivider = cva(["text-line-primary", "w-full"]);
-
-const numberInputStyles = {
-  container,
-  input,
-  arrowContainer,
-  arrow,
-  arrowDivider,
+const textareaStyles = {
+  base,
 };
 
-export { numberInputStyles };
+export { textareaStyles };

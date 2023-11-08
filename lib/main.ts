@@ -29,6 +29,10 @@ export * from "./components/alert/alert.types";
 export * from "./components/toast";
 export * from "./components/select/select";
 export * from "./components/select/select.types";
+export * from './components/spinner/spinner'
+export * from './components/spinner/spinner.types'
+export * from './components/table/table'
+export * from './components/table/table.types'
 
 // PROVIDERS
 export * from "./providers/zeni-provider";
