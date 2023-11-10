@@ -20,3 +20,4 @@ export * from "./textarea.styles";
 export * from "./table.styles";
 export * from "./spinner.styles";
 export * from "./image.styles";
+export * from './calendar.styles'

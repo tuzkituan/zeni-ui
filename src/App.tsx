@@ -1,73 +1,59 @@
-import {
-  Box,
-  Button,
-  Center,
-  Flex,
-  Popover,
-  Text,
-  ThemeType,
-  createStandaloneToast,
-  useToast,
-} from "../lib/main";
-import { useChangeTheme } from "../lib/customization/theme/use-change-theme";
-import { twMerge } from "tailwind-merge";
-import { Avatar } from "../lib/components/avatar/avatar";
-import { useState } from "react";
+import { Box, Calendar, Center } from "../lib/main";
 
-const standaloneToast = createStandaloneToast()
+// const standaloneToast = createStandaloneToast();
 
 function App() {
-  const { theme, setTheme } = useChangeTheme();
-  const [count, setCount] = useState(0);
-  const toast = useToast()
+  // const { theme, setTheme } = useChangeTheme();
+  // const [count, setCount] = useState(0);
+  // const toast = useToast();
 
-  const showToast = () => {
-    setCount((prevCount) => prevCount + 1);
-    toast({
-      description: `Test toast ${count} from App`,
-      title: "Tuan ne",
-      position: "bottom-right",
-      isClosable: true,
-      variant: "solid",
-      status: "success"
-    })
-  };
+  // const showToast = () => {
+  //   setCount((prevCount) => prevCount + 1);
+  //   toast({
+  //     description: `Test toast ${count} from App`,
+  //     title: "Tuan ne",
+  //     position: "bottom-right",
+  //     isClosable: true,
+  //     variant: "solid",
+  //     status: "success",
+  //   });
+  // };
 
-  const showStandaloneToast = () => {
-    setCount((prevCount) => prevCount + 1);
-    standaloneToast.toast({
-      description: "You can create toast outside components",
-      title: "Success",
-      position: "top-right",
-    })
-  }
+  // const showStandaloneToast = () => {
+  //   setCount((prevCount) => prevCount + 1);
+  //   standaloneToast.toast({
+  //     description: "You can create toast outside components",
+  //     title: "Success",
+  //     position: "top-right",
+  //   });
+  // };
 
-  const items: {
-    label: string;
-    value: ThemeType;
-  }[] = [
-    {
-      label: "Sky Light",
-      value: "baseLight",
-    },
-    {
-      label: "Green Light",
-      value: "greenLight",
-    },
-    {
-      label: "Pink Light",
-      value: "pinkLight",
-    },
-    {
-      label: "Sky Dark",
-      value: "baseDark",
-    },
-  ];
+  // const items: {
+  //   label: string;
+  //   value: ThemeType;
+  // }[] = [
+  //   {
+  //     label: "Sky Light",
+  //     value: "baseLight",
+  //   },
+  //   {
+  //     label: "Green Light",
+  //     value: "greenLight",
+  //   },
+  //   {
+  //     label: "Pink Light",
+  //     value: "pinkLight",
+  //   },
+  //   {
+  //     label: "Sky Dark",
+  //     value: "baseDark",
+  //   },
+  // ];
 
   return (
     <Center className="bg-primary-background min-h-screen">
       <Box className="flex justify-center flex-col items-center h-full gap-4">
-        <Flex className="card">
+        {/* <Flex className="card">
           {items.map((x) => (
             <Button
               key={x.value}
@@ -94,7 +80,10 @@ function App() {
           name="letter tuan"
         />
         <Button onClick={showToast}>Show toast</Button>
-        <Button onClick={showStandaloneToast}>Create Standalone Toast</Button>
+        <Button onClick={showStandaloneToast}>Create Standalone Toast</Button> */}
+        <div className="max-w-[270px]">
+          <Calendar />
+        </div>
       </Box>
     </Center>
   );
