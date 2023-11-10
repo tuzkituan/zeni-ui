@@ -12,7 +12,7 @@ import {
   sub,
   subDays,
 } from "date-fns";
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 const FIRST_DAY_OF_WEEK = 1; // 1 is Monday, 0 is Sunday
 
@@ -59,72 +59,60 @@ export const useCalendar = ({ labelFormat = "EEEEEE" }: IUseCalendar = {}) => {
   const [selectedDate, setSelectedDate] = useState<Date>();
   console.log("selectedDate", selectedDate);
 
-  // const isMondayFirst: boolean = FIRST_DAY_OF_WEEK.toString() === "1";
+  const getMDates = useCallback(
+    (current: Date) => {
+      const _all: Date[] = [];
+      const _start = startOfMonth(current);
+      const _end = endOfMonth(current);
 
-  const getMDates = (current: Date) => {
-    const _all: Date[] = [];
-    const _start = startOfMonth(current);
-    const _end = endOfMonth(current);
+      const _mains: Date[] = getDatesInRange(_start, _end);
+      const startNumber = getDayOfWeekNumber(_start);
 
-    const _mains: Date[] = getDatesInRange(_start, _end);
-    const startNumber = getDayOfWeekNumber(_start);
+      const _prevs = getPrevMonthDates(_start, startNumber - FIRST_DAY_OF_WEEK);
+      _all.push(..._prevs);
+      _all.push(..._mains);
 
-    const _prevs = getPrevMonthDates(_start, startNumber - FIRST_DAY_OF_WEEK);
-    _all.push(..._prevs);
-    _all.push(..._mains);
+      const moreCellNumber = 7 * 6 - _all.length;
+      const _nexts = getNextMonthDates(_start, moreCellNumber);
+      _all.push(..._nexts);
 
-    const moreCellNumber = 7 * 6 - _all.length;
-    const _nexts = getNextMonthDates(_start, moreCellNumber);
-    _all.push(..._nexts);
+      return _all;
+    },
+    [current]
+  );
 
-    return _all;
-  };
+  const getMDateLabels = useCallback(
+    (current: Date) => {
+      const startOfWeekDate = startOfWeek(current, {
+        weekStartsOn: FIRST_DAY_OF_WEEK,
+      });
+      const daysOfWeekText: string[] = [];
 
-  const getMDateLabels = (current: Date) => {
-    const startOfWeekDate = startOfWeek(current, {
-      weekStartsOn: FIRST_DAY_OF_WEEK,
-    });
-    const daysOfWeekText: string[] = [];
+      for (let i = 0; i < 7; i++) {
+        const currentDate = addDays(startOfWeekDate, i);
+        const formattedDate = format(currentDate, labelFormat);
+        daysOfWeekText.push(formattedDate);
+      }
 
-    for (let i = 0; i < 7; i++) {
-      const currentDate = addDays(startOfWeekDate, i);
-      const formattedDate = format(currentDate, labelFormat);
-      daysOfWeekText.push(formattedDate);
-    }
-
-    return daysOfWeekText;
-  };
+      return daysOfWeekText;
+    },
+    [current]
+  );
 
   const onMPrevMonth = () => {
-    setCurrent((prev) =>
-      sub(prev, {
-        months: 1,
-      })
-    );
+    setCurrent((prev) => sub(prev, { months: 1 }));
   };
 
   const onMNextMonth = () => {
-    setCurrent((prev) =>
-      add(prev, {
-        months: 1,
-      })
-    );
+    setCurrent((prev) => add(prev, { months: 1 }));
   };
 
   const onMPrevYear = () => {
-    setCurrent((prev) =>
-      sub(prev, {
-        years: 1,
-      })
-    );
+    setCurrent((prev) => sub(prev, { years: 1 }));
   };
 
   const onMNextYear = () => {
-    setCurrent((prev) =>
-      add(prev, {
-        years: 1,
-      })
-    );
+    setCurrent((prev) => add(prev, { years: 1 }));
   };
 
   const onMSelectDate = (date: Date) => {
@@ -151,12 +139,15 @@ export const useCalendar = ({ labelFormat = "EEEEEE" }: IUseCalendar = {}) => {
     }
   };
 
+  const m_dateLabels = useMemo(() => getMDateLabels(current), [current]);
+  const m_dates = useMemo(() => getMDates(current), [current]);
+
   return {
     current,
     selectedDate,
     m_onSelectDate: onMSelectDate,
-    m_dateLabels: getMDateLabels(current),
-    m_dates: getMDates(current),
+    m_dateLabels,
+    m_dates,
     m_onPrevMonth: onMPrevMonth,
     m_onNextMonth: onMNextMonth,
     m_onPrevYear: onMPrevYear,

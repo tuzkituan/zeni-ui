@@ -150,7 +150,6 @@ const input = cva(
 );
 
 const dropdown = cva([
-  "max-h-[300px]",
   "overflow-y-auto",
   "rounded-lg",
   "px-1",
@@ -162,6 +161,7 @@ const dropdown = cva([
   "border-line-primary",
   "shadow-sm",
   "overflow-x-hidden",
+  "w-[270px]"
 ]);
 const option = cva(
   [
