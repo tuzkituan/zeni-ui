@@ -17,7 +17,7 @@ import { useState } from "react";
 const FIRST_DAY_OF_WEEK = 1; // 1 is Monday, 0 is Sunday
 
 interface IUseCalendar {
-  headerDateFormat?: string;
+  labelFormat?: string;
 }
 
 const getDayOfWeekNumber = (date: Date): number => {
@@ -54,7 +54,7 @@ const getNextMonthDates = (startDate: Date, numberOfDays: number): Date[] => {
   return nextMonthDates;
 };
 
-export const useCalendar = ({ headerDateFormat = "EE" }: IUseCalendar = {}) => {
+export const useCalendar = ({ labelFormat = "EEEEEE" }: IUseCalendar = {}) => {
   const [current, setCurrent] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date>();
   console.log("selectedDate", selectedDate);
@@ -88,7 +88,7 @@ export const useCalendar = ({ headerDateFormat = "EE" }: IUseCalendar = {}) => {
 
     for (let i = 0; i < 7; i++) {
       const currentDate = addDays(startOfWeekDate, i);
-      const formattedDate = format(currentDate, headerDateFormat); // 'EEEE' gives the full day name (Monday, Tuesday, etc.)
+      const formattedDate = format(currentDate, labelFormat);
       daysOfWeekText.push(formattedDate);
     }
 
@@ -107,6 +107,22 @@ export const useCalendar = ({ headerDateFormat = "EE" }: IUseCalendar = {}) => {
     setCurrent((prev) =>
       add(prev, {
         months: 1,
+      })
+    );
+  };
+
+  const onMPrevYear = () => {
+    setCurrent((prev) =>
+      sub(prev, {
+        years: 1,
+      })
+    );
+  };
+
+  const onMNextYear = () => {
+    setCurrent((prev) =>
+      add(prev, {
+        years: 1,
       })
     );
   };
@@ -141,7 +157,9 @@ export const useCalendar = ({ headerDateFormat = "EE" }: IUseCalendar = {}) => {
     m_onSelectDate: onMSelectDate,
     m_dateLabels: getMDateLabels(current),
     m_dates: getMDates(current),
-    m_onPrevMonth: () => onMPrevMonth(),
-    m_onNextMonth: () => onMNextMonth(),
+    m_onPrevMonth: onMPrevMonth,
+    m_onNextMonth: onMNextMonth,
+    m_onPrevYear: onMPrevYear,
+    m_onNextYear: onMNextYear,
   };
 };

@@ -81,7 +81,9 @@ function App() {
         />
         <Button onClick={showToast}>Show toast</Button>
         <Button onClick={showStandaloneToast}>Create Standalone Toast</Button> */}
-        <Calendar />
+        <div className="max-w-[270px]">
+          <Calendar />
+        </div>
       </Box>
     </Center>
   );
