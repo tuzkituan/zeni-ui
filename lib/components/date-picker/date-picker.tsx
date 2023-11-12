@@ -1,114 +1,135 @@
-import { forwardRef, useMemo, useRef, useState } from "react";
+import { Calendar as CalendarIcon } from "@phosphor-icons/react";
+import { format as dnsFormat } from "date-fns";
+import { AnimatePresence, motion } from "framer-motion";
+import { useMemo, useRef, useState } from "react";
+import { useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { Box } from "../box/box";
-import { IDatePicker } from "./date-picker.types";
-import { useLayer } from "react-laag";
-import { AnimatePresence, motion } from "framer-motion";
-import { Calendar as CalendarIcon } from "@phosphor-icons/react";
 import { Calendar } from "../calendar/calendar";
+import { IDatePicker } from "./date-picker.types";
 
-export const DatePicker = forwardRef<HTMLInputElement, IDatePicker>(
-  (props: IDatePicker, ref) => {
-    const theme = useComponentStyle("DatePicker");
-    const secContainerRef = useRef<HTMLDivElement | null>(null);
-    const inputRef = useRef<HTMLInputElement | null>(null);
-    const dropdownRef = useRef<HTMLDivElement | null>(null);
+export const DatePicker = (props: IDatePicker) => {
+  const theme = useComponentStyle("DatePicker");
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-    const {
-      className = "",
-      size,
-      variant,
-      isDisabled = false,
-      isReadOnly = false,
-      ...restProps
-    } = props;
+  const {
+    className = "",
+    size,
+    variant,
+    isDisabled = false,
+    isReadOnly = false,
+    format = "MM/dd/yyyy",
+    icon,
+    ...restProps
+  } = props;
 
-    // STATE
-    const [isOpen, setOpen] = useState(false);
+  // STATE
+  const [isOpen, setOpen] = useState(false);
 
-    const { triggerProps, layerProps, renderLayer } = useLayer({
-      isOpen: isOpen,
-      auto: true,
-      triggerOffset: 4,
-      placement: "bottom-start",
-      onOutsideClick: () => {
-        setOpen(false);
-      },
-    });
+  const [selectedDate, setSelectedDate] = useState<Date>();
+  const [hoveringDate, setHoveringDate] = useState<Date>();
 
-    const containerClasses = useMemo(() => {
-      return twMerge(
-        theme.container({
-          size,
-          variant,
-          isDisabled,
-        }),
-        theme.group(),
-        className
-      );
-    }, [theme, size, isDisabled, variant, className]);
+  const { triggerProps, layerProps, renderLayer } = useLayer({
+    isOpen: isOpen,
+    auto: true,
+    triggerOffset: 4,
+    placement: "bottom-start",
+    onOutsideClick: () => {
+      setOpen(false);
+    },
+  });
 
-    const dropdownClasses = useMemo(() => {
-      return twMerge(theme.dropdown());
-    }, [theme]);
-
-    const inputClasses = useMemo(() => {
-      return twMerge(
-        theme.input({
-          size,
-          variant,
-        }),
-        className
-      );
-    }, [theme, size, variant, className]);
-
-    const rightElementClasses = useMemo(() => {
-      return twMerge(theme.rightElement());
-    }, [theme]);
-
-    return (
-      <>
-        <div
-          {...triggerProps}
-          onClick={() => {
-            // when searching, disable closing dropdown when clicking on the input
-            setOpen((prev) => {
-              return !prev;
-            });
-            inputRef.current?.focus();
-          }}
-          className={containerClasses}
-        >
-          <input
-            placeholder="Placeholder"
-            className={inputClasses}
-            ref={ref}
-            disabled={isDisabled}
-            readOnly={isReadOnly}
-            {...restProps}
-          />
-          <Box className={rightElementClasses}>
-            <CalendarIcon size={20} />
-          </Box>
-        </div>
-        {isOpen &&
-          renderLayer(
-            <AnimatePresence>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                {...layerProps}
-              >
-                <div className={dropdownClasses} ref={dropdownRef}>
-                  <Calendar />
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          )}
-      </>
+  const containerClasses = useMemo(() => {
+    return twMerge(
+      theme.container({
+        size,
+        variant,
+        isDisabled,
+      }),
+      theme.group(),
+      className
     );
-  }
-);
-DatePicker.displayName = "DatePicker";
+  }, [theme, size, isDisabled, variant, className]);
+
+  const dropdownClasses = useMemo(() => {
+    return twMerge(theme.dropdown());
+  }, [theme]);
+
+  const inputClasses = useMemo(() => {
+    return twMerge(
+      theme.input({
+        size,
+        variant,
+      }),
+      className
+    );
+  }, [theme, size, variant, className]);
+
+  const rightElementClasses = useMemo(() => {
+    return twMerge(theme.rightElement());
+  }, [theme]);
+
+  return (
+    <>
+      <div
+        {...triggerProps}
+        onClick={() => {
+          if (isReadOnly || isDisabled) return;
+          // when searching, disable closing dropdown when clicking on the input
+          setOpen((prev) => {
+            return !prev;
+          });
+          inputRef.current?.focus();
+        }}
+        className={containerClasses}
+      >
+        <input
+          placeholder="Select date"
+          className={inputClasses}
+          disabled={isDisabled}
+          readOnly={isReadOnly}
+          {...(hoveringDate
+            ? {
+                value: dnsFormat(hoveringDate, format),
+              }
+            : null)}
+          {...(!hoveringDate && selectedDate
+            ? {
+                value: dnsFormat(selectedDate, format),
+              }
+            : null)}
+          {...restProps}
+        />
+        <Box className={rightElementClasses}>
+          {icon || <CalendarIcon size={20} />}
+        </Box>
+      </div>
+      {isOpen &&
+        renderLayer(
+          <AnimatePresence>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              {...layerProps}
+            >
+              <div className={dropdownClasses} ref={dropdownRef}>
+                <Calendar
+                  onDateClick={(date: Date) => {
+                    setSelectedDate(date);
+                    setOpen(false);
+                  }}
+                  onDateHover={(date?: Date) => {
+                    setHoveringDate(date);
+                  }}
+                  selectedDate={selectedDate}
+                />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        )}
+    </>
+  );
+};

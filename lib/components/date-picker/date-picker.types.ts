@@ -8,4 +8,5 @@ export interface IDatePicker
   isDisabled?: boolean;
   isReadOnly?: boolean;
   icon?: React.ReactNode;
+  format?: string
 }

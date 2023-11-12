@@ -12,12 +12,18 @@ import { ICalendar } from "./calendar.types";
 import { useCalendar } from "./use-calendar";
 
 export const Calendar = (props: ICalendar) => {
-  const { className = "", ...restProps } = props;
+  const {
+    className = "",
+    onDateClick: onDateClickProp,
+    onDateHover: onDateHoverProp,
+    selectedDate: selectedDateProp,
+    ...restProps
+  } = props;
 
   const theme = useComponentStyle("Calendar");
 
   const {
-    current,
+    currentDate,
     selectedDate,
     m_onSelectDate,
     m_dates = [],
@@ -26,7 +32,9 @@ export const Calendar = (props: ICalendar) => {
     m_onNextMonth,
     m_onPrevYear,
     m_onNextYear,
-  } = useCalendar();
+  } = useCalendar({
+    initialSelectedDate: selectedDateProp,
+  });
 
   // CONTAINER & WRAPPER
   const containerClasses = useMemo(() => {
@@ -34,21 +42,32 @@ export const Calendar = (props: ICalendar) => {
   }, [className, theme]);
 
   const tableClasses = useMemo(() => {
-    return twMerge(theme.table(), className);
-  }, [className, theme]);
+    return twMerge(theme.table());
+  }, [theme]);
 
   const tableContainerClasses = useMemo(() => {
-    return twMerge(theme.tableContainer(), className);
-  }, [className, theme]);
+    return twMerge(theme.tableContainer());
+  }, [theme]);
 
   // ROWS
   const labelRowClasses = useMemo(() => {
-    return twMerge(theme.labelRow(), className);
-  }, [className, theme]);
+    return twMerge(theme.labelRow());
+  }, [theme]);
 
   const valueRowClasses = useMemo(() => {
-    return twMerge(theme.valueRow(), className);
-  }, [className, theme]);
+    return twMerge(theme.valueRow());
+  }, [theme]);
+
+  // FUNCS
+  const onDateClick = (date: Date) => {
+    onDateClickProp?.(date);
+    m_onSelectDate(date);
+    onDateHover(undefined);
+  };
+
+  const onDateHover = (date?: Date) => {
+    onDateHoverProp?.(date);
+  };
 
   // UI
   const renderHeader = () => {
@@ -62,11 +81,11 @@ export const Calendar = (props: ICalendar) => {
         </button>
         <div className="flex-1" />
         <button className={theme.headerButton()}>
-          {format(current, "MMM")}
+          {format(currentDate, "MMM")}
         </button>
 
         <button className={theme.headerButton()}>
-          {format(current, "yyyy")}
+          {format(currentDate, "yyyy")}
         </button>
         <div className="flex-1" />
 
@@ -104,7 +123,7 @@ export const Calendar = (props: ICalendar) => {
         {weeks.map((week, weekIndex) => (
           <tr key={weekIndex} className={valueRowClasses}>
             {week.map((date, dateIndex) => {
-              const _isSameMonth = isSameMonth(current, date);
+              const _isSameMonth = isSameMonth(currentDate, date);
               const _isSelectedDate = selectedDate
                 ? isSameDay(selectedDate, date)
                 : false;
@@ -116,7 +135,11 @@ export const Calendar = (props: ICalendar) => {
                       isSameMonth: _isSameMonth,
                       isSelectedDate: _isSelectedDate,
                     })}
-                    onClick={() => m_onSelectDate(date)}
+                    onClick={() => onDateClick(date)}
+                    title={format(date, "MM/dd/yyyy")}
+                    onMouseOver={(e: React.MouseEvent<HTMLDivElement>) => {
+                      onDateHover(new Date(e.currentTarget.title));
+                    }}
                   >
                     {format(date, "d")}
                   </div>
@@ -134,7 +157,12 @@ export const Calendar = (props: ICalendar) => {
     <div className={containerClasses} {...restProps}>
       {renderHeader()}
       <div className={tableContainerClasses}>
-        <table className={tableClasses}>
+        <table
+          className={tableClasses}
+          onMouseLeave={() => {
+            onDateHover(undefined);
+          }}
+        >
           {renderDateLabels(m_dateLabels)}
           {renderRows(m_dates)}
         </table>

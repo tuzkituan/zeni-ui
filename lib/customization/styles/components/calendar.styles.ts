@@ -55,7 +55,7 @@ const headerButton = cva([
   "leading-none",
 ]);
 const tableContainer = cva(["w-full", "py-2", "px-4"]);
-const table = cva(["border-collapse", "w-full", "table-fixed"]);
+const table = cva(["table-fixed"]);
 
 const calendarStyles = {
   valueRow,

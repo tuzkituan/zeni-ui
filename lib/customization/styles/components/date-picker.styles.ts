@@ -92,22 +92,18 @@ const rightElement = cva([
   "items-center",
   "justify-center",
   "px-2",
-  "text-line-primary",
+  "text-gray-500",
 ]);
 
 const dropdown = cva([
-  "max-h-[300px]",
-  "overflow-y-auto",
   "rounded-lg",
-  "px-1",
-  "py-0.5",
   "bg-sec-background",
   "text-primary-text",
   "text-base",
   "border",
   "border-line-primary",
   "shadow-sm",
-  "overflow-x-hidden",
+  "overflow-hidden",
 ]);
 
 const datePickerStyles = {
