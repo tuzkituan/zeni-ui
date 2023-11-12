@@ -314,7 +314,12 @@ export const Calendar = (props: ICalendar) => {
   const renderFooter = () => {
     if (viewMode === "day") {
       return (
-        <div className={footerClasses}>
+        <div
+          className={footerClasses}
+          onMouseLeave={() => {
+            onDateHover(undefined);
+          }}
+        >
           <div
             onClick={() => {
               onDateClick(new Date());
@@ -329,7 +334,9 @@ export const Calendar = (props: ICalendar) => {
         </div>
       );
     }
+    return null;
   };
+
   // MAIN
   return (
     <div className={containerClasses} {...restProps}>

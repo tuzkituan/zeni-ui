@@ -1,6 +1,11 @@
 import { cva } from "class-variance-authority";
 
+// CONTAINER
 const container = cva(["block", "bg-white"]);
+const tableContainer = cva(["w-full", "py-2", "px-4"]);
+const table = cva(["table-fixed", "w-full", "max-w-full"]); // i dont know why "w-full" crashes the browser
+
+// DAY VIEW
 const labelCell = cva(["px-1", "text-center", "font-normal", "h-[36px]"]);
 const valueCell = cva(["px-1"]);
 const valueCellInner = cva(
@@ -34,6 +39,8 @@ const valueCellInner = cva(
     },
   }
 );
+
+// MONTH VIEW
 const monthPickValueCell = cva(["px-1"]);
 const monthPickValueCellInner = cva(
   [
@@ -61,6 +68,8 @@ const monthPickValueCellInner = cva(
     },
   }
 );
+
+// YEAR VIEW
 const yearPickValueCell = cva(["px-1"]);
 const yearPickValueCellInner = cva(
   [
@@ -89,6 +98,7 @@ const yearPickValueCellInner = cva(
   }
 );
 
+// COMMON
 const labelRow = cva(["mb-4"]);
 const valueRow = cva([]);
 const header = cva([
@@ -111,8 +121,8 @@ const headerButton = cva([
   "hover:text-primary",
 ]);
 const headerArrow = cva(["text-gray-400", "hover:text-gray-900"]);
-const tableContainer = cva(["w-full", "py-2", "px-4"]);
-const table = cva(["table-fixed", "w-full", "max-w-full"]); // i dont know why "w-full" crashes the browser
+
+// FOOTER
 const footer = cva([
   "flex",
   "justify-center",
