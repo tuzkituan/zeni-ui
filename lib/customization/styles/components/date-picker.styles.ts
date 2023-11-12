@@ -63,7 +63,15 @@ const container = cva(
 );
 
 const input = cva(
-  ["rounded-md", "w-full", "h-full", "!bg-transparent", "outline-none"],
+  [
+    "rounded-md",
+    "w-full",
+    "h-full",
+    "!bg-transparent",
+    "outline-none",
+    "cursor-default",
+    "caret-transparent",
+  ],
   {
     variants: {
       size: {

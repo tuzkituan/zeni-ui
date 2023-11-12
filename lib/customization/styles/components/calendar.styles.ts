@@ -111,15 +111,25 @@ const header = cva([
   "border-b",
   "border-line-primary",
 ]);
-const headerButton = cva([
-  "rounded-md",
-  "hover:bg-gray-100",
-  "font-medium",
-  "px-1",
-  "py-1",
-  "leading-none",
-  "hover:text-primary",
-]);
+const headerButton = cva(
+  [
+    "rounded-md",
+    "font-medium",
+    "px-1",
+    "py-1",
+    "leading-none",
+    "hover:text-primary",
+    "hover:bg-gray-100",
+  ],
+  {
+    variants: {
+      isNoAction: {
+        true: ["!cursor-default", "pointer-events-none"],
+        false: [],
+      },
+    },
+  }
+);
 const headerArrow = cva(["text-gray-400", "hover:text-gray-900"]);
 
 // FOOTER
