@@ -9,15 +9,18 @@ import {
   isSameMonth,
   startOfMonth,
   startOfWeek,
+  startOfYear,
   sub,
   subDays,
 } from "date-fns";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { ICalendarViewMode } from "./calendar.types";
 
-const FIRST_DAY_OF_WEEK = 1; // 1 is Monday, 0 is Sunday
+const FIRST_DAY_OF_WEEK = 0; // 1 is Monday, 0 is Sunday
 
 interface IUseCalendar {
   labelFormat?: string;
+  initialSelectedDate?: Date;
 }
 
 const getDayOfWeekNumber = (date: Date): number => {
@@ -54,14 +57,15 @@ const getNextMonthDates = (startDate: Date, numberOfDays: number): Date[] => {
   return nextMonthDates;
 };
 
-export const useCalendar = ({ labelFormat = "EEEEEE" }: IUseCalendar = {}) => {
-  const [current, setCurrent] = useState(new Date());
+export const useCalendar = ({
+  labelFormat = "EEEEEE",
+  initialSelectedDate,
+}: IUseCalendar = {}) => {
+  const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date>();
-  console.log("selectedDate", selectedDate);
+  const [viewMode, setViewMode] = useState<ICalendarViewMode>("day");
 
-  // const isMondayFirst: boolean = FIRST_DAY_OF_WEEK.toString() === "1";
-
-  const getMDates = (current: Date) => {
+  const getCurrentMonthDates = (current: Date) => {
     const _all: Date[] = [];
     const _start = startOfMonth(current);
     const _end = endOfMonth(current);
@@ -80,7 +84,32 @@ export const useCalendar = ({ labelFormat = "EEEEEE" }: IUseCalendar = {}) => {
     return _all;
   };
 
-  const getMDateLabels = (current: Date) => {
+  const getMonthList = (current: Date) => {
+    const months: Date[] = [];
+
+    for (let i = 0; i < 12; i++) {
+      const currentMonth = startOfMonth(new Date(current.getFullYear(), i, 1));
+      months.push(currentMonth);
+    }
+
+    return months;
+  };
+
+  const getDecadeYearList = (current: Date) => {
+    const currentYear = new Date(current).getFullYear();
+    const startYear = currentYear - 4;
+    const endYear = currentYear + 8;
+    const years: Date[] = [];
+
+    for (let year = startYear; year < endYear; year++) {
+      const firstDayOfYear = startOfYear(new Date(year, 0, 1));
+      years.push(firstDayOfYear);
+    }
+
+    return years;
+  };
+
+  const getWeekdayList = (current: Date) => {
     const startOfWeekDate = startOfWeek(current, {
       weekStartsOn: FIRST_DAY_OF_WEEK,
     });
@@ -95,71 +124,103 @@ export const useCalendar = ({ labelFormat = "EEEEEE" }: IUseCalendar = {}) => {
     return daysOfWeekText;
   };
 
-  const onMPrevMonth = () => {
-    setCurrent((prev) =>
-      sub(prev, {
-        months: 1,
-      })
-    );
+  const onPrevMonth = () => {
+    setCurrentDate((prev) => sub(prev, { months: 1 }));
   };
 
-  const onMNextMonth = () => {
-    setCurrent((prev) =>
-      add(prev, {
-        months: 1,
-      })
-    );
+  const onNextMonth = () => {
+    setCurrentDate((prev) => add(prev, { months: 1 }));
   };
 
-  const onMPrevYear = () => {
-    setCurrent((prev) =>
-      sub(prev, {
-        years: 1,
-      })
-    );
+  const onPrevYear = () => {
+    setCurrentDate((prev) => sub(prev, { years: 1 }));
   };
 
-  const onMNextYear = () => {
-    setCurrent((prev) =>
-      add(prev, {
-        years: 1,
-      })
-    );
+  const onNextYear = () => {
+    setCurrentDate((prev) => add(prev, { years: 1 }));
   };
 
-  const onMSelectDate = (date: Date) => {
+  const onPrevDecade = () => {
+    setCurrentDate((prev) => sub(prev, { years: 12 }));
+  };
+
+  const onNextDecade = () => {
+    setCurrentDate((prev) => add(prev, { years: 12 }));
+  };
+
+  const onSelectDate = (date: Date) => {
     setSelectedDate(date);
     if (
       isSameMonth(
-        sub(current, {
+        sub(currentDate, {
           months: 1,
         }),
         date
       )
     ) {
-      onMPrevMonth();
+      onPrevMonth();
     }
     if (
       isSameMonth(
-        add(current, {
+        add(currentDate, {
           months: 1,
         }),
         date
       )
     ) {
-      onMNextMonth();
+      onNextMonth();
     }
   };
 
+  const onPickMonth = (date: Date) => {
+    setCurrentDate(date);
+    setViewMode("day");
+  };
+
+  const onPickYear = (date: Date) => {
+    setCurrentDate(date);
+    setViewMode("month");
+  };
+
+  const weekdayList = useMemo(() => getWeekdayList(currentDate), [currentDate]);
+  const currentMonthDateList = useMemo(
+    () => getCurrentMonthDates(currentDate),
+    [currentDate]
+  );
+  const monthList = useMemo(() => getMonthList(currentDate), [currentDate]);
+  const decadeYearList = useMemo(
+    () => getDecadeYearList(currentDate),
+    [currentDate]
+  );
+
+  useEffect(() => {
+    if (initialSelectedDate) {
+      setCurrentDate(initialSelectedDate);
+      setSelectedDate(initialSelectedDate);
+    }
+  }, [initialSelectedDate]);
+
   return {
-    current,
+    viewMode,
+    setViewMode,
+    currentDate,
     selectedDate,
-    m_onSelectDate: onMSelectDate,
-    m_dateLabels: getMDateLabels(current),
-    m_dates: getMDates(current),
-    m_onPrevMonth: onMPrevMonth,
-    m_onNextMonth: onMNextMonth,
-    m_onPrevYear: onMPrevYear,
-    m_onNextYear: onMNextYear,
+    onSelectDate,
+    // viewMode: day
+    weekdayList,
+    currentMonthDateList,
+    // view mode: month
+    monthList,
+    decadeYearList,
+    // functions
+    onPrevMonth,
+    onNextMonth,
+    onPrevYear,
+    onNextYear,
+    onPrevDecade,
+    onNextDecade,
+    // on pick month & year
+    onPickMonth,
+    onPickYear,
   };
 };

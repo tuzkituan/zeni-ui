@@ -3,5 +3,9 @@ export interface ICalendar
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
   > {
-  children?: React.ReactNode;
+  onDateClick?: (date: Date) => void;
+  onDateHover?: (date?: Date) => void;
+  selectedDate?: Date;
 }
+
+export type ICalendarViewMode = "day" | "month" | "year";
