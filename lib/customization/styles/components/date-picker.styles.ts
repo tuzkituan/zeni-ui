@@ -112,6 +112,7 @@ const dropdown = cva([
   "border-line-primary",
   "shadow-sm",
   "overflow-hidden",
+  "w-[270px]",
 ]);
 const iconColor = cva(["text-gray-500"]);
 

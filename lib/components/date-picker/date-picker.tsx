@@ -8,7 +8,6 @@ import { useComponentStyle } from "../../customization/styles/theme.context";
 import { Box } from "../box/box";
 import { Calendar } from "../calendar/calendar";
 import { IDatePicker } from "./date-picker.types";
-import { isEmpty } from "../../functions";
 
 const DEFAULT_FORMAT = "MM/dd/yyyy";
 
@@ -38,10 +37,7 @@ export const DatePicker = (props: IDatePicker) => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(
     value || defaultValue
   );
-  console.log("selectedDate", selectedDate);
-
   const [hoveringDate, setHoveringDate] = useState<Date | undefined>();
-  console.log("hoveringDate", hoveringDate);
 
   const { triggerProps, layerProps, renderLayer } = useLayer({
     isOpen: isOpen,
@@ -98,6 +94,7 @@ export const DatePicker = (props: IDatePicker) => {
   // HOOKS
   useEffect(() => {
     setSelectedDate(value || defaultValue);
+    onChange?.(value || defaultValue);
   }, [value, defaultValue]);
 
   const renderClear = () => {

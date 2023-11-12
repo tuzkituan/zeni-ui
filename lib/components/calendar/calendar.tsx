@@ -4,7 +4,7 @@ import {
   CaretLeft,
   CaretRight,
 } from "@phosphor-icons/react";
-import { format, isSameDay, isSameMonth, isToday } from "date-fns";
+import { format, isSameDay, isSameMonth, isSameYear, isToday } from "date-fns";
 import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
@@ -23,15 +23,23 @@ export const Calendar = (props: ICalendar) => {
   const theme = useComponentStyle("Calendar");
 
   const {
+    viewMode,
+    setViewMode,
     currentDate,
     selectedDate,
-    m_onSelectDate,
-    m_dates = [],
-    m_dateLabels = [],
-    m_onPrevMonth,
-    m_onNextMonth,
-    m_onPrevYear,
-    m_onNextYear,
+    onSelectDate,
+    currentMonthDateList = [],
+    weekdayList = [],
+    monthList = [],
+    decadeYearList = [],
+    onPrevMonth,
+    onNextMonth,
+    onPrevYear,
+    onNextYear,
+    onPrevDecade,
+    onNextDecade,
+    onPickMonth,
+    onPickYear,
   } = useCalendar({
     initialSelectedDate: selectedDateProp,
   });
@@ -49,6 +57,10 @@ export const Calendar = (props: ICalendar) => {
     return twMerge(theme.tableContainer());
   }, [theme]);
 
+  const footerClasses = useMemo(() => {
+    return twMerge(theme.footer());
+  }, [theme]);
+
   // ROWS
   const labelRowClasses = useMemo(() => {
     return twMerge(theme.labelRow());
@@ -61,7 +73,7 @@ export const Calendar = (props: ICalendar) => {
   // FUNCS
   const onDateClick = (date: Date) => {
     onDateClickProp?.(date);
-    m_onSelectDate(date);
+    onSelectDate(date);
     onDateHover(undefined);
   };
 
@@ -71,33 +83,82 @@ export const Calendar = (props: ICalendar) => {
 
   // UI
   const renderHeader = () => {
-    return (
-      <div className={theme.header()}>
-        <button onClick={m_onPrevYear}>
-          <CaretDoubleLeft />
-        </button>
-        <button onClick={m_onPrevMonth}>
-          <CaretLeft />
-        </button>
-        <div className="flex-1" />
-        <button className={theme.headerButton()}>
-          {format(currentDate, "MMM")}
-        </button>
+    if (viewMode === "day") {
+      return (
+        <div className={theme.header()}>
+          <button onClick={onPrevYear} className={theme.headerArrow()}>
+            <CaretDoubleLeft />
+          </button>
+          <button onClick={onPrevMonth} className={theme.headerArrow()}>
+            <CaretLeft />
+          </button>
+          <div className="flex-1" />
+          <button
+            className={theme.headerButton()}
+            onClick={() => setViewMode("month")}
+          >
+            {format(currentDate, "MMM")}
+          </button>
 
-        <button className={theme.headerButton()}>
-          {format(currentDate, "yyyy")}
-        </button>
-        <div className="flex-1" />
+          <button
+            className={theme.headerButton()}
+            onClick={() => setViewMode("year")}
+          >
+            {format(currentDate, "yyyy")}
+          </button>
+          <div className="flex-1" />
 
-        <button onClick={m_onNextMonth}>
-          <CaretRight />
-        </button>
-        <button onClick={m_onNextYear}>
-          <CaretDoubleRight />
-        </button>
-      </div>
-    );
+          <button onClick={onNextMonth} className={theme.headerArrow()}>
+            <CaretRight />
+          </button>
+          <button onClick={onNextYear} className={theme.headerArrow()}>
+            <CaretDoubleRight />
+          </button>
+        </div>
+      );
+    }
+    if (viewMode === "month") {
+      return (
+        <div className={theme.header()}>
+          <button onClick={onPrevYear} className={theme.headerArrow()}>
+            <CaretLeft />
+          </button>
+          <div className="flex-1" />
+          <button
+            className={theme.headerButton()}
+            onClick={() => setViewMode("year")}
+          >
+            {format(currentDate, "yyyy")}
+          </button>
+          <div className="flex-1" />
+          <button onClick={onNextYear} className={theme.headerArrow()}>
+            <CaretRight />
+          </button>
+        </div>
+      );
+    }
+    if (viewMode === "year") {
+      const first = decadeYearList[0];
+      const last = decadeYearList[decadeYearList.length - 1];
+      return (
+        <div className={theme.header()}>
+          <button onClick={onPrevDecade} className={theme.headerArrow()}>
+            <CaretLeft />
+          </button>
+          <div className="flex-1" />
+          <button className={theme.headerButton()}>
+            {`${format(first, "yyyy")} - ${format(last, "yyyy")}`}
+          </button>
+          <div className="flex-1" />
+          <button onClick={onNextDecade} className={theme.headerArrow()}>
+            <CaretRight />
+          </button>
+        </div>
+      );
+    }
+    return null;
   };
+
   const renderDateLabels = (arr: string[] = []) => {
     return (
       <thead className={labelRowClasses}>
@@ -152,21 +213,129 @@ export const Calendar = (props: ICalendar) => {
     );
   };
 
+  const renderContent = () => {
+    if (viewMode === "day") {
+      return (
+        <div className={tableContainerClasses}>
+          <table
+            className={tableClasses}
+            onMouseLeave={() => {
+              onDateHover(undefined);
+            }}
+          >
+            {renderDateLabels(weekdayList)}
+            {renderRows(currentMonthDateList)}
+          </table>
+        </div>
+      );
+    }
+    if (viewMode === "month") {
+      const rows: Date[][] = [];
+      for (let i = 0; i < monthList.length; i += 4) {
+        rows.push(monthList.slice(i, i + 4));
+      }
+
+      return (
+        <div className={tableContainerClasses}>
+          <div className="flex flex-wrap">
+            <table className={tableClasses}>
+              {rows.map((row, i) => (
+                <tr key={i} className={valueRowClasses}>
+                  {row.map((x, i) => {
+                    const _isSameMonth = selectedDate
+                      ? isSameMonth(x, selectedDate) &&
+                        isSameYear(x, selectedDate)
+                      : false;
+                    return (
+                      <td
+                        key={i}
+                        onClick={() => onPickMonth(x)}
+                        className={theme.monthPickValueCell()}
+                      >
+                        <div
+                          className={theme.monthPickValueCellInner({
+                            isSameMonth: _isSameMonth,
+                          })}
+                        >
+                          {format(x, "MMM")}
+                        </div>
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </table>
+          </div>
+        </div>
+      );
+    }
+    if (viewMode === "year") {
+      const rows: Date[][] = [];
+      for (let i = 0; i < decadeYearList.length; i += 3) {
+        rows.push(decadeYearList.slice(i, i + 3));
+      }
+
+      return (
+        <div className={tableContainerClasses}>
+          <div className="flex flex-wrap">
+            <table className={tableClasses}>
+              {rows.map((row, i) => (
+                <tr key={i} className={valueRowClasses}>
+                  {row.map((x, i) => {
+                    const _isSameYear = selectedDate
+                      ? isSameYear(x, selectedDate)
+                      : false;
+                    return (
+                      <td
+                        key={i}
+                        onClick={() => onPickYear(x)}
+                        className={theme.yearPickValueCell()}
+                      >
+                        <div
+                          className={theme.yearPickValueCellInner({
+                            isSameYear: _isSameYear,
+                          })}
+                        >
+                          {format(x, "yyyy")}
+                        </div>
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </table>
+          </div>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  const renderFooter = () => {
+    if (viewMode === "day") {
+      return (
+        <div className={footerClasses}>
+          <div
+            onClick={() => {
+              onDateClick(new Date());
+            }}
+            className={theme.footerButton()}
+            onMouseOver={() => {
+              onDateHover(new Date());
+            }}
+          >
+            Now
+          </div>
+        </div>
+      );
+    }
+  };
   // MAIN
   return (
     <div className={containerClasses} {...restProps}>
       {renderHeader()}
-      <div className={tableContainerClasses}>
-        <table
-          className={tableClasses}
-          onMouseLeave={() => {
-            onDateHover(undefined);
-          }}
-        >
-          {renderDateLabels(m_dateLabels)}
-          {renderRows(m_dates)}
-        </table>
-      </div>
+      {renderContent()}
+      {renderFooter()}
     </div>
   );
 };
