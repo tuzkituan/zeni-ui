@@ -94,7 +94,15 @@ const rightElement = cva([
   "px-2",
   "text-gray-500",
 ]);
-
+const clearElement = cva([
+  "flex",
+  "items-center",
+  "justify-center",
+  "p-1.5",
+  "hover:cursor-pointer",
+  "hover:bg-gray-100",
+  "hover:rounded-lg",
+]);
 const dropdown = cva([
   "rounded-lg",
   "bg-sec-background",
@@ -105,6 +113,7 @@ const dropdown = cva([
   "shadow-sm",
   "overflow-hidden",
 ]);
+const iconColor = cva(["text-gray-500"]);
 
 const datePickerStyles = {
   container,
@@ -112,6 +121,8 @@ const datePickerStyles = {
   group,
   dropdown,
   rightElement,
+  clearElement,
+  iconColor,
 };
 
 export { datePickerStyles };

@@ -1,13 +1,16 @@
-import { Calendar as CalendarIcon } from "@phosphor-icons/react";
+import { Calendar as CalendarIcon, X } from "@phosphor-icons/react";
 import { format as dnsFormat } from "date-fns";
 import { AnimatePresence, motion } from "framer-motion";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { Box } from "../box/box";
 import { Calendar } from "../calendar/calendar";
 import { IDatePicker } from "./date-picker.types";
+import { isEmpty } from "../../functions";
+
+const DEFAULT_FORMAT = "MM/dd/yyyy";
 
 export const DatePicker = (props: IDatePicker) => {
   const theme = useComponentStyle("DatePicker");
@@ -20,22 +23,31 @@ export const DatePicker = (props: IDatePicker) => {
     variant,
     isDisabled = false,
     isReadOnly = false,
-    format = "MM/dd/yyyy",
+    format = DEFAULT_FORMAT,
+    value,
+    defaultValue,
+    onChange,
     icon,
+    placement = "bottom-start",
+    isClearable = true,
     ...restProps
   } = props;
 
   // STATE
   const [isOpen, setOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(
+    value || defaultValue
+  );
+  console.log("selectedDate", selectedDate);
 
-  const [selectedDate, setSelectedDate] = useState<Date>();
-  const [hoveringDate, setHoveringDate] = useState<Date>();
+  const [hoveringDate, setHoveringDate] = useState<Date | undefined>();
+  console.log("hoveringDate", hoveringDate);
 
   const { triggerProps, layerProps, renderLayer } = useLayer({
     isOpen: isOpen,
     auto: true,
     triggerOffset: 4,
-    placement: "bottom-start",
+    placement,
     onOutsideClick: () => {
       setOpen(false);
     },
@@ -71,6 +83,35 @@ export const DatePicker = (props: IDatePicker) => {
     return twMerge(theme.rightElement());
   }, [theme]);
 
+  const clearElementClasses = useMemo(() => {
+    return twMerge(theme.clearElement());
+  }, [theme]);
+
+  // FUNCS
+  const onClear = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
+    setOpen(false);
+    setSelectedDate(undefined);
+    onChange?.(undefined);
+  };
+
+  // HOOKS
+  useEffect(() => {
+    setSelectedDate(value || defaultValue);
+  }, [value, defaultValue]);
+
+  const renderClear = () => {
+    if (isClearable && selectedDate) {
+      return (
+        <Box className={clearElementClasses} onClick={onClear}>
+          <X size={16} className={theme.iconColor()} />
+        </Box>
+      );
+    }
+
+    return null;
+  };
+
   return (
     <>
       <div
@@ -90,18 +131,15 @@ export const DatePicker = (props: IDatePicker) => {
           className={inputClasses}
           disabled={isDisabled}
           readOnly={isReadOnly}
+          value={selectedDate ? dnsFormat(selectedDate, format) : ""}
           {...(hoveringDate
             ? {
                 value: dnsFormat(hoveringDate, format),
               }
             : null)}
-          {...(!hoveringDate && selectedDate
-            ? {
-                value: dnsFormat(selectedDate, format),
-              }
-            : null)}
           {...restProps}
         />
+        {renderClear()}
         <Box className={rightElementClasses}>
           {icon || <CalendarIcon size={20} />}
         </Box>
@@ -119,6 +157,7 @@ export const DatePicker = (props: IDatePicker) => {
                 <Calendar
                   onDateClick={(date: Date) => {
                     setSelectedDate(date);
+                    onChange?.(date);
                     setOpen(false);
                   }}
                   onDateHover={(date?: Date) => {
