@@ -14,14 +14,9 @@ import {
   subDays,
 } from "date-fns";
 import { useEffect, useMemo, useState } from "react";
-import { ICalendarViewMode } from "./calendar.types";
+import { ICalendarViewMode, IUseCalendar } from "./calendar.types";
 
 const FIRST_DAY_OF_WEEK = 0; // 1 is Monday, 0 is Sunday
-
-interface IUseCalendar {
-  labelFormat?: string;
-  initialSelectedDate?: Date;
-}
 
 const getDayOfWeekNumber = (date: Date): number => {
   const dayOfWeek = getDay(date);
@@ -60,10 +55,11 @@ const getNextMonthDates = (startDate: Date, numberOfDays: number): Date[] => {
 export const useCalendar = ({
   labelFormat = "EEEEEE",
   initialSelectedDate,
+  mode = "day",
 }: IUseCalendar = {}) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date>();
-  const [viewMode, setViewMode] = useState<ICalendarViewMode>("day");
+  const [viewMode, setViewMode] = useState<ICalendarViewMode>(mode);
 
   const getCurrentMonthDates = (current: Date) => {
     const _all: Date[] = [];
@@ -174,15 +170,22 @@ export const useCalendar = ({
 
   const onPickMonth = (date: Date) => {
     setCurrentDate(date);
-    setViewMode("day");
+    if (mode === "day") {
+      setViewMode("day");
+    }
   };
 
   const onPickYear = (date: Date) => {
     setCurrentDate(date);
-    setViewMode("month");
+    if (mode === "day") {
+      setViewMode("month");
+    }
   };
 
-  const weekdayList = useMemo(() => getWeekdayList(currentDate), [currentDate]);
+  const weekdayList: string[] = useMemo(
+    () => getWeekdayList(currentDate),
+    [currentDate]
+  );
   const currentMonthDateList = useMemo(
     () => getCurrentMonthDates(currentDate),
     [currentDate]

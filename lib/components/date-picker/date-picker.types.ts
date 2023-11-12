@@ -28,4 +28,5 @@ export interface IDatePicker
   defaultValue?: Date;
   onChange?: (date?: Date) => void;
   isClearable?: boolean;
+  mode?: "day" | "month" | "year";
 }

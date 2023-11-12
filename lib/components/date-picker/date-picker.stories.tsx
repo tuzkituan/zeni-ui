@@ -15,6 +15,10 @@ const meta = {
       control: "radio",
       options: ["xs", "sm", "md", "lg"],
     },
+    mode: {
+      control: "radio",
+      options: ["day", "month", "year"],
+    },
     placement: {
       description: "Popover placement",
       options: [
@@ -43,9 +47,10 @@ export const Primary: Story = {
   args: {
     variant: "outline",
     size: "md",
-    format: "dd MMM yyyy",
+    format: undefined,
     placement: "bottom-start",
     defaultValue: new Date(),
     isClearable: true,
+    mode: "day",
   },
 };

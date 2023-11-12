@@ -8,8 +8,11 @@ import { useComponentStyle } from "../../customization/styles/theme.context";
 import { Box } from "../box/box";
 import { Calendar } from "../calendar/calendar";
 import { IDatePicker } from "./date-picker.types";
-
-const DEFAULT_FORMAT = "MM/dd/yyyy";
+import {
+  DEFAULT_DAY_FORMAT,
+  DEFAULT_MONTH_FORMAT,
+  DEFAULT_YEAR_FORMAT,
+} from "./date-picker.utils";
 
 export const DatePicker = (props: IDatePicker) => {
   const theme = useComponentStyle("DatePicker");
@@ -22,13 +25,14 @@ export const DatePicker = (props: IDatePicker) => {
     variant,
     isDisabled = false,
     isReadOnly = false,
-    format = DEFAULT_FORMAT,
+    format,
     value,
     defaultValue,
     onChange,
     icon,
     placement = "bottom-start",
     isClearable = true,
+    mode = "day",
     ...restProps
   } = props;
 
@@ -91,12 +95,28 @@ export const DatePicker = (props: IDatePicker) => {
     onChange?.(undefined);
   };
 
+  const getFormatByMode = () => {
+    switch (mode) {
+      case "month":
+        return format || DEFAULT_MONTH_FORMAT;
+
+      case "year":
+        return format || DEFAULT_YEAR_FORMAT;
+
+      default:
+        return format|| DEFAULT_DAY_FORMAT;
+    }
+  };
+
+  const finalFormat = getFormatByMode();
+
   // HOOKS
   useEffect(() => {
     setSelectedDate(value || defaultValue);
     onChange?.(value || defaultValue);
   }, [value, defaultValue]);
 
+  // UI
   const renderClear = () => {
     if (isClearable && selectedDate) {
       return (
@@ -128,10 +148,10 @@ export const DatePicker = (props: IDatePicker) => {
           className={inputClasses}
           disabled={isDisabled}
           readOnly={isReadOnly}
-          value={selectedDate ? dnsFormat(selectedDate, format) : ""}
+          value={selectedDate ? dnsFormat(selectedDate, finalFormat) : ""}
           {...(hoveringDate
             ? {
-                value: dnsFormat(hoveringDate, format),
+                value: dnsFormat(hoveringDate, finalFormat),
               }
             : null)}
           {...restProps}
@@ -161,6 +181,7 @@ export const DatePicker = (props: IDatePicker) => {
                     setHoveringDate(date);
                   }}
                   selectedDate={selectedDate}
+                  mode={mode}
                 />
               </div>
             </motion.div>

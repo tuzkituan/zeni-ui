@@ -17,6 +17,7 @@ export const Calendar = (props: ICalendar) => {
     onDateClick: onDateClickProp,
     onDateHover: onDateHoverProp,
     selectedDate: selectedDateProp,
+    mode: modeProp = "day",
     ...restProps
   } = props;
 
@@ -42,6 +43,7 @@ export const Calendar = (props: ICalendar) => {
     onPickYear,
   } = useCalendar({
     initialSelectedDate: selectedDateProp,
+    mode: modeProp,
   });
 
   // CONTAINER & WRAPPER
@@ -146,7 +148,11 @@ export const Calendar = (props: ICalendar) => {
             <CaretLeft />
           </button>
           <div className="flex-1" />
-          <button className={theme.headerButton()}>
+          <button
+            className={theme.headerButton({
+              isNoAction: true,
+            })}
+          >
             {`${format(first, "yyyy")} - ${format(last, "yyyy")}`}
           </button>
           <div className="flex-1" />
@@ -249,7 +255,13 @@ export const Calendar = (props: ICalendar) => {
                     return (
                       <td
                         key={i}
-                        onClick={() => onPickMonth(x)}
+                        onClick={() => {
+                          if (modeProp === "month") {
+                            onDateClick(x);
+                          } else {
+                            onPickMonth(x);
+                          }
+                        }}
                         className={theme.monthPickValueCell()}
                       >
                         <div
@@ -288,7 +300,13 @@ export const Calendar = (props: ICalendar) => {
                     return (
                       <td
                         key={i}
-                        onClick={() => onPickYear(x)}
+                        onClick={() => {
+                          if (modeProp === "year") {
+                            onDateClick(x);
+                          } else {
+                            onPickYear(x);
+                          }
+                        }}
                         className={theme.yearPickValueCell()}
                       >
                         <div
