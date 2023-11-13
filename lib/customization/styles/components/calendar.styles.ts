@@ -36,7 +36,22 @@ const valueCellInner = cva(
       isSelectedDate: {
         true: ["!text-white", "!bg-primary", "!font-medium"],
       },
+      isDisabled: {
+        true: [
+          "!bg-gray-200",
+          "hover:!cursor-not-allowed",
+          "hover:!text-gray-300",
+        ],
+        false: [],
+      },
     },
+    compoundVariants: [
+      {
+        isDisabled: true,
+        isSameMonth: true,
+        className: ["!text-gray-300"],
+      },
+    ],
   }
 );
 
@@ -64,6 +79,14 @@ const monthPickValueCellInner = cva(
       isSameMonth: {
         true: ["text-primary"],
         false: ["text-primary-text"],
+      },
+      isDisabled: {
+        true: [
+          "!bg-gray-200",
+          "hover:!cursor-not-allowed",
+          "hover:text-primary-text",
+        ],
+        false: [],
       },
     },
   }
@@ -93,6 +116,14 @@ const yearPickValueCellInner = cva(
       isSameYear: {
         true: ["text-primary"],
         false: ["text-primary-text"],
+      },
+      isDisabled: {
+        true: [
+          "!bg-gray-200",
+          "hover:!cursor-not-allowed",
+          "hover:text-primary-text",
+        ],
+        false: [],
       },
     },
   }

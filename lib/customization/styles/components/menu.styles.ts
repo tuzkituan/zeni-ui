@@ -13,7 +13,7 @@ const base = cva([
 const item = cva([
   "w-full",
   "px-2",
-  "py-1.5",
+  "py-1",
   "rounded",
   "hover:bg-line-primary",
   "cursor-pointer",
