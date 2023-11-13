@@ -29,4 +29,5 @@ export interface IDatePicker
   onChange?: (date?: Date) => void;
   isClearable?: boolean;
   mode?: "day" | "month" | "year";
+  disabledDate?: (current: Date) => boolean;
 }

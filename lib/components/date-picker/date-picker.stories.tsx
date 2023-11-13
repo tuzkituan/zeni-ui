@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+// import { isBefore } from "date-fns";
 import { DatePicker } from "./date-picker";
+import { isBefore } from "date-fns";
 
 const meta = {
   title: "FORMS/DatePicker",
@@ -37,6 +39,9 @@ const meta = {
       ],
       control: { type: "radio" },
     },
+    disabledDate: {
+      type: "function",
+    },
   },
 } satisfies Meta<typeof DatePicker>;
 
@@ -52,5 +57,6 @@ export const Primary: Story = {
     defaultValue: new Date(),
     isClearable: true,
     mode: "day",
+    disabledDate: (current) => current && isBefore(current, new Date()),
   },
 };

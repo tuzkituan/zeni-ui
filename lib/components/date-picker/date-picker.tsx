@@ -33,6 +33,7 @@ export const DatePicker = (props: IDatePicker) => {
     placement = "bottom-start",
     isClearable = true,
     mode = "day",
+    disabledDate,
     ...restProps
   } = props;
 
@@ -104,7 +105,7 @@ export const DatePicker = (props: IDatePicker) => {
         return format || DEFAULT_YEAR_FORMAT;
 
       default:
-        return format|| DEFAULT_DAY_FORMAT;
+        return format || DEFAULT_DAY_FORMAT;
     }
   };
 
@@ -181,6 +182,7 @@ export const DatePicker = (props: IDatePicker) => {
                     setHoveringDate(date);
                   }}
                   selectedDate={selectedDate}
+                  disabledDate={disabledDate}
                   mode={mode}
                 />
               </div>

@@ -170,6 +170,7 @@ export const useCalendar = ({
 
   const onPickMonth = (date: Date) => {
     setCurrentDate(date);
+    setSelectedDate(date);
     if (mode === "day") {
       setViewMode("day");
     }
@@ -177,6 +178,7 @@ export const useCalendar = ({
 
   const onPickYear = (date: Date) => {
     setCurrentDate(date);
+    setSelectedDate(date);
     if (mode === "day") {
       setViewMode("month");
     }

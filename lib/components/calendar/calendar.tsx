@@ -18,6 +18,7 @@ export const Calendar = (props: ICalendar) => {
     onDateHover: onDateHoverProp,
     selectedDate: selectedDateProp,
     mode: modeProp = "day",
+    disabledDate: disabledDateProp,
     ...restProps
   } = props;
 
@@ -165,62 +166,13 @@ export const Calendar = (props: ICalendar) => {
     return null;
   };
 
-  const renderDateLabels = (arr: string[] = []) => {
-    return (
-      <thead className={labelRowClasses}>
-        <tr>
-          {arr.map((x) => (
-            <th key={x} className={theme.labelCell()}>
-              {x}
-            </th>
-          ))}
-        </tr>
-      </thead>
-    );
-  };
-
-  const renderRows = (arr: Date[] = []) => {
-    const weeks: Date[][] = [];
-    for (let i = 0; i < arr.length; i += 7) {
-      weeks.push(arr.slice(i, i + 7));
-    }
-
-    return (
-      <tbody>
-        {weeks.map((week, weekIndex) => (
-          <tr key={weekIndex} className={valueRowClasses}>
-            {week.map((date, dateIndex) => {
-              const _isSameMonth = isSameMonth(currentDate, date);
-              const _isSelectedDate = selectedDate
-                ? isSameDay(selectedDate, date)
-                : false;
-              return (
-                <td key={dateIndex} className={theme.valueCell()}>
-                  <div
-                    className={theme.valueCellInner({
-                      isToday: isToday(date),
-                      isSameMonth: _isSameMonth,
-                      isSelectedDate: _isSelectedDate,
-                    })}
-                    onClick={() => onDateClick(date)}
-                    title={format(date, "MM/dd/yyyy")}
-                    onMouseOver={(e: React.MouseEvent<HTMLDivElement>) => {
-                      onDateHover(new Date(e.currentTarget.title));
-                    }}
-                  >
-                    {format(date, "d")}
-                  </div>
-                </td>
-              );
-            })}
-          </tr>
-        ))}
-      </tbody>
-    );
-  };
-
   const renderContent = () => {
     if (viewMode === "day") {
+      const weeks: Date[][] = [];
+      for (let i = 0; i < currentMonthDateList.length; i += 7) {
+        weeks.push(currentMonthDateList.slice(i, i + 7));
+      }
+
       return (
         <div className={tableContainerClasses}>
           <table
@@ -229,8 +181,55 @@ export const Calendar = (props: ICalendar) => {
               onDateHover(undefined);
             }}
           >
-            {renderDateLabels(weekdayList)}
-            {renderRows(currentMonthDateList)}
+            <thead className={labelRowClasses}>
+              <tr>
+                {weekdayList.map((x) => (
+                  <th key={x} className={theme.labelCell()}>
+                    {x}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {weeks.map((week, weekIndex) => (
+                <tr key={weekIndex} className={valueRowClasses}>
+                  {week.map((date, dateIndex) => {
+                    const _isSameMonth = isSameMonth(currentDate, date);
+                    const _isSelectedDate = selectedDate
+                      ? isSameDay(selectedDate, date)
+                      : false;
+                    const _isDisabled = date ? disabledDateProp?.(date) : false;
+                    return (
+                      <td key={dateIndex} className={theme.valueCell()}>
+                        <div
+                          className={theme.valueCellInner({
+                            isToday: isToday(date),
+                            isSameMonth: _isSameMonth,
+                            isSelectedDate: _isSelectedDate,
+                            isDisabled: _isDisabled,
+                          })}
+                          onClick={
+                            _isDisabled
+                              ? () => undefined
+                              : () => onDateClick(date)
+                          }
+                          title={format(date, "MM/dd/yyyy")}
+                          onMouseOver={(
+                            e: React.MouseEvent<HTMLDivElement>
+                          ) => {
+                            if (!_isDisabled) {
+                              onDateHover(new Date(e.currentTarget.title));
+                            }
+                          }}
+                        >
+                          {format(date, "d")}
+                        </div>
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
           </table>
         </div>
       );
@@ -252,14 +251,17 @@ export const Calendar = (props: ICalendar) => {
                       ? isSameMonth(x, selectedDate) &&
                         isSameYear(x, selectedDate)
                       : false;
+                    const _isDisabled = x ? disabledDateProp?.(x) : false;
                     return (
                       <td
                         key={i}
                         onClick={() => {
-                          if (modeProp === "month") {
-                            onDateClick(x);
-                          } else {
-                            onPickMonth(x);
+                          if (!_isDisabled) {
+                            if (modeProp === "month") {
+                              onDateClick(x);
+                            } else {
+                              onPickMonth(x);
+                            }
                           }
                         }}
                         className={theme.monthPickValueCell()}
@@ -267,6 +269,7 @@ export const Calendar = (props: ICalendar) => {
                         <div
                           className={theme.monthPickValueCellInner({
                             isSameMonth: _isSameMonth,
+                            isDisabled: _isDisabled,
                           })}
                         >
                           {format(x, "MMM")}
@@ -297,14 +300,17 @@ export const Calendar = (props: ICalendar) => {
                     const _isSameYear = selectedDate
                       ? isSameYear(x, selectedDate)
                       : false;
+                    const _isDisabled = x ? disabledDateProp?.(x) : false;
                     return (
                       <td
                         key={i}
                         onClick={() => {
-                          if (modeProp === "year") {
-                            onDateClick(x);
-                          } else {
-                            onPickYear(x);
+                          if (!_isDisabled) {
+                            if (modeProp === "year") {
+                              onDateClick(x);
+                            } else {
+                              onPickYear(x);
+                            }
                           }
                         }}
                         className={theme.yearPickValueCell()}
@@ -312,6 +318,7 @@ export const Calendar = (props: ICalendar) => {
                         <div
                           className={theme.yearPickValueCellInner({
                             isSameYear: _isSameYear,
+                            isDisabled: _isDisabled,
                           })}
                         >
                           {format(x, "yyyy")}

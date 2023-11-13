@@ -69,7 +69,7 @@ const input = cva(
     "h-full",
     "!bg-transparent",
     "outline-none",
-    "cursor-default",
+    "cursor-pointer",
     "caret-transparent",
   ],
   {

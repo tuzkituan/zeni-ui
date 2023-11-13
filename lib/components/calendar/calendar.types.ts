@@ -7,6 +7,7 @@ export interface ICalendar
   onDateHover?: (date?: Date) => void;
   selectedDate?: Date;
   mode?: ICalendarViewMode;
+  disabledDate?: (current: Date) => boolean;
 }
 
 export interface IUseCalendar {
