@@ -44,3 +44,28 @@ export const Primary: Story = {
     isLoading: false,
   },
 };
+
+export const LoadingOverlay: Story = {
+  args: {
+    children: (
+      <div>
+        Staring at the ceiling in the dark
+        <br />
+        Same old empty feeling in your heart
+        <br />
+        Cause love comes slow, and it goes so fast
+        <br />
+        Well, you see her when you fall asleep
+        <br />
+        But never to touch and never to keep
+        <br />
+        Cause you loved her too much, and you dived too deep
+      </div>
+    ),
+    size: "md",
+    opacity: undefined,
+    icon: undefined,
+    description: "Loading...",
+    isLoading: true,
+  },
+};
