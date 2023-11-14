@@ -57,6 +57,6 @@ export const Primary: Story = {
     defaultValue: new Date(),
     isClearable: true,
     mode: "day",
-    disabledDate: (current) => current && isBefore(current, new Date()),
+    // disabledDate: (current) => current && isBefore(current, new Date()),
   },
 };
