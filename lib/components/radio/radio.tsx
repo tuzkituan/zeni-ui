@@ -55,7 +55,7 @@ export const Radio = (props: IRadio) => {
         aria-describedby="radio"
         type="radio"
         className={inputClasses}
-        disabled={isDisabled}
+        disabled={isDisabled || isReadOnly}
         readOnly={isReadOnly}
         checked={isChecked !== undefined ? isChecked : undefined}
         {...restProps}

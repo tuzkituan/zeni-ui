@@ -57,7 +57,7 @@ export const Checkbox = (props: ICheckbox) => {
         aria-describedby="checkbox"
         type="checkbox"
         className={inputClasses}
-        disabled={isDisabled}
+        disabled={isDisabled || isReadOnly}
         readOnly={isReadOnly}
         checked={isChecked !== undefined ? isChecked : undefined}
         ref={(input) => {
