@@ -30,6 +30,7 @@ interface StyleComponents {
   Image: typeof styles.imageStyles;
   Calendar: typeof styles.calendarStyles;
   DatePicker: typeof styles.datePickerStyles;
+  Switch: typeof styles.switchStyles;
 }
 
 const defaultStyle: Style = {
@@ -57,7 +58,8 @@ const defaultStyle: Style = {
     Spinner: styles.spinnerStyles,
     Image: styles.imageStyles,
     Calendar: styles.calendarStyles,
-    DatePicker: styles.datePickerStyles
+    DatePicker: styles.datePickerStyles,
+    Switch: styles.switchStyles,
   },
 };
 
