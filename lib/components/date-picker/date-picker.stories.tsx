@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 // import { isBefore } from "date-fns";
 import { DatePicker } from "./date-picker";
-import { isBefore } from "date-fns";
 
 const meta = {
   title: "FORMS/DatePicker",
