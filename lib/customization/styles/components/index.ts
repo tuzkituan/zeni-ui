@@ -23,3 +23,4 @@ export * from "./image.styles";
 export * from "./calendar.styles";
 export * from "./date-picker.styles";
 export * from "./switch.styles";
+export * from "./slider.styles";
