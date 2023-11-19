@@ -43,8 +43,10 @@ export const Menu = ({
 
   const onMenuItemClick = (value: IMenuKey) => {
     if (value) {
-      onMenuClick?.(value);
+      onMenuClick && onMenuClick(value);
     }
+    setOpen(false);
+    onOpenChange && onOpenChange(false);
   };
 
   const renderMenuItems = () => {
@@ -53,7 +55,7 @@ export const Menu = ({
         key={x.key}
         value={x.key}
         className={itemClasses}
-        onClick={(e) => onMenuItemClick((e.target as HTMLInputElement).value)}
+        onClick={() => onMenuItemClick(x.key)}
       >
         {x.title}
       </li>

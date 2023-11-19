@@ -63,5 +63,7 @@ export const Primary: Story = {
   ),
   args: {
     children: "Open menu",
+    placement: "bottom-start",
+    onMenuClick: (key) => alert(`You clicked: ${key}`),
   },
 };
