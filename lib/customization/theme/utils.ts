@@ -86,13 +86,6 @@ export const mapTheme = (variables: ITheme): IMappedTheme => {
     "--color-info-30": variables.info30 || "",
     "--color-info-20": variables.info20 || "",
     "--color-info-10": variables.info10 || "",
-
-    // border
-    "--border-radius-base": variables.borderRadiusBase || "",
-    "--border-color-base": variables.borderColorBase || "",
-
-    // shadow
-    "--shadow-base": variables.shadowBase || "",
   };
 };
 

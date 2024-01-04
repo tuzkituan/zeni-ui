@@ -1,4 +1,4 @@
-export const Colors = {
+export default {
   primary100: "#151522",
   primary90: "#232339",
   primary80: "#353455",
@@ -70,32 +70,4 @@ export const Colors = {
   info30: "#B0C3D5",
   info20: "#CAD7E3",
   info10: "#DFE7EE",
-};
-
-// export const Border = {
-//   borderRadiusBase: "8px",
-//   borderColorBase: Colors.neutral10,
-// };
-
-// export const Input = {
-//   inputHeightXs: "24px",
-//   inputHeightSm: "32px",
-//   inputHeightMd: "40px",
-//   inputHeightLg: "48px",
-
-//   inputPaddingHorXs: "24px",
-//   inputPaddingHorSm: "32px",
-//   inputPaddingHorMd: "40px",
-//   inputPaddingHorLg: "48px",
-// };
-
-// export const Effects = {
-//   shadowBase: "0px 6px 18px 0px rgba(4, 4, 7, 0.05)",
-// };
-
-export default {
-  ...Colors,
-  // ...Effects,
-  // ...Border,
-  // ...Input,
 };
