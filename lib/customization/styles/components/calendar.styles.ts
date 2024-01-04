@@ -22,19 +22,19 @@ const valueCellInner = cva(
     "leading-[24px]",
     "hover:cursor-pointer",
     "hover:bg-gray-200",
-    "hover:text-primary-text",
+    "hover:text-neutral-100",
   ],
   {
     variants: {
       isToday: {
-        true: ["!text-primary", "!border-primary"],
+        true: ["!text-primary-base", "!border-primary-base"],
       },
       isSameMonth: {
-        true: ["text-primary-text"],
+        true: ["text-neutral-100"],
         false: ["text-gray-300"],
       },
       isSelectedDate: {
-        true: ["!text-white", "!bg-primary", "!font-medium"],
+        true: ["!text-white", "!bg-primary-base", "!font-medium"],
       },
       isDisabled: {
         true: [
@@ -72,19 +72,19 @@ const monthPickValueCellInner = cva(
     "leading-[24px]",
     "hover:cursor-pointer",
     "hover:bg-gray-200",
-    "hover:text-primary-text",
+    "hover:text-neutral-100",
   ],
   {
     variants: {
       isSameMonth: {
-        true: ["text-primary"],
-        false: ["text-primary-text"],
+        true: ["text-primary-base"],
+        false: ["text-neutral-100"],
       },
       isDisabled: {
         true: [
           "!bg-gray-200",
           "hover:!cursor-not-allowed",
-          "hover:text-primary-text",
+          "hover:text-neutral-100",
         ],
         false: [],
       },
@@ -109,19 +109,19 @@ const yearPickValueCellInner = cva(
     "leading-[24px]",
     "hover:cursor-pointer",
     "hover:bg-gray-200",
-    "hover:text-primary-text",
+    "hover:text-neutral-100",
   ],
   {
     variants: {
       isSameYear: {
-        true: ["text-primary"],
-        false: ["text-primary-text"],
+        true: ["text-primary-base"],
+        false: ["text-neutral-100"],
       },
       isDisabled: {
         true: [
           "!bg-gray-200",
           "hover:!cursor-not-allowed",
-          "hover:text-primary-text",
+          "hover:text-neutral-100",
         ],
         false: [],
       },
@@ -140,7 +140,7 @@ const header = cva([
   "px-3",
   "py-2",
   "border-b",
-  "border-line-primary",
+  "border-base",
 ]);
 const headerButton = cva(
   [
@@ -149,7 +149,7 @@ const headerButton = cva(
     "px-1",
     "py-1",
     "leading-none",
-    "hover:text-primary",
+    "hover:text-primary-base",
     "hover:bg-gray-100",
   ],
   {
@@ -168,10 +168,14 @@ const footer = cva([
   "flex",
   "justify-center",
   "border-t",
-  "border-line-primary",
+  "border-base",
   "py-2",
 ]);
-const footerButton = cva(["block", "hover:cursor-pointer", "text-primary"]);
+const footerButton = cva([
+  "block",
+  "hover:cursor-pointer",
+  "text-primary-base",
+]);
 
 const calendarStyles = {
   valueRow,

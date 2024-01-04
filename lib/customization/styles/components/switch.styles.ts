@@ -44,8 +44,8 @@ const span = cva(
     "after:border",
     "after:rounded-full",
     "after:transition-all",
-    "dark:border-primary",
-    "peer-checked:bg-primary",
+    "dark:border-primary-base",
+    "peer-checked:bg-primary-base",
   ],
   {
     variants: {

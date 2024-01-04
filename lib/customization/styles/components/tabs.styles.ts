@@ -4,7 +4,7 @@ const container = cva(["block"]);
 const nav = cva(["block"], {
   variants: {
     variant: {
-      underline: ["border-b", "border-b-line-primary"],
+      underline: ["border-b", "border-b-base"],
       solid: [],
       outline: [],
     },
@@ -54,17 +54,17 @@ const li = cva(
       {
         variant: "underline",
         isSelected: true,
-        class: "text-primary",
+        class: "text-primary-base",
       },
       {
         variant: "solid",
         isSelected: true,
-        class: ["bg-primary", "text-white"],
+        class: ["bg-primary-base", "text-white"],
       },
       {
         variant: "outline",
         isSelected: true,
-        class: ["border-primary", "text-primary"],
+        class: ["border-primary-base", "text-primary-base"],
       },
     ],
   }
@@ -76,7 +76,7 @@ const indicator = cva([
   "right-0",
   "w-full",
   "h-[1.5px]",
-  "bg-primary",
+  "bg-primary-base",
 ]);
 const content = cva(["block", "py-4"]);
 const tabsStyles = {

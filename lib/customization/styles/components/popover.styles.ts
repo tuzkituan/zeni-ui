@@ -5,10 +5,10 @@ const base = cva([
   "px-3",
   "py-2",
   "bg-sec-background",
-  "text-primary-text",
+  "text-neutral-100",
   "text-base",
   "border",
-  "border-line-primary",
+  "border-base",
   "shadow-sm",
 ]);
 const arrow = cva([]);

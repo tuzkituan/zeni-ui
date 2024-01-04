@@ -4,10 +4,10 @@ const base = cva([
   "rounded-lg",
   "p-1",
   "bg-sec-background",
-  "text-primary-text",
+  "text-neutral-100",
   "text-base",
   "border",
-  "border-line-primary",
+  "border-base",
   "shadow-sm",
 ]);
 const item = cva([
@@ -15,7 +15,7 @@ const item = cva([
   "px-2",
   "py-1",
   "rounded",
-  "hover:bg-line-primary",
+  "hover:bg-base",
   "cursor-pointer",
 ]);
 const arrow = cva([]);

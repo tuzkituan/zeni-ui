@@ -4,7 +4,7 @@ const base = cva(
   [
     "block",
     "rounded-md",
-    "text-primary-text",
+    "text-neutral-100",
     "w-fit",
     "outline",
     "outline-1",
@@ -17,41 +17,41 @@ const base = cva(
       variant: {
         outline: [
           "border",
-          "border-line-primary",
+          "border-base",
 
-          "hover:!border-primary",
+          "hover:!border-primary-base",
 
-          "focus-within:!border-primary",
-          "focus-within:!outline-primary",
+          "focus-within:!border-primary-base",
+          "focus-within:!outline-primary-base",
         ],
         filled: [
-          "bg-line-primary",
+          "bg-base",
 
           "border",
-          "border-line-primary",
+          "border-base",
 
-          "hover:!border-primary",
+          "hover:!border-primary-base",
 
-          "focus-within:!border-primary",
-          "focus-within:!outline-primary",
+          "focus-within:!border-primary-base",
+          "focus-within:!outline-primary-base",
           "focus-within:!bg-sec-background",
         ],
         flushed: [
           "!rounded-none",
 
           "border-b",
-          "border-b-line-primary",
+          "border-b-base",
 
           "hover:shadow-[0_1px_0_0_var(--color-primary)]",
           "focus-within:!shadow-[0_1px_0_0_var(--color-primary)]",
-          "focus-within:!border-b-primary",
+          "focus-within:!border-b-primary-base",
 
           "!px-0",
         ],
         unstyled: ["!border-none", "!bg-none", "!outline-none", "!px-0"],
       },
       isDisabled: {
-        true: ["!bg-line-primary"],
+        true: ["!bg-base"],
         false: [],
       },
       isResizable: {

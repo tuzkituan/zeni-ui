@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 const tableBorder = cva([], {
   variants: {
     isBordered: {
-      true: ["border", "border-line-primary", "border-collapse"],
+      true: ["border", "border-base", "border-collapse"],
       false: [],
     },
   },
@@ -20,7 +20,7 @@ const cell = cva(["text-left"], {
     },
   },
 });
-const th = cva(["uppercase", "text-sm", "font-medium", "text-primary-text"]);
+const th = cva(["uppercase", "text-sm", "font-medium", "text-neutral-100"]);
 const td = cva([]);
 const tableStyles = {
   base,

@@ -3,12 +3,11 @@ import { cva } from "class-variance-authority";
 const container = cva(["flex", "items-center", "w-fit", "gap-2"]);
 const input = cva(
   [
-    "bg-primary-background",
-    "border-line-primary",
+    "border-base",
     "focus:ring-3",
-    "focus:ring-line-primary",
+    "focus:ring-base",
     "rounded",
-    "checked:!accent-primary",
+    "checked:!accent-primary-base",
   ],
   {
     variants: {
@@ -30,7 +29,7 @@ const input = cva(
     },
   }
 );
-const label = cva(["text-sm", "font-medium", "text-primary-text"], {
+const label = cva(["text-sm", "font-medium", "text-neutral-100"], {
   variants: {
     disabled: {
       true: ["opacity-50", "pointer-events-none", "select-none"],

@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 const container = cva(
   [
     "rounded-md",
-    "text-primary-text",
+    "text-neutral-100",
     "w-fit",
     "outline",
     "outline-1",
@@ -21,34 +21,34 @@ const container = cva(
       variant: {
         outline: [
           "border",
-          "border-line-primary",
+          "border-base",
 
-          "hover:!border-primary",
+          "hover:!border-primary-base",
 
-          "focus-within:!border-primary",
-          "focus-within:!outline-primary",
+          "focus-within:!border-primary-base",
+          "focus-within:!outline-primary-base",
         ],
         filled: [
-          "bg-line-primary",
+          "bg-base",
 
           "border",
-          "border-line-primary",
+          "border-base",
 
-          "hover:!border-primary",
+          "hover:!border-primary-base",
 
-          "focus-within:!border-primary",
-          "focus-within:!outline-primary",
+          "focus-within:!border-primary-base",
+          "focus-within:!outline-primary-base",
           "focus-within:!bg-sec-background",
         ],
         flushed: [
           "!rounded-none",
 
           "border-b",
-          "border-b-line-primary",
+          "border-b-base",
 
           "hover:shadow-[0_1px_0_0_var(--color-primary)]",
           "focus-within:!shadow-[0_1px_0_0_var(--color-primary)]",
-          "focus-within:!border-b-primary",
+          "focus-within:!border-b-primary-base",
 
           "!px-0",
         ],
@@ -155,13 +155,13 @@ const dropdown = cva([
   "px-1",
   "py-0.5",
   "bg-sec-background",
-  "text-primary-text",
+  "text-neutral-100",
   "text-base",
   "border",
-  "border-line-primary",
+  "border-base",
   "shadow-sm",
   "overflow-x-hidden",
-  "w-[270px]"
+  "w-[270px]",
 ]);
 const option = cva(
   [
@@ -180,7 +180,7 @@ const option = cva(
   {
     variants: {
       isSelected: {
-        true: ["font-medium", "bg-line-primary"],
+        true: ["font-medium", "bg-base"],
         false: [],
       },
       isDisabled: {
@@ -191,7 +191,7 @@ const option = cva(
   }
 );
 const optionLabel = cva(["truncate", "inline-block"]);
-const optionCheckIcon = cva(["text-primary", "text-[18px]"]);
+const optionCheckIcon = cva(["text-primary-base", "text-[18px]"]);
 const group = cva(["flex", "items-center"]);
 const inputLabel = cva(["truncate", "inline-block", "w-full"]);
 const placeholder = cva([
@@ -235,7 +235,7 @@ const tagContainer = cva([
 const tag = cva([
   "border",
   "rounded-md",
-  "border-line-primary",
+  "border-base",
   "px-2",
   "py-1.5",
   "font-medium",

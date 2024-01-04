@@ -15,6 +15,6 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     children: "Actually this is a div",
-    className: "bg-primary p-4 text-white",
+    className: "bg-primary-base p-4 text-white",
   },
 };

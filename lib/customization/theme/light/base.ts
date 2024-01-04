@@ -72,30 +72,30 @@ export const Colors = {
   info10: "#DFE7EE",
 };
 
-export const Border = {
-  borderRadiusBase: "8px",
-  borderColorBase: Colors.neutral10,
-};
+// export const Border = {
+//   borderRadiusBase: "8px",
+//   borderColorBase: Colors.neutral10,
+// };
 
-export const Input = {
-  inputHeightXs: "24px",
-  inputHeightSm: "32px",
-  inputHeightMd: "40px",
-  inputHeightLg: "48px",
+// export const Input = {
+//   inputHeightXs: "24px",
+//   inputHeightSm: "32px",
+//   inputHeightMd: "40px",
+//   inputHeightLg: "48px",
 
-  inputPaddingHorXs: "24px",
-  inputPaddingHorSm: "32px",
-  inputPaddingHorMd: "40px",
-  inputPaddingHorLg: "48px",
-};
+//   inputPaddingHorXs: "24px",
+//   inputPaddingHorSm: "32px",
+//   inputPaddingHorMd: "40px",
+//   inputPaddingHorLg: "48px",
+// };
 
-export const Effects = {
-  shadowBase: "0px 6px 18px 0px rgba(4, 4, 7, 0.05)",
-};
+// export const Effects = {
+//   shadowBase: "0px 6px 18px 0px rgba(4, 4, 7, 0.05)",
+// };
 
 export default {
   ...Colors,
-  ...Effects,
-  ...Border,
-  ...Input,
+  // ...Effects,
+  // ...Border,
+  // ...Input,
 };
