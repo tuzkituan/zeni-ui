@@ -69,5 +69,8 @@
   },
   "sideEffects": [
     "**/*.css"
-  ]
+  ],
+  "dependencies": {
+    "iconsax-react": "^0.0.8"
+  }
 }

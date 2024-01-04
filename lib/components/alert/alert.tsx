@@ -1,9 +1,15 @@
-import { CheckCircle, Info, WarningCircle, X } from "@phosphor-icons/react";
+import {
+  CloseCircle,
+  CloseSquare,
+  InfoCircle,
+  TickSquare,
+  Warning2,
+} from "iconsax-react";
 import { useMemo, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
-import { IAlert } from "./alert.types";
 import { Button } from "../button/button";
+import { IAlert } from "./alert.types";
 
 export const Alert = (props: IAlert) => {
   const theme = useComponentStyle("Alert");
@@ -54,8 +60,13 @@ export const Alert = (props: IAlert) => {
   }, [contentClassName, status, theme, variant]);
 
   const closeClasses = useMemo(() => {
-    return twMerge(theme.close(), contentClasses);
-  }, [contentClasses, theme]);
+    return twMerge(
+      theme.close({
+        variant,
+      }),
+      contentClasses
+    );
+  }, [contentClasses, variant, theme]);
 
   const getIcon = (stt: string) => {
     if (icon) {
@@ -63,13 +74,13 @@ export const Alert = (props: IAlert) => {
     }
     switch (stt) {
       case "success":
-        return <CheckCircle weight="fill" />;
+        return <TickSquare variant="Bold" size={20} />;
       case "warning":
-        return <WarningCircle weight="fill" />;
+        return <CloseSquare variant="Bold" size={20} />;
       case "error":
-        return <WarningCircle weight="fill" />;
+        return <Warning2 variant="Bold" size={20} />;
       default:
-        return <Info weight="fill" />;
+        return <InfoCircle variant="Bold" size={20} />;
     }
   };
 
@@ -113,7 +124,7 @@ export const Alert = (props: IAlert) => {
             else setShow(false);
           }}
         >
-          <X />
+          <CloseCircle size={20} />
         </Button>
       )}
     </div>
