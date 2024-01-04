@@ -9,6 +9,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        // OLD THINGS
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
         negative: "var(--color-negative)",
@@ -17,10 +18,15 @@ export default {
         "sec-background": "var(--background-sec)",
         "primary-text": "var(--color-text-primary)",
         "line-primary": "var(--line-primary)",
+
+        // NEW THINGS
+        "color-primary-base": "var(--color-primary-base)",
+        "border-color-base": "var(--color-border-base)",
+        "border-radius-base": "var(--border-radius-base)",
       },
       minHeight: (theme) => ({
-        ...theme('spacing'),
-      })
+        ...theme("spacing"),
+      }),
     },
     backgroundColor: (theme) => ({
       ...theme("colors"),

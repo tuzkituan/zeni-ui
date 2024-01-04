@@ -8,14 +8,9 @@ export type IMappedTheme = Record<string, string | null>;
 
 export const mapTheme = (variables: ITheme): IMappedTheme => {
   return {
-    "--color-primary": variables.primary || "",
-    "--color-secondary": variables.secondary || "",
-    "--color-positive": variables.positive || "",
-    "--color-negative": variables.negative || "",
-    "--color-text-primary": variables.textPrimary || "",
-    "--background-primary": variables.backgroundPrimary || "",
-    "--background-sec": variables.backgroundSecondary || "",
-    "--line-primary": variables.linePrimary || "",
+    "--color-primary-base": variables.primaryBase || "",
+    "--color-border-base": variables.borderColorBase || "",
+    "--border-radius-base": variables.borderRadiusBase || "",
   };
 };
 
