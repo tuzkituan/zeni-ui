@@ -116,8 +116,7 @@ export const Alert = (props: IAlert) => {
         <p className={theme.descriptionText()}>{description}</p>
       </div>
       {isClosable && (
-        <Button
-          variant="unstyled"
+        <button
           className={closeClasses}
           onClick={() => {
             if (onClose) onClose();
@@ -125,7 +124,7 @@ export const Alert = (props: IAlert) => {
           }}
         >
           <CloseCircle size={20} />
-        </Button>
+        </button>
       )}
     </div>
   );

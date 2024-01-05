@@ -160,7 +160,7 @@ const text = cva(["text-base"], {
     },
   ],
 });
-const close = cva(["font-medium", "absolute", "top-2", "right-0"], {
+const close = cva(["font-medium", "absolute", "top-3", "right-3"], {
   variants: {
     variant: {
       subtle: ["!text-gray-400"],

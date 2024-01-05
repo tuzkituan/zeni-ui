@@ -2,13 +2,14 @@ import { cva } from "class-variance-authority";
 
 const base = cva(
   [
-    "rounded-md",
+    "rounded-base",
     "disabled:opacity-50",
     "disabled:cursor-not-allowed",
     "transition-opacity",
     "duration-400",
     "ease-in-out",
     "active:brightness-90",
+    "font-medium",
   ],
   {
     variants: {
@@ -50,10 +51,10 @@ const base = cva(
         unstyled: [],
       },
       size: {
-        xs: ["text-xs", "py-1", "px-2"],
-        sm: ["text-sm", "py-1", "px-2"],
-        md: ["text-base", "py-1.5", "px-3"],
-        lg: ["text-xl", "py-3", "px-6"],
+        xs: ["text-xs", "h-[24px]", "py-1", "px-2"],
+        sm: ["text-xs", "h-[32px]", "py-1", "px-2"],
+        md: ["text-sm", "h-[44px]", "py-1", "px-[20px]"],
+        lg: ["text-base", "h-[48px]", "py-1", "px-[20px]"],
       },
     },
 

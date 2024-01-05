@@ -6,4 +6,5 @@ export default create({
   brandTarget: "_self",
   // appBg: "#F6F4EB",
   appBorderRadius: 8,
+  fontBase: '"Plus Jakarta Sans", sans-serif',
 });
