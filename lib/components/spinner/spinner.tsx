@@ -1,10 +1,10 @@
-import { twMerge } from "tailwind-merge";
-import { useComponentStyle } from "../../customization/styles/theme.context";
-import { ISpinner } from "./spinner.types";
-import { useMemo } from "react";
-import { CircleNotch } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useMemo } from "react";
+import { twMerge } from "tailwind-merge";
+import LoadingIcon from "../../assets/icons/LoadingIcon";
+import { useComponentStyle } from "../../customization/styles/theme.context";
 import { isEmpty } from "../../functions";
+import { ISpinner } from "./spinner.types";
 
 export const Spinner = (props: ISpinner) => {
   const theme = useComponentStyle("Spinner");
@@ -36,11 +36,7 @@ export const Spinner = (props: ISpinner) => {
   }, [theme]);
 
   const renderSpinner = () => {
-    return (
-      <div>
-        {icon || <CircleNotch className={spinnerClasses} weight="bold" />}
-      </div>
-    );
+    return <div>{icon || <LoadingIcon className={spinnerClasses} />}</div>;
   };
 
   if (!children) {

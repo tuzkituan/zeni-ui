@@ -4,10 +4,10 @@ import { cva } from "class-variance-authority";
 const spinner = cva(["animate-spin", "text-primary-base", "!opacity-100"], {
   variants: {
     size: {
-      xs: ["text-sm"],
-      sm: ["text-xl"],
-      md: ["text-3xl"],
-      lg: ["text-6xl"],
+      xs: ["w-[8px]", "h-[8px]"],
+      sm: ["w-[16px]", "h-[16px]"],
+      md: ["w-[24px]", "h-[24px]"],
+      lg: ["w-[48px]", "h-[48px]"],
     },
   },
 });

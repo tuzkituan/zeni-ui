@@ -28,6 +28,7 @@ export const Button = (props: IButton) => {
     leftIcon,
     rightIcon,
     loadingText,
+    isDanger,
     ...restProps
   } = {
     ...defaultProps,
@@ -35,8 +36,8 @@ export const Button = (props: IButton) => {
   };
 
   const classes = useMemo(() => {
-    return twMerge(theme.base({ size, variant }), className);
-  }, [className, variant, size, theme]);
+    return twMerge(theme.base({ size, variant, isDanger }), className);
+  }, [className, variant, size, isDanger, theme]);
 
   const containerStyles: React.CSSProperties = {
     ...(iconSpacing
@@ -46,7 +47,13 @@ export const Button = (props: IButton) => {
       : {}),
   };
 
-  const spinnerRender = spinner ?? <CircleNotch className={theme.spinner()} />;
+  const spinnerRender = spinner ?? (
+    <CircleNotch
+      className={theme.spinner({
+        size,
+      })}
+    />
+  );
   const renderLeftIcon = () => {
     if (isLoading && spinnerPlacement === "start") {
       return spinnerRender;

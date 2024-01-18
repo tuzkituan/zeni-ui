@@ -14,6 +14,10 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     // backgroundColor: { control: 'color' },
+    variant: {
+      control: "radio",
+      options: ["solid", "subtle", "outline", "link", "text"],
+    },
   },
 } satisfies Meta<typeof Button>;
 
@@ -33,6 +37,15 @@ export const Primary: Story = {
     // rightIcon: <Airplane />,
     spinnerPlacement: "start",
     loadingText: "Loading...",
+    isDanger: false,
+  },
+};
+
+export const Subtle: Story = {
+  args: {
+    children: "Button",
+    size: "md",
+    variant: "subtle",
   },
 };
 
@@ -52,18 +65,10 @@ export const Link: Story = {
   },
 };
 
-export const Ghost: Story = {
+export const Text: Story = {
   args: {
     children: "Button",
     size: "md",
-    variant: "ghost",
-  },
-};
-
-export const Unstyled: Story = {
-  args: {
-    children: "Button",
-    size: "md",
-    variant: "unstyled",
+    variant: "text",
   },
 };
