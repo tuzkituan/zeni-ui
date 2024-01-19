@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 
 const container = cva(
   [
-    "rounded-md",
+    "rounded-base",
     "text-neutral-100",
     "w-fit",
     "outline",
@@ -26,25 +26,26 @@ const container = cva(
           "hover:!border-primary-base",
 
           "focus-within:!border-primary-base",
-          "focus-within:!outline-primary-base",
+          "focus-within:!outline-primary-20",
+          "focus-within:!outline-2",
         ],
         filled: [
-          "bg-base",
+          "bg-primary-10",
 
           "border",
-          "border-base",
+          "border-primary-10",
 
           "hover:!border-primary-base",
 
           "focus-within:!border-primary-base",
-          "focus-within:!outline-primary-base",
-          "focus-within:!bg-sec-background",
+          "focus-within:!outline-primary-20",
+          "focus-within:!outline-2",
         ],
         flushed: [
           "!rounded-none",
 
           "border-b",
-          "border-b-base",
+          "border-b-primary-base",
 
           "hover:shadow-[0_1px_0_0_var(--color-primary)]",
           "focus-within:!shadow-[0_1px_0_0_var(--color-primary)]",
@@ -52,10 +53,9 @@ const container = cva(
 
           "!px-0",
         ],
-        unstyled: ["!border-none", "!bg-none", "!outline-none", "!px-0"],
       },
       isDisabled: {
-        true: ["!bg-base"],
+        true: ["!bg-neutral-10", "cursor-not-allowed"],
         false: [],
       },
     },
@@ -71,14 +71,15 @@ const input = cva(
     "outline-none",
     "cursor-pointer",
     "caret-transparent",
+    "placeholder:text-neutral-40",
   ],
   {
     variants: {
       size: {
-        xs: ["px-3", "text-xs"],
-        sm: ["px-3", "text-sm"],
-        md: ["px-3", "text-base"],
-        lg: ["px-3", "text-lg"],
+        xs: ["text-xs"],
+        sm: ["text-sm"],
+        md: ["text-base"],
+        lg: ["text-lg"],
       },
       variant: {
         outline: [],
@@ -90,35 +91,39 @@ const input = cva(
         true: ["!px-0"],
         false: [],
       },
+      isDisabled: {
+        true: ["cursor-not-allowed"],
+        false: [],
+      },
     },
   }
 );
 
 const group = cva(["flex", "items-center"]);
-const rightElement = cva([
+const leftElement = cva([
   "flex",
   "items-center",
   "justify-center",
-  "px-2",
+  "px-4",
   "text-gray-500",
 ]);
 const clearElement = cva([
   "flex",
   "items-center",
   "justify-center",
-  "p-1.5",
-  "hover:cursor-pointer",
-  "hover:bg-gray-100",
-  "hover:rounded-lg",
+  "my-3",
+  "mx-3",
+  "[&>div]:p-1",
+  "[&>div]:hover:bg-gray-100",
+  "[&>div]:hover:cursor-pointer",
+  "[&>div]:hover:rounded-lg",
 ]);
 const dropdown = cva([
   "rounded-lg",
   "bg-sec-background",
   "text-neutral-100",
   "text-base",
-  "border",
-  "border-base",
-  "shadow-sm",
+  "shadow-base",
   "overflow-hidden",
   "w-[270px]",
 ]);
@@ -129,7 +134,7 @@ const datePickerStyles = {
   input,
   group,
   dropdown,
-  rightElement,
+  leftElement,
   clearElement,
   iconColor,
 };

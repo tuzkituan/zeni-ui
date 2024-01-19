@@ -10,6 +10,7 @@ import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { ICalendar } from "./calendar.types";
 import { useCalendar } from "./use-calendar";
+import { ArrowLeft2, ArrowRight2 } from "iconsax-react";
 
 export const Calendar = (props: ICalendar) => {
   const {
@@ -89,20 +90,12 @@ export const Calendar = (props: ICalendar) => {
     if (viewMode === "day") {
       return (
         <div className={theme.header()}>
-          <button onClick={onPrevYear} className={theme.headerArrow()}>
-            <CaretDoubleLeft />
-          </button>
-          <button onClick={onPrevMonth} className={theme.headerArrow()}>
-            <CaretLeft />
-          </button>
-          <div className="flex-1" />
           <button
             className={theme.headerButton()}
             onClick={() => setViewMode("month")}
           >
             {format(currentDate, "MMM")}
           </button>
-
           <button
             className={theme.headerButton()}
             onClick={() => setViewMode("year")}
@@ -110,12 +103,11 @@ export const Calendar = (props: ICalendar) => {
             {format(currentDate, "yyyy")}
           </button>
           <div className="flex-1" />
-
-          <button onClick={onNextMonth} className={theme.headerArrow()}>
-            <CaretRight />
+          <button onClick={onPrevMonth} className={theme.headerArrow()}>
+            <ArrowLeft2 size={20} />
           </button>
-          <button onClick={onNextYear} className={theme.headerArrow()}>
-            <CaretDoubleRight />
+          <button onClick={onNextMonth} className={theme.headerArrow()}>
+            <ArrowRight2 size={20} />
           </button>
         </div>
       );
@@ -124,7 +116,7 @@ export const Calendar = (props: ICalendar) => {
       return (
         <div className={theme.header()}>
           <button onClick={onPrevYear} className={theme.headerArrow()}>
-            <CaretLeft />
+            <ArrowLeft2 size={20} />
           </button>
           <div className="flex-1" />
           <button
@@ -135,7 +127,7 @@ export const Calendar = (props: ICalendar) => {
           </button>
           <div className="flex-1" />
           <button onClick={onNextYear} className={theme.headerArrow()}>
-            <CaretRight />
+            <ArrowRight2 size={20} />
           </button>
         </div>
       );
@@ -146,7 +138,7 @@ export const Calendar = (props: ICalendar) => {
       return (
         <div className={theme.header()}>
           <button onClick={onPrevDecade} className={theme.headerArrow()}>
-            <CaretLeft />
+            <ArrowLeft2 size={20} />
           </button>
           <div className="flex-1" />
           <button
@@ -158,7 +150,7 @@ export const Calendar = (props: ICalendar) => {
           </button>
           <div className="flex-1" />
           <button onClick={onNextDecade} className={theme.headerArrow()}>
-            <CaretRight />
+            <ArrowRight2 size={20} />
           </button>
         </div>
       );

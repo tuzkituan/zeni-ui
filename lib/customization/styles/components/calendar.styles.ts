@@ -6,7 +6,13 @@ const tableContainer = cva(["w-full", "py-2", "px-4"]);
 const table = cva(["table-fixed", "w-full", "max-w-full"]); // i dont know why "w-full" crashes the browser
 
 // DAY VIEW
-const labelCell = cva(["px-1", "text-center", "font-normal", "h-[36px]"]);
+const labelCell = cva([
+  "px-1",
+  "text-center",
+  "font-medium",
+  "h-[36px]",
+  "text-sm",
+]);
 const valueCell = cva(["px-1"]);
 const valueCellInner = cva(
   [
@@ -16,6 +22,7 @@ const valueCellInner = cva(
     "h-[28px]",
     "mx-auto",
     "text-center",
+    "text-sm",
     "border",
     "border-transparent",
     "rounded",
@@ -137,10 +144,10 @@ const header = cva([
   "items-center",
   "w-full",
   "gap-1",
-  "px-3",
-  "py-2",
-  "border-b",
-  "border-base",
+  "px-[20px]",
+  "pt-4",
+  // "border-b",
+  // "border-base",
 ]);
 const headerButton = cva(
   [
@@ -151,6 +158,7 @@ const headerButton = cva(
     "leading-none",
     "hover:text-primary-base",
     "hover:bg-gray-100",
+    "text-base",
   ],
   {
     variants: {
@@ -161,14 +169,14 @@ const headerButton = cva(
     },
   }
 );
-const headerArrow = cva(["text-gray-400", "hover:text-gray-900"]);
+const headerArrow = cva(["text-neutral-100", "hover:text-neutral-50"]);
 
 // FOOTER
 const footer = cva([
   "flex",
   "justify-center",
   "border-t",
-  "border-base",
+  "border-neutral-10",
   "py-2",
 ]);
 const footerButton = cva([

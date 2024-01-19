@@ -1,8 +1,8 @@
-import { IButton } from "./button.types";
-import { useComponentStyle } from "../../customization/styles/theme.context";
-import { CircleNotch } from "@phosphor-icons/react";
-import { twMerge } from "tailwind-merge";
 import { useMemo } from "react";
+import { twMerge } from "tailwind-merge";
+import LoadingIcon from "../../assets/icons/LoadingIcon";
+import { useComponentStyle } from "../../customization/styles/theme.context";
+import { IButton } from "./button.types";
 
 const defaultProps: Partial<IButton> = {
   variant: "solid",
@@ -48,7 +48,7 @@ export const Button = (props: IButton) => {
   };
 
   const spinnerRender = spinner ?? (
-    <CircleNotch
+    <LoadingIcon
       className={theme.spinner({
         size,
       })}

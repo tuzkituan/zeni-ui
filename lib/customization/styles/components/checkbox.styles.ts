@@ -3,7 +3,22 @@ import { cva } from "class-variance-authority";
 const container = cva(["flex", "items-center", "w-fit", "gap-2"]);
 const input = cva(
   [
-    "border-base",
+    // "border",
+    // "border-base",
+    // "rounded",
+    // "checked:!bg-primary-base",
+    // "checked:!border-0",
+    // "appearance-none",
+
+    // "hover:ring-2",
+    // "hover:ring-primary-10",
+
+    // "focus:ring-2",
+    // "focus:ring-primary-10",
+
+    // "active:ring-2",
+    // "active:ring-primary-20",
+
     "focus:ring-3",
     "focus:ring-base",
     "rounded",

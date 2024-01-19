@@ -10,7 +10,7 @@ const meta = {
   argTypes: {
     variant: {
       control: "radio",
-      options: ["outline", "filled", "flushed", "unstyled"],
+      options: ["outline", "filled", "flushed"],
     },
     size: {
       control: "radio",
