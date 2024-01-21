@@ -2,8 +2,8 @@ import { cva } from "class-variance-authority";
 
 const container = cva(
   [
-    "rounded-md",
-    "text-primary-text",
+    "rounded-base",
+    "text-neutral-100",
     "w-fit",
     "outline",
     "outline-1",
@@ -21,38 +21,49 @@ const container = cva(
       variant: {
         outline: [
           "border",
-          "border-line-primary",
+          "border-base",
 
-          "hover:!border-primary",
+          "hover:!border-primary-base",
 
-          "focus-within:!border-primary",
-          "focus-within:!outline-primary",
+          "focus-within:!border-primary-base",
+          "focus-within:!outline-primary-20",
+          "focus-within:!outline-2",
+
+          "focus-within:!ring-2",
+          "focus-within:!ring-primary-20",
         ],
         filled: [
-          "bg-line-primary",
+          "bg-primary-10",
 
           "border",
-          "border-line-primary",
+          "border-primary-10",
 
-          "hover:!border-primary",
+          "hover:!border-primary-base",
 
-          "focus-within:!border-primary",
-          "focus-within:!outline-primary",
-          "focus-within:!bg-sec-background",
+          "focus-within:!border-primary-base",
+          "focus-within:!outline-primary-20",
+          "focus-within:!outline-2",
+          "focus-within:!bg-transparent",
+
+          "focus-within:!ring-2",
+          "focus-within:!ring-primary-20",
         ],
         flushed: [
           "!rounded-none",
 
           "border-b",
-          "border-b-line-primary",
+          "border-b-primary-base",
 
           "hover:shadow-[0_1px_0_0_var(--color-primary)]",
           "focus-within:!shadow-[0_1px_0_0_var(--color-primary)]",
-          "focus-within:!border-b-primary",
+          "focus-within:!border-b-primary-base",
 
           "!px-0",
         ],
-        unstyled: ["!border-none", "!bg-none", "!outline-none", "!px-0"],
+      },
+      isDisabled: {
+        true: ["!bg-neutral-10", "cursor-not-allowed"],
+        false: [],
       },
     },
   }
@@ -62,11 +73,11 @@ const secContainer = cva(
   {
     variants: {
       addonRight: {
-        true: ["pl-3", "pr-1"],
+        true: ["pl-4", "pr-2.5"],
         false: [],
       },
       addonLeft: {
-        true: ["pr-3"],
+        true: ["pr-4"],
         false: [],
       },
       isSearchable: {
@@ -74,7 +85,7 @@ const secContainer = cva(
         false: ["cursor-pointer"],
       },
       isMultiple: {
-        true: ["!pl-2"],
+        true: [],
         false: [],
       },
     },
@@ -103,19 +114,22 @@ const inputGroup = cva(
   {
     variants: {
       size: {
-        xs: ["px-3", "text-xs"],
-        sm: ["px-3", "text-sm"],
-        md: ["px-3", "text-base"],
-        lg: ["px-3", "text-lg"],
+        xs: ["px-4", "text-xs"],
+        sm: ["px-4", "text-sm"],
+        md: ["px-4", "text-sm"],
+        lg: ["px-4", "text-base"],
       },
       variant: {
         outline: [],
         filled: [],
         flushed: ["!px-0"],
-        unstyled: ["!px-0"],
       },
       isInGroup: {
         true: ["!px-0"],
+        false: [],
+      },
+      isDisabled: {
+        true: ["cursor-not-allowed"],
         false: [],
       },
     },
@@ -151,17 +165,15 @@ const input = cva(
 
 const dropdown = cva([
   "overflow-y-auto",
-  "rounded-lg",
+  "rounded-base",
   "px-1",
   "py-0.5",
-  "bg-sec-background",
-  "text-primary-text",
+  "bg-color-component-background",
+  "text-neutral-100",
   "text-base",
-  "border",
-  "border-line-primary",
-  "shadow-sm",
+  "shadow-base",
   "overflow-x-hidden",
-  "w-[270px]"
+  "w-[270px]",
 ]);
 const option = cva(
   [
@@ -170,32 +182,35 @@ const option = cva(
     "items-center",
     "justify-between",
     "gap-4",
-    "px-2",
+    "px-3",
     "py-1.5",
     "my-0.5",
-    "rounded-md",
-    "hover:bg-gray-100",
+    "rounded-base",
+    "hover:bg-neutral-10",
     "cursor-pointer",
+    "font-medium",
+    "text-base",
   ],
   {
     variants: {
       isSelected: {
-        true: ["font-medium", "bg-line-primary"],
+        true: ["font-medium", "bg-primary-10"],
         false: [],
       },
       isDisabled: {
-        true: ["cursor-not-allowed", "text-gray-400"],
+        true: ["cursor-not-allowed", "text-neutral-40"],
         false: [],
       },
     },
   }
 );
+const optionLabelContainer = cva(["flex", "gap-x-4", "items-center", "w-full"]);
 const optionLabel = cva(["truncate", "inline-block"]);
-const optionCheckIcon = cva(["text-primary", "text-[18px]"]);
+const optionCheckIcon = cva(["text-primary-base", "text-[18px]"]);
 const group = cva(["flex", "items-center"]);
 const inputLabel = cva(["truncate", "inline-block", "w-full"]);
 const placeholder = cva([
-  "text-opacity-50",
+  "text-neutral-40",
   "text-black",
   "inline-block",
   "w-full",
@@ -223,7 +238,13 @@ const clearElement = cva([
   "hover:bg-gray-100",
   "hover:rounded-lg",
 ]);
-const empty = cva(["p-6", "flex", "justify-center", "items-center"]);
+const empty = cva([
+  "p-6",
+  "flex",
+  "justify-center",
+  "items-center",
+  "text-neutral-40",
+]);
 const tagContainer = cva([
   "flex",
   "items-center",
@@ -232,21 +253,30 @@ const tagContainer = cva([
   "flex-wrap",
   "py-1",
 ]);
-const tag = cva([
-  "border",
-  "rounded-md",
-  "border-line-primary",
-  "px-2",
-  "py-1.5",
-  "font-medium",
-  "flex",
-  "items-center",
-  "gap-2",
-  "leading-none",
-  "bg-sec-background",
-]);
+const tag = cva(
+  [
+    "rounded-3xl",
+    "px-3",
+    "py-1.5",
+    "font-medium",
+    "flex",
+    "items-center",
+    "text-xs",
+    "gap-2",
+    "leading-none",
+  ],
+  {
+    variants: {
+      variant: {
+        outline: ["bg-primary-10"],
+        filled: ["bg-neutral-5"],
+        flushed: ["bg-primary-10"],
+      },
+    },
+  }
+);
 const tagX = cva(["cursor-pointer"]);
-const iconColor = cva(["text-gray-500"]);
+const iconColor = cva(["text-neutral-50"]);
 const selectStyles = {
   container,
   secContainer,
@@ -255,6 +285,7 @@ const selectStyles = {
   inputLabel,
   dropdown,
   option,
+  optionLabelContainer,
   optionLabel,
   optionCheckIcon,
   group,

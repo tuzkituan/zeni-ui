@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "../text/text";
 import { Menu } from "./menu";
+import { Key, Logout, User } from "iconsax-react";
 
 const meta = {
   title: "OVERLAY/Menu",
@@ -39,25 +40,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: ({
-    children,
-    items = [
-      {
-        key: 1,
-        title: "Option 1",
-      },
-      {
-        key: 2,
-        title: "Option 2",
-      },
-      {
-        key: 3,
-        title: "Option 3",
-      },
-    ],
-    ...rest
-  }) => (
-    <Menu items={items} {...rest}>
+  render: ({ children, ...rest }) => (
+    <Menu {...rest}>
       <Text className="underline cursor-pointer">{children}</Text>
     </Menu>
   ),
@@ -65,5 +49,22 @@ export const Primary: Story = {
     children: "Open menu",
     placement: "bottom-start",
     onMenuClick: (key) => alert(`You clicked: ${key}`),
+    items: [
+      {
+        key: 1,
+        title: "View profile",
+        icon: <User size={20} />,
+      },
+      {
+        key: 2,
+        title: "Change password",
+        icon: <Key size={20} />,
+      },
+      {
+        key: 3,
+        title: "Logout",
+        icon: <Logout size={20} />,
+      },
+    ],
   },
 };

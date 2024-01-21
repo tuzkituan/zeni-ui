@@ -6,7 +6,7 @@ export interface INumberInput
     "size" | "onChange" | "value" | "readOnly" | "disabled"
   > {
   size?: "xs" | "sm" | "md" | "lg";
-  variant?: "outline" | "filled" | "flushed" | "unstyled";
+  variant?: "outline" | "filled" | "flushed";
   min?: number;
   max?: number;
   step?: number;

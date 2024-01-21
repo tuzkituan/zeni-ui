@@ -1,4 +1,4 @@
-import { Box, Calendar, Center } from "../lib/main";
+import { Box, Center } from "../lib/main";
 
 // const standaloneToast = createStandaloneToast();
 
@@ -51,7 +51,7 @@ function App() {
   // ];
 
   return (
-    <Center className="bg-primary-background min-h-screen">
+    <Center className="bg-color-primary-base-background min-h-screen">
       <Box className="flex justify-center flex-col items-center h-full gap-4">
         {/* <Flex className="card">
           {items.map((x) => (
@@ -60,7 +60,7 @@ function App() {
               variant={x.value === theme ? "solid" : "ghost"}
               className={twMerge(
                 "px-4 py-1 block cursor-pointer rounded",
-                x.value === theme ? "border-2 border-primary bg-primary" : ""
+                x.value === theme ? "border-2 border-color-primary-base bg-color-primary-base" : ""
               )}
               onClick={() => setTheme(x.value)}
             >
@@ -68,7 +68,7 @@ function App() {
             </Button>
           ))}
         </Flex>
-        <Text className="text-primary">
+        <Text className="text-color-primary-base">
           This is a button. Its color is based on the theme
         </Text>
         <Popover content="Popover content" placement="bottom-start">
@@ -81,9 +81,6 @@ function App() {
         />
         <Button onClick={showToast}>Show toast</Button>
         <Button onClick={showStandaloneToast}>Create Standalone Toast</Button> */}
-        <div className="max-w-[270px]">
-          <Calendar />
-        </div>
       </Box>
     </Center>
   );

@@ -24,4 +24,5 @@ export interface IMenu {
 export interface IMenuItem {
   title?: React.ReactNode;
   key: IMenuKey;
+  icon?: React.ReactNode;
 }

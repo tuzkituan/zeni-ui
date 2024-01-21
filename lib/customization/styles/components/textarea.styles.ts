@@ -3,55 +3,64 @@ import { cva } from "class-variance-authority";
 const base = cva(
   [
     "block",
-    "rounded-md",
-    "text-primary-text",
+    "rounded-base",
+    "text-neutral-100",
     "w-fit",
     "outline",
     "outline-1",
     "outline-transparent",
     "w-full",
-    "p-2",
+    "px-4",
+    "py-3",
+    "text-sm",
   ],
   {
     variants: {
       variant: {
         outline: [
           "border",
-          "border-line-primary",
+          "border-base",
 
-          "hover:!border-primary",
+          "hover:!border-primary-base",
 
-          "focus-within:!border-primary",
-          "focus-within:!outline-primary",
+          "focus-within:!border-primary-base",
+          "focus-within:!outline-primary-20",
+          "focus-within:!outline-2",
+
+          "focus-within:!ring-2",
+          "focus-within:!ring-primary-20",
         ],
         filled: [
-          "bg-line-primary",
+          "bg-primary-10",
 
           "border",
-          "border-line-primary",
+          "border-primary-10",
 
-          "hover:!border-primary",
+          "hover:!border-primary-base",
 
-          "focus-within:!border-primary",
-          "focus-within:!outline-primary",
-          "focus-within:!bg-sec-background",
+          "focus-within:!border-primary-base",
+          "focus-within:!outline-primary-20",
+          "focus-within:!outline-2",
+          "focus-within:!bg-transparent",
+
+          "focus-within:!ring-2",
+          "focus-within:!ring-primary-20",
         ],
         flushed: [
           "!rounded-none",
 
           "border-b",
-          "border-b-line-primary",
+          "border-b-primary-base",
 
           "hover:shadow-[0_1px_0_0_var(--color-primary)]",
           "focus-within:!shadow-[0_1px_0_0_var(--color-primary)]",
-          "focus-within:!border-b-primary",
+          "focus-within:!border-b-primary-base",
 
           "!px-0",
         ],
-        unstyled: ["!border-none", "!bg-none", "!outline-none", "!px-0"],
       },
       isDisabled: {
-        true: ["!bg-line-primary"],
+        true: ["!bg-neutral-10", "cursor-not-allowed"],
         false: [],
       },
       isResizable: {

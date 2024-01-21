@@ -51,10 +51,19 @@ export const Input = forwardRef<HTMLInputElement, IInput>(
           size,
           variant,
           isInGroup: !!leftElement || !!rightElement,
+          isDisabled,
         }),
         className
       );
-    }, [theme, size, variant, leftElement, rightElement, className]);
+    }, [
+      theme,
+      size,
+      isDisabled,
+      variant,
+      leftElement,
+      rightElement,
+      className,
+    ]);
 
     const leftElementClasses = useMemo(() => {
       return twMerge(theme.leftElement());

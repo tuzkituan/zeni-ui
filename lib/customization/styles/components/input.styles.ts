@@ -2,8 +2,8 @@ import { cva } from "class-variance-authority";
 
 const container = cva(
   [
-    "rounded-md",
-    "text-primary-text",
+    "rounded-base",
+    "text-neutral-100",
     "w-fit",
     "outline",
     "outline-1",
@@ -21,49 +21,56 @@ const container = cva(
       variant: {
         outline: [
           "border",
-          "border-line-primary",
+          "border-base",
 
-          "hover:!border-primary",
+          "hover:!border-primary-base",
 
-          "focus-within:!border-primary",
-          "focus-within:!outline-primary",
+          "focus-within:!border-primary-base",
+          "focus-within:!outline-primary-20",
+          "focus-within:!outline-2",
+
+          "focus-within:!ring-2",
+          "focus-within:!ring-primary-20",
         ],
         filled: [
-          "bg-line-primary",
+          "bg-primary-10",
 
           "border",
-          "border-line-primary",
+          "border-primary-10",
 
-          "hover:!border-primary",
+          "hover:!border-primary-base",
 
-          "focus-within:!border-primary",
-          "focus-within:!outline-primary",
-          "focus-within:!bg-sec-background",
+          "focus-within:!border-primary-base",
+          "focus-within:!outline-primary-20",
+          "focus-within:!outline-2",
+          "focus-within:!bg-transparent",
+
+          "focus-within:!ring-2",
+          "focus-within:!ring-primary-20",
         ],
         flushed: [
           "!rounded-none",
 
           "border-b",
-          "border-b-line-primary",
+          "border-b-primary-base",
 
           "hover:shadow-[0_1px_0_0_var(--color-primary)]",
           "focus-within:!shadow-[0_1px_0_0_var(--color-primary)]",
-          "focus-within:!border-b-primary",
+          "focus-within:!border-b-primary-base",
 
           "!px-0",
         ],
-        unstyled: ["!border-none", "!bg-none", "!outline-none", "!px-0"],
       },
       addonRight: {
-        true: ["!pl-3"],
+        true: ["!pl-4"],
         false: [],
       },
       addonLeft: {
-        true: ["!pr-3"],
+        true: ["!pr-4"],
         false: [],
       },
       isDisabled: {
-        true: ["!bg-line-primary"],
+        true: ["!bg-neutral-10", "cursor-not-allowed"],
         false: [],
       },
     },
@@ -78,23 +85,33 @@ const container = cva(
 );
 
 const input = cva(
-  ["rounded-md", "w-full", "h-full", "!bg-transparent", "outline-none"],
+  [
+    "rounded-md",
+    "w-full",
+    "h-full",
+    "!bg-transparent",
+    "outline-none",
+    "placeholder:text-neutral-40",
+  ],
   {
     variants: {
       size: {
-        xs: ["px-3", "text-xs"],
-        sm: ["px-3", "text-sm"],
-        md: ["px-3", "text-base"],
-        lg: ["px-3", "text-lg"],
+        xs: ["px-4", "text-xs"],
+        sm: ["px-4", "text-sm"],
+        md: ["px-4", "text-sm"],
+        lg: ["px-4", "text-base"],
       },
       variant: {
         outline: [],
         filled: [],
         flushed: ["!px-0"],
-        unstyled: ["!px-0"],
       },
       isInGroup: {
         true: ["!px-0"],
+        false: [],
+      },
+      isDisabled: {
+        true: ["cursor-not-allowed"],
         false: [],
       },
     },
@@ -102,8 +119,8 @@ const input = cva(
 );
 
 const group = cva(["flex", "items-center"]);
-const leftElement = cva(["flex", "items-center", "justify-center", "px-2"]);
-const rightElement = cva(["flex", "items-center", "justify-center", "px-2"]);
+const leftElement = cva(["flex", "items-center", "justify-center", "px-4"]);
+const rightElement = cva(["flex", "items-center", "justify-center", "px-4"]);
 const inputStyles = {
   container,
   input,

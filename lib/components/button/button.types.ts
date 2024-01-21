@@ -9,5 +9,6 @@ export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "xs" | "sm" | "md" | "lg";
   spinner?: React.ReactNode;
   spinnerPlacement?: "start" | "end";
-  variant?: "ghost" | "outline" | "solid" | "link" | "unstyled";
+  variant?: "text" | "outline" | "subtle" | "solid" | "link";
+  isDanger?: boolean;
 }

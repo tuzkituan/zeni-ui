@@ -1,6 +1,6 @@
-import { Calendar as CalendarIcon, X } from "@phosphor-icons/react";
 import { format as dnsFormat } from "date-fns";
 import { AnimatePresence, motion } from "framer-motion";
+import { ArrowDown2, ArrowUp2, Calendar2, CloseCircle } from "iconsax-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
@@ -75,13 +75,14 @@ export const DatePicker = (props: IDatePicker) => {
       theme.input({
         size,
         variant,
+        isDisabled,
       }),
       className
     );
-  }, [theme, size, variant, className]);
+  }, [theme, size, isDisabled, variant, className]);
 
-  const rightElementClasses = useMemo(() => {
-    return twMerge(theme.rightElement());
+  const leftElementClasses = useMemo(() => {
+    return twMerge(theme.leftElement());
   }, [theme]);
 
   const clearElementClasses = useMemo(() => {
@@ -122,12 +123,24 @@ export const DatePicker = (props: IDatePicker) => {
     if (isClearable && selectedDate) {
       return (
         <Box className={clearElementClasses} onClick={onClear}>
-          <X size={16} className={theme.iconColor()} />
+          <div>
+            <CloseCircle size={20} className={theme.iconColor()} />
+          </div>
         </Box>
       );
     }
 
-    return null;
+    return (
+      <Box className={clearElementClasses}>
+        <div>
+          {isOpen ? (
+            <ArrowUp2 size={20} className={theme.iconColor()} />
+          ) : (
+            <ArrowDown2 size={20} className={theme.iconColor()} />
+          )}
+        </div>
+      </Box>
+    );
   };
 
   return (
@@ -144,6 +157,9 @@ export const DatePicker = (props: IDatePicker) => {
         }}
         className={containerClasses}
       >
+        <Box className={leftElementClasses}>
+          {icon || <Calendar2 size={20} />}
+        </Box>
         <input
           placeholder="Select date"
           className={inputClasses}
@@ -158,9 +174,6 @@ export const DatePicker = (props: IDatePicker) => {
           {...restProps}
         />
         {renderClear()}
-        <Box className={rightElementClasses}>
-          {icon || <CalendarIcon size={20} />}
-        </Box>
       </div>
       {isOpen &&
         renderLayer(
