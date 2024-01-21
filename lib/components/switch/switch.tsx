@@ -15,7 +15,7 @@ export const Switch = forwardRef<HTMLInputElement, ISwitch>(
       ...restProps
     } = props;
 
-    const classes = useMemo(() => {
+    const classes: string = useMemo(() => {
       return twMerge(
         theme.base({
           isDisabled,

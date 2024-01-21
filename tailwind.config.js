@@ -115,5 +115,7 @@ export default {
   variants: {
     backgroundColor: ["active"],
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 };

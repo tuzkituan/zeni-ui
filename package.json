@@ -71,6 +71,7 @@
     "**/*.css"
   ],
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.7",
     "iconsax-react": "^0.0.8"
   }
 }
