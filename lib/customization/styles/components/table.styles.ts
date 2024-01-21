@@ -20,8 +20,8 @@ const cell = cva(["text-left"], {
     },
   },
 });
-const th = cva(["uppercase", "text-sm", "font-medium", "text-neutral-100"]);
-const td = cva([]);
+const th = cva(["uppercase", "text-sm", "font-semibold", "text-neutral-100"]);
+const td = cva(["text-sm"]);
 const tableStyles = {
   base,
   row,

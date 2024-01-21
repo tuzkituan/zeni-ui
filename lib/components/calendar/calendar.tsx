@@ -1,16 +1,10 @@
-import {
-  CaretDoubleLeft,
-  CaretDoubleRight,
-  CaretLeft,
-  CaretRight,
-} from "@phosphor-icons/react";
 import { format, isSameDay, isSameMonth, isSameYear, isToday } from "date-fns";
+import { ArrowLeft2, ArrowRight2 } from "iconsax-react";
 import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { ICalendar } from "./calendar.types";
 import { useCalendar } from "./use-calendar";
-import { ArrowLeft2, ArrowRight2 } from "iconsax-react";
 
 export const Calendar = (props: ICalendar) => {
   const {

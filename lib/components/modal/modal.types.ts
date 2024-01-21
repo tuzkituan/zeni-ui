@@ -10,7 +10,6 @@ export interface IModal
   > {
   children?: React.ReactNode;
   isOpen?: boolean;
-  onCancel?: () => void;
   maskClosable?: boolean;
   closeIcon?: React.ReactNode;
   isCentered?: boolean;
@@ -20,6 +19,11 @@ export interface IModal
   footer?: React.ReactNode;
   backdropClassName?: string;
   isClosable?: boolean;
+  okText?: string;
+  onOk?: () => void;
+  cancelText?: string;
+  onCancel?: () => void;
+  variant?: "info" | "success" | "warning" | "error";
 }
 
 export interface IModalCloseButton {

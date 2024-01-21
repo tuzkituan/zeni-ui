@@ -8,7 +8,6 @@ import {
 import { useMemo, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
-import { Button } from "../button/button";
 import { IAlert } from "./alert.types";
 
 export const Alert = (props: IAlert) => {

@@ -1,24 +1,26 @@
-import React from "react";
+type Collection =
+  | Record<string, any>
+  | any[]
+  | Set<any>
+  | Map<any, any>
+  | React.ReactNode;
 
-export const getChildrenProps = (
-  children: React.ReactNode
-): Record<string, unknown> => {
-  const props: Record<string, unknown> = {};
-
-  React.Children.forEach(children, (child) => {
-    if (!React.isValidElement(child)) return;
-    Object.assign(props, child.props);
-  });
-
-  return props;
-};
-
-export const isEmpty = (variable: any) => {
-  if (!variable) return true;
-  const isArray = Array.isArray(variable);
-  if (isArray) return variable.length === 0;
-  if (typeof variable === "object") {
-    return Object.keys(variable || {}).length === 0;
+export const isEmpty = (value: Collection): boolean => {
+  if (value == null) {
+    return true;
   }
+
+  if (Array.isArray(value) || typeof value === "string") {
+    return value.length === 0;
+  }
+
+  if (value instanceof Set || value instanceof Map) {
+    return value.size === 0;
+  }
+
+  if (typeof value === "object") {
+    return Object.keys(value).length === 0;
+  }
+
   return false;
 };

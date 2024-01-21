@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 // JUST ICON
-const spinner = cva(["animate-spin", "text-primary-base", "!opacity-100"], {
+const spinner = cva(["animate-spin", "!opacity-100"], {
   variants: {
     size: {
       xs: ["w-[8px]", "h-[8px]"],

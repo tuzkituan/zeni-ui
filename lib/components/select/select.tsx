@@ -1,4 +1,3 @@
-import { Check, Tray } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowDown2,

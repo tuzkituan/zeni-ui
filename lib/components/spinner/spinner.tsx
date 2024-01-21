@@ -36,7 +36,13 @@ export const Spinner = (props: ISpinner) => {
   }, [theme]);
 
   const renderSpinner = () => {
-    return <div>{icon || <LoadingIcon className={spinnerClasses} />}</div>;
+    return (
+      <div>
+        {icon || (
+          <LoadingIcon className={spinnerClasses} color="var(--color-primary)" />
+        )}
+      </div>
+    );
   };
 
   if (!children) {

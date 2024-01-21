@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Check } from "@phosphor-icons/react";
 import { Button } from "../button/button";
 import { Input } from "./input";
+import { Card } from "iconsax-react";
 
 const meta = {
   title: "FORMS/Input",
@@ -54,7 +54,7 @@ export const InputWithLeftElement: Story = {
   render: () => {
     return (
       <Input
-        leftElement={<Check />}
+        leftElement={<Card size={18} />}
         size="md"
         variant="filled"
         placeholder="Enter your email"

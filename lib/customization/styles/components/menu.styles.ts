@@ -1,28 +1,31 @@
 import { cva } from "class-variance-authority";
 
 const base = cva([
-  "rounded-lg",
+  "rounded-base",
   "p-1",
-  "bg-sec-background",
+  "bg-color-component-background",
   "text-neutral-100",
-  "text-base",
-  "border",
-  "border-base",
-  "shadow-sm",
+  "shadow-base",
 ]);
 const item = cva([
   "w-full",
-  "px-2",
-  "py-1",
-  "rounded",
-  "hover:bg-base",
+  "px-3",
+  "py-2",
+  "rounded-base",
+  "hover:bg-primary-10",
   "cursor-pointer",
+  "text-sm",
+  "font-medium",
+  "flex",
+  "gap-2",
 ]);
+const itemIcon = cva([]);
 const arrow = cva([]);
 const menuStyles = {
   base,
   arrow,
   item,
+  itemIcon,
 };
 
 export { menuStyles };

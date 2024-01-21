@@ -37,6 +37,10 @@ export const Menu = ({
     return twMerge(theme.item());
   }, [theme]);
 
+  const itemIconClasses = useMemo(() => {
+    return twMerge(theme.itemIcon());
+  }, [theme]);
+
   const arrowClasses = useMemo(() => {
     return twMerge(theme.arrow());
   }, [theme]);
@@ -57,6 +61,7 @@ export const Menu = ({
         className={itemClasses}
         onClick={() => onMenuItemClick(x.key)}
       >
+        <div className={itemIconClasses}>{x.icon}</div>
         {x.title}
       </li>
     ));
@@ -87,8 +92,8 @@ export const Menu = ({
               {renderMenuItems()}
               <Arrow
                 {...arrowProps}
-                backgroundColor="var(--background-sec)"
-                borderColor="var(--line-primary)"
+                backgroundColor="var(--color-neutral-5)" // color-component-background
+                borderColor="transparent"
                 className={arrowClasses}
                 borderWidth={1}
                 size={8}

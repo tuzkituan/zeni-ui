@@ -25,10 +25,11 @@ const li = cva(
     "items-center",
     "justify-start",
     "gap-3",
-    "rounded-lg",
+    "rounded-base",
     "py-2",
     "relative",
     "cursor-pointer",
+    "text-sm",
   ],
   {
     variants: {

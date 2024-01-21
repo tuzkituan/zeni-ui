@@ -61,8 +61,8 @@ export const Popover = ({
               {content}
               <Arrow
                 {...arrowProps}
-                backgroundColor="var(--background-sec)"
-                borderColor="var(--line-primary)"
+                backgroundColor="var(--color-neutral-5)" // color-component-background
+                borderColor="transparent"
                 className={arrowClasses}
                 borderWidth={1}
                 size={8} 

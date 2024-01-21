@@ -4,7 +4,6 @@ import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import styles from "./number-input.module.scss";
 import { INumberInput, INumberInputArrow } from "./number-input.types";
-// import { CaretDown, CaretUp } from "@phosphor-icons/react";
 
 const defaultProps: Partial<INumberInput> = {
   size: "md",
