@@ -7,3 +7,6 @@ I just want to create my own UI library, that's all.
 ### Storybook
 https://tuzkituan.github.io/zeni-ui/
 
+### Figma:
+https://www.figma.com/file/UU8xgSsxp8XSBgfcaOCgGi/ZENI-Components
+
