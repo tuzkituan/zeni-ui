@@ -10,6 +10,9 @@ export default {
     extend: {
       colors: {
         "color-primary": "var(--color-primary)",
+        "color-background": "var(--color-neutral-5)",
+        "color-component-background": "var(--color-neutral-5)",
+
         primary: {
           base: "var(--color-primary)",
           5: "var(--color-primary-5)",

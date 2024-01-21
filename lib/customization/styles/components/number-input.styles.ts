@@ -47,6 +47,7 @@ const container = cva(
           "focus-within:!border-primary-base",
           "focus-within:!outline-primary-20",
           "focus-within:!outline-2",
+          "focus-within:!bg-transparent",
 
           "focus-within:!ring-2",
           "focus-within:!ring-primary-20",
@@ -86,8 +87,8 @@ const input = cva(
       size: {
         xs: ["px-2", "text-xs"],
         sm: ["px-2", "text-sm"],
-        md: ["px-3", "text-base"],
-        lg: ["px-3", "text-lg"],
+        md: ["px-3", "text-sm"],
+        lg: ["px-3", "text-base"],
       },
       variant: {
         outline: [],
