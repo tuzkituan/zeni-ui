@@ -2,9 +2,9 @@ import { cva } from "class-variance-authority";
 
 const container = cva(
   [
-    "rounded-md",
+    "rounded-base",
     "text-neutral-100",
-    "w-full ",
+    "w-full",
     "h-full",
     "outline",
     "outline-1",
@@ -30,25 +30,32 @@ const container = cva(
           "hover:!border-primary-base",
 
           "focus-within:!border-primary-base",
-          "focus-within:!outline-primary-base",
+          "focus-within:!outline-primary-20",
+          "focus-within:!outline-2",
+
+          "focus-within:!ring-2",
+          "focus-within:!ring-primary-20",
         ],
         filled: [
-          "bg-base",
+          "bg-primary-10",
 
           "border",
-          "border-base",
+          "border-primary-10",
 
           "hover:!border-primary-base",
 
           "focus-within:!border-primary-base",
-          "focus-within:!outline-primary-base",
-          "focus-within:!bg-sec-background",
+          "focus-within:!outline-primary-20",
+          "focus-within:!outline-2",
+
+          "focus-within:!ring-2",
+          "focus-within:!ring-primary-20",
         ],
         flushed: [
           "!rounded-none",
 
           "border-b",
-          "border-b-base",
+          "border-b-primary-base",
 
           "hover:shadow-[0_1px_0_0_var(--color-primary)]",
           "focus-within:!shadow-[0_1px_0_0_var(--color-primary)]",
@@ -56,10 +63,9 @@ const container = cva(
 
           "!px-0",
         ],
-        unstyled: ["!border-none", "!bg-none", "!outline-none", "!px-0"],
       },
       isDisabled: {
-        true: ["!bg-base"],
+        true: ["!bg-neutral-10", "cursor-not-allowed"],
         false: [],
       },
     },
@@ -67,7 +73,14 @@ const container = cva(
 );
 
 const input = cva(
-  ["rounded-md", "w-full", "h-full", "!bg-transparent", "outline-none"],
+  [
+    "rounded-md",
+    "w-full",
+    "h-full",
+    "!bg-transparent",
+    "outline-none",
+    "placeholder:text-neutral-40",
+  ],
   {
     variants: {
       size: {
@@ -84,6 +97,10 @@ const input = cva(
       },
       isInGroup: {
         true: ["!px-0"],
+        false: [],
+      },
+      isDisabled: {
+        true: ["cursor-not-allowed"],
         false: [],
       },
     },
@@ -105,8 +122,7 @@ const arrow = cva([
   "items-center",
   "px-1.5",
   "leading-none",
-  "hover:bg-base",
-  "text-xs",
+  "hover:bg-primary-10",
   "grow",
 ]);
 

@@ -6,7 +6,7 @@ export interface IInput
     "size" | "disabled" | "readOnly"
   > {
   size?: "xs" | "sm" | "md" | "lg";
-  variant?: "outline" | "filled" | "flushed" | "unstyled";
+  variant?: "outline" | "filled" | "flushed";
   leftElement?: React.ReactNode;
   rightElement?: React.ReactNode;
   isDisabled?: boolean;
