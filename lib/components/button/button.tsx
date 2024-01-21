@@ -1,8 +1,8 @@
-import { IButton } from "./button.types";
-import { useComponentStyle } from "../../customization/styles/theme.context";
-import { CircleNotch } from "@phosphor-icons/react";
-import { twMerge } from "tailwind-merge";
 import { useMemo } from "react";
+import { twMerge } from "tailwind-merge";
+import LoadingIcon from "../../assets/icons/LoadingIcon";
+import { useComponentStyle } from "../../customization/styles/theme.context";
+import { IButton } from "./button.types";
 
 const defaultProps: Partial<IButton> = {
   variant: "solid",
@@ -28,6 +28,7 @@ export const Button = (props: IButton) => {
     leftIcon,
     rightIcon,
     loadingText,
+    isDanger,
     ...restProps
   } = {
     ...defaultProps,
@@ -35,8 +36,8 @@ export const Button = (props: IButton) => {
   };
 
   const classes = useMemo(() => {
-    return twMerge(theme.base({ size, variant }), className);
-  }, [className, variant, size, theme]);
+    return twMerge(theme.base({ size, variant, isDanger }), className);
+  }, [className, variant, size, isDanger, theme]);
 
   const containerStyles: React.CSSProperties = {
     ...(iconSpacing
@@ -46,7 +47,13 @@ export const Button = (props: IButton) => {
       : {}),
   };
 
-  const spinnerRender = spinner ?? <CircleNotch className={theme.spinner()} />;
+  const spinnerRender = spinner ?? (
+    <LoadingIcon
+      className={theme.spinner({
+        size,
+      })}
+    />
+  );
   const renderLeftIcon = () => {
     if (isLoading && spinnerPlacement === "start") {
       return spinnerRender;

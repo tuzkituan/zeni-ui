@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --color-primary: #4682A9;
-  --color-secondary: #749BC2;
-  --color-positive: #A3D9B1;
-  --color-negative: #e45b78;
-  --color-text-primary: #333;
-  --background-primary: #F6F4EB;
-  --background-sec: #fff;
-  --line-primary: #e3e8ef;
-} */
-
 @layer components {
   .env-safe-area-inset-top-0 {
     top: env(safe-area-inset-top, 0px);

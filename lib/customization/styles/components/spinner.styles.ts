@@ -1,13 +1,13 @@
 import { cva } from "class-variance-authority";
 
 // JUST ICON
-const spinner = cva(["animate-spin", "text-primary", "!opacity-100"], {
+const spinner = cva(["animate-spin", "!opacity-100"], {
   variants: {
     size: {
-      xs: ["text-sm"],
-      sm: ["text-xl"],
-      md: ["text-3xl"],
-      lg: ["text-6xl"],
+      xs: ["w-[8px]", "h-[8px]"],
+      sm: ["w-[16px]", "h-[16px]"],
+      md: ["w-[24px]", "h-[24px]"],
+      lg: ["w-[48px]", "h-[48px]"],
     },
   },
 });
@@ -25,7 +25,7 @@ const overlay = cva([
   "flex-col",
   "gap-2",
 ]);
-const description = cva(["text-primary-text", "text-sm"]);
+const description = cva(["text-neutral-100", "text-sm"]);
 const spinnerStyles = {
   spinner,
   container,

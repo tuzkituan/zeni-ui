@@ -6,7 +6,7 @@ export interface IDatePicker
     "size" | "defaultValue" | "value" | "onChange"
   > {
   size?: "xs" | "sm" | "md" | "lg";
-  variant?: "outline" | "filled" | "flushed" | "unstyled";
+  variant?: "outline" | "filled" | "flushed";
   placement?:
     | "top-center"
     | "top-start"

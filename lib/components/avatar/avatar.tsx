@@ -1,10 +1,10 @@
-import { User } from "@phosphor-icons/react";
 import { useMemo } from "react";
 import { renderToString } from "react-dom/server";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import useImageStatus from "../../hooks/image.hook";
 import { IAvatar } from "./avatar.types";
+import { User } from "iconsax-react";
 
 const defaultProps: Partial<IAvatar> = {
   src: "",
@@ -57,7 +57,7 @@ export const Avatar = (props: IAvatar) => {
     return initials.toUpperCase();
   };
 
-  const defaultSvgString = renderToString(<User color="white" />);
+  const defaultSvgString = renderToString(<User color="white" size={28} />);
   const defaultImgSrc = `data:image/svg+xml;base64,${btoa(defaultSvgString)}`;
   const nameLetters = name ? getInitials(name) : "";
 

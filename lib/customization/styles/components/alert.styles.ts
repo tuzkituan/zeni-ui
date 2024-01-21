@@ -43,42 +43,42 @@ const base = cva(
       {
         variant: ["subtle", "left-accent", "top-accent"],
         status: "info",
-        class: ["bg-blue-100", "before:bg-blue-400"],
+        class: ["bg-white", "before:bg-info-base"],
       },
       {
         variant: ["subtle", "left-accent", "top-accent"],
         status: "success",
-        class: ["bg-green-100", "before:bg-green-600"],
+        class: ["bg-white", "before:bg-success-base"],
       },
       {
         variant: ["subtle", "left-accent", "top-accent"],
         status: "warning",
-        class: ["bg-orange-100", "before:bg-orange-400"],
+        class: ["bg-white", "before:bg-warning-base"],
       },
       {
         variant: ["subtle", "left-accent", "top-accent"],
         status: "error",
-        class: ["bg-red-100", "before:bg-red-400"],
+        class: ["bg-white", "before:bg-error-base"],
       },
       {
         variant: "solid",
         status: "info",
-        class: "bg-blue-400",
+        class: "bg-info-base",
       },
       {
         variant: "solid",
         status: "success",
-        class: "bg-green-600",
+        class: "bg-success-base",
       },
       {
         variant: "solid",
         status: "warning",
-        class: "bg-orange-400",
+        class: "bg-warning-base",
       },
       {
         variant: "solid",
         status: "error",
-        class: "bg-red-400",
+        class: "bg-error-base",
       },
     ],
     defaultVariants: {
@@ -88,13 +88,13 @@ const base = cva(
   }
 );
 
-const icon = cva(["text-2xl"], {
+const icon = cva(["text-2xl", "border", "rounded-full", "p-2"], {
   variants: {
     status: {
-      info: ["text-blue-400"],
-      success: ["text-green-600"],
-      warning: ["text-orange-400"],
-      error: ["text-red-400"],
+      info: ["text-info-base"],
+      success: ["text-success-base"],
+      warning: ["text-warning-base"],
+      error: ["text-error-base"],
     },
     variant: {
       subtle: [],
@@ -107,27 +107,27 @@ const icon = cva(["text-2xl"], {
     {
       variant: ["subtle", "left-accent", "top-accent"],
       status: "info",
-      class: "text-blue-400",
+      class: ["text-info-base", "bg-info-10"],
     },
     {
       variant: ["subtle", "left-accent", "top-accent"],
       status: "success",
-      class: "text-green-600",
+      class: ["text-success-base", "bg-success-10"],
     },
     {
       variant: ["subtle", "left-accent", "top-accent"],
       status: "warning",
-      class: "text-orange-400",
+      class: ["text-warning-base", "bg-warning-10"],
     },
     {
       variant: ["subtle", "left-accent", "top-accent"],
       status: "error",
-      class: "text-red-400",
+      class: ["text-error-base", "bg-error-10"],
     },
     {
       variant: "solid",
       status: ["info", "success", "warning", "error"],
-      class: "text-white",
+      class: ["border-none", "bg-white"],
     },
   ],
 });
@@ -135,10 +135,10 @@ const icon = cva(["text-2xl"], {
 const text = cva(["text-base"], {
   variants: {
     status: {
-      info: ["text-blue-400"],
-      success: ["text-green-600"],
-      warning: ["text-orange-400"],
-      error: ["text-red-400"],
+      info: ["text-info-base"],
+      success: ["text-success-base"],
+      warning: ["text-warning-base"],
+      error: ["text-error-base"],
     },
     variant: {
       subtle: [],
@@ -153,7 +153,6 @@ const text = cva(["text-base"], {
       status: ["info", "success", "warning", "error"],
       class: "text-gray-900",
     },
-
     {
       variant: "solid",
       status: ["info", "success", "warning", "error"],
@@ -161,9 +160,18 @@ const text = cva(["text-base"], {
     },
   ],
 });
-const close = cva(["font-medium", "absolute", "top-2", "right-0"]);
-const titleText = cva(["font-medium", "m-0"]);
-const descriptionText = cva(["m-0", "text-base"]);
+const close = cva(["font-medium", "absolute", "top-3", "right-3"], {
+  variants: {
+    variant: {
+      subtle: ["!text-gray-400"],
+      solid: ["!text-white"],
+      "left-accent": ["!text-gray-400"],
+      "top-accent": ["!text-gray-400"],
+    },
+  },
+});
+const titleText = cva(["font-medium", "m-0", "text-sm"]);
+const descriptionText = cva(["m-0", "text-sm", "font-normal"]);
 
 const alertStyles = {
   base,

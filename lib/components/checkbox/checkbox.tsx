@@ -23,9 +23,11 @@ export const Checkbox = (props: ICheckbox) => {
 
   const containerClasses = useMemo(() => {
     return twMerge(
-      theme.container(),
+      theme.container({
+        isDisabled,
+      }),
       theme.label({
-        disabled: isDisabled,
+        isDisabled
       }),
       className
     );
@@ -37,10 +39,11 @@ export const Checkbox = (props: ICheckbox) => {
         size,
         indeterminate: isIndeterminate,
         readOnly: isReadOnly,
+        isDisabled,
       }),
       className
     );
-  }, [className, size, isReadOnly, isIndeterminate, theme]);
+  }, [className, size, isReadOnly, isDisabled, isIndeterminate, theme]);
 
   return (
     <label

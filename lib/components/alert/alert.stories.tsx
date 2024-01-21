@@ -43,8 +43,8 @@ export const Primary: Story = {
   args: {
     title: "Success",
     description: "Data uploaded to the server. Fire on!",
-    status: "info",
-    variant: "subtle",
+    status: "success",
+    variant: "solid",
     isClosable: false,
   },
 };

@@ -22,9 +22,11 @@ export const Radio = (props: IRadio) => {
 
   const containerClasses = useMemo(() => {
     return twMerge(
-      theme.container(),
+      theme.container({
+        isDisabled,
+      }),
       theme.label({
-        disabled: isDisabled,
+        isDisabled,
       }),
       className
     );
@@ -35,10 +37,11 @@ export const Radio = (props: IRadio) => {
       theme.input({
         size,
         readOnly: isReadOnly,
+        isDisabled,
       }),
       className
     );
-  }, [className, size, isReadOnly, theme]);
+  }, [className, size, isReadOnly, isDisabled, theme]);
 
   return (
     <label

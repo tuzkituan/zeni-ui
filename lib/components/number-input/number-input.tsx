@@ -1,10 +1,9 @@
+import { ArrowDown2, ArrowUp2 } from "iconsax-react";
 import { useEffect, useMemo, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import styles from "./number-input.module.scss";
 import { INumberInput, INumberInputArrow } from "./number-input.types";
-import { CaretDown, CaretUp } from "@phosphor-icons/react";
-// import { CaretDown, CaretUp } from "@phosphor-icons/react";
 
 const defaultProps: Partial<INumberInput> = {
   size: "md",
@@ -61,11 +60,12 @@ export const NumberInput = (props: INumberInput) => {
       theme.input({
         size,
         variant,
+        isDisabled,
       }),
       className,
       styles.NumberInput
     );
-  }, [theme, size, variant, className]);
+  }, [theme, size, variant, isDisabled, className]);
 
   const arrowContainerClasses = useMemo(() => {
     return twMerge(theme.arrowContainer());
@@ -131,11 +131,11 @@ export const NumberInput = (props: INumberInput) => {
       {showArrow && (
         <div className={arrowContainerClasses}>
           <NumberInputArrow onClick={onIncrement}>
-            <CaretUp />
+            <ArrowUp2 size={12} />
           </NumberInputArrow>
           <hr className={arrowDividerClasses} />
           <NumberInputArrow onClick={onDecrement}>
-            <CaretDown />
+            <ArrowDown2 size={12} />
           </NumberInputArrow>
         </div>
       )}

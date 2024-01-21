@@ -22,8 +22,8 @@ const toastsContainer = cva(
       },
       isTopOrBottom: {
         true: ["mx-auto"],
-        false: []
-      }
+        false: [],
+      },
     },
   }
 );
@@ -42,9 +42,9 @@ const alertContainer = cva(["flex", "flex-col", "items-center"], {
 const alert = cva([
   "min-w-[250px]",
   "max-w-[500px]",
-  "rounded-lg",
+  "rounded-base",
   "overflow-hidden",
-  "shadow-sm",
+  "shadow-base",
 ]);
 
 const toastStyles = {

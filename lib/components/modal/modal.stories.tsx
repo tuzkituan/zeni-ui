@@ -20,6 +20,10 @@ const meta = {
         type: "boolean",
       },
     },
+    variant: {
+      options: ["info", "success", "warning", "error"],
+      control: { type: "radio" },
+    },
   },
 } satisfies Meta<typeof Modal>;
 

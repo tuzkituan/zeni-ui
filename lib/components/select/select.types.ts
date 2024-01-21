@@ -7,13 +7,14 @@ export interface ISelect
   > {
   options?: ISelectOption[];
   size?: "xs" | "sm" | "md" | "lg";
-  variant?: "outline" | "filled" | "flushed" | "unstyled";
+  variant?: "outline" | "filled" | "flushed";
   value?: ISelectOption | ISelectOption[];
   defaultValue?: ISelectOption | ISelectOption[];
   onChange?: (value?: ISelectOption | ISelectOption[]) => void;
   leftElement?: React.ReactNode;
   rightElement?: React.ReactNode;
   isClearable?: boolean;
+  isDisabled?: boolean;
   isSearchable?: boolean;
   className?: string;
   dropdownClassName?: string;
@@ -34,5 +35,6 @@ export type ISelectValue = string | number;
 export interface ISelectOption {
   label?: React.ReactNode;
   value?: ISelectValue;
+  icon?: React.ReactNode;
   isDisabled?: boolean;
 }

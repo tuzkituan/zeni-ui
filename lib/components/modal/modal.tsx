@@ -1,5 +1,11 @@
-import { X } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";
+import {
+  CloseCircle,
+  CloseSquare,
+  InfoCircle,
+  TickSquare,
+  Warning2,
+} from "iconsax-react";
 import { useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { twMerge } from "tailwind-merge";
@@ -27,6 +33,10 @@ export const Modal = (props: IModal) => {
     isClosable = true,
     customHeader,
     footer,
+    onOk,
+    okText = "Submit",
+    cancelText = "Cancel",
+    variant = "",
   } = { ...defaultProps, ...props };
 
   const backdropClasses = useMemo(() => {
@@ -53,6 +63,37 @@ export const Modal = (props: IModal) => {
       })
     );
   }, [theme, title, showHeader]);
+
+  const footerClasses = useMemo(() => {
+    return twMerge(
+      theme.footer({
+        ...(variant && { variant }),
+      })
+    );
+  }, [theme, variant]);
+
+  const okButtonClasses = useMemo(() => {
+    return twMerge(
+      theme.okButton({
+        ...(variant && { variant }),
+      })
+    );
+  }, [theme, variant]);
+
+  const getVariantIcon = () => {
+    switch (variant) {
+      case "error":
+        return <CloseSquare variant="Bold" size={20} />;
+      case "success":
+        return <TickSquare variant="Bold" size={20} />;
+      case "info":
+        return <InfoCircle variant="Bold" size={20} />;
+      case "warning":
+        return <Warning2 variant="Bold" size={20} />;
+      default:
+        return null;
+    }
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -108,19 +149,43 @@ export const Modal = (props: IModal) => {
           >
             {isClosable && (
               <div className={closeClasses}>
-                <Button variant="unstyled" onClick={onCancel}>
-                  {closeIcon || <X size={18} />}
-                </Button>
+                <button onClick={onCancel}>
+                  {closeIcon || <CloseCircle size={24} />}
+                </button>
               </div>
             )}
             {showHeader && title && !customHeader && (
               <div className={theme.header()}>
-                <div className={theme.title()}>{title}</div>
+                <div className={theme.titleContainer()}>
+                  {!!variant && (
+                    <div
+                      className={theme.titleIcon({
+                        variant,
+                      })}
+                    >
+                      {getVariantIcon()}
+                    </div>
+                  )}
+                  <div className={theme.title()}>{title}</div>
+                </div>
               </div>
             )}
             {customHeader || null}
             <div className={contentClasses}>{children}</div>
-            {footer || null}
+            {footer || (
+              <div className={footerClasses}>
+                <Button variant="text" onClick={onCancel}>
+                  {cancelText}
+                </Button>
+                <Button
+                  variant="solid"
+                  onClick={onOk}
+                  className={okButtonClasses}
+                >
+                  {okText}
+                </Button>
+              </div>
+            )}
           </motion.div>
         </motion.div>
       )}

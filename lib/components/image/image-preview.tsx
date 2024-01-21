@@ -1,11 +1,3 @@
-import {
-  ArrowClockwise,
-  ArrowCounterClockwise,
-  ArrowsIn,
-  MagnifyingGlassMinus,
-  MagnifyingGlassPlus,
-  X,
-} from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
@@ -13,6 +5,14 @@ import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../main";
 import { IImagePreview } from "./image.types";
 import { useImagePreview } from "./use-image-preview";
+import {
+  ArrowRotateLeft,
+  ArrowRotateRight,
+  CloseCircle,
+  Refresh,
+  SearchZoomIn1,
+  SearchZoomOut1,
+} from "iconsax-react";
 
 export const ImagePreview = ({
   backdropClassName = "",
@@ -70,32 +70,32 @@ export const ImagePreview = ({
     const tools = [
       {
         key: "zoomIn",
-        icon: <MagnifyingGlassPlus />,
+        icon: <SearchZoomIn1 size={20} />,
         onClick: handleZoomIn,
       },
       {
         key: "zoomOut",
-        icon: <MagnifyingGlassMinus />,
+        icon: <SearchZoomOut1 size={20} />,
         onClick: handleZoomOut,
       },
       {
         key: "rotateLeft",
-        icon: <ArrowCounterClockwise />,
+        icon: <ArrowRotateLeft size={20} />,
         onClick: handleRotateLeft,
       },
       {
         key: "rotateRight",
-        icon: <ArrowClockwise />,
+        icon: <ArrowRotateRight size={20} />,
         onClick: handleRotateRight,
       },
       {
         key: "reset",
-        icon: <ArrowsIn />,
+        icon: <Refresh size={20} />,
         onClick: reset,
       },
       {
         key: "close",
-        icon: <X />,
+        icon: <CloseCircle size={20} />,
         onClick: onCancel,
       },
     ];

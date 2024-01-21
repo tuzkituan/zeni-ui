@@ -1,5 +1,10 @@
-import { CaretDown, Check, Tray, X } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";
+import {
+  ArrowDown2,
+  CloseCircle,
+  DirectNormal,
+  TickCircle,
+} from "iconsax-react";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
@@ -24,6 +29,7 @@ export const Select = ({
   placeholder = "Placeholder",
   placement = "bottom",
   isMultiple = false,
+  isDisabled = false,
   tagRender,
 }: ISelect) => {
   const secContainerRef = useRef<HTMLDivElement | null>(null);
@@ -54,7 +60,7 @@ export const Select = ({
             duration: 0.1,
           }}
         >
-          <CaretDown size={18} className={theme.iconColor()} />
+          <ArrowDown2 size={20} className={theme.iconColor()} />
         </motion.div>
       )
     );
@@ -76,11 +82,12 @@ export const Select = ({
       theme.container({
         variant,
         size,
+        isDisabled,
       }),
       theme.group(),
       className
     );
-  }, [size, theme, variant, className]);
+  }, [size, theme, isDisabled, variant, className]);
 
   const secContainerClasses = useMemo(() => {
     return twMerge(
@@ -98,11 +105,12 @@ export const Select = ({
     return twMerge(
       theme.inputGroup({
         variant,
+        isDisabled,
         size,
         isInGroup: !!leftElement || !!rightElement,
       })
     );
-  }, [leftElement, rightElement, size, theme, variant]);
+  }, [leftElement, isDisabled, rightElement, size, theme, variant]);
 
   const inputClasses = useMemo(() => {
     return twMerge(
@@ -138,8 +146,12 @@ export const Select = ({
   }, [theme]);
 
   const tagClasses = useMemo(() => {
-    return twMerge(theme.tag());
-  }, [theme]);
+    return twMerge(
+      theme.tag({
+        variant,
+      })
+    );
+  }, [theme, variant]);
 
   // FUNCTIONS
   const onClear = (e: React.MouseEvent<HTMLElement>) => {
@@ -173,7 +185,7 @@ export const Select = ({
     if (_options.length === 0)
       return (
         <div className={emptyClasses}>
-          <Tray size={40} className="text-gray-500" />
+          <DirectNormal size={40}  />
         </div>
       );
 
@@ -213,8 +225,17 @@ export const Select = ({
             }
           }}
         >
-          <span className={theme.optionLabel()}>{x.label}</span>
-          {isSelected && <Check className={theme.optionCheckIcon()} />}
+          <div className={theme.optionLabelContainer()}>
+            {x.icon}
+            <span className={theme.optionLabel()}>{x.label}</span>
+          </div>
+          {isSelected && (
+            <TickCircle
+              size={20}
+              variant="Bold"
+              className={theme.optionCheckIcon()}
+            />
+          )}
         </li>
       );
     });
@@ -239,8 +260,8 @@ export const Select = ({
       <div className={tagClasses} key={x.value}>
         <span>{x.label}</span>
         {!x.isDisabled && (
-          <X
-            size={14}
+          <CloseCircle
+            size={12}
             className={twMerge(theme.tagX(), theme.iconColor())}
             onClick={() => onRemoveTag(x)}
           />
@@ -316,7 +337,7 @@ export const Select = ({
     if ((isClearable && !isEmpty(valueState)) || !!searchValue) {
       return (
         <Box className={clearElementClasses} onClick={onClear}>
-          <X size={16} className={theme.iconColor()} />
+          <CloseCircle size={20} className={theme.iconColor()} />
         </Box>
       );
     }

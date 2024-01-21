@@ -5,9 +5,9 @@ export interface ITextarea
     TextareaHTMLAttributes<HTMLTextAreaElement>,
     "size" | "disabled" | "readOnly"
   > {
-  variant?: "outline" | "filled" | "flushed" | "unstyled";
+  variant?: "outline" | "filled" | "flushed";
   placeholder?: string;
   isDisabled?: boolean;
   isReadOnly?: boolean;
-  isResizable?: boolean
+  isResizable?: boolean;
 }

@@ -51,7 +51,7 @@ export const Tooltip = ({
                 backgroundColor="black"
                 className={arrowClasses}
                 borderWidth={1}
-                size={8}
+                size={6}
               />
             </motion.div>
           </AnimatePresence>
