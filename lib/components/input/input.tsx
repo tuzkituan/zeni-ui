@@ -4,11 +4,6 @@ import { useComponentStyle } from "../../customization/styles/theme.context";
 import { Box } from "../box/box";
 import { IInput } from "./input.types";
 
-const defaultProps: Partial<IInput> = {
-  size: "md",
-  variant: "filled",
-};
-
 export const Input = forwardRef<HTMLInputElement, IInput>(
   (props: IInput, ref) => {
     const theme = useComponentStyle("Input");
@@ -21,7 +16,7 @@ export const Input = forwardRef<HTMLInputElement, IInput>(
       isDisabled = false,
       isReadOnly = false,
       ...restProps
-    } = { ...defaultProps, ...props };
+    } = props;
 
     const containerClasses = useMemo(() => {
       return twMerge(

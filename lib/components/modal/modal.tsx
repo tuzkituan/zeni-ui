@@ -13,10 +13,6 @@ import { useComponentStyle } from "../../customization/styles/theme.context";
 import { Button } from "../button/button";
 import { IModal } from "./modal.types";
 
-const defaultProps: Partial<IModal> = {
-  children: undefined,
-};
-
 export const Modal = (props: IModal) => {
   const theme = useComponentStyle("Modal");
   const {
@@ -37,7 +33,7 @@ export const Modal = (props: IModal) => {
     okText = "Submit",
     cancelText = "Cancel",
     variant = "",
-  } = { ...defaultProps, ...props };
+  } = props;
 
   const backdropClasses = useMemo(() => {
     return twMerge(theme.backdrop(), backdropClassName);

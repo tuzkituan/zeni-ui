@@ -3,10 +3,6 @@ import { useComponentStyle } from "../../customization/styles/theme.context";
 import { ICheckbox, ICheckboxGroup } from "./checkbox.types";
 import React, { ChangeEvent, useEffect, useMemo, useState } from "react";
 
-const defaultProps: Partial<ICheckbox> = {
-  children: undefined,
-};
-
 export const Checkbox = (props: ICheckbox) => {
   const theme = useComponentStyle("Checkbox");
   const {
@@ -19,7 +15,7 @@ export const Checkbox = (props: ICheckbox) => {
     isChecked = undefined,
     spacing,
     ...restProps
-  } = { ...defaultProps, ...props };
+  } = props;
 
   const containerClasses = useMemo(() => {
     return twMerge(
@@ -27,7 +23,7 @@ export const Checkbox = (props: ICheckbox) => {
         isDisabled,
       }),
       theme.label({
-        isDisabled
+        isDisabled,
       }),
       className
     );

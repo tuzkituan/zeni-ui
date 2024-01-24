@@ -4,10 +4,6 @@ import { ITabs } from "./tabs.types";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const defaultProps: Partial<ITabs> = {
-  children: undefined,
-};
-
 export const Tabs = (props: ITabs) => {
   const theme = useComponentStyle("Tabs");
   const {
@@ -23,7 +19,7 @@ export const Tabs = (props: ITabs) => {
     tabClassName = "",
     contentClassName = "",
     ...restProps
-  } = { ...defaultProps, ...props };
+  } = props;
 
   const [active, setActive] = useState(
     defaultActiveKey || activeKey || items?.[0]?.key
