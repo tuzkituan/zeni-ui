@@ -4,8 +4,7 @@ import { extname, relative, resolve } from "path";
 import dts from "vite-plugin-dts";
 import { fileURLToPath } from "node:url";
 import { glob } from "glob";
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
-
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,10 +21,11 @@ export default defineConfig({
     copyPublicDir: false,
     lib: {
       entry: resolve(__dirname, "lib/main.ts"),
-      formats: ["es"],
+      formats: ["es", "cjs"],
+      name: "ZENI-UI",
     },
     rollupOptions: {
-      external: ["react", "react/jsx-runtime"],
+      external: ["react", "react-dom", "react/jsx-runtime", "tailwindcss"],
       input: Object.fromEntries(
         glob.sync("lib/**/!(*.d).{ts,tsx}").map((file) => [
           // The name of the entry point
