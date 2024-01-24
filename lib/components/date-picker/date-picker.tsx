@@ -21,8 +21,8 @@ export const DatePicker = (props: IDatePicker) => {
 
   const {
     className = "",
-    size,
-    variant,
+    size = "md",
+    variant = "outline",
     isDisabled = false,
     isReadOnly = false,
     format,

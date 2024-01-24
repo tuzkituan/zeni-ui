@@ -12,7 +12,13 @@ const defaultProps: Partial<INumberInput> = {
 };
 
 const InputContainer = (props: INumberInput) => {
-  const { children, variant, size, className, isDisabled } = props;
+  const {
+    children,
+    variant = "outline",
+    size = "md",
+    className,
+    isDisabled,
+  } = props;
   const theme = useComponentStyle("NumberInput");
 
   const containerClasses = useMemo(() => {

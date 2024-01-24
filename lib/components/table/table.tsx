@@ -15,7 +15,7 @@ export const Table = (props: ITable) => {
     isLoading = false,
     onRow,
     showHeader = true,
-    size,
+    size = "md",
     ...restProps
   } = props;
 

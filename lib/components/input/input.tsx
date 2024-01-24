@@ -14,8 +14,8 @@ export const Input = forwardRef<HTMLInputElement, IInput>(
     const theme = useComponentStyle("Input");
     const {
       className = "",
-      size,
-      variant,
+      size = "md",
+      variant = "outline",
       leftElement,
       rightElement,
       isDisabled = false,
