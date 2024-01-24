@@ -3,17 +3,9 @@ import { useComponentStyle } from "../../customization/styles/theme.context";
 import { ICenter, ICircle } from "./center.types";
 import { useMemo } from "react";
 
-const defaultProps: Partial<ICenter> = {
-  children: undefined,
-};
-
 export const Center = (props: ICenter) => {
   const theme = useComponentStyle("Center");
-  const {
-    children,
-    className = "",
-    ...restProps
-  } = { ...defaultProps, ...props };
+  const { children, className = "", ...restProps } = props;
 
   const classes = useMemo(() => {
     return twMerge(theme.base(), className);

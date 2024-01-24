@@ -6,28 +6,19 @@ import useImageStatus from "../../hooks/image.hook";
 import { IAvatar } from "./avatar.types";
 import { User } from "iconsax-react";
 
-const defaultProps: Partial<IAvatar> = {
-  src: "",
-  alt: "",
-  size: "md",
-  name: "",
-  bgColor: "",
-  borderColor: "white",
-};
-
 export const Avatar = (props: IAvatar) => {
   const theme = useComponentStyle("Avatar");
   const {
     className = "",
     src,
     alt,
-    size,
+    size = "md",
     name,
     bgColor,
-    borderColor,
+    borderColor = "white",
     style,
     ...restProps
-  } = { ...defaultProps, ...props };
+  } = props;
 
   const { error } = useImageStatus(src);
 

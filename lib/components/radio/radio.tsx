@@ -3,10 +3,6 @@ import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IRadio, IRadioGroup } from "./radio.types";
 import React, { ChangeEvent, useEffect, useMemo, useState } from "react";
 
-const defaultProps: Partial<IRadio> = {
-  children: undefined,
-};
-
 export const Radio = (props: IRadio) => {
   const theme = useComponentStyle("Radio");
   const {
@@ -18,7 +14,7 @@ export const Radio = (props: IRadio) => {
     isChecked = undefined,
     spacing,
     ...restProps
-  } = { ...defaultProps, ...props };
+  } = props;
 
   const containerClasses = useMemo(() => {
     return twMerge(

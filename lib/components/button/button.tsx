@@ -4,14 +4,6 @@ import LoadingIcon from "../../assets/icons/LoadingIcon";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IButton } from "./button.types";
 
-const defaultProps: Partial<IButton> = {
-  variant: "solid",
-  size: "md",
-  spinnerPlacement: "start",
-  isDisabled: false,
-  isLoading: false,
-};
-
 export const Button = (props: IButton) => {
   const theme = useComponentStyle("Button");
 
@@ -20,20 +12,17 @@ export const Button = (props: IButton) => {
     children,
     iconSpacing,
     variant = "solid",
-    size,
+    size = "md",
     isDisabled,
     isLoading,
-    spinnerPlacement,
+    spinnerPlacement = "start",
     spinner,
     leftIcon,
     rightIcon,
     loadingText,
     isDanger,
     ...restProps
-  } = {
-    ...defaultProps,
-    ...props,
-  };
+  } = props;
 
   const classes = useMemo(() => {
     return twMerge(theme.base({ size, variant, isDanger }), className);

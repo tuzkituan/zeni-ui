@@ -5,12 +5,6 @@ import { useComponentStyle } from "../../customization/styles/theme.context";
 import styles from "./number-input.module.scss";
 import { INumberInput, INumberInputArrow } from "./number-input.types";
 
-const defaultProps: Partial<INumberInput> = {
-  size: "md",
-  variant: "filled",
-  showArrow: true,
-};
-
 const InputContainer = (props: INumberInput) => {
   const {
     children,
@@ -39,8 +33,8 @@ export const NumberInput = (props: INumberInput) => {
   const theme = useComponentStyle("NumberInput");
   const {
     className = "",
-    size,
-    variant,
+    size = "md",
+    variant = "outline",
     onChange,
     defaultValue,
     value,
@@ -51,7 +45,7 @@ export const NumberInput = (props: INumberInput) => {
     isDisabled = false,
     isReadOnly = false,
     ...restProps
-  } = { ...defaultProps, ...props };
+  } = props;
 
   const [number, setNumber] = useState(defaultValue || 0);
 

@@ -3,10 +3,6 @@ import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IFlex } from "./flex.types";
 import { useMemo } from "react";
 
-const defaultProps: Partial<IFlex> = {
-  children: undefined,
-};
-
 export const Flex = (props: IFlex) => {
   const theme = useComponentStyle("Flex");
   const {
@@ -18,7 +14,7 @@ export const Flex = (props: IFlex) => {
     wrap,
     gap,
     ...restProps
-  } = { ...defaultProps, ...props };
+  } = props;
 
   const classes = useMemo(() => {
     return twMerge(

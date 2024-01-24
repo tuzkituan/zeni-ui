@@ -3,17 +3,9 @@ import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IBox } from "./box.types";
 import { useMemo } from "react";
 
-const defaultProps: Partial<IBox> = {
-  children: undefined,
-};
-
 export const Box = (props: IBox) => {
   const theme = useComponentStyle("Box");
-  const {
-    children,
-    className = "",
-    ...restProps
-  } = { ...defaultProps, ...props };
+  const { children, className = "", ...restProps } = props;
 
   const classes = useMemo(() => {
     return twMerge(theme.base(), className);
