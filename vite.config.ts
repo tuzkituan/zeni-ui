@@ -21,11 +21,11 @@ export default defineConfig({
     copyPublicDir: false,
     lib: {
       entry: resolve(__dirname, "lib/main.ts"),
-      formats: ["es", "cjs"],
+      formats: ["es"],
       name: "ZENI-UI",
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime", "tailwindcss"],
+      external: ["react", "react/jsx-runtime", "tailwindcss"],
       input: Object.fromEntries(
         glob.sync("lib/**/!(*.d).{ts,tsx}").map((file) => [
           // The name of the entry point
