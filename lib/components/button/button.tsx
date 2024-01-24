@@ -19,7 +19,7 @@ export const Button = (props: IButton) => {
     className = "",
     children,
     iconSpacing,
-    variant,
+    variant = "solid",
     size,
     isDisabled,
     isLoading,

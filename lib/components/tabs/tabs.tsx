@@ -16,7 +16,7 @@ export const Tabs = (props: ITabs) => {
     activeKey,
     onTabChange,
     items,
-    variant = "solid",
+    variant = "underline",
     isFitted = false,
     navClassName = "",
     ulClassName = "",
