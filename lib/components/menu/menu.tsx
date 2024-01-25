@@ -61,7 +61,7 @@ export const Menu = ({
         className={itemClasses}
         onClick={() => onMenuItemClick(x.key)}
       >
-        <div className={itemIconClasses}>{x.icon}</div>
+        {!!x.icon && <div className={itemIconClasses}>{x.icon}</div>}
         {x.title}
       </li>
     ));
