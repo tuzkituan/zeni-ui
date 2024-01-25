@@ -55,7 +55,5 @@ export * from "./components/tooltip/tooltip.types";
 export * from "./providers/zeni-provider";
 
 // UTILS
-export * from "./customization/styles/theme.context";
 export * from "./customization/theme/index";
 export * from "./customization/theme/use-change-theme";
-export * from "./customization/theme/utils";
