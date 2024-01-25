@@ -1,4 +1,4 @@
-import { themes } from ".";
+import { zeniThemes } from ".";
 
 export type ITheme = Record<string, string>;
 
@@ -90,7 +90,7 @@ export const mapTheme = (variables: ITheme): IMappedTheme => {
 };
 
 export const applyTheme = (theme: string): void => {
-  const themeObject: IMappedTheme = mapTheme(themes[theme]);
+  const themeObject: IMappedTheme = mapTheme(zeniThemes[theme]);
   if (!themeObject) return;
 
   const root = document.documentElement;
