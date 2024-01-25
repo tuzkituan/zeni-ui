@@ -2,7 +2,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { twMerge } from "tailwind-merge";
-import { useComponentStyle } from "../../main";
 import { IImagePreview } from "./image.types";
 import { useImagePreview } from "./use-image-preview";
 import {
@@ -13,6 +12,7 @@ import {
   SearchZoomIn1,
   SearchZoomOut1,
 } from "iconsax-react";
+import { useComponentStyle } from "../../customization/styles/theme.context";
 
 export const ImagePreview = ({
   backdropClassName = "",

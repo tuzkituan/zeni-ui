@@ -1,11 +1,11 @@
 import { Variants, motion, useIsPresent } from "framer-motion";
 import { memo, useEffect, useMemo, useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { useComponentStyle } from "../../main";
 import { Alert } from "../alert/alert";
 import { ToastProviderProps } from "./toast.provider";
 import { ToastOptions } from "./toast.types";
 import { useTimeout } from "./toast.utils";
+import { useComponentStyle } from "../../customization/styles/theme.context";
 
 const toastMotionVariants: Variants = {
   initial: (props: ToastOptions) => {

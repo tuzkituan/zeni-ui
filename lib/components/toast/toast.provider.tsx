@@ -2,10 +2,10 @@ import { AnimatePresence } from "framer-motion";
 import { createContext, useContext, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { twMerge } from "tailwind-merge";
-import { useComponentStyle } from "../../main";
 import { ToastComponent } from "./toast.component";
 import { toastStore } from "./toast.store";
 import { CloseAllToastsOptions, ToastId, ToastOptions } from "./toast.types";
+import { useComponentStyle } from "../../customization/styles/theme.context";
 
 export interface ToastMethods {
   notify: (options?: ToastOptions) => ToastId;
@@ -48,7 +48,7 @@ export const useToastOptionContext = () => {
 
 export const ToastProvider = (props: ToastProviderProps) => {
   const theme = useComponentStyle("Toast");
-  const { toastSpacing = '6px' } = props;
+  const { toastSpacing = "6px" } = props;
   const state = useSyncExternalStore(
     toastStore.subscribe,
     toastStore.getState,
