@@ -1,6 +1,6 @@
 import { zeniThemes } from ".";
 
-export type ITheme = Record<string, string>;
+type ITheme = Record<string, string>;
 
 export type IThemes = Record<string, ITheme>;
 

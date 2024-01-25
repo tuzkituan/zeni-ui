@@ -4,7 +4,7 @@ import {
   ToastProvider,
   ToastProviderProps,
 } from "../main";
-import { ThemeType } from "../customization/theme";
+import { IThemeType } from "../customization/theme";
 import { applyTheme } from "../customization/theme/utils";
 
 export const ZeniProvider = ({
@@ -12,14 +12,14 @@ export const ZeniProvider = ({
   children,
   toastOptions,
 }: {
-  initialTheme?: ThemeType;
+  initialTheme?: IThemeType;
   children: React.ReactNode;
   toastOptions?: ToastProviderProps;
 }) => {
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const defaultTheme =
-      (savedTheme as ThemeType) || initialTheme || "baseLight";
+      (savedTheme as IThemeType) || initialTheme || "baseLight";
     applyTheme(defaultTheme);
     localStorage.setItem("theme", defaultTheme);
   }, [initialTheme]);

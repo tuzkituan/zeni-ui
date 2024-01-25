@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { ThemeType } from ".";
+import { IThemeType } from ".";
 import { applyTheme } from "./utils";
 
 export function useChangeTheme() {
-  const [theme, setTheme] = useState<ThemeType | undefined>(() => {
+  const [theme, setTheme] = useState<IThemeType | undefined>(() => {
     const savedTheme = localStorage.getItem("theme");
-    return savedTheme ? (savedTheme as ThemeType) : undefined;
+    return savedTheme ? (savedTheme as IThemeType) : undefined;
   });
 
   useEffect(() => {
