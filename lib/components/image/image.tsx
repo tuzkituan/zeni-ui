@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { useComponentStyle } from "../../main";
 import { ImagePreview } from "./image-preview";
 import { ImageComponent } from "./image.component";
 import { IImage } from "./image.types";
+import { useComponentStyle } from "../../customization/styles/theme.context";
 
 export const Image = ({
   isPreviewable = true,
