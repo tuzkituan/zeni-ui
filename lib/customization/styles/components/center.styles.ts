@@ -1,8 +1,18 @@
 import { cva } from "class-variance-authority";
 
-const base = cva(["flex w-full justify-center items-center"]);
+const base = cva([
+  "zn-flex",
+  "zn-w-full",
+  "zn-justify-center",
+  "zn-items-center",
+]);
 const circle = cva([
-  "flex justify-center items-center rounded-full w-fit h-fit",
+  "zn-flex",
+  "zn-justify-center",
+  "zn-items-center",
+  "zn-rounded-full",
+  "zn-w-fit",
+  "zn-h-fit",
 ]);
 
 const centerStyles = {

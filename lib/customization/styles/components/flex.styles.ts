@@ -1,32 +1,32 @@
 import { cva } from "class-variance-authority";
 
-const base = cva(["flex"], {
+const base = cva(["zn-flex"], {
   variants: {
     direction: {
-      row: ["flex-row"],
-      "row-reverse": ["flex-row-reverse"],
-      column: ["flex-col"],
-      "column-reverse": ["flex-col-reverse"],
+      row: ["zn-flex-row"],
+      "row-reverse": ["zn-flex-row-reverse"],
+      column: ["zn-flex-col"],
+      "column-reverse": ["zn-flex-col-reverse"],
     },
     justify: {
-      "flex-end": ["justify-end"],
-      "flex-start": ["justify-start"],
-      center: ["justify-center"],
-      "space-around": ["justify-around"],
-      "space-between": ["justify-between"],
-      "space-evenly": ["justify-evenly"],
+      "flex-end": ["zn-justify-end"],
+      "flex-start": ["zn-justify-start"],
+      center: ["zn-justify-center"],
+      "space-around": ["zn-justify-around"],
+      "space-between": ["zn-justify-between"],
+      "space-evenly": ["zn-justify-evenly"],
     },
     align: {
-      "flex-end": ["items-end"],
-      "flex-start": ["items-start"],
-      center: ["items-center"],
-      baseline: ["items-baseline"],
-      stretch: ["items-stretch"],
+      "flex-end": ["zn-items-end"],
+      "flex-start": ["zn-items-start"],
+      center: ["zn-items-center"],
+      baseline: ["zn-items-baseline"],
+      stretch: ["zn-items-stretch"],
     },
     wrap: {
-      nowrap: ["flex-nowrap"],
-      wrap: ["flex-wrap"],
-      "wrap-reverse": ["flex-wrap-reverse"],
+      nowrap: ["zn-flex-nowrap"],
+      wrap: ["zn-flex-wrap"],
+      "wrap-reverse": ["zn-flex-wrap-reverse"],
     },
   },
   defaultVariants: {
@@ -37,7 +37,7 @@ const base = cva(["flex"], {
   },
 });
 
-const spacer = cva(["flex-1 place-self-stretch"]);
+const spacer = cva(["zn-flex-1", "zn-place-self-stretch"]);
 
 const flexStyles = {
   base,

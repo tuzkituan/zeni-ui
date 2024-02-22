@@ -1,53 +1,53 @@
 import { cva } from "class-variance-authority";
 
-const container = cva(["block"]);
-const nav = cva(["block"], {
+const container = cva(["zn-block"]);
+const nav = cva(["zn-block"], {
   variants: {
     variant: {
-      underline: ["border-b", "border-b-base"],
+      underline: ["zn-border-b", "zn-border-b-base"],
       solid: [],
       outline: [],
     },
   },
 });
-const ul = cva(["flex", "w-full", "list-none", "p-0", "m-0"], {
+const ul = cva(["zn-flex", "zn-w-full", "zn-list-none", "zn-p-0", "zn-m-0"], {
   variants: {
     variant: {
-      underline: ["gap-8"],
-      solid: ["gap-3"],
-      outline: ["gap-3"],
+      underline: ["zn-gap-8"],
+      solid: ["zn-gap-3"],
+      outline: ["zn-gap-3"],
     },
   },
 });
 const li = cva(
   [
-    "flex",
-    "items-center",
-    "justify-start",
-    "gap-3",
-    "rounded-base",
-    "py-2",
-    "relative",
-    "cursor-pointer",
-    "text-sm",
+    "zn-flex",
+    "zn-items-center",
+    "zn-justify-start",
+    "zn-gap-3",
+    "zn-rounded-base",
+    "zn-py-2",
+    "zn-relative",
+    "zn-cursor-pointer",
+    "zn-text-sm",
   ],
   {
     variants: {
       variant: {
         underline: [],
-        solid: ["px-6", "border", "border-transparent"],
-        outline: ["px-6", "border", "border-transparent"],
+        solid: ["zn-px-6", "zn-border", "zn-border-transparent"],
+        outline: ["zn-px-6", "zn-border", "zn-border-transparent"],
       },
       isSelected: {
         true: [],
         false: [],
       },
       isFitted: {
-        true: ["w-full", "justify-center"],
+        true: ["zn-w-full", "zn-justify-center"],
         false: [],
       },
       isDisabled: {
-        true: ["!cursor-not-allowed", "!text-gray-400"],
+        true: ["!zn-cursor-not-allowed", "!zn-text-gray-400"],
         false: [],
       },
     },
@@ -55,31 +55,31 @@ const li = cva(
       {
         variant: "underline",
         isSelected: true,
-        class: "text-primary-base",
+        class: "zn-text-primary-base",
       },
       {
         variant: "solid",
         isSelected: true,
-        class: ["bg-primary-base", "text-white"],
+        class: ["zn-bg-primary-base", "zn-text-white"],
       },
       {
         variant: "outline",
         isSelected: true,
-        class: ["border-primary-base", "text-primary-base"],
+        class: ["zn-border-primary-base", "zn-text-primary-base"],
       },
     ],
   }
 );
 const indicator = cva([
-  "absolute",
-  "bottom-[-1px]",
-  "left-0",
-  "right-0",
-  "w-full",
-  "h-[1.5px]",
-  "bg-primary-base",
+  "zn-absolute",
+  "zn-bottom-[-1px]",
+  "zn-left-0",
+  "zn-right-0",
+  "zn-w-full",
+  "zn-h-[1.5px]",
+  "zn-bg-primary-base",
 ]);
-const content = cva(["block", "py-4"]);
+const content = cva(["zn-block", "zn-py-4"]);
 const tabsStyles = {
   container,
   nav,

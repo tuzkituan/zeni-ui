@@ -1,11 +1,11 @@
 import { cva } from "class-variance-authority";
 
 const container = cva(
-  ["flex", "items-center", "w-fit", "gap-2", "select-none"],
+  ["zn-flex", "zn-items-center", "zn-w-fit", "zn-gap-2", "zn-select-none"],
   {
     variants: {
       isDisabled: {
-        true: ["cursor-not-allowed"],
+        true: ["zn-cursor-not-allowed"],
         false: [],
       },
     },
@@ -13,43 +13,43 @@ const container = cva(
 );
 const input = cva(
   [
-    "form-checkbox",
-    "!rounded-[4px]",
-    "border-neutral-100",
-    "checked:bg-primary-base",
-    "text-primary-base",
-    "focus:ring-2",
-    "focus:ring-primary-20",
-    "focus:!ring-offset-0",
-    "active:ring-2",
-    "active:ring-primary-20",
-    "active:!ring-offset-0",
+    "zn-form-checkbox",
+    "!zn-rounded-[4px]",
+    "zn-border-neutral-100",
+    "checked:zn-bg-primary-base",
+    "zn-text-primary-base",
+    "focus:zn-ring-2",
+    "focus:zn-ring-primary-20",
+    "focus:!zn-ring-offset-0",
+    "active:zn-ring-2",
+    "active:zn-ring-primary-20",
+    "active:!zn-ring-offset-0",
   ],
   {
     variants: {
       size: {
-        sm: ["h-3", "w-3"],
-        md: ["h-4", "w-4"],
-        lg: ["h-5", "w-5"],
+        sm: ["zn-h-3", "zn-w-3"],
+        md: ["zn-h-4", "zn-w-4"],
+        lg: ["zn-h-5", "zn-w-5"],
       },
       indeterminate: {
         true: [],
         false: [],
       },
       readOnly: {
-        true: ["pointer-events-none"],
+        true: ["zn-pointer-events-none"],
       },
       isDisabled: {
         true: [
-          "cursor-not-allowed",
-          "checked:bg-neutral-20",
-          "checked:border-neutral-20",
-          "bg-neutral-10",
-          "border-neutral-10",
-          "hover:bg-neutral-10",
-          "checked:hover:bg-neutral-20",
-          "active:ring-0",
-          "focus:ring-0",
+          "zn-cursor-not-allowed",
+          "checked:zn-bg-neutral-20",
+          "checked:zn-border-neutral-20",
+          "zn-bg-neutral-10",
+          "zn-border-neutral-10",
+          "hover:zn-bg-neutral-10",
+          "checked:hover:zn-bg-neutral-20",
+          "active:zn-ring-0",
+          "focus:zn-ring-0",
         ],
         false: [],
       },
@@ -59,19 +59,19 @@ const input = cva(
     },
   }
 );
-const label = cva(["text-sm", "font-medium", "text-neutral-100"], {
+const label = cva(["zn-text-sm", "zn-font-medium", "zn-text-neutral-100"], {
   variants: {
     isDisabled: {
-      true: ["text-neutral-40"],
+      true: ["zn-text-neutral-40"],
       false: [],
     },
   },
 });
-const group = cva(["flex"], {
+const group = cva(["zn-flex"], {
   variants: {
     layout: {
-      vertical: ["flex-col", "gap-2"],
-      horizontal: ["flex-row", "gap-2-4", "gap-x-10"],
+      vertical: ["zn-flex-col", "zn-gap-2"],
+      horizontal: ["zn-flex-row", "zn-gap-2-4", "zn-gap-x-10"],
     },
   },
 });

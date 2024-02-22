@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-const base = cva(["text-neutral-100"]);
+const base = cva(["zn-text-neutral-100"]);
 
 const textStyles = {
   base,

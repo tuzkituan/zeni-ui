@@ -2,34 +2,34 @@ import { cva } from "class-variance-authority";
 
 const base = cva(
   [
-    "block",
-    "flex",
-    "relative",
-    "items-start",
-    "justify-start",
-    "gap-3",
-    "py-3",
-    "px-3",
+    "zn-block",
+    "zn-flex",
+    "zn-relative",
+    "zn-items-start",
+    "zn-justify-start",
+    "zn-gap-3",
+    "zn-py-3",
+    "zn-px-3",
   ],
   {
     variants: {
       variant: {
-        subtle: ["before:hidden"],
+        subtle: ["before:zn-hidden"],
         solid: [],
         "left-accent": [
-          "before:h-full",
-          "before:w-1",
-          "before:top-0",
-          "before:absolute",
-          "before:left-0",
+          "before:zn-h-full",
+          "before:zn-w-1",
+          "before:zn-top-0",
+          "before:zn-absolute",
+          "before:zn-left-0",
         ],
         "top-accent": [
-          "before:h-1",
-          "before:w-full",
-          "before:top-0",
-          "before:absolute",
-          "before:left-0",
-          "before:right-0",
+          "before:zn-h-1",
+          "before:zn-w-full",
+          "before:zn-top-0",
+          "before:zn-absolute",
+          "before:zn-left-0",
+          "before:zn-right-0",
         ],
       },
       status: {
@@ -43,42 +43,42 @@ const base = cva(
       {
         variant: ["subtle", "left-accent", "top-accent"],
         status: "info",
-        class: ["bg-white", "before:bg-info-base"],
+        class: ["zn-bg-white", "before:zn-bg-info-base"],
       },
       {
         variant: ["subtle", "left-accent", "top-accent"],
         status: "success",
-        class: ["bg-white", "before:bg-success-base"],
+        class: ["zn-bg-white", "before:zn-bg-success-base"],
       },
       {
         variant: ["subtle", "left-accent", "top-accent"],
         status: "warning",
-        class: ["bg-white", "before:bg-warning-base"],
+        class: ["zn-bg-white", "before:zn-bg-warning-base"],
       },
       {
         variant: ["subtle", "left-accent", "top-accent"],
         status: "error",
-        class: ["bg-white", "before:bg-error-base"],
+        class: ["zn-bg-white", "before:zn-bg-error-base"],
       },
       {
         variant: "solid",
         status: "info",
-        class: "bg-info-base",
+        class: "zn-bg-info-base",
       },
       {
         variant: "solid",
         status: "success",
-        class: "bg-success-base",
+        class: "zn-bg-success-base",
       },
       {
         variant: "solid",
         status: "warning",
-        class: "bg-warning-base",
+        class: "zn-bg-warning-base",
       },
       {
         variant: "solid",
         status: "error",
-        class: "bg-error-base",
+        class: "zn-bg-error-base",
       },
     ],
     defaultVariants: {
@@ -88,13 +88,13 @@ const base = cva(
   }
 );
 
-const icon = cva(["text-2xl", "border", "rounded-full", "p-2"], {
+const icon = cva(["zn-text-2xl", "zn-border", "zn-rounded-full", "zn-p-2"], {
   variants: {
     status: {
-      info: ["text-info-base"],
-      success: ["text-success-base"],
-      warning: ["text-warning-base"],
-      error: ["text-error-base"],
+      info: ["zn-text-info-base"],
+      success: ["zn-text-success-base"],
+      warning: ["zn-text-warning-base"],
+      error: ["zn-text-error-base"],
     },
     variant: {
       subtle: [],
@@ -107,38 +107,38 @@ const icon = cva(["text-2xl", "border", "rounded-full", "p-2"], {
     {
       variant: ["subtle", "left-accent", "top-accent"],
       status: "info",
-      class: ["text-info-base", "bg-info-10"],
+      class: ["zn-text-info-base", "zn-bg-info-10"],
     },
     {
       variant: ["subtle", "left-accent", "top-accent"],
       status: "success",
-      class: ["text-success-base", "bg-success-10"],
+      class: ["zn-text-success-base", "zn-bg-success-10"],
     },
     {
       variant: ["subtle", "left-accent", "top-accent"],
       status: "warning",
-      class: ["text-warning-base", "bg-warning-10"],
+      class: ["zn-text-warning-base", "zn-bg-warning-10"],
     },
     {
       variant: ["subtle", "left-accent", "top-accent"],
       status: "error",
-      class: ["text-error-base", "bg-error-10"],
+      class: ["zn-text-error-base", "zn-bg-error-10"],
     },
     {
       variant: "solid",
       status: ["info", "success", "warning", "error"],
-      class: ["border-none", "bg-white"],
+      class: ["zn-border-none", "zn-bg-white"],
     },
   ],
 });
 
-const text = cva(["text-base"], {
+const text = cva(["zn-text-base"], {
   variants: {
     status: {
-      info: ["text-info-base"],
-      success: ["text-success-base"],
-      warning: ["text-warning-base"],
-      error: ["text-error-base"],
+      info: ["zn-text-info-base"],
+      success: ["zn-text-success-base"],
+      warning: ["zn-text-warning-base"],
+      error: ["zn-text-error-base"],
     },
     variant: {
       subtle: [],
@@ -151,27 +151,27 @@ const text = cva(["text-base"], {
     {
       variant: ["subtle", "left-accent", "top-accent"],
       status: ["info", "success", "warning", "error"],
-      class: "text-gray-900",
+      class: "zn-text-gray-900",
     },
     {
       variant: "solid",
       status: ["info", "success", "warning", "error"],
-      class: "text-white",
+      class: "zn-text-white",
     },
   ],
 });
-const close = cva(["font-medium", "absolute", "top-3", "right-3"], {
+const close = cva(["zn-font-medium", "zn-absolute", "zn-top-3", "zn-right-3"], {
   variants: {
     variant: {
-      subtle: ["!text-gray-400"],
-      solid: ["!text-white"],
-      "left-accent": ["!text-gray-400"],
-      "top-accent": ["!text-gray-400"],
+      subtle: ["!zn-text-gray-400"],
+      solid: ["!zn-text-white"],
+      "left-accent": ["!zn-text-gray-400"],
+      "top-accent": ["!zn-text-gray-400"],
     },
   },
 });
-const titleText = cva(["font-medium", "m-0", "text-sm"]);
-const descriptionText = cva(["m-0", "text-sm", "font-normal"]);
+const titleText = cva(["zn-font-medium", "zn-m-0", "zn-text-sm"]);
+const descriptionText = cva(["zn-m-0", "zn-text-sm", "zn-font-normal"]);
 
 const alertStyles = {
   base,

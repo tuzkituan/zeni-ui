@@ -2,87 +2,87 @@ import { cva } from "class-variance-authority";
 
 const container = cva(
   [
-    "rounded-base",
-    "text-neutral-100",
-    "w-fit",
-    "outline",
-    "outline-1",
-    "outline-transparent",
-    "w-full",
+    "zn-rounded-base",
+    "zn-text-neutral-100",
+    "zn-w-fit",
+    "zn-outline",
+    "zn-outline-1",
+    "zn-outline-transparent",
+    "zn-w-full",
   ],
   {
     variants: {
       size: {
-        xs: ["min-h-6"],
-        sm: ["min-h-8"],
-        md: ["min-h-10"],
-        lg: ["min-h-12"],
+        xs: ["zn-min-h-6"],
+        sm: ["zn-min-h-8"],
+        md: ["zn-min-h-10"],
+        lg: ["zn-min-h-12"],
       },
       variant: {
         outline: [
-          "border",
-          "border-base",
+          "zn-border",
+          "zn-border-base",
 
-          "hover:!border-primary-base",
+          "hover:!zn-border-primary-base",
 
-          "focus-within:!border-primary-base",
-          "focus-within:!outline-primary-20",
-          "focus-within:!outline-2",
+          "focus-within:!zn-border-primary-base",
+          "focus-within:!zn-outline-primary-20",
+          "focus-within:!zn-outline-2",
 
-          "focus-within:!ring-2",
-          "focus-within:!ring-primary-20",
+          "focus-within:!zn-ring-2",
+          "focus-within:!zn-ring-primary-20",
         ],
         filled: [
-          "bg-primary-10",
+          "zn-bg-primary-10",
 
-          "border",
-          "border-primary-10",
+          "zn-border",
+          "zn-border-primary-10",
 
-          "hover:!border-primary-base",
+          "hover:!zn-border-primary-base",
 
-          "focus-within:!border-primary-base",
-          "focus-within:!outline-primary-20",
-          "focus-within:!outline-2",
-          "focus-within:!bg-transparent",
+          "focus-within:!zn-border-primary-base",
+          "focus-within:!zn-outline-primary-20",
+          "focus-within:!zn-outline-2",
+          "focus-within:!zn-bg-transparent",
 
-          "focus-within:!ring-2",
-          "focus-within:!ring-primary-20",
+          "focus-within:!zn-ring-2",
+          "focus-within:!zn-ring-primary-20",
         ],
         flushed: [
-          "!rounded-none",
+          "!zn-rounded-none",
 
-          "border-b",
-          "border-b-primary-base",
+          "zn-border-b",
+          "zn-border-b-primary-base",
 
-          "hover:shadow-[0_1px_0_0_var(--color-primary)]",
-          "focus-within:!shadow-[0_1px_0_0_var(--color-primary)]",
-          "focus-within:!border-b-primary-base",
+          "hover:zn-shadow-[0_1px_0_0_var(--color-primary)]",
+          "focus-within:!zn-shadow-[0_1px_0_0_var(--color-primary)]",
+          "focus-within:!zn-border-b-primary-base",
 
-          "!px-0",
+          "!zn-px-0",
         ],
       },
       isDisabled: {
-        true: ["!bg-neutral-10", "cursor-not-allowed"],
+        true: ["!zn-bg-neutral-10", "zn-cursor-not-allowed"],
         false: [],
       },
     },
   }
 );
 const secContainer = cva(
-  ["w-full", "min-h-inherit", "h-full", "flex", "items-center"],
+  ["zn-w-full", "zn-min-h-inherit", "zn-h-full", "zn-flex", "zn-items-center"],
   {
     variants: {
       addonRight: {
-        true: ["pl-4", "pr-2.5"],
+        true: ["zn-pl-4", "zn-pr-2.5"],
         false: [],
       },
       addonLeft: {
-        true: ["pr-4"],
+        true: ["zn-pr-4"],
         false: [],
       },
       isSearchable: {
-        true: ["cursor-text"],
-        false: ["cursor-pointer"],
+        true: ["zn-cursor-text"],
+        false: ["zn-cursor-pointer"],
       },
       isMultiple: {
         true: [],
@@ -93,43 +93,43 @@ const secContainer = cva(
       {
         addonLeft: true,
         addonRight: true,
-        class: "!px-0",
+        class: "!zn-px-0",
       },
     ],
   }
 );
 const inputGroup = cva(
   [
-    "w-full",
-    "min-h-inherit",
-    "h-full",
-    "!bg-transparent",
-    "outline-none",
-    "flex",
-    "items-center",
-    // "cursor-pointer",
-    "truncate",
-    "relative",
+    "zn-w-full",
+    "zn-min-h-inherit",
+    "zn-h-full",
+    "!zn-bg-transparent",
+    "zn-outline-none",
+    "zn-flex",
+    "zn-items-center",
+    // "zn-cursor-pointer",
+    "zn-truncate",
+    "zn-relative",
   ],
   {
     variants: {
       size: {
-        xs: ["px-4", "text-xs"],
-        sm: ["px-4", "text-sm"],
-        md: ["px-4", "text-sm"],
-        lg: ["px-4", "text-base"],
+        xs: ["zn-px-4", "zn-text-xs"],
+        sm: ["zn-px-4", "zn-text-sm"],
+        md: ["zn-px-4", "zn-text-sm"],
+        lg: ["zn-px-4", "zn-text-base"],
       },
       variant: {
         outline: [],
         filled: [],
-        flushed: ["!px-0"],
+        flushed: ["!zn-px-0"],
       },
       isInGroup: {
-        true: ["!px-0"],
+        true: ["!zn-px-0"],
         false: [],
       },
       isDisabled: {
-        true: ["cursor-not-allowed"],
+        true: ["zn-cursor-not-allowed"],
         false: [],
       },
     },
@@ -143,140 +143,145 @@ const inputGroup = cva(
 
 const input = cva(
   [
-    "outline-none",
-    "border-none",
-    "p-0",
-    "m-0",
-    "min-w-[2px]",
-    "min-h-inherit",
-    "h-full",
-    "appearance-none",
-    "cursor-inherit",
+    "zn-outline-none",
+    "zn-border-none",
+    "zn-p-0",
+    "zn-m-0",
+    "zn-min-w-[2px]",
+    "zn-min-h-inherit",
+    "zn-h-full",
+    "zn-appearance-none",
+    "zn-cursor-inherit",
   ],
   {
     variants: {
       isMultiple: {
-        true: ["ml-0.5"],
-        false: ["absolute", "top-0", "bottom-0"],
+        true: ["zn-ml-0.5"],
+        false: ["zn-absolute", "zn-top-0", "zn-bottom-0"],
       },
     },
   }
 );
 
 const dropdown = cva([
-  "overflow-y-auto",
-  "rounded-base",
-  "px-1",
-  "py-0.5",
-  "bg-color-component-background",
-  "text-neutral-100",
-  "text-base",
-  "shadow-base",
-  "overflow-x-hidden",
-  "w-[270px]",
+  "zn-overflow-y-auto",
+  "zn-rounded-base",
+  "zn-px-1",
+  "zn-py-0.5",
+  "zn-bg-color-component-background",
+  "zn-text-neutral-100",
+  "zn-text-base",
+  "zn-shadow-base",
+  "zn-overflow-x-hidden",
+  "zn-w-[270px]",
 ]);
 const option = cva(
   [
-    "w-full",
-    "flex",
-    "items-center",
-    "justify-between",
-    "gap-4",
-    "px-3",
-    "py-1.5",
-    "my-0.5",
-    "rounded-base",
-    "hover:bg-neutral-10",
-    "cursor-pointer",
-    "font-medium",
-    "text-base",
+    "zn-w-full",
+    "zn-flex",
+    "zn-items-center",
+    "zn-justify-between",
+    "zn-gap-4",
+    "zn-px-3",
+    "zn-py-1.5",
+    "zn-my-0.5",
+    "zn-rounded-base",
+    "hover:zn-bg-neutral-10",
+    "zn-cursor-pointer",
+    "zn-font-medium",
+    "zn-text-base",
   ],
   {
     variants: {
       isSelected: {
-        true: ["font-medium", "bg-primary-10"],
+        true: ["zn-font-medium", "zn-bg-primary-10"],
         false: [],
       },
       isDisabled: {
-        true: ["cursor-not-allowed", "text-neutral-40"],
+        true: ["zn-cursor-not-allowed", "zn-text-neutral-40"],
         false: [],
       },
     },
   }
 );
-const optionLabelContainer = cva(["flex", "gap-x-4", "items-center", "w-full"]);
-const optionLabel = cva(["truncate", "inline-block"]);
-const optionCheckIcon = cva(["text-primary-base", "text-[18px]"]);
-const group = cva(["flex", "items-center"]);
-const inputLabel = cva(["truncate", "inline-block", "w-full"]);
+const optionLabelContainer = cva([
+  "zn-flex",
+  "zn-gap-x-4",
+  "zn-items-center",
+  "zn-w-full",
+]);
+const optionLabel = cva(["zn-truncate", "zn-inline-block"]);
+const optionCheckIcon = cva(["zn-text-primary-base", "zn-text-[18px]"]);
+const group = cva(["zn-flex", "zn-items-center"]);
+const inputLabel = cva(["zn-truncate", "zn-inline-block", "zn-w-full"]);
 const placeholder = cva([
-  "text-neutral-40",
-  "text-black",
-  "inline-block",
-  "w-full",
+  "zn-text-neutral-40",
+  "zn-text-black",
+  "zn-inline-block",
+  "zn-w-full",
 ]);
 const leftElement = cva([
-  "flex",
-  "items-center",
-  "justify-center",
-  "cursor-pointer",
-  "p-1.5",
+  "zn-flex",
+  "zn-items-center",
+  "zn-justify-center",
+  "zn-cursor-pointer",
+  "zn-p-1.5",
 ]);
 const rightElement = cva([
-  "flex",
-  "items-center",
-  "justify-center",
-  "cursor-pointer",
-  "p-1.5",
+  "zn-flex",
+  "zn-items-center",
+  "zn-justify-center",
+  "zn-cursor-pointer",
+  "zn-p-1.5",
 ]);
 const clearElement = cva([
-  "flex",
-  "items-center",
-  "justify-center",
-  "p-1.5",
-  "hover:cursor-pointer",
-  "hover:bg-gray-100",
-  "hover:rounded-lg",
+  "zn-flex",
+  "zn-items-center",
+  "zn-justify-center",
+  "zn-p-1.5",
+  "hover:zn-cursor-pointer",
+  "hover:zn-bg-gray-100",
+  "hover:zn-rounded-lg",
 ]);
 const empty = cva([
-  "p-6",
-  "flex",
-  "justify-center",
-  "items-center",
-  "text-neutral-40",
+  "zn-p-6",
+  "zn-flex",
+  "zn-justify-center",
+  "zn-items-center",
+  "zn-text-neutral-40",
 ]);
 const tagContainer = cva([
-  "flex",
-  "items-center",
-  "gap-x-1",
-  "gap-y-1",
-  "flex-wrap",
-  "py-1",
+  "zn-flex",
+  "zn-items-center",
+  "zn-gap-x-1",
+  "zn-gap-y-1",
+  "zn-flex-wrap",
+  "zn-py-1",
 ]);
 const tag = cva(
   [
-    "rounded-3xl",
-    "px-3",
-    "py-1.5",
-    "font-medium",
-    "flex",
-    "items-center",
-    "text-xs",
-    "gap-2",
-    "leading-none",
+    "zn-rounded-3xl",
+    "zn-px-3",
+    "zn-py-1.5",
+    "zn-font-medium",
+    "zn-flex",
+    "zn-items-center",
+    "zn-text-xs",
+    "zn-gap-2",
+    "zn-leading-none",
   ],
   {
     variants: {
       variant: {
-        outline: ["bg-primary-10"],
-        filled: ["bg-neutral-5"],
-        flushed: ["bg-primary-10"],
+        outline: ["zn-bg-primary-10"],
+        filled: ["zn-bg-neutral-5"],
+        flushed: ["zn-bg-primary-10"],
       },
     },
   }
 );
-const tagX = cva(["cursor-pointer"]);
-const iconColor = cva(["text-neutral-50"]);
+const tagX = cva(["zn-cursor-pointer"]);
+const iconColor = cva(["zn-text-neutral-50"]);
 const selectStyles = {
   container,
   secContainer,

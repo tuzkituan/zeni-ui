@@ -1,13 +1,13 @@
 import { cva } from "class-variance-authority";
 
 const base = cva([
-  "bg-black",
-  "text-white",
-  "rounded-base",
-  "px-3",
-  "py-2",
-  "text-sm",
-  "shadow-base",
+  "zn-bg-black",
+  "zn-text-white",
+  "zn-rounded-base",
+  "zn-px-3",
+  "zn-py-2",
+  "zn-text-sm",
+  "zn-shadow-base",
 ]);
 
 const arrow = cva([]);

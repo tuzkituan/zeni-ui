@@ -38,7 +38,7 @@ export const Primary: Story = {
     title: "Modal Title",
     showHeader: true,
     backdropClassName: "",
-    className: "w-[500px]",
+    className: "zn-w-[500px]",
     closeIcon: null,
     isOpen: true,
   },
@@ -68,7 +68,7 @@ export const CenteredModal: Story = {
     isOpen: true,
     title: "Modal Title",
     showHeader: true,
-    className: "w-[500px]",
+    className: "zn-w-[500px]",
   },
 };
 
@@ -77,6 +77,6 @@ export const NoHeaderModal: Story = {
     children: "Hey, this is your modal mate!",
     isOpen: true,
     showHeader: false,
-    className: "w-[400px]",
+    className: "zn-w-[400px]",
   },
 };

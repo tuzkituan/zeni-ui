@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  prefix: "zn-",
   darkMode: ["class", '[data-mode="dark"]'],
   content: [
     "./index.html",
@@ -118,7 +119,7 @@ export default {
   plugins: [
     require("@tailwindcss/forms")({
       // strategy: 'base', // only generate global styles
-      strategy: 'class', // only generate classes
+      strategy: "class", // only generate classes
     }),
   ],
 };

@@ -1,7 +1,14 @@
 import { cva } from "class-variance-authority";
 
 const toastsContainer = cva(
-  ["fixed", "z-[9999]", "pointer-events-none", "flex", "flex-col", "m-2"],
+  [
+    "zn-fixed",
+    "zn-z-[9999]",
+    "zn-pointer-events-none",
+    "zn-flex",
+    "zn-flex-col",
+    "zn-m-2",
+  ],
   {
     variants: {
       top: {
@@ -21,30 +28,30 @@ const toastsContainer = cva(
         false: [],
       },
       isTopOrBottom: {
-        true: ["mx-auto"],
+        true: ["zn-mx-auto"],
         false: [],
       },
     },
   }
 );
-const alertContainer = cva(["flex", "flex-col", "items-center"], {
+const alertContainer = cva(["zn-flex", "zn-flex-col", "zn-items-center"], {
   variants: {
     isRighty: {
-      true: ["items-end"],
+      true: ["zn-items-end"],
       false: [],
     },
     isLefty: {
-      true: ["items-start"],
+      true: ["zn-items-start"],
       false: [],
     },
   },
 });
 const alert = cva([
-  "min-w-[250px]",
-  "max-w-[500px]",
-  "rounded-base",
-  "overflow-hidden",
-  "shadow-base",
+  "zn-min-w-[250px]",
+  "zn-max-w-[500px]",
+  "zn-rounded-base",
+  "zn-overflow-hidden",
+  "zn-shadow-base",
 ]);
 
 const toastStyles = {

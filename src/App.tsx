@@ -51,8 +51,8 @@ function App() {
   // ];
 
   return (
-    <Center className="bg-color-primary-base-background min-h-screen">
-      <Box className="flex justify-center flex-col items-center h-full gap-4">
+    <Center className="zn-bg-color-primary-base-background zn-min-h-screen">
+      <Box className="zn-flex zn-justify-center zn-flex-col zn-items-center zn-h-full zn-gap-4">
         {/* <Flex className="card">
           {items.map((x) => (
             <Button
@@ -68,7 +68,7 @@ function App() {
             </Button>
           ))}
         </Flex>
-        <Text className="text-color-primary-base">
+        <Text className="zn-text-color-primary-base">
           This is a button. Its color is based on the theme
         </Text>
         <Popover content="Popover content" placement="bottom-start">

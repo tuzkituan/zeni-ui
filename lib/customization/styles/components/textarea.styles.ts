@@ -2,70 +2,70 @@ import { cva } from "class-variance-authority";
 
 const base = cva(
   [
-    "block",
-    "rounded-base",
-    "text-neutral-100",
-    "w-fit",
-    "outline",
-    "outline-1",
-    "outline-transparent",
-    "w-full",
-    "px-4",
-    "py-3",
-    "text-sm",
+    "zn-block",
+    "zn-rounded-base",
+    "zn-text-neutral-100",
+    "zn-w-fit",
+    "zn-outline",
+    "zn-outline-1",
+    "zn-outline-transparent",
+    "zn-w-full",
+    "zn-px-4",
+    "zn-py-3",
+    "zn-text-sm",
   ],
   {
     variants: {
       variant: {
         outline: [
-          "border",
-          "border-base",
+          "zn-border",
+          "zn-border-base",
 
-          "hover:!border-primary-base",
+          "hover:!zn-border-primary-base",
 
-          "focus-within:!border-primary-base",
-          "focus-within:!outline-primary-20",
-          "focus-within:!outline-2",
+          "focus-within:!zn-border-primary-base",
+          "focus-within:!zn-outline-primary-20",
+          "focus-within:!zn-outline-2",
 
-          "focus-within:!ring-2",
-          "focus-within:!ring-primary-20",
+          "focus-within:!zn-ring-2",
+          "focus-within:!zn-ring-primary-20",
         ],
         filled: [
-          "bg-primary-10",
+          "zn-bg-primary-10",
 
-          "border",
-          "border-primary-10",
+          "zn-border",
+          "zn-border-primary-10",
 
-          "hover:!border-primary-base",
+          "hover:!zn-border-primary-base",
 
-          "focus-within:!border-primary-base",
-          "focus-within:!outline-primary-20",
-          "focus-within:!outline-2",
-          "focus-within:!bg-transparent",
+          "focus-within:!zn-border-primary-base",
+          "focus-within:!zn-outline-primary-20",
+          "focus-within:!zn-outline-2",
+          "focus-within:!zn-bg-transparent",
 
-          "focus-within:!ring-2",
-          "focus-within:!ring-primary-20",
+          "focus-within:!zn-ring-2",
+          "focus-within:!zn-ring-primary-20",
         ],
         flushed: [
-          "!rounded-none",
+          "!zn-rounded-none",
 
-          "border-b",
-          "border-b-primary-base",
+          "zn-border-b",
+          "zn-border-b-primary-base",
 
-          "hover:shadow-[0_1px_0_0_var(--color-primary)]",
-          "focus-within:!shadow-[0_1px_0_0_var(--color-primary)]",
-          "focus-within:!border-b-primary-base",
+          "hover:zn-shadow-[0_1px_0_0_var(--color-primary)]",
+          "focus-within:!zn-shadow-[0_1px_0_0_var(--color-primary)]",
+          "focus-within:!zn-border-b-primary-base",
 
-          "!px-0",
+          "!zn-px-0",
         ],
       },
       isDisabled: {
-        true: ["!bg-neutral-10", "cursor-not-allowed"],
+        true: ["!zn-bg-neutral-10", "zn-cursor-not-allowed"],
         false: [],
       },
       isResizable: {
-        true: ["resize-y"],
-        false: ["resize-none"],
+        true: ["zn-resize-y"],
+        false: ["zn-resize-none"],
       },
     },
   }

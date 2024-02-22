@@ -96,7 +96,7 @@ export const Calendar = (props: ICalendar) => {
           >
             {format(currentDate, "yyyy")}
           </button>
-          <div className="flex-1" />
+          <div className="zn-flex-1" />
           <button onClick={onPrevMonth} className={theme.headerArrow()}>
             <ArrowLeft2 size={20} />
           </button>
@@ -112,14 +112,14 @@ export const Calendar = (props: ICalendar) => {
           <button onClick={onPrevYear} className={theme.headerArrow()}>
             <ArrowLeft2 size={20} />
           </button>
-          <div className="flex-1" />
+          <div className="zn-flex-1" />
           <button
             className={theme.headerButton()}
             onClick={() => setViewMode("year")}
           >
             {format(currentDate, "yyyy")}
           </button>
-          <div className="flex-1" />
+          <div className="zn-flex-1" />
           <button onClick={onNextYear} className={theme.headerArrow()}>
             <ArrowRight2 size={20} />
           </button>
@@ -134,7 +134,7 @@ export const Calendar = (props: ICalendar) => {
           <button onClick={onPrevDecade} className={theme.headerArrow()}>
             <ArrowLeft2 size={20} />
           </button>
-          <div className="flex-1" />
+          <div className="zn-flex-1" />
           <button
             className={theme.headerButton({
               isNoAction: true,
@@ -142,7 +142,7 @@ export const Calendar = (props: ICalendar) => {
           >
             {`${format(first, "yyyy")} - ${format(last, "yyyy")}`}
           </button>
-          <div className="flex-1" />
+          <div className="zn-flex-1" />
           <button onClick={onNextDecade} className={theme.headerArrow()}>
             <ArrowRight2 size={20} />
           </button>
@@ -228,7 +228,7 @@ export const Calendar = (props: ICalendar) => {
 
       return (
         <div className={tableContainerClasses}>
-          <div className="flex flex-wrap">
+          <div className="zn-flex zn-flex-wrap">
             <table className={tableClasses}>
               {rows.map((row, i) => (
                 <tr key={i} className={valueRowClasses}>
@@ -278,7 +278,7 @@ export const Calendar = (props: ICalendar) => {
 
       return (
         <div className={tableContainerClasses}>
-          <div className="flex flex-wrap">
+          <div className="zn-flex zn-flex-wrap">
             <table className={tableClasses}>
               {rows.map((row, i) => (
                 <tr key={i} className={valueRowClasses}>
