@@ -2,27 +2,27 @@ import { cva } from "class-variance-authority";
 
 const base = cva(
   [
-    "flex",
-    "justify-center",
-    "items-center",
-    "rounded-full",
-    "overflow-hidden",
-    "uppercase",
-    "bg-primary-base",
-    "border",
-    "border-transparent",
-    "bg-clip-padding",
+    "zn-flex",
+    "zn-justify-center",
+    "zn-items-center",
+    "zn-rounded-full",
+    "zn-overflow-hidden",
+    "zn-uppercase",
+    "zn-bg-primary-base",
+    "zn-border",
+    "zn-border-transparent",
+    "zn-bg-clip-padding",
   ],
   {
     variants: {
       size: {
-        "2xs": ["w-4", "h-4"],
-        xs: ["w-6", "h-6"],
-        sm: ["w-8", "h-8"],
-        md: ["w-12", "h-12"],
-        lg: ["w-16", "h-16"],
-        xl: ["w-28", "h-28"],
-        "2xl": ["w-36", "h-36"],
+        "2xs": ["zn-w-4", "zn-h-4"],
+        xs: ["zn-w-6", "zn-h-6"],
+        sm: ["zn-w-8", "zn-h-8"],
+        md: ["zn-w-12", "zn-h-12"],
+        lg: ["zn-w-16", "zn-h-16"],
+        xl: ["zn-w-28", "zn-h-28"],
+        "2xl": ["zn-w-36", "zn-h-36"],
       },
     },
     defaultVariants: {
@@ -30,29 +30,29 @@ const base = cva(
     },
   }
 );
-const img = cva(["block"], {
+const img = cva(["zn-block"], {
   variants: {
     size: {
-      "2xs": ["w-3", "h-3"],
-      xs: ["w-4", "h-4"],
-      sm: ["w-6", "h-6"],
-      md: ["w-8", "h-8"],
-      lg: ["w-12", "h-12"],
-      xl: ["w-20", "h-20"],
-      "2xl": ["w-24", "h-24"],
+      "2xs": ["zn-w-3", "zn-h-3"],
+      xs: ["zn-w-4", "zn-h-4"],
+      sm: ["zn-w-6", "zn-h-6"],
+      md: ["zn-w-8", "zn-h-8"],
+      lg: ["zn-w-12", "zn-h-12"],
+      xl: ["zn-w-20", "zn-h-20"],
+      "2xl": ["zn-w-24", "zn-h-24"],
     },
   },
 });
-const name = cva(["font-medium", "text-white"], {
+const name = cva(["zn-font-medium", "zn-text-white"], {
   variants: {
     size: {
-      "2xs": ["text-[6px]"],
-      xs: ["text-[10px]"],
-      sm: ["text-sm"],
-      md: ["text-xl"],
-      lg: ["text-2xl"],
-      xl: ["text-5xl"],
-      "2xl": ["text-6xl"],
+      "2xs": ["zn-text-[6px]"],
+      xs: ["zn-text-[10px]"],
+      sm: ["zn-text-sm"],
+      md: ["zn-text-xl"],
+      lg: ["zn-text-2xl"],
+      xl: ["zn-text-5xl"],
+      "2xl": ["zn-text-6xl"],
     },
   },
 });

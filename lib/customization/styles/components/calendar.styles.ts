@@ -1,52 +1,52 @@
 import { cva } from "class-variance-authority";
 
 // CONTAINER
-const container = cva(["block", "bg-white"]);
-const tableContainer = cva(["w-full", "py-2", "px-4"]);
-const table = cva(["table-fixed", "w-full", "max-w-full"]); // i dont know why "w-full" crashes the browser
+const container = cva(["zn-block", "zn-bg-white"]);
+const tableContainer = cva(["zn-w-full", "zn-py-2", "zn-px-4"]);
+const table = cva(["zn-table-fixed", "zn-w-full", "zn-max-w-full"]); // i dont know why "zn-w-full" crashes the browser
 
 // DAY VIEW
 const labelCell = cva([
-  "px-1",
-  "text-center",
-  "font-medium",
-  "h-[36px]",
-  "text-sm",
+  "zn-px-1",
+  "zn-text-center",
+  "zn-font-medium",
+  "zn-h-[36px]",
+  "zn-text-sm",
 ]);
-const valueCell = cva(["px-1"]);
+const valueCell = cva(["zn-px-1"]);
 const valueCellInner = cva(
   [
-    "my-0.5",
-    "block",
-    "w-[28px]",
-    "h-[28px]",
-    "mx-auto",
-    "text-center",
-    "text-sm",
-    "border",
-    "border-transparent",
-    "rounded",
-    "leading-[24px]",
-    "hover:cursor-pointer",
-    "hover:bg-gray-200",
-    "hover:text-neutral-100",
+    "zn-my-0.5",
+    "zn-block",
+    "zn-w-[28px]",
+    "zn-h-[28px]",
+    "zn-mx-auto",
+    "zn-text-center",
+    "zn-text-sm",
+    "zn-border",
+    "zn-border-transparent",
+    "zn-rounded",
+    "zn-leading-[24px]",
+    "hover:zn-cursor-pointer",
+    "hover:zn-bg-gray-200",
+    "hover:zn-text-neutral-100",
   ],
   {
     variants: {
       isToday: {
-        true: ["!text-primary-base", "!border-primary-base"],
+        true: ["!zn-text-primary-base", "!zn-border-primary-base"],
       },
       isSameMonth: {
-        true: ["text-neutral-100"],
-        false: ["text-gray-300"],
+        true: ["zn-text-neutral-100"],
+        false: ["zn-text-gray-300"],
       },
       isSelectedDate: {
-        true: ["!text-white", "!bg-primary-base", "!font-medium"],
+        true: ["!zn-text-white", "!zn-bg-primary-base", "!zn-font-medium"],
       },
       isDisabled: {
         true: [
-          "!bg-gray-200",
-          "hover:!cursor-not-allowed",
+          "!zn-bg-gray-200",
+          "hover:!zn-cursor-not-allowed",
           "hover:!text-gray-300",
         ],
         false: [],
@@ -56,42 +56,42 @@ const valueCellInner = cva(
       {
         isDisabled: true,
         isSameMonth: true,
-        className: ["!text-gray-300"],
+        className: ["!zn-text-gray-300"],
       },
     ],
   }
 );
 
 // MONTH VIEW
-const monthPickValueCell = cva(["px-1"]);
+const monthPickValueCell = cva(["zn-px-1"]);
 const monthPickValueCellInner = cva(
   [
-    "my-0.5",
-    "block",
-    "w-full",
-    "h-[28px]",
-    "px-2",
-    "mx-auto",
-    "text-center",
-    "border",
-    "border-transparent",
-    "rounded",
-    "leading-[24px]",
-    "hover:cursor-pointer",
-    "hover:bg-gray-200",
-    "hover:text-neutral-100",
+    "zn-my-0.5",
+    "zn-block",
+    "zn-w-full",
+    "zn-h-[28px]",
+    "zn-px-2",
+    "zn-mx-auto",
+    "zn-text-center",
+    "zn-border",
+    "zn-border-transparent",
+    "zn-rounded",
+    "zn-leading-[24px]",
+    "hover:zn-cursor-pointer",
+    "hover:zn-bg-gray-200",
+    "hover:zn-text-neutral-100",
   ],
   {
     variants: {
       isSameMonth: {
-        true: ["text-primary-base"],
-        false: ["text-neutral-100"],
+        true: ["zn-text-primary-base"],
+        false: ["zn-text-neutral-100"],
       },
       isDisabled: {
         true: [
-          "!bg-gray-200",
-          "hover:!cursor-not-allowed",
-          "hover:text-neutral-100",
+          "!zn-bg-gray-200",
+          "hover:!zn-cursor-not-allowed",
+          "hover:zn-text-neutral-100",
         ],
         false: [],
       },
@@ -100,35 +100,35 @@ const monthPickValueCellInner = cva(
 );
 
 // YEAR VIEW
-const yearPickValueCell = cva(["px-1"]);
+const yearPickValueCell = cva(["zn-px-1"]);
 const yearPickValueCellInner = cva(
   [
-    "my-0.5",
-    "block",
-    "w-full",
-    "h-[28px]",
-    "px-2",
-    "mx-auto",
-    "text-center",
-    "border",
-    "border-transparent",
-    "rounded",
-    "leading-[24px]",
-    "hover:cursor-pointer",
-    "hover:bg-gray-200",
-    "hover:text-neutral-100",
+    "zn-my-0.5",
+    "zn-block",
+    "zn-w-full",
+    "zn-h-[28px]",
+    "zn-px-2",
+    "zn-mx-auto",
+    "zn-text-center",
+    "zn-border",
+    "zn-border-transparent",
+    "zn-rounded",
+    "zn-leading-[24px]",
+    "hover:zn-cursor-pointer",
+    "hover:zn-bg-gray-200",
+    "hover:zn-text-neutral-100",
   ],
   {
     variants: {
       isSameYear: {
-        true: ["text-primary-base"],
-        false: ["text-neutral-100"],
+        true: ["zn-text-primary-base"],
+        false: ["zn-text-neutral-100"],
       },
       isDisabled: {
         true: [
-          "!bg-gray-200",
-          "hover:!cursor-not-allowed",
-          "hover:text-neutral-100",
+          "!zn-bg-gray-200",
+          "hover:!zn-cursor-not-allowed",
+          "hover:zn-text-neutral-100",
         ],
         false: [],
       },
@@ -137,52 +137,52 @@ const yearPickValueCellInner = cva(
 );
 
 // COMMON
-const labelRow = cva(["mb-4"]);
+const labelRow = cva(["zn-mb-4"]);
 const valueRow = cva([]);
 const header = cva([
-  "flex",
-  "items-center",
-  "w-full",
-  "gap-1",
-  "px-[20px]",
-  "pt-4",
-  // "border-b",
-  // "border-base",
+  "zn-flex",
+  "zn-items-center",
+  "zn-w-full",
+  "zn-gap-1",
+  "zn-px-[20px]",
+  "zn-pt-4",
+  // "zn-border-b",
+  // "zn-border-base",
 ]);
 const headerButton = cva(
   [
-    "rounded-md",
-    "font-medium",
-    "px-1",
-    "py-1",
-    "leading-none",
-    "hover:text-primary-base",
-    "hover:bg-gray-100",
-    "text-base",
+    "zn-rounded-md",
+    "zn-font-medium",
+    "zn-px-1",
+    "zn-py-1",
+    "zn-leading-none",
+    "hover:zn-text-primary-base",
+    "hover:zn-bg-gray-100",
+    "zn-text-base",
   ],
   {
     variants: {
       isNoAction: {
-        true: ["!cursor-default", "pointer-events-none"],
+        true: ["!cursor-default", "zn-pointer-events-none"],
         false: [],
       },
     },
   }
 );
-const headerArrow = cva(["text-neutral-100", "hover:text-neutral-50"]);
+const headerArrow = cva(["zn-text-neutral-100", "hover:zn-text-neutral-50"]);
 
 // FOOTER
 const footer = cva([
-  "flex",
-  "justify-center",
-  "border-t",
-  "border-neutral-10",
-  "py-2",
+  "zn-flex",
+  "zn-justify-center",
+  "zn-border-t",
+  "zn-border-neutral-10",
+  "zn-py-2",
 ]);
 const footerButton = cva([
-  "block",
-  "hover:cursor-pointer",
-  "text-primary-base",
+  "zn-block",
+  "hover:zn-cursor-pointer",
+  "zn-text-primary-base",
 ]);
 
 const calendarStyles = {

@@ -44,8 +44,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   render: ({ children, content, ...rest }) => (
-    <Popover {...rest} content={<Box className="max-w-[250px]">{content}</Box>}>
-      <Text className="underline cursor-pointer">{children}</Text>
+    <Popover
+      {...rest}
+      content={<Box className="zn-max-w-[250px]">{content}</Box>}
+    >
+      <Text className="zn-underline zn-cursor-pointer">{children}</Text>
     </Popover>
   ),
   args: {

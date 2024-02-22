@@ -1,75 +1,83 @@
 import { cva } from "class-variance-authority";
 
 const backdrop = cva([
-  "fixed",
-  "bg-black",
-  "bg-opacity-50",
-  "inset-0",
-  "overflow-y-auto",
-  "flex",
-  "justify-center",
-  "w-full",
-  "h-full",
-  "p-12",
+  "zn-fixed",
+  "zn-bg-black",
+  "zn-bg-opacity-50",
+  "zn-inset-0",
+  "zn-overflow-y-auto",
+  "zn-flex",
+  "zn-justify-center",
+  "zn-w-full",
+  "zn-h-full",
+  "zn-p-12",
   // "backdrop-blur-sm",
 ]);
 const container = cva(
   [
-    "m-auto",
-    "bg-color-component-background",
-    "min-w-[350px] max-w-[90%]",
-    "h-fit",
-    "rounded-base",
-    "relative",
+    "zn-m-auto",
+    "zn-bg-color-component-background",
+    "zn-min-w-[350px] max-w-[90%]",
+    "zn-h-fit",
+    "zn-rounded-base",
+    "zn-relative",
   ],
   {
     variants: {
       isCentered: {
         true: [""],
-        false: ["mt-28"],
+        false: ["zn-mt-28"],
       },
     },
   }
 );
-const close = cva(["absolute", "right-4", "top-4", "text-neutral-50"]);
-const header = cva(["px-6", "pt-6"]);
-const titleContainer = cva(["flex", "gap-2"]);
-const titleIcon = cva(["mt-1"], {
+const close = cva([
+  "zn-absolute",
+  "zn-right-4",
+  "zn-top-4",
+  "zn-text-neutral-50",
+]);
+const header = cva(["zn-px-6", "zn-pt-6"]);
+const titleContainer = cva(["zn-flex", "zn-gap-2"]);
+const titleIcon = cva(["zn-mt-1"], {
   variants: {
     variant: {
-      success: ["text-success-base"],
-      error: ["text-error-base"],
-      warning: ["text-warning-base"],
-      info: ["text-info-base"],
+      success: ["zn-text-success-base"],
+      error: ["zn-text-error-base"],
+      warning: ["zn-text-warning-base"],
+      info: ["zn-text-info-base"],
     },
   },
 });
-const title = cva(["text-xl", "font-bold"]);
-const content = cva(["px-6", "pb-6"], {
+const title = cva(["zn-text-xl", "zn-font-bold"]);
+const content = cva(["zn-px-6", "zn-pb-6"], {
   variants: {
     showHeader: {
-      true: ["pt-3"],
-      false: ["pt-6"],
+      true: ["zn-pt-3"],
+      false: ["zn-pt-6"],
     },
   },
 });
-const footer = cva(["px-6", "pb-6", "flex", "justify-end", "gap-3"], {
-  variants: {
-    variant: {
-      success: [],
-      error: [],
-      warning: [],
-      info: [],
+const footer = cva(
+  ["zn-px-6", "zn-pb-6", "zn-flex", "zn-justify-end", "zn-gap-3"],
+  {
+    variants: {
+      variant: {
+        success: [],
+        error: [],
+        warning: [],
+        info: [],
+      },
     },
-  },
-});
+  }
+);
 const okButton = cva([], {
   variants: {
     variant: {
-      success: ["bg-success-base"],
-      error: ["bg-error-base"],
-      warning: ["bg-warning-base"],
-      info: ["bg-info-base"],
+      success: ["zn-bg-success-base"],
+      error: ["zn-bg-error-base"],
+      warning: ["zn-bg-warning-base"],
+      info: ["zn-bg-info-base"],
     },
   },
 });

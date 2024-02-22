@@ -19,7 +19,7 @@ export const Primary: Story = {
     return (
       <Center
         {...rest}
-        className={twMerge("h-[100px] bg-slate-200", rest.className)}
+        className={twMerge("zn-h-[100px] zn-bg-slate-200", rest.className)}
       >
         {children}
       </Center>
@@ -36,7 +36,7 @@ export const CircleComponent: StoryObj<typeof Circle> = {
     return (
       <Circle
         {...rest}
-        className={twMerge("bg-slate-600 text-white", rest.className)}
+        className={twMerge("zn-bg-slate-600 zn-text-white", rest.className)}
       >
         {children}
       </Circle>

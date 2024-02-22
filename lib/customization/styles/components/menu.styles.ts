@@ -1,23 +1,23 @@
 import { cva } from "class-variance-authority";
 
 const base = cva([
-  "rounded-base",
-  "p-1",
-  "bg-color-component-background",
-  "text-neutral-100",
-  "shadow-base",
+  "zn-rounded-base",
+  "zn-p-1",
+  "zn-bg-color-component-background",
+  "zn-text-neutral-100",
+  "zn-shadow-base",
 ]);
 const item = cva([
-  "w-full",
-  "px-3",
-  "py-2",
-  "rounded-base",
-  "hover:bg-primary-10",
-  "cursor-pointer",
-  "text-sm",
-  "font-medium",
-  "flex",
-  "gap-2",
+  "zn-w-full",
+  "zn-px-3",
+  "zn-py-2",
+  "zn-rounded-base",
+  "hover:zn-bg-primary-10",
+  "zn-cursor-pointer",
+  "zn-text-sm",
+  "zn-font-medium",
+  "zn-flex",
+  "zn-gap-2",
 ]);
 const itemIcon = cva([]);
 const arrow = cva([]);

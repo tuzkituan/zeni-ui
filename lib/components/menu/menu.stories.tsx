@@ -42,7 +42,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: ({ children, ...rest }) => (
     <Menu {...rest}>
-      <Text className="underline cursor-pointer">{children}</Text>
+      <Text className="zn-underline zn-cursor-pointer">{children}</Text>
     </Menu>
   ),
   args: {

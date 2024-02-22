@@ -29,10 +29,10 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => {
     return (
-      <Flex className="bg-slate-300 h-[200px]" {...args}>
-        <Box className="bg-red-300 p-4">Block 1</Box>
+      <Flex className="zn-bg-slate-300 zn-h-[200px]" {...args}>
+        <Box className="zn-bg-red-300 zn-p-4">Block 1</Box>
         {/* <Spacer /> */}
-        <Box className="bg-teal-300 p-4">Block 2</Box>
+        <Box className="zn-bg-teal-300 zn-p-4">Block 2</Box>
       </Flex>
     );
   },
@@ -49,10 +49,12 @@ export const Primary: Story = {
 export const Spacer: Story = {
   render: (args) => {
     return (
-      <Flex className="bg-slate-300 h-[200px]" {...args}>
-        <Box className="bg-red-300 p-4">Spacer is the gap between us</Box>
+      <Flex className="zn-bg-slate-300 zn-h-[200px]" {...args}>
+        <Box className="zn-bg-red-300 zn-p-4">Spacer is the gap between us</Box>
         <FlexSpacer />
-        <Box className="bg-teal-300 p-4">Spacer is the gap between us</Box>
+        <Box className="zn-bg-teal-300 zn-p-4">
+          Spacer is the gap between us
+        </Box>
       </Flex>
     );
   },

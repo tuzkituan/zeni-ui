@@ -3,25 +3,30 @@ import { cva } from "class-variance-authority";
 const tableBorder = cva([], {
   variants: {
     isBordered: {
-      true: ["border", "border-base", "border-collapse"],
+      true: ["zn-border", "zn-border-base", "zn-border-collapse"],
       false: [],
     },
   },
 });
 
-const base = cva(["w-full"]);
-const row = cva(["hover:bg-gray-100"]);
-const cell = cva(["text-left"], {
+const base = cva(["zn-w-full"]);
+const row = cva(["hover:zn-bg-gray-100"]);
+const cell = cva(["zn-text-left"], {
   variants: {
     size: {
-      sm: ["px-2", "py-1"],
-      md: ["px-4", "py-2"],
-      lg: ["px-4", "py-4"],
+      sm: ["zn-px-2", "zn-py-1"],
+      md: ["zn-px-4", "zn-py-2"],
+      lg: ["zn-px-4", "zn-py-4"],
     },
   },
 });
-const th = cva(["uppercase", "text-sm", "font-semibold", "text-neutral-100"]);
-const td = cva(["text-sm"]);
+const th = cva([
+  "zn-uppercase",
+  "zn-text-sm",
+  "zn-font-semibold",
+  "zn-text-neutral-100",
+]);
+const td = cva(["zn-text-sm"]);
 const tableStyles = {
   base,
   row,

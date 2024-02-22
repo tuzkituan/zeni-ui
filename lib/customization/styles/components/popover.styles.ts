@@ -1,13 +1,13 @@
 import { cva } from "class-variance-authority";
 
 const base = cva([
-  "rounded-base",
-  "px-3",
-  "py-2",
-  "bg-color-component-background",
-  "text-neutral-100",
-  "text-sm",
-  "shadow-base",
+  "zn-rounded-base",
+  "zn-px-3",
+  "zn-py-2",
+  "zn-bg-color-component-background",
+  "zn-text-neutral-100",
+  "zn-text-sm",
+  "zn-shadow-base",
 ]);
 const arrow = cva([]);
 const popoverStyles = {

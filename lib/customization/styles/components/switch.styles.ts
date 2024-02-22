@@ -1,11 +1,11 @@
 import { cva } from "class-variance-authority";
 
 const base = cva(
-  ["relative", "inline-flex", "items-center", "cursor-pointer"],
+  ["zn-relative", "zn-inline-flex", "zn-items-center", "zn-cursor-pointer"],
   {
     variants: {
       isDisabled: {
-        true: ["cursor-not-allowed"],
+        true: ["zn-cursor-not-allowed"],
         false: [],
       },
       isReadOnly: {
@@ -15,10 +15,10 @@ const base = cva(
     },
   }
 );
-const input = cva(["sr-only", "peer"], {
+const input = cva(["zn-sr-only", "zn-peer"], {
   variants: {
     isDisabled: {
-      true: ["cursor-not-allowed"],
+      true: ["zn-cursor-not-allowed"],
       false: [],
     },
     isReadOnly: {
@@ -29,62 +29,62 @@ const input = cva(["sr-only", "peer"], {
 });
 const span = cva(
   [
-    "bg-primary-10",
-    "peer-focus:outline-none",
-    "rounded-full",
-    "focus:ring-2",
-    "focus:ring-primary-20",
-    "active:ring-2",
-    "active:ring-primary-20",
+    "zn-bg-primary-10",
+    "peer-focus:zn-outline-none",
+    "zn-rounded-full",
+    "focus:zn-ring-2",
+    "focus:zn-ring-primary-20",
+    "active:zn-ring-2",
+    "active:zn-ring-primary-20",
     "peer",
-    "peer-checked:after:translate-x-full",
-    "peer-checked:after:border-none",
-    "after:content-['']",
-    "after:absolute",
-    "after:bg-white",
-    "after:rounded-full",
-    "after:hover:bg-primary-20",
-    "after:transition-all",
-    "peer-checked:bg-primary-base",
-    "peer-checked:hover:bg-primary-50",
-    "peer-checked:after:hover:bg-white",
+    "peer-checked:after:zn-translate-x-full",
+    "peer-checked:after:zn-border-none",
+    "after:zn-content-['']",
+    "after:zn-absolute",
+    "after:zn-bg-white",
+    "after:zn-rounded-full",
+    "after:hover:zn-bg-primary-20",
+    "after:zn-transition-all",
+    "peer-checked:zn-bg-primary-base",
+    "peer-checked:hover:zn-bg-primary-50",
+    "peer-checked:after:hover:zn-bg-white",
   ],
   {
     variants: {
       size: {
         sm: [
-          "w-[35px]",
-          "h-5",
-          "after:top-[2.5px]",
-          "after:start-[3px]",
-          "after:h-[14px]",
-          "after:w-[14px]",
+          "zn-w-[35px]",
+          "zn-h-5",
+          "after:zn-top-[2.5px]",
+          "after:zn-start-[3px]",
+          "after:zn-h-[14px]",
+          "after:zn-w-[14px]",
         ],
         md: [
-          "w-[44px]",
-          "h-6",
-          "after:top-[3px]",
-          "after:start-[4px]",
-          "after:h-[18px]",
-          "after:w-[18px]",
+          "zn-w-[44px]",
+          "zn-h-6",
+          "after:zn-top-[3px]",
+          "after:zn-start-[4px]",
+          "after:zn-h-[18px]",
+          "after:zn-w-[18px]",
         ],
         lg: [
-          "w-[52px]",
-          "h-7",
-          "after:top-[3px]",
-          "after:start-[4px]",
-          "after:h-[22px]",
-          "after:w-[22px]",
+          "zn-w-[52px]",
+          "zn-h-7",
+          "after:zn-top-[3px]",
+          "after:zn-start-[4px]",
+          "after:zn-h-[22px]",
+          "after:zn-w-[22px]",
         ],
       },
       isDisabled: {
         true: [
-          "cursor-not-allowed",
-          "bg-neutral-10",
-          "peer-checked:bg-neutral-10",
-          "peer-checked:hover:bg-neutral-10",
-          "after:hover:bg-white",
-          "after:bg-white",
+          "zn-cursor-not-allowed",
+          "zn-bg-neutral-10",
+          "peer-checked:zn-bg-neutral-10",
+          "peer-checked:hover:zn-bg-neutral-10",
+          "after:hover:zn-bg-white",
+          "after:zn-bg-white",
         ],
         false: [],
       },

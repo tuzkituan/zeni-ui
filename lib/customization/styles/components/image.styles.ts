@@ -1,45 +1,50 @@
 import { cva } from "class-variance-authority";
 
-const img = cva(["block", "h-auto", "select-none"]);
-const imgPreview = cva(["block", "h-auto", "select-none", "w-full"]);
-const backdrop = cva([
-  "fixed",
-  "bg-black",
-  "bg-opacity-50",
-  "inset-0",
-  "overflow-hidden",
-  "w-full",
-  "h-full",
-  "flex",
-  "justify-center",
-  "items-center",
+const img = cva(["zn-block", "zn-h-auto", "zn-select-none"]);
+const imgPreview = cva([
+  "zn-block",
+  "zn-h-auto",
+  "zn-select-none",
+  "zn-w-full",
 ]);
-const imgContainer = cva(["select-none"]);
-const isPreviewable = cva(["hover:brightness-75", "cursor-pointer"]);
+const backdrop = cva([
+  "zn-fixed",
+  "zn-bg-black",
+  "zn-bg-opacity-50",
+  "zn-inset-0",
+  "zn-overflow-hidden",
+  "zn-w-full",
+  "zn-h-full",
+  "zn-flex",
+  "zn-justify-center",
+  "zn-items-center",
+]);
+const imgContainer = cva(["zn-select-none"]);
+const isPreviewable = cva(["hover:zn-brightness-75", "zn-cursor-pointer"]);
 const tools = cva([
-  "flex",
-  "items-center",
-  "gap-1",
-  "fixed",
-  "left-[50%]",
-  "-translate-x-1/2",
-  "bottom-3",
-  "bg-black",
-  "bg-opacity-60",
-  "rounded-lg",
-  "px-2",
-  "py-1",
-  "select-none",
+  "zn-flex",
+  "zn-items-center",
+  "zn-gap-1",
+  "zn-fixed",
+  "zn-left-[50%]",
+  "-zn-translate-x-1/2",
+  "zn-bottom-3",
+  "zn-bg-black",
+  "zn-bg-opacity-60",
+  "zn-rounded-lg",
+  "zn-px-2",
+  "zn-py-1",
+  "zn-select-none",
   "backdrop-blur-sm",
 ]);
 const toolIcon = cva([
-  "p-2",
-  "cursor-pointer",
-  "text-white",
-  "hover:brightness-75",
-  "select-none",
-  "hover:scale-110",
-  "active:scale-100",
+  "zn-p-2",
+  "zn-cursor-pointer",
+  "zn-text-white",
+  "hover:zn-brightness-75",
+  "zn-select-none",
+  "hover:zn-scale-110",
+  "active:zn-scale-100",
 ]);
 const imageStyles = {
   img,
