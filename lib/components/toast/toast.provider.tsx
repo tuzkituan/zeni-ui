@@ -62,6 +62,8 @@ export const ToastProvider = (props: ToastProviderProps) => {
     const toastContainer = twMerge(
       theme.toastsContainer({
         isTopOrBottom: position === "top" || position === "bottom",
+        isRighty: position.includes("right"),
+        isLefty: position.includes("left"),
         bottom: position.includes("bottom"),
         top: position.includes("top"),
         left: !position.includes("right"),

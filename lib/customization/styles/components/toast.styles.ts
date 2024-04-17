@@ -31,6 +31,14 @@ const toastsContainer = cva(
         true: ["zn-mx-auto"],
         false: [],
       },
+      isRighty: {
+        true: ["zn-items-end"],
+        false: [],
+      },
+      isLefty: {
+        true: ["zn-items-start"],
+        false: [],
+      },
     },
   }
 );
