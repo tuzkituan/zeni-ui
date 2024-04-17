@@ -10,7 +10,8 @@ export function createToastFn(defaultOptions?: ToastOptions) {
   });
 
   const toast = (options?: ToastOptions) => {
-    return toastStore.notify(options);
+    const opts = normalizeToastOptions(options);
+    return toastStore.notify(opts);
   };
 
   toast.update = (id: ToastId, options: Omit<ToastOptions, "id">) => {
