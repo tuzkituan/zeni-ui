@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-const base = cva(["zn-block"]);
+const base = cva([]);
 
 const boxStyles = {
   base,

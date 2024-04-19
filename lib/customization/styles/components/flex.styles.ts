@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-const base = cva(["zn-flex"], {
+const base = cva(["zn-flex", "zn-w-full"], {
   variants: {
     direction: {
       row: ["zn-flex-row"],

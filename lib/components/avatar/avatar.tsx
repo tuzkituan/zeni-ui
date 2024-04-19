@@ -48,7 +48,7 @@ export const Avatar = (props: IAvatar) => {
     return initials.toUpperCase();
   };
 
-  const defaultSvgString = renderToString(<User color="white" size={28} />);
+  const defaultSvgString = renderToString(<User variant="Bold" color="white" size={28} />);
   const defaultImgSrc = `data:image/svg+xml;base64,${btoa(defaultSvgString)}`;
   const nameLetters = name ? getInitials(name) : "";
 
