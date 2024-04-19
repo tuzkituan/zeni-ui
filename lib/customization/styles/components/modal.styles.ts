@@ -11,7 +11,6 @@ const backdrop = cva([
   "zn-w-full",
   "zn-h-full",
   "zn-p-12",
-  // "backdrop-blur-sm",
 ]);
 const container = cva(
   [

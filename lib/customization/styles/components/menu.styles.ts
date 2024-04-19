@@ -17,9 +17,14 @@ const item = cva([
   "zn-text-sm",
   "zn-font-medium",
   "zn-flex",
+  "zn-items-center",
   "zn-gap-2",
 ]);
-const itemIcon = cva([]);
+const itemIcon = cva([
+  "zn-flex",
+  "zn-items-center",
+  "zn-justify-center"
+]);
 const arrow = cva([]);
 const menuStyles = {
   base,
