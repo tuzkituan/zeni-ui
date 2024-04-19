@@ -30,7 +30,7 @@ const base = cva(
     },
   }
 );
-const img = cva(["zn-block", "zn-object-cover", "zn-w-full", "zn-h-full"], {
+const img = cva(["zn-block"], {
   variants: {
     size: {
       "2xs": ["zn-w-3", "zn-h-3"],
@@ -40,6 +40,10 @@ const img = cva(["zn-block", "zn-object-cover", "zn-w-full", "zn-h-full"], {
       lg: ["zn-w-10", "zn-h-10"],
       xl: ["zn-w-16", "zn-h-16"],
       "2xl": ["zn-w-24", "zn-h-24"],
+    },
+    isError: {
+      true: [""],
+      false: ["zn-w-full", "zn-h-full", "zn-object-cover"],
     },
   },
 });
