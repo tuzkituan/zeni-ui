@@ -18,6 +18,7 @@ const backdrop = cva([
   "zn-flex",
   "zn-justify-center",
   "zn-items-center",
+  "zn-z-[9999]",
 ]);
 const imgContainer = cva(["zn-select-none"]);
 const isPreviewable = cva(["hover:zn-brightness-75", "zn-cursor-pointer"]);
