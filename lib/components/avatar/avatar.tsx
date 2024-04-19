@@ -48,7 +48,9 @@ export const Avatar = (props: IAvatar) => {
     return initials.toUpperCase();
   };
 
-  const defaultSvgString = renderToString(<User variant="Bold" color="white" size={28} />);
+  const defaultSvgString = renderToString(
+    <User variant="Bold" color="white" size={28} />
+  );
   const defaultImgSrc = `data:image/svg+xml;base64,${btoa(defaultSvgString)}`;
   const nameLetters = name ? getInitials(name) : "";
 
@@ -63,7 +65,13 @@ export const Avatar = (props: IAvatar) => {
       {...restProps}
     >
       {!error ? (
-        <img src={src} alt={alt} className={theme.img()} />
+        <img
+          src={src}
+          alt={alt}
+          className={theme.img({
+            isError: false,
+          })}
+        />
       ) : name ? (
         <span className={letterClasses}>{nameLetters}</span>
       ) : (
@@ -72,6 +80,7 @@ export const Avatar = (props: IAvatar) => {
           alt={alt}
           className={theme.img({
             size,
+            isError: true,
           })}
         />
       )}
