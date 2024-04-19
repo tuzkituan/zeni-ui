@@ -30,7 +30,7 @@ const base = cva(
     },
   }
 );
-const img = cva(["zn-block"], {
+const img = cva(["zn-block", "zn-object-cover", "zn-w-full", "zn-h-full"], {
   variants: {
     size: {
       "2xs": ["zn-w-3", "zn-h-3"],
