@@ -8,6 +8,8 @@ export * from "./components/box/box";
 export * from "./components/box/box.types";
 export * from "./components/button/button";
 export * from "./components/button/button.types";
+export * from "./components/icon-button/icon-button";
+export * from "./components/icon-button/icon-button.types";
 // export * from "./components/calendar/calendar";
 // export * from "./components/calendar/calendar.types";
 export * from "./components/center/center";
