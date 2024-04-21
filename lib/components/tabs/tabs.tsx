@@ -89,10 +89,7 @@ export const Tabs = (props: ITabs) => {
                 {item.icon} {item.label}
               </span>
               {item.key === active && variant === "underline" ? (
-                <motion.div
-                  className={theme.indicator()}
-                  layoutId="underline"
-                />
+                <div className={theme.indicator()} />
               ) : null}
             </li>
           ))}

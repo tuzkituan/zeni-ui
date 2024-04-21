@@ -76,7 +76,7 @@ const indicator = cva([
   "zn-left-0",
   "zn-right-0",
   "zn-w-full",
-  "zn-h-[1.5px]",
+  "zn-h-[1px]",
   "zn-bg-primary-base",
 ]);
 const content = cva(["zn-block", "zn-py-4"]);

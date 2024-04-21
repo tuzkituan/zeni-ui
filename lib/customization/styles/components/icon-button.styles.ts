@@ -8,6 +8,11 @@ const base = cva(
     "zn-duration-400",
     "zn-ease-in-out",
     "zn-font-semibold",
+    "zn-py-1",
+    "zn-px-1",
+    "zn-flex",
+    "zn-justify-center",
+    "zn-items-center",
   ],
   {
     variants: {
@@ -82,10 +87,10 @@ const base = cva(
         ],
       },
       size: {
-        xs: ["zn-text-xs", "zn-h-6", "zn-py-1", "zn-px-2"],
-        sm: ["zn-text-sm", "zn-h-8", "zn-py-1", "zn-px-3"],
-        md: ["zn-text-sm", "zn-h-10", "zn-py-1", "zn-px-[20px]"],
-        lg: ["zn-text-base", "zn-h-12", "zn-py-1", "zn-px-[24px]"],
+        xs: ["zn-text-xs", "zn-h-6", "zn-w-6"],
+        sm: ["zn-text-sm", "zn-h-8", "zn-w-8"],
+        md: ["zn-text-sm", "zn-h-10", "zn-w-10"],
+        lg: ["zn-text-base", "zn-h-12", "zn-w-12"],
       },
       isDanger: {
         true: [],
@@ -182,10 +187,10 @@ const spinner = cva(["zn-animate-spin"], {
   },
 });
 
-const buttonStyles = {
+const iconButtonStyles = {
   base,
   container,
   spinner,
 };
 
-export { buttonStyles };
+export { iconButtonStyles };

@@ -7,6 +7,7 @@ export interface Style {
 
 interface StyleComponents {
   Button: typeof styles.buttonStyles;
+  IconButton: typeof styles.iconButtonStyles;
   Box: typeof styles.boxStyles;
   Text: typeof styles.textStyles;
   Tooltip: typeof styles.tooltipStyles;
@@ -36,6 +37,7 @@ interface StyleComponents {
 const defaultStyle: Style = {
   components: {
     Button: styles.buttonStyles,
+    IconButton: styles.iconButtonStyles,
     Box: styles.boxStyles,
     Text: styles.textStyles,
     Tooltip: styles.tooltipStyles,
