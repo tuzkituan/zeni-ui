@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
-import { Arrow, useLayer } from "react-laag";
+import { useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IPopover } from "./popover.types";
@@ -17,7 +17,7 @@ export const Popover = ({
 
   const theme = useComponentStyle("Popover");
 
-  const { triggerProps, layerProps, arrowProps, renderLayer } = useLayer({
+  const { triggerProps, layerProps, renderLayer } = useLayer({
     isOpen: open || isOpen,
     placement,
     auto: true,
@@ -32,9 +32,9 @@ export const Popover = ({
     return twMerge(theme.base(), popoverClassName);
   }, [popoverClassName, theme]);
 
-  const arrowClasses = useMemo(() => {
-    return twMerge(theme.arrow());
-  }, [theme]);
+  // const arrowClasses = useMemo(() => {
+  //   return twMerge(theme.arrow());
+  // }, [theme]);
 
   return (
     <>
@@ -59,14 +59,14 @@ export const Popover = ({
               {...layerProps}
             >
               {content}
-              <Arrow
+              {/* <Arrow
                 {...arrowProps}
                 backgroundColor="var(--color-neutral-5)" // color-component-background
                 borderColor="transparent"
                 className={arrowClasses}
                 borderWidth={1}
                 size={8} 
-              />
+              /> */}
             </motion.div>
           </AnimatePresence>
         )}
