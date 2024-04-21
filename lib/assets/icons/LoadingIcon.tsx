@@ -29,7 +29,7 @@ const LoadingIcon = ({
           y2="6.86385e-07"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" />
+          <stop stopColor="#ffffff" stopOpacity={0} />
           <stop offset="1" stopColor={color} />
         </linearGradient>
       </defs>

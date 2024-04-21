@@ -2,6 +2,7 @@ export * from "./alert.styles";
 export * from "./avatar.styles";
 export * from "./box.styles";
 export * from "./button.styles";
+export * from "./icon-button.styles";
 export * from "./center.styles";
 export * from "./checkbox.styles";
 export * from "./flex.styles";
