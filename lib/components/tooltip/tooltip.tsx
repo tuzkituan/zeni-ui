@@ -1,9 +1,9 @@
+import { AnimatePresence, motion } from "framer-motion";
+import { useMemo } from "react";
 import { Arrow, useHover, useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
-import { AnimatePresence, motion } from "framer-motion";
 import { ITooltip } from "./tooltip.types";
-import { useMemo } from "react";
 
 export const Tooltip = ({
   children,
@@ -11,11 +11,13 @@ export const Tooltip = ({
   placement,
   tooltipClassName,
 }: ITooltip) => {
-  const [isHover, hoverProps] = useHover();
+  const [isHover, hoverProps] = useHover({
+    delayLeave: 200,
+  });
 
   const theme = useComponentStyle("Tooltip");
 
-  const { triggerProps, layerProps, arrowProps, renderLayer } = useLayer({
+  const { triggerProps, layerProps, renderLayer, arrowProps } = useLayer({
     isOpen: isHover,
     placement,
     auto: true,
@@ -44,9 +46,12 @@ export const Tooltip = ({
               exit={{ opacity: 0 }}
               className={classes}
               {...layerProps}
+              {...hoverProps}
             >
               {content}
               <Arrow
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
                 {...arrowProps}
                 backgroundColor="black"
                 className={arrowClasses}

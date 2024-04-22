@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
-import { Arrow, useLayer } from "react-laag";
+import { useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IMenu, IMenuItem, IMenuKey } from "./menu.types";
@@ -18,7 +18,7 @@ export const Menu = ({
 
   const theme = useComponentStyle("Menu");
 
-  const { triggerProps, layerProps, arrowProps, renderLayer } = useLayer({
+  const { triggerProps, layerProps, renderLayer } = useLayer({
     isOpen: open || isOpen,
     placement,
     auto: true,
@@ -41,9 +41,9 @@ export const Menu = ({
     return twMerge(theme.itemIcon());
   }, [theme]);
 
-  const arrowClasses = useMemo(() => {
-    return twMerge(theme.arrow());
-  }, [theme]);
+  // const arrowClasses = useMemo(() => {
+  //   return twMerge(theme.arrow());
+  // }, [theme]);
 
   const onMenuItemClick = (value: IMenuKey) => {
     if (value) {
@@ -90,14 +90,14 @@ export const Menu = ({
               {...layerProps}
             >
               {renderMenuItems()}
-              <Arrow
-                {...arrowProps}
+              {/* <Arrow
                 backgroundColor="var(--color-neutral-5)" // color-component-background
                 borderColor="transparent"
                 className={arrowClasses}
                 borderWidth={1}
                 size={8}
-              />
+                {...arrowProps}
+              /> */}
             </motion.ul>
           </AnimatePresence>
         )}
