@@ -17,4 +17,5 @@ export interface IPopover {
   content?: React.ReactNode;
   children?: React.ReactNode;
   popoverClassName?: string;
+  trigger?: "hover" | "click";
 }
