@@ -32,6 +32,14 @@ const meta = {
       ],
       control: { type: "radio" },
     },
+    showArrow: {
+      control: "boolean",
+    },
+    trigger: {
+      description: "Menu trigger",
+      options: ["hover", "click"],
+      control: { type: "radio" },
+    },
     items: {},
   },
 } satisfies Meta<typeof Menu>;
@@ -64,6 +72,7 @@ export const Primary: Story = {
         key: 3,
         title: "Logout",
         icon: <Logout size={20} />,
+        isDisabled: true,
       },
     ],
   },

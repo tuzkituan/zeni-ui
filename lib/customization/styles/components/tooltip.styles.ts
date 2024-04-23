@@ -4,7 +4,7 @@ const base = cva([
   "zn-bg-black",
   "zn-text-white",
   "zn-rounded-base",
-  "zn-px-3",
+  "zn-px-2",
   "zn-py-2",
   "zn-text-sm",
   "zn-shadow-base",

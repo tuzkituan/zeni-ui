@@ -19,10 +19,13 @@ export interface IMenu {
   dropdownClassName?: string;
   onMenuClick?: (key: IMenuKey) => void;
   items?: IMenuItem[];
+  showArrow?: boolean;
+  trigger?: "hover" | "click";
 }
 
 export interface IMenuItem {
   title?: React.ReactNode;
   key: IMenuKey;
   icon?: React.ReactNode;
+  isDisabled?: boolean;
 }
