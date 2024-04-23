@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
-import { useLayer } from "react-laag";
+import { Arrow, useHover, useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { IMenu, IMenuItem, IMenuKey } from "./menu.types";
@@ -13,13 +13,20 @@ export const Menu = ({
   dropdownClassName,
   items = [],
   onMenuClick,
+  showArrow = true,
+  trigger = "click",
 }: IMenu) => {
+  const isHoverTrigger = trigger === "hover";
   const [isOpen, setOpen] = useState(false);
+  const [isHover, hoverProps] = useHover({
+    delayEnter: 200,
+    delayLeave: 200,
+  });
 
   const theme = useComponentStyle("Menu");
 
-  const { triggerProps, layerProps, renderLayer } = useLayer({
-    isOpen: open || isOpen,
+  const { triggerProps, layerProps, renderLayer, arrowProps } = useLayer({
+    isOpen: open || isOpen || isHover,
     placement,
     auto: true,
     triggerOffset: 10,
@@ -33,17 +40,13 @@ export const Menu = ({
     return twMerge(theme.base(), dropdownClassName);
   }, [dropdownClassName, theme]);
 
-  const itemClasses = useMemo(() => {
-    return twMerge(theme.item());
-  }, [theme]);
-
   const itemIconClasses = useMemo(() => {
     return twMerge(theme.itemIcon());
   }, [theme]);
 
-  // const arrowClasses = useMemo(() => {
-  //   return twMerge(theme.arrow());
-  // }, [theme]);
+  const arrowClasses = useMemo(() => {
+    return twMerge(theme.arrow());
+  }, [theme]);
 
   const onMenuItemClick = (value: IMenuKey) => {
     if (value) {
@@ -58,8 +61,10 @@ export const Menu = ({
       <li
         key={x.key}
         value={x.key}
-        className={itemClasses}
-        onClick={() => onMenuItemClick(x.key)}
+        className={twMerge(theme.item({
+          isDisabled: x.isDisabled || false,
+        }))}
+        onClick={x.isDisabled ? undefined : () => onMenuItemClick(x.key)}
       >
         {!!x.icon && <div className={itemIconClasses}>{x.icon}</div>}
         {x.title}
@@ -70,16 +75,20 @@ export const Menu = ({
   return (
     <>
       <span
+        {...(!isHoverTrigger
+          ? {
+            onClick: () => {
+              const _isOpen = !isOpen;
+              setOpen(_isOpen);
+              onOpenChange && onOpenChange(_isOpen);
+            },
+          }
+          : hoverProps)}
         {...triggerProps}
-        onClick={() => {
-          const _isOpen = !isOpen;
-          setOpen(_isOpen);
-          onOpenChange && onOpenChange(_isOpen);
-        }}
       >
         {children}
       </span>
-      {(open || isOpen) &&
+      {(isHover || open || isOpen) &&
         renderLayer(
           <AnimatePresence>
             <motion.ul
@@ -87,17 +96,23 @@ export const Menu = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className={classes}
+              transition={{ duration: 0.3 }}
               {...layerProps}
+              {...(isHoverTrigger ? hoverProps : null)}
             >
               {renderMenuItems()}
-              {/* <Arrow
-                backgroundColor="var(--color-neutral-5)" // color-component-background
-                borderColor="transparent"
-                className={arrowClasses}
-                borderWidth={1}
-                size={8}
-                {...arrowProps}
-              /> */}
+              {showArrow &&
+                <Arrow
+                  onPointerEnterCapture={undefined}
+                  onPointerLeaveCapture={undefined}
+                  {...arrowProps}
+                  backgroundColor="var(--color-neutral-5)" // color-component-background
+                  borderColor="transparent"
+                  className={arrowClasses}
+                  borderWidth={1}
+                  size={8}
+                />
+              }
             </motion.ul>
           </AnimatePresence>
         )}

@@ -13,10 +13,12 @@ export const Popover = ({
   onOpenChange,
   popoverClassName,
   trigger = "hover",
+  showArrow = true,
 }: IPopover) => {
   const isHoverTrigger = trigger === "hover";
   const [isOpen, setOpen] = useState(false);
   const [isHover, hoverProps] = useHover({
+    delayEnter: 200,
     delayLeave: 200,
   });
 
@@ -26,7 +28,6 @@ export const Popover = ({
     isOpen: open || isOpen || isHover,
     placement,
     auto: true,
-
     triggerOffset: 10,
     onOutsideClick: () => {
       onOpenChange && onOpenChange(false);
@@ -65,21 +66,24 @@ export const Popover = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
               className={classes}
               {...layerProps}
               {...(isHoverTrigger ? hoverProps : null)}
             >
               {content}
-              <Arrow
-                onPointerEnterCapture={undefined}
-                onPointerLeaveCapture={undefined}
-                {...arrowProps}
-                backgroundColor="var(--color-neutral-5)" // color-component-background
-                borderColor="transparent"
-                className={arrowClasses}
-                borderWidth={1}
-                size={8}
-              />
+              {showArrow &&
+                <Arrow
+                  onPointerEnterCapture={undefined}
+                  onPointerLeaveCapture={undefined}
+                  {...arrowProps}
+                  backgroundColor="var(--color-neutral-5)" // color-component-background
+                  borderColor="transparent"
+                  className={arrowClasses}
+                  borderWidth={1}
+                  size={8}
+                />
+              }
             </motion.div>
           </AnimatePresence>
         )}

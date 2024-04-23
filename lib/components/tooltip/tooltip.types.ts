@@ -15,4 +15,5 @@ export interface ITooltip {
   content?: string;
   children?: React.ReactNode;
   tooltipClassName?: string;
+  showArrow?: boolean;
 }

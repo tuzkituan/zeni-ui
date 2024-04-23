@@ -23,6 +23,9 @@ const meta = {
       options: ["hover", "click"],
       control: { type: "radio" },
     },
+    showArrow: {
+      control: "boolean",
+    },
     placement: {
       description: "Popover placement",
       options: [
@@ -51,7 +54,7 @@ export const Primary: Story = {
   render: ({ children, content, ...rest }) => (
     <Popover
       {...rest}
-      content={<Box className="zn-max-w-[250px]">{content}</Box>}
+      content={<Box className="zn-max-w-[250px] zn-p-4">{content}</Box>}
     >
       <Text className="zn-underline zn-cursor-pointer">{children}</Text>
     </Popover>

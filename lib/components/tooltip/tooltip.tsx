@@ -10,8 +10,10 @@ export const Tooltip = ({
   content,
   placement,
   tooltipClassName,
+  showArrow = true
 }: ITooltip) => {
   const [isHover, hoverProps] = useHover({
+    delayEnter: 100,
     delayLeave: 200,
   });
 
@@ -44,20 +46,23 @@ export const Tooltip = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
               className={classes}
               {...layerProps}
               {...hoverProps}
             >
               {content}
-              <Arrow
-                onPointerEnterCapture={undefined}
-                onPointerLeaveCapture={undefined}
-                {...arrowProps}
-                backgroundColor="black"
-                className={arrowClasses}
-                borderWidth={1}
-                size={6}
-              />
+              {showArrow &&
+                <Arrow
+                  onPointerEnterCapture={undefined}
+                  onPointerLeaveCapture={undefined}
+                  {...arrowProps}
+                  backgroundColor="black"
+                  className={arrowClasses}
+                  borderWidth={1}
+                  size={6}
+                />
+              }
             </motion.div>
           </AnimatePresence>
         )}

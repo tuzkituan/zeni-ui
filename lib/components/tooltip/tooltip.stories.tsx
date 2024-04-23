@@ -28,6 +28,9 @@ const meta = {
       ],
       control: { type: "radio" },
     },
+    showArrow: {
+      control: "boolean",
+    },
   },
 } satisfies Meta<typeof Tooltip>;
 
@@ -39,5 +42,6 @@ export const Primary: Story = {
     children: "Display tooltip",
     placement: "bottom-start",
     content: "This is a tooltip",
+    showArrow: true,
   },
 };

@@ -12,14 +12,19 @@ const item = cva([
   "zn-px-3",
   "zn-py-2",
   "zn-rounded-base",
-  "hover:zn-bg-primary-10",
-  "zn-cursor-pointer",
   "zn-text-sm",
   "zn-font-medium",
   "zn-flex",
   "zn-items-center",
   "zn-gap-2",
-]);
+], {
+  variants: {
+    isDisabled: {
+      true: ["!zn-cursor-not-allowed", "zn-text-neutral-40"],
+      false: ["hover:zn-bg-primary-10", "zn-cursor-pointer"],
+    },
+  },
+});
 const itemIcon = cva([
   "zn-flex",
   "zn-items-center",
