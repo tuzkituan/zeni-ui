@@ -14,14 +14,14 @@ const container = cva(
 const input = cva(
   [
     "zn-form-radio",
-    "checked:zn-bg-primary-base",
-    "zn-border-neutral-100",
-    "zn-text-primary-base",
+    "checked:zn-bg-primary-500",
+    "zn-border-gray-900",
+    "zn-text-primary-500",
     "focus:zn-ring-2",
-    "focus:zn-ring-primary-20",
+    "focus:zn-ring-primary-100",
     "focus:!zn-ring-offset-0",
     "active:zn-ring-2",
-    "active:zn-ring-primary-20",
+    "active:zn-ring-primary-100",
     "active:!zn-ring-offset-0",
   ],
   {
@@ -41,10 +41,10 @@ const input = cva(
       isDisabled: {
         true: [
           "zn-cursor-not-allowed",
-          "checked:zn-bg-neutral-20",
-          "zn-bg-neutral-5",
-          "hover:zn-bg-neutral-5",
-          "checked:hover:zn-bg-neutral-20",
+          "checked:zn-bg-gray-200",
+          "zn-bg-white",
+          "hover:zn-bg-white",
+          "checked:hover:zn-bg-gray-200",
           "active:zn-ring-0",
           "focus:zn-ring-0",
         ],
@@ -56,10 +56,10 @@ const input = cva(
     },
   }
 );
-const label = cva(["zn-text-sm", "zn-font-medium", "zn-text-neutral-100"], {
+const label = cva(["zn-text-sm", "zn-font-medium", "zn-text-gray-900"], {
   variants: {
     isDisabled: {
-      true: ["zn-text-neutral-40"],
+      true: ["zn-text-gray-400"],
     },
   },
 });

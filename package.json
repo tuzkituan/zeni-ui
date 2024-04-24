@@ -26,6 +26,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@mertasan/tailwindcss-variables": "^2.7.0",
     "@storybook/addon-essentials": "^7.6.10",
     "@storybook/addon-interactions": "^7.6.10",
     "@storybook/addon-links": "^7.6.10",
@@ -71,6 +72,8 @@
   ],
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
+    "@types/chroma-js": "^2.4.4",
+    "chroma-js": "^2.4.2",
     "iconsax-react": "^0.0.8"
   }
 }

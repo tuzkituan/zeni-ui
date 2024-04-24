@@ -61,9 +61,11 @@ export const Menu = ({
       <li
         key={x.key}
         value={x.key}
-        className={twMerge(theme.item({
-          isDisabled: x.isDisabled || false,
-        }))}
+        className={twMerge(
+          theme.item({
+            isDisabled: x.isDisabled || false,
+          })
+        )}
         onClick={x.isDisabled ? undefined : () => onMenuItemClick(x.key)}
       >
         {!!x.icon && <div className={itemIconClasses}>{x.icon}</div>}
@@ -77,12 +79,12 @@ export const Menu = ({
       <span
         {...(!isHoverTrigger
           ? {
-            onClick: () => {
-              const _isOpen = !isOpen;
-              setOpen(_isOpen);
-              onOpenChange && onOpenChange(_isOpen);
-            },
-          }
+              onClick: () => {
+                const _isOpen = !isOpen;
+                setOpen(_isOpen);
+                onOpenChange && onOpenChange(_isOpen);
+              },
+            }
           : hoverProps)}
         {...triggerProps}
       >
@@ -101,18 +103,18 @@ export const Menu = ({
               {...(isHoverTrigger ? hoverProps : null)}
             >
               {renderMenuItems()}
-              {showArrow &&
+              {showArrow && (
                 <Arrow
                   onPointerEnterCapture={undefined}
                   onPointerLeaveCapture={undefined}
                   {...arrowProps}
-                  backgroundColor="var(--color-neutral-5)" // color-component-background
+                  backgroundColor="white" // color-component-background
                   borderColor="transparent"
                   className={arrowClasses}
                   borderWidth={1}
                   size={8}
                 />
-              }
+              )}
             </motion.ul>
           </AnimatePresence>
         )}

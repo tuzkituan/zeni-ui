@@ -15,14 +15,14 @@ const input = cva(
   [
     "zn-form-checkbox",
     "!zn-rounded-[4px]",
-    "zn-border-neutral-100",
-    "checked:zn-bg-primary-base",
-    "zn-text-primary-base",
+    "zn-border-gray-900",
+    "checked:zn-bg-primary-500",
+    "zn-text-primary-500",
     "focus:zn-ring-2",
-    "focus:zn-ring-primary-20",
+    "focus:zn-ring-primary-100",
     "focus:!zn-ring-offset-0",
     "active:zn-ring-2",
-    "active:zn-ring-primary-20",
+    "active:zn-ring-primary-100",
     "active:!zn-ring-offset-0",
   ],
   {
@@ -42,12 +42,12 @@ const input = cva(
       isDisabled: {
         true: [
           "zn-cursor-not-allowed",
-          "checked:zn-bg-neutral-20",
-          "checked:zn-border-neutral-20",
-          "zn-bg-neutral-10",
-          "zn-border-neutral-10",
-          "hover:zn-bg-neutral-10",
-          "checked:hover:zn-bg-neutral-20",
+          "checked:zn-bg-gray-200",
+          "checked:zn-border-gray-200",
+          "zn-bg-gray-100",
+          "zn-border-gray-100",
+          "hover:zn-bg-gray-100",
+          "checked:hover:zn-bg-gray-200",
           "active:zn-ring-0",
           "focus:zn-ring-0",
         ],
@@ -59,10 +59,10 @@ const input = cva(
     },
   }
 );
-const label = cva(["zn-text-sm", "zn-font-medium", "zn-text-neutral-100"], {
+const label = cva(["zn-text-sm", "zn-font-medium", "zn-text-gray-900"], {
   variants: {
     isDisabled: {
-      true: ["zn-text-neutral-40"],
+      true: ["zn-text-gray-400"],
       false: [],
     },
   },

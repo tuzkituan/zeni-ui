@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 const container = cva(
   [
     "zn-rounded-base",
-    "zn-text-neutral-100",
+    "zn-text-gray-900",
     "zn-w-fit",
     "zn-outline",
     "zn-outline-1",
@@ -23,46 +23,46 @@ const container = cva(
           "zn-border",
           "zn-border-base",
 
-          "hover:!zn-border-primary-base",
+          "hover:!zn-border-primary-500",
 
-          "focus-within:!zn-border-primary-base",
-          "focus-within:!zn-outline-primary-20",
+          "focus-within:!zn-border-primary-500",
+          "focus-within:!zn-outline-primary-100",
           "focus-within:!zn-outline-2",
 
           "focus-within:!zn-ring-2",
-          "focus-within:!zn-ring-primary-20",
+          "focus-within:!zn-ring-primary-100",
         ],
         filled: [
-          "zn-bg-primary-10",
+          "zn-bg-primary-50",
 
           "zn-border",
-          "zn-border-primary-10",
+          "zn-border-primary-50",
 
-          "hover:!zn-border-primary-base",
+          "hover:!zn-border-primary-500",
 
-          "focus-within:!zn-border-primary-base",
-          "focus-within:!zn-outline-primary-20",
+          "focus-within:!zn-border-primary-500",
+          "focus-within:!zn-outline-primary-100",
           "focus-within:!zn-outline-2",
           "focus-within:!zn-bg-transparent",
 
           "focus-within:!zn-ring-2",
-          "focus-within:!zn-ring-primary-20",
+          "focus-within:!zn-ring-primary-100",
         ],
         flushed: [
           "!zn-rounded-none",
 
           "zn-border-b",
-          "zn-border-b-primary-base",
+          "zn-border-b-primary-500",
 
           "hover:zn-shadow-[0_1px_0_0_var(--color-primary)]",
           "focus-within:!zn-shadow-[0_1px_0_0_var(--color-primary)]",
-          "focus-within:!zn-border-b-primary-base",
+          "focus-within:!zn-border-b-primary-500",
 
           "!zn-px-0",
         ],
       },
       isDisabled: {
-        true: ["!zn-bg-neutral-10", "zn-cursor-not-allowed"],
+        true: ["!zn-bg-gray-100", "zn-cursor-not-allowed"],
         false: [],
       },
     },
@@ -168,8 +168,8 @@ const dropdown = cva([
   "zn-rounded-base",
   "zn-px-1",
   "zn-py-0.5",
-  "zn-bg-color-component-background",
-  "zn-text-neutral-100",
+  "zn-bg-white",
+  "zn-text-gray-900",
   "zn-text-base",
   "zn-shadow-base",
   "zn-overflow-x-hidden",
@@ -186,7 +186,7 @@ const option = cva(
     "zn-py-1.5",
     "zn-my-0.5",
     "zn-rounded-base",
-    "hover:zn-bg-neutral-10",
+    "hover:zn-bg-gray-100",
     "zn-cursor-pointer",
     "zn-font-medium",
     "zn-text-base",
@@ -194,11 +194,11 @@ const option = cva(
   {
     variants: {
       isSelected: {
-        true: ["zn-font-medium", "zn-bg-primary-10"],
+        true: ["zn-font-medium", "zn-bg-primary-50"],
         false: [],
       },
       isDisabled: {
-        true: ["zn-cursor-not-allowed", "zn-text-neutral-40"],
+        true: ["zn-cursor-not-allowed", "zn-text-gray-400"],
         false: [],
       },
     },
@@ -211,11 +211,11 @@ const optionLabelContainer = cva([
   "zn-w-full",
 ]);
 const optionLabel = cva(["zn-truncate", "zn-inline-block"]);
-const optionCheckIcon = cva(["zn-text-primary-base", "zn-text-[18px]"]);
+const optionCheckIcon = cva(["zn-text-primary-500", "zn-text-[18px]"]);
 const group = cva(["zn-flex", "zn-items-center"]);
 const inputLabel = cva(["zn-truncate", "zn-inline-block", "zn-w-full"]);
 const placeholder = cva([
-  "zn-text-neutral-40",
+  "zn-text-gray-400",
   "zn-text-black",
   "zn-inline-block",
   "zn-w-full",
@@ -248,7 +248,7 @@ const empty = cva([
   "zn-flex",
   "zn-justify-center",
   "zn-items-center",
-  "zn-text-neutral-40",
+  "zn-text-gray-400",
 ]);
 const tagContainer = cva([
   "zn-flex",
@@ -273,9 +273,9 @@ const tag = cva(
   {
     variants: {
       variant: {
-        outline: ["zn-bg-primary-10"],
-        filled: ["zn-bg-neutral-5"],
-        flushed: ["zn-bg-primary-10"],
+        outline: ["zn-bg-primary-50"],
+        filled: ["zn-bg-white"],
+        flushed: ["zn-bg-primary-50"],
       },
     },
   }

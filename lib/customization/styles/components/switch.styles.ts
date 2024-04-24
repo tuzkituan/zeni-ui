@@ -29,13 +29,13 @@ const input = cva(["zn-sr-only", "zn-peer"], {
 });
 const span = cva(
   [
-    "zn-bg-primary-10",
+    "zn-bg-primary-50",
     "peer-focus:zn-outline-none",
     "zn-rounded-full",
     "focus:zn-ring-2",
-    "focus:zn-ring-primary-20",
+    "focus:zn-ring-primary-100",
     "active:zn-ring-2",
-    "active:zn-ring-primary-20",
+    "active:zn-ring-primary-100",
     "peer",
     "peer-checked:after:zn-translate-x-full",
     "peer-checked:after:zn-border-none",
@@ -43,10 +43,10 @@ const span = cva(
     "after:zn-absolute",
     "after:zn-bg-white",
     "after:zn-rounded-full",
-    "after:hover:zn-bg-primary-20",
+    "after:hover:zn-bg-primary-100",
     "after:zn-transition-all",
-    "peer-checked:zn-bg-primary-base",
-    "peer-checked:hover:zn-bg-primary-50",
+    "peer-checked:zn-bg-primary-500",
+    "peer-checked:hover:zn-bg-primary-400",
     "peer-checked:after:hover:zn-bg-white",
   ],
   {
@@ -80,9 +80,9 @@ const span = cva(
       isDisabled: {
         true: [
           "zn-cursor-not-allowed",
-          "zn-bg-neutral-10",
-          "peer-checked:zn-bg-neutral-10",
-          "peer-checked:hover:zn-bg-neutral-10",
+          "zn-bg-gray-100",
+          "peer-checked:zn-bg-gray-100",
+          "peer-checked:hover:zn-bg-gray-100",
           "after:hover:zn-bg-white",
           "after:zn-bg-white",
         ],

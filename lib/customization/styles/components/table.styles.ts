@@ -24,7 +24,7 @@ const th = cva([
   "zn-uppercase",
   "zn-text-sm",
   "zn-font-semibold",
-  "zn-text-neutral-100",
+  "zn-text-gray-900",
 ]);
 const td = cva(["zn-text-sm"]);
 const tableStyles = {

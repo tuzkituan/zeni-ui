@@ -1,4 +1,4 @@
-import { Box, Center } from "../lib/main";
+import { Box, Button, Center } from "../lib/main";
 
 // const standaloneToast = createStandaloneToast();
 
@@ -51,8 +51,9 @@ function App() {
   // ];
 
   return (
-    <Center className="zn-bg-color-primary-base-background zn-min-h-screen">
+    <Center className="zn-bg-color-primary-500-background zn-min-h-screen">
       <Box className="zn-flex zn-justify-center zn-flex-col zn-items-center zn-h-full zn-gap-4">
+        <Button>Hello</Button>
         {/* <Flex className="card">
           {items.map((x) => (
             <Button
@@ -60,7 +61,7 @@ function App() {
               variant={x.value === theme ? "solid" : "ghost"}
               className={twMerge(
                 "px-4 py-1 block cursor-pointer rounded",
-                x.value === theme ? "border-2 border-color-primary-base bg-color-primary-base" : ""
+                x.value === theme ? "border-2 border-color-primary-500 bg-color-primary-500" : ""
               )}
               onClick={() => setTheme(x.value)}
             >
@@ -68,7 +69,7 @@ function App() {
             </Button>
           ))}
         </Flex>
-        <Text className="zn-text-color-primary-base">
+        <Text className="zn-text-color-primary-500">
           This is a button. Its color is based on the theme
         </Text>
         <Popover content="Popover content" placement="bottom-start">

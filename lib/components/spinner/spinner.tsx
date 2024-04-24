@@ -39,7 +39,10 @@ export const Spinner = (props: ISpinner) => {
     return (
       <div>
         {icon || (
-          <LoadingIcon className={spinnerClasses} color="var(--color-primary)" />
+          <LoadingIcon
+            className={spinnerClasses}
+            color="rgb(var(--color-primary-500))"
+          />
         )}
       </div>
     );
