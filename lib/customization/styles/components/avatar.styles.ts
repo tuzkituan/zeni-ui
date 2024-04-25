@@ -8,7 +8,7 @@ const base = cva(
     "zn-rounded-full",
     "zn-overflow-hidden",
     "zn-uppercase",
-    "zn-bg-primary-base",
+    "zn-bg-primary-500",
     "zn-border",
     "zn-border-transparent",
     "zn-bg-clip-padding",

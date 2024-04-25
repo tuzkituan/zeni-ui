@@ -1,28 +1,22 @@
-import { useEffect } from "react";
-import {
-  ToastOptionProvider,
-  ToastProvider,
-  ToastProviderProps,
-} from "../main";
-import { IThemeType } from "../customization/theme";
-import { applyTheme } from "../customization/theme/utils";
+import { useEffect } from 'react'
+import { ToastOptionProvider, ToastProvider, ToastProviderProps } from '../main'
+import { applyColor, getAccentColor } from '../customization/theme/utils'
+import React from 'react'
 
 export const ZeniProvider = ({
-  initialTheme,
+  accentColor = '#6968AA',
   children,
   toastOptions,
 }: {
-  initialTheme?: IThemeType;
-  children: React.ReactNode;
-  toastOptions?: ToastProviderProps;
+  children: React.ReactNode
+  toastOptions?: ToastProviderProps
+  accentColor?: string
 }) => {
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const defaultTheme =
-      (savedTheme as IThemeType) || initialTheme || "baseLight";
-    applyTheme(defaultTheme);
-    localStorage.setItem("theme", defaultTheme);
-  }, [initialTheme]);
+    const savedColor = getAccentColor()
+    const color = savedColor || accentColor
+    applyColor(color)
+  }, [accentColor])
 
   return (
     <>
@@ -31,5 +25,5 @@ export const ZeniProvider = ({
       </ToastOptionProvider>
       <ToastProvider toastSpacing={toastOptions?.toastSpacing} />
     </>
-  );
-};
+  )
+}

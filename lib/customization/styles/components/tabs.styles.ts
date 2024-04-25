@@ -55,17 +55,17 @@ const li = cva(
       {
         variant: "underline",
         isSelected: true,
-        class: "zn-text-primary-base",
+        class: "zn-text-primary-500",
       },
       {
         variant: "solid",
         isSelected: true,
-        class: ["zn-bg-primary-base", "zn-text-white"],
+        class: ["zn-bg-primary-500", "zn-text-white"],
       },
       {
         variant: "outline",
         isSelected: true,
-        class: ["zn-border-primary-base", "zn-text-primary-base"],
+        class: ["zn-border-primary-500", "zn-text-primary-500"],
       },
     ],
   }
@@ -77,7 +77,7 @@ const indicator = cva([
   "zn-right-0",
   "zn-w-full",
   "zn-h-[1px]",
-  "zn-bg-primary-base",
+  "zn-bg-primary-500",
 ]);
 const content = cva(["zn-block", "zn-py-4"]);
 const tabsStyles = {
