@@ -1,22 +1,26 @@
-import { useEffect } from 'react'
-import { ToastOptionProvider, ToastProvider, ToastProviderProps } from '../main'
-import { applyColor, getAccentColor } from '../customization/theme/utils'
-import React from 'react'
+import { useEffect } from "react";
+import {
+  ToastOptionProvider,
+  ToastProvider,
+  ToastProviderProps,
+} from "../main";
+import { applyColor, getAccentColor } from "../customization/theme/utils";
+import React from "react";
 
 export const ZeniProvider = ({
-  accentColor = '#6968AA',
+  accentColor = "#6968AA",
   children,
   toastOptions,
 }: {
-  children: React.ReactNode
-  toastOptions?: ToastProviderProps
-  accentColor?: string
+  children: React.ReactNode;
+  toastOptions?: ToastProviderProps;
+  accentColor?: string;
 }) => {
   useEffect(() => {
-    const savedColor = getAccentColor()
-    const color = savedColor || accentColor
-    applyColor(color)
-  }, [accentColor])
+    const savedColor = getAccentColor();
+    const color = savedColor || accentColor;
+    applyColor(color);
+  }, [accentColor]);
 
   return (
     <>
@@ -25,5 +29,5 @@ export const ZeniProvider = ({
       </ToastOptionProvider>
       <ToastProvider toastSpacing={toastOptions?.toastSpacing} />
     </>
-  )
-}
+  );
+};
