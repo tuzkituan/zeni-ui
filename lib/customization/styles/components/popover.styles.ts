@@ -2,8 +2,8 @@ import { cva } from "class-variance-authority";
 
 const base = cva([
   "zn-rounded-base",
-  "zn-bg-color-component-background",
-  "zn-text-neutral-100",
+  "zn-bg-white",
+  "zn-text-gray-900",
   "zn-text-sm",
   "zn-shadow-base",
 ]);

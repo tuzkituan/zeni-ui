@@ -15,7 +15,7 @@ const backdrop = cva([
 const container = cva(
   [
     "zn-m-auto",
-    "zn-bg-color-component-background",
+    "zn-bg-white",
     "zn-min-w-[350px] max-w-[90%]",
     "zn-h-fit",
     "zn-rounded-base",
@@ -41,10 +41,10 @@ const titleContainer = cva(["zn-flex", "zn-gap-2"]);
 const titleIcon = cva(["zn-mt-1"], {
   variants: {
     variant: {
-      success: ["zn-text-success-base"],
-      error: ["zn-text-error-base"],
-      warning: ["zn-text-warning-base"],
-      info: ["zn-text-info-base"],
+      success: ["zn-text-success-500"],
+      error: ["zn-text-error-500"],
+      warning: ["zn-text-warning-500"],
+      info: ["zn-text-info-500"],
     },
   },
 });
@@ -73,10 +73,10 @@ const footer = cva(
 const okButton = cva([], {
   variants: {
     variant: {
-      success: ["zn-bg-success-base"],
-      error: ["zn-bg-error-base"],
-      warning: ["zn-bg-warning-base"],
-      info: ["zn-bg-info-base"],
+      success: ["zn-bg-success-500"],
+      error: ["zn-bg-error-500"],
+      warning: ["zn-bg-warning-500"],
+      info: ["zn-bg-info-500"],
     },
   },
 });

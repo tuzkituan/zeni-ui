@@ -11,10 +11,19 @@ importers:
       '@tailwindcss/forms':
         specifier: ^0.5.7
         version: 0.5.7(tailwindcss@3.4.1)
+      '@types/chroma-js':
+        specifier: ^2.4.4
+        version: 2.4.4
+      chroma-js:
+        specifier: ^2.4.2
+        version: 2.4.2
       iconsax-react:
         specifier: ^0.0.8
         version: 0.0.8(react@18.2.0)
     devDependencies:
+      '@mertasan/tailwindcss-variables':
+        specifier: ^2.7.0
+        version: 2.7.0(autoprefixer@10.4.17(postcss@8.4.33))(postcss@8.4.33)
       '@storybook/addon-essentials':
         specifier: ^7.6.10
         version: 7.6.10(@types/react-dom@18.2.18)(@types/react@18.2.48)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -1106,6 +1115,13 @@ packages:
     peerDependencies:
       react: '>=16'
 
+  '@mertasan/tailwindcss-variables@2.7.0':
+    resolution: {integrity: sha512-rKPhxi/0r6XWP0+OjPmsfrloX/TtQmvONj2Pr3Nl8BNBznQVP3M9sphguDBUDC0AiKYx2xgup3XzAhlIDLPLIA==}
+    engines: {node: '>=12.13.0'}
+    peerDependencies:
+      autoprefixer: ^10.0.2
+      postcss: ^8.0.9
+
   '@microsoft/api-extractor-model@7.28.3':
     resolution: {integrity: sha512-wT/kB2oDbdZXITyDh2SQLzaWwTOFbV326fP0pUwNW00WeliARs0qjmXBWmGWardEzp2U3/axkO3Lboqun6vrig==}
 
@@ -1755,6 +1771,9 @@ packages:
   '@types/body-parser@1.19.4':
     resolution: {integrity: sha512-N7UDG0/xiPQa2D/XrVJXjkWbpqHCd2sBaB32ggRF2l83RhPfamgKGF8gwwqyksS95qUS5ZYF9aF+lLPRlwI2UA==}
 
+  '@types/chroma-js@2.4.4':
+    resolution: {integrity: sha512-/DTccpHTaKomqussrn+ciEvfW4k6NAHzNzs/sts1TCqg333qNxOhy8TNIoQCmbGG3Tl8KdEhkGAssb1n3mTXiQ==}
+
   '@types/connect@3.4.37':
     resolution: {integrity: sha512-zBUSRqkfZ59OcwXon4HVxhx5oWCJmc0OtBTK05M+p0dYjgN6iTwIL2T/WbsQZrEsdnwaF9cWQ+azOnpPvIqY3Q==}
 
@@ -2322,6 +2341,9 @@ packages:
   chownr@2.0.0:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
     engines: {node: '>=10'}
+
+  chroma-js@2.4.2:
+    resolution: {integrity: sha512-U9eDw6+wt7V8z5NncY2jJfZa+hUH8XEj8FQHgFJTrUFnJfXYf4Ml4adI2vXZOjqRDpFWtYVWypDfZwnJ+HIR4A==}
 
   ci-info@3.9.0:
     resolution: {integrity: sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==}
@@ -5943,6 +5965,12 @@ snapshots:
       '@types/react': 18.2.48
       react: 18.2.0
 
+  '@mertasan/tailwindcss-variables@2.7.0(autoprefixer@10.4.17(postcss@8.4.33))(postcss@8.4.33)':
+    dependencies:
+      autoprefixer: 10.4.17(postcss@8.4.33)
+      lodash: 4.17.21
+      postcss: 8.4.33
+
   '@microsoft/api-extractor-model@7.28.3(@types/node@20.11.5)':
     dependencies:
       '@microsoft/tsdoc': 0.14.2
@@ -7088,6 +7116,8 @@ snapshots:
       '@types/connect': 3.4.37
       '@types/node': 20.11.5
 
+  '@types/chroma-js@2.4.4': {}
+
   '@types/connect@3.4.37':
     dependencies:
       '@types/node': 20.11.5
@@ -7766,6 +7796,8 @@ snapshots:
   chownr@1.1.4: {}
 
   chownr@2.0.0: {}
+
+  chroma-js@2.4.2: {}
 
   ci-info@3.9.0: {}
 

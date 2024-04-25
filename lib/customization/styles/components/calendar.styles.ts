@@ -29,19 +29,19 @@ const valueCellInner = cva(
     "zn-leading-[24px]",
     "hover:zn-cursor-pointer",
     "hover:zn-bg-gray-200",
-    "hover:zn-text-neutral-100",
+    "hover:zn-text-gray-900",
   ],
   {
     variants: {
       isToday: {
-        true: ["!zn-text-primary-base", "!zn-border-primary-base"],
+        true: ["!zn-text-primary-500", "!zn-border-primary-500"],
       },
       isSameMonth: {
-        true: ["zn-text-neutral-100"],
+        true: ["zn-text-gray-900"],
         false: ["zn-text-gray-300"],
       },
       isSelectedDate: {
-        true: ["!zn-text-white", "!zn-bg-primary-base", "!zn-font-medium"],
+        true: ["!zn-text-white", "!zn-bg-primary-500", "!zn-font-medium"],
       },
       isDisabled: {
         true: [
@@ -79,19 +79,19 @@ const monthPickValueCellInner = cva(
     "zn-leading-[24px]",
     "hover:zn-cursor-pointer",
     "hover:zn-bg-gray-200",
-    "hover:zn-text-neutral-100",
+    "hover:zn-text-gray-900",
   ],
   {
     variants: {
       isSameMonth: {
-        true: ["zn-text-primary-base"],
-        false: ["zn-text-neutral-100"],
+        true: ["zn-text-primary-500"],
+        false: ["zn-text-gray-900"],
       },
       isDisabled: {
         true: [
           "!zn-bg-gray-200",
           "hover:!zn-cursor-not-allowed",
-          "hover:zn-text-neutral-100",
+          "hover:zn-text-gray-900",
         ],
         false: [],
       },
@@ -116,19 +116,19 @@ const yearPickValueCellInner = cva(
     "zn-leading-[24px]",
     "hover:zn-cursor-pointer",
     "hover:zn-bg-gray-200",
-    "hover:zn-text-neutral-100",
+    "hover:zn-text-gray-900",
   ],
   {
     variants: {
       isSameYear: {
-        true: ["zn-text-primary-base"],
-        false: ["zn-text-neutral-100"],
+        true: ["zn-text-primary-500"],
+        false: ["zn-text-gray-900"],
       },
       isDisabled: {
         true: [
           "!zn-bg-gray-200",
           "hover:!zn-cursor-not-allowed",
-          "hover:zn-text-neutral-100",
+          "hover:zn-text-gray-900",
         ],
         false: [],
       },
@@ -156,7 +156,7 @@ const headerButton = cva(
     "zn-px-1",
     "zn-py-1",
     "zn-leading-none",
-    "hover:zn-text-primary-base",
+    "hover:zn-text-primary-500",
     "hover:zn-bg-gray-100",
     "zn-text-base",
   ],
@@ -169,20 +169,20 @@ const headerButton = cva(
     },
   }
 );
-const headerArrow = cva(["zn-text-neutral-100", "hover:zn-text-neutral-50"]);
+const headerArrow = cva(["zn-text-gray-900", "hover:zn-text-neutral-50"]);
 
 // FOOTER
 const footer = cva([
   "zn-flex",
   "zn-justify-center",
   "zn-border-t",
-  "zn-border-neutral-10",
+  "zn-border-gray-100",
   "zn-py-2",
 ]);
 const footerButton = cva([
   "zn-block",
   "hover:zn-cursor-pointer",
-  "zn-text-primary-base",
+  "zn-text-primary-500",
 ]);
 
 const calendarStyles = {

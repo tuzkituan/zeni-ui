@@ -72,18 +72,18 @@ export const Popover = ({
               {...(isHoverTrigger ? hoverProps : null)}
             >
               {content}
-              {showArrow &&
+              {showArrow && (
                 <Arrow
                   onPointerEnterCapture={undefined}
                   onPointerLeaveCapture={undefined}
                   {...arrowProps}
-                  backgroundColor="var(--color-neutral-5)" // color-component-background
+                  backgroundColor="#fff"
                   borderColor="transparent"
                   className={arrowClasses}
                   borderWidth={1}
                   size={8}
                 />
-              }
+              )}
             </motion.div>
           </AnimatePresence>
         )}
