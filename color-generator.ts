@@ -16,8 +16,6 @@ export const getPalette = (color: string | chroma.Color) => {
   return palette
 }
 
-export const isValid = (color: any) => chroma.valid(color)
-
 export const getCodeString = (color: string | chroma.Color) => {
   const palette = getPalette(color)
   return {
