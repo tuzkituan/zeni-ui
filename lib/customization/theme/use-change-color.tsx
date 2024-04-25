@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react'
-import { applyColor, getAccentColor } from './utils'
+import { useEffect, useState } from "react";
+import { applyColor, getAccentColor } from "./utils";
 
 export function useChangeColor() {
   const [color, setColor] = useState<string | undefined>(() => {
-    const savedColor = getAccentColor()
-    return savedColor || undefined
-  })
+    const savedColor = getAccentColor();
+    return savedColor || undefined;
+  });
 
   useEffect(() => {
     if (color) {
-      applyColor(color)
+      applyColor(color);
     }
-  }, [color])
+  }, [color]);
 
-  return { color, setColor }
+  return { color, setColor };
 }
