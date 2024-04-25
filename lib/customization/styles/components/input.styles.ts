@@ -21,7 +21,7 @@ const container = cva(
       variant: {
         outline: [
           "zn-border",
-          "zn-border-base",
+          "zn-border-gray-200",
 
           "hover:!zn-border-primary-500",
 
@@ -54,8 +54,8 @@ const container = cva(
           "zn-border-b",
           "zn-border-b-primary-500",
 
-          "hover:zn-shadow-[0_1px_0_0_var(--color-primary)]",
-          "focus-within:!zn-shadow-[0_1px_0_0_var(--color-primary)]",
+          "hover:zn-shadow-[0_1px_0_0_var(--color-primary-500)]",
+          "focus-within:!zn-shadow-[0_1px_0_0_var(--color-primary-500)]",
           "focus-within:!zn-border-b-primary-500",
 
           "!zn-px-0",
@@ -98,8 +98,8 @@ const input = cva(
       size: {
         xs: ["zn-px-4", "zn-text-xs"],
         sm: ["zn-px-4", "zn-text-sm"],
-        md: ["zn-px-4", "zn-text-sm"],
-        lg: ["zn-px-4", "zn-text-base"],
+        md: ["zn-px-4", "zn-text-base"],
+        lg: ["zn-px-4", "zn-text-lg"],
       },
       variant: {
         outline: [],

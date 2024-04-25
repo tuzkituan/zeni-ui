@@ -25,7 +25,7 @@ const overlay = cva([
   "zn-flex-col",
   "zn-gap-2",
 ]);
-const description = cva(["zn-text-gray-900", "zn-text-sm"]);
+const description = cva(["zn-text-gray-900", "zn-text-base"]);
 const spinnerStyles = {
   spinner,
   container,

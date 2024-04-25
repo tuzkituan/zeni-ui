@@ -56,7 +56,7 @@ const input = cva(
     },
   }
 );
-const label = cva(["zn-text-sm", "zn-font-medium", "zn-text-gray-900"], {
+const label = cva(["zn-text-base", "zn-font-medium", "zn-text-gray-900"], {
   variants: {
     isDisabled: {
       true: ["zn-text-gray-400"],

@@ -29,7 +29,7 @@ const li = cva(
     "zn-py-2",
     "zn-relative",
     "zn-cursor-pointer",
-    "zn-text-sm",
+    "zn-text-base",
   ],
   {
     variants: {

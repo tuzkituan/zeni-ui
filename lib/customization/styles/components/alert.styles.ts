@@ -170,8 +170,8 @@ const close = cva(["zn-font-medium", "zn-absolute", "zn-top-3", "zn-right-3"], {
     },
   },
 });
-const titleText = cva(["zn-font-medium", "zn-m-0", "zn-text-sm"]);
-const descriptionText = cva(["zn-m-0", "zn-text-sm", "zn-font-normal"]);
+const titleText = cva(["zn-font-medium", "zn-m-0", "zn-text-base"]);
+const descriptionText = cva(["zn-m-0", "zn-text-base", "zn-font-normal"]);
 
 const alertStyles = {
   base,

@@ -4,7 +4,7 @@ const base = cva([
   "zn-rounded-base",
   "zn-bg-white",
   "zn-text-gray-900",
-  "zn-text-sm",
+  "zn-text-base",
   "zn-shadow-base",
 ]);
 const arrow = cva([]);

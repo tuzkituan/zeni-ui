@@ -8,7 +8,7 @@ export const getPalette = (color: string | chroma.Color) => {
   const palette = [];
 
   // Create 50
-  palette.push(colors(0.05).rgb().join(" "));
+  palette.push(colors(0.04).rgb().join(" "));
 
   // Create 100-900
   for (let i = 0.1; i < 0.9; i += 0.1) {

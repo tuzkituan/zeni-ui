@@ -13,7 +13,7 @@ const item = cva(
     "zn-px-3",
     "zn-py-2",
     "zn-rounded-base",
-    "zn-text-sm",
+    "zn-text-base",
     "zn-font-medium",
     "zn-flex",
     "zn-items-center",
