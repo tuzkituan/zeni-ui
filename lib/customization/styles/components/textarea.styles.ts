@@ -12,14 +12,14 @@ const base = cva(
     "zn-w-full",
     "zn-px-4",
     "zn-py-3",
-    "zn-text-sm",
+    "zn-text-base",
   ],
   {
     variants: {
       variant: {
         outline: [
           "zn-border",
-          "zn-border-base",
+          "zn-border-gray-200",
 
           "hover:!zn-border-primary-500",
 

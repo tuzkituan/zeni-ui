@@ -11,7 +11,7 @@ const labelCell = cva([
   "zn-text-center",
   "zn-font-medium",
   "zn-h-[36px]",
-  "zn-text-sm",
+  "zn-text-base",
 ]);
 const valueCell = cva(["zn-px-1"]);
 const valueCellInner = cva(
@@ -22,7 +22,7 @@ const valueCellInner = cva(
     "zn-h-[28px]",
     "zn-mx-auto",
     "zn-text-center",
-    "zn-text-sm",
+    "zn-text-base",
     "zn-border",
     "zn-border-transparent",
     "zn-rounded",
@@ -147,7 +147,7 @@ const header = cva([
   "zn-px-[20px]",
   "zn-pt-4",
   // "zn-border-b",
-  // "zn-border-base",
+  // "zn-border-gray-200",
 ]);
 const headerButton = cva(
   [

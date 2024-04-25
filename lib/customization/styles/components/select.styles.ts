@@ -21,7 +21,7 @@ const container = cva(
       variant: {
         outline: [
           "zn-border",
-          "zn-border-base",
+          "zn-border-gray-200",
 
           "hover:!zn-border-primary-500",
 
@@ -116,8 +116,8 @@ const inputGroup = cva(
       size: {
         xs: ["zn-px-4", "zn-text-xs"],
         sm: ["zn-px-4", "zn-text-sm"],
-        md: ["zn-px-4", "zn-text-sm"],
-        lg: ["zn-px-4", "zn-text-base"],
+        md: ["zn-px-4", "zn-text-base"],
+        lg: ["zn-px-4", "zn-text-lg"],
       },
       variant: {
         outline: [],

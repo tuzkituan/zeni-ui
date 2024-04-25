@@ -31,8 +31,10 @@ const base = cva(
           "zn-bg-primary-100",
           "zn-border",
           "zn-border-transparent",
+          "zn-text-primary-500",
 
-          "hover:zn-bg-primary-50",
+          "hover:zn-bg-primary-100",
+          "hover:zn-text-primary-400",
 
           "focus:zn-bg-primary-200",
 
@@ -47,14 +49,14 @@ const base = cva(
         outline: [
           "zn-border",
           "zn-bg-white",
-          "zn-border-primary-50",
-          "zn-text-gray-900",
+          "zn-border-primary-200",
+          "zn-text-primary-500",
 
-          "hover:zn-border-gray-100",
-          "hover:zn-text-primary-500",
+          "hover:zn-border-primary-200",
+          "hover:zn-text-primary-400",
 
-          "active:zn-border-gray-100",
-          "active:zn-text-primary-500",
+          "active:zn-border-primary-200",
+          "active:zn-text-primary-300",
 
           "disabled:zn-bg-gray-100",
           "disabled:zn-text-gray-400",
@@ -68,7 +70,7 @@ const base = cva(
           "hover:zn-text-primary-500",
 
           "active:zn-bg-primary-50",
-          "active:zn-text-primary-500",
+          "active:zn-text-primary-300",
 
           "disabled:zn-text-gray-400",
         ],
@@ -84,8 +86,8 @@ const base = cva(
       size: {
         xs: ["zn-text-xs", "zn-h-6", "zn-py-1", "zn-px-2"],
         sm: ["zn-text-sm", "zn-h-8", "zn-py-1", "zn-px-3"],
-        md: ["zn-text-sm", "zn-h-10", "zn-py-1", "zn-px-[20px]"],
-        lg: ["zn-text-base", "zn-h-12", "zn-py-1", "zn-px-[24px]"],
+        md: ["zn-text-base", "zn-h-10", "zn-py-1", "zn-px-[20px]"],
+        lg: ["zn-text-lg", "zn-h-12", "zn-py-1", "zn-px-[24px]"],
       },
       isDanger: {
         true: [],
