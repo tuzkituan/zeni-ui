@@ -20,9 +20,6 @@ importers:
       iconsax-react:
         specifier: ^0.0.8
         version: 0.0.8(react@18.2.0)
-      zeni-guy:
-        specifier: link:/home/lewis/other-projects/zeni-guy
-        version: link:../zeni-guy
     devDependencies:
       '@mertasan/tailwindcss-variables':
         specifier: ^2.7.0

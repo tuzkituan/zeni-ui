@@ -74,7 +74,6 @@
     "@tailwindcss/forms": "^0.5.7",
     "@types/chroma-js": "^2.4.4",
     "chroma-js": "^2.4.2",
-    "iconsax-react": "^0.0.8",
-    "zeni-guy": "link:/home/lewis/other-projects/zeni-guy"
+    "iconsax-react": "^0.0.8"
   }
 }
