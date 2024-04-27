@@ -111,8 +111,10 @@ export const Alert = (props: IAlert) => {
         {getIcon(status)}
       </div>
       <div className={contentClasses}>
-        <p className={theme.titleText()}>{title}</p>
-        <p className={theme.descriptionText()}>{description}</p>
+        {!!title && <p className={theme.titleText()}>{title}</p>}
+        {!!description && (
+          <p className={theme.descriptionText()}>{description}</p>
+        )}
       </div>
       {isClosable && (
         <button

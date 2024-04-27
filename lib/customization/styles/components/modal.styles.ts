@@ -8,7 +8,6 @@ const backdrop = cva([
   "zn-overflow-y-auto",
   "zn-flex",
   "zn-justify-center",
-  "zn-w-full",
   "zn-h-full",
   "zn-p-12",
 ]);
