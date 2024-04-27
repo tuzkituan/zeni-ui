@@ -12,8 +12,7 @@ const backdrop = cva([
   "zn-bg-black",
   "zn-bg-opacity-50",
   "zn-inset-0",
-  "zn-overflow-hidden",
-  "zn-w-full",
+  "!zn-overflow-hidden",
   "zn-h-full",
   "zn-flex",
   "zn-justify-center",
@@ -21,7 +20,7 @@ const backdrop = cva([
   "zn-z-[9999]",
 ]);
 const imgContainer = cva(["zn-select-none"]);
-const isPreviewable = cva(["hover:zn-brightness-75", "zn-cursor-pointer"]);
+const isPreviewable = cva(["hover:zn-brightness-90", "zn-cursor-pointer"]);
 const tools = cva([
   "zn-flex",
   "zn-items-center",

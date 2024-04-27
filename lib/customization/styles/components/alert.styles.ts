@@ -5,7 +5,7 @@ const base = cva(
     "zn-block",
     "zn-flex",
     "zn-relative",
-    "zn-items-start",
+    "zn-items-center",
     "zn-justify-start",
     "zn-gap-3",
     "zn-py-3",
@@ -88,7 +88,7 @@ const base = cva(
   }
 );
 
-const icon = cva(["zn-text-2xl", "zn-border", "zn-rounded-full", "zn-p-2"], {
+const icon = cva(["zn-text-2xl", "zn-border", "zn-rounded-full", "zn-p-2.5"], {
   variants: {
     status: {
       info: ["zn-text-info-500"],
@@ -170,8 +170,20 @@ const close = cva(["zn-font-medium", "zn-absolute", "zn-top-3", "zn-right-3"], {
     },
   },
 });
-const titleText = cva(["zn-font-medium", "zn-m-0", "zn-text-base"]);
-const descriptionText = cva(["zn-m-0", "zn-text-base", "zn-font-normal"]);
+const titleText = cva([
+  "zn-font-semibold",
+  "zn-m-0",
+  "zn-text-base",
+  "zn-break-all",
+  "zn-leading-6",
+]);
+const descriptionText = cva([
+  "zn-m-0",
+  "zn-text-base",
+  "zn-font-normal",
+  "zn-break-all",
+  "zn-leading-6",
+]);
 
 const alertStyles = {
   base,
