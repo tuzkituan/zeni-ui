@@ -72,7 +72,11 @@ const container = cva(
         ],
       },
       isDisabled: {
-        true: ["!zn-bg-gray-100", "dark:!zn-bg-gray-800", "zn-cursor-not-allowed"],
+        true: [
+          "!zn-bg-gray-100",
+          "dark:!zn-bg-gray-800",
+          "zn-cursor-not-allowed",
+        ],
         false: [],
       },
     },
@@ -179,7 +183,7 @@ const dropdown = cva([
   "zn-px-1",
   "zn-py-0.5",
   "zn-bg-white",
-  "dark:zn-bg-gray-900",
+  "dark:zn-bg-[#121212]",
   "zn-text-gray-900",
   "dark:zn-text-white",
   "zn-text-base",
@@ -211,7 +215,11 @@ const option = cva(
         false: [],
       },
       isDisabled: {
-        true: ["zn-cursor-not-allowed", "zn-text-gray-400", "dark:zn-text-gray-600"],
+        true: [
+          "zn-cursor-not-allowed",
+          "zn-text-gray-400",
+          "dark:zn-text-gray-600",
+        ],
         false: [],
       },
     },
@@ -224,7 +232,11 @@ const optionLabelContainer = cva([
   "zn-w-full",
 ]);
 const optionLabel = cva(["zn-truncate", "zn-inline-block"]);
-const optionCheckIcon = cva(["zn-text-primary-500", "dark:zn-text-primary-200", "zn-text-[18px]"]);
+const optionCheckIcon = cva([
+  "zn-text-primary-500",
+  "dark:zn-text-primary-200",
+  "zn-text-[18px]",
+]);
 const group = cva(["zn-flex", "zn-items-center"]);
 const inputLabel = cva(["zn-truncate", "zn-inline-block", "zn-w-full"]);
 const placeholder = cva([

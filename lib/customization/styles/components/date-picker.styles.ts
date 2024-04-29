@@ -135,7 +135,7 @@ const clearElement = cva([
 const dropdown = cva([
   "zn-rounded-lg",
   "zn-bg-white",
-  "dark:zn-bg-gray-900",
+  "dark:zn-bg-[#121212]",
   "zn-text-gray-900",
   "dark:zn-text-white",
   "zn-text-base",
