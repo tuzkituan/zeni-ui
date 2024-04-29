@@ -127,7 +127,7 @@ const icon = cva(["zn-text-2xl", "zn-border", "zn-rounded-full", "zn-p-2.5", "da
     {
       variant: "solid",
       status: ["info", "success", "warning", "error"],
-      class: ["zn-border-none", "zn-bg-white"],
+      class: ["zn-border-none", "zn-bg-white", "dark:zn-bg-gray-800"],
     },
   ],
 });

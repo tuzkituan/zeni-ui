@@ -18,6 +18,11 @@ export const applyColor = (color: string): void => {
   saveAccentColor(color);
 };
 
+export const applyThemeMode = (theme: string): void => {
+  document.documentElement.setAttribute("data-mode", theme);
+  saveThemeMode(theme);
+}
+
 export const saveAccentColor = (color: string): void => {
   localStorage.setItem("accent-color", color);
 };
@@ -26,3 +31,12 @@ export const getAccentColor = (): string => {
   const savedColor = localStorage.getItem("accent-color");
   return savedColor || "";
 };
+
+export const saveThemeMode = (theme: string): void => {
+  localStorage.setItem("theme-mode", theme);
+};
+
+export const getThemeMode = (): string => {
+  const savedTheme = localStorage.getItem("theme-mode");
+  return savedTheme || "";
+}

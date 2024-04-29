@@ -29,9 +29,7 @@ const meta = {
       },
     },
     onTabChange: {
-      control: {
-        type: "function",
-      },
+      control: {},
     },
     contentClassName: {
       control: {
