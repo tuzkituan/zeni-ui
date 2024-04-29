@@ -4,7 +4,7 @@ const container = cva(["zn-block"]);
 const nav = cva(["zn-block"], {
   variants: {
     variant: {
-      underline: ["zn-border-b", "zn-border-b-base"],
+      underline: ["zn-border-b", "zn-border-b-gray-200", "dark:zn-border-b-gray-800"],
       solid: [],
       outline: [],
     },
@@ -65,7 +65,7 @@ const li = cva(
       {
         variant: "outline",
         isSelected: true,
-        class: ["zn-border-primary-500", "zn-text-primary-500"],
+        class: ["!zn-border-primary-500", "dark:!zn-border-primary-700", "zn-text-primary-500"],
       },
     ],
   }

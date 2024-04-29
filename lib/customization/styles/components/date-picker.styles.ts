@@ -4,6 +4,7 @@ const container = cva(
   [
     "zn-rounded-base",
     "zn-text-gray-900",
+    "dark:zn-text-white",
     "zn-w-fit",
     "zn-outline",
     "zn-outline-1",
@@ -28,6 +29,10 @@ const container = cva(
           "focus-within:!zn-border-primary-500",
           "focus-within:!zn-outline-primary-100",
           "focus-within:!zn-outline-2",
+
+          "dark:zn-border-gray-700",
+          "dark:focus-within:!zn-outline-primary-700",
+          "dark:focus-within:!zn-ring-primary-700",
         ],
         filled: [
           "zn-bg-primary-50",
@@ -41,6 +46,11 @@ const container = cva(
           "focus-within:!zn-outline-primary-100",
           "focus-within:!zn-outline-2",
           "focus-within:!zn-bg-transparent",
+
+          "dark:zn-bg-primary-800",
+          "dark:zn-border-primary-700",
+          "dark:focus-within:!zn-outline-primary-700",
+          "dark:focus-within:!zn-ring-primary-700",
         ],
         flushed: [
           "!zn-rounded-none",
@@ -56,7 +66,7 @@ const container = cva(
         ],
       },
       isDisabled: {
-        true: ["!zn-bg-gray-100", "zn-cursor-not-allowed"],
+        true: ["!zn-bg-gray-100", "dark:!zn-bg-gray-800", "zn-cursor-not-allowed"],
         false: [],
       },
     },
@@ -73,6 +83,7 @@ const input = cva(
     "zn-cursor-pointer",
     "zn-caret-transparent",
     "placeholder:zn-text-gray-400",
+    "dark:placeholder:zn-text-gray-500",
   ],
   {
     variants: {
@@ -107,6 +118,7 @@ const leftElement = cva([
   "zn-justify-center",
   "zn-px-4",
   "zn-text-gray-500",
+  "dark:zn-text-gray-500",
 ]);
 const clearElement = cva([
   "zn-flex",
@@ -116,13 +128,16 @@ const clearElement = cva([
   "zn-mx-3",
   "[&>div]:zn-p-1",
   "[&>div]:hover:zn-bg-gray-100",
+  "dark:[&>div]:hover:zn-bg-gray-800",
   "[&>div]:hover:zn-cursor-pointer",
   "[&>div]:hover:zn-rounded-lg",
 ]);
 const dropdown = cva([
   "zn-rounded-lg",
-  "zn-bg-sec-background",
+  "zn-bg-white",
+  "dark:zn-bg-gray-900",
   "zn-text-gray-900",
+  "dark:zn-text-white",
   "zn-text-base",
   "zn-shadow-base",
   "zn-overflow-hidden",

@@ -4,7 +4,9 @@ const base = cva([
   "zn-rounded-base",
   "zn-p-1",
   "zn-bg-white",
+  "dark:zn-bg-gray-900",
   "zn-text-gray-900",
+  "dark:zn-text-white",
   "zn-shadow-base",
 ]);
 const item = cva(
@@ -22,8 +24,8 @@ const item = cva(
   {
     variants: {
       isDisabled: {
-        true: ["!zn-cursor-not-allowed", "zn-text-gray-400"],
-        false: ["hover:zn-bg-primary-50", "zn-cursor-pointer"],
+        true: ["!zn-cursor-not-allowed", "zn-text-gray-400", "dark:zn-text-gray-500"],
+        false: ["hover:zn-bg-primary-50", "dark:hover:zn-bg-primary-800", "zn-cursor-pointer"],
       },
     },
   }

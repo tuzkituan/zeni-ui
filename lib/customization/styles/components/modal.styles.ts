@@ -15,6 +15,7 @@ const container = cva(
   [
     "zn-m-auto",
     "zn-bg-white",
+    "dark:zn-bg-gray-900",
     "zn-min-w-[350px] max-w-[90%]",
     "zn-h-fit",
     "zn-rounded-base",
@@ -33,7 +34,7 @@ const close = cva([
   "zn-absolute",
   "zn-right-4",
   "zn-top-4",
-  "zn-text-neutral-50",
+  "zn-text-gray-100",
 ]);
 const header = cva(["zn-px-6", "zn-pt-6"]);
 const titleContainer = cva(["zn-flex", "zn-gap-2"]);

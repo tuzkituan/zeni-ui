@@ -29,7 +29,7 @@ const input = cva(["zn-sr-only", "zn-peer"], {
 });
 const span = cva(
   [
-    "zn-bg-primary-50",
+    "zn-bg-primary-100",
     "peer-focus:zn-outline-none",
     "zn-rounded-full",
     "focus:zn-ring-2",
@@ -43,11 +43,19 @@ const span = cva(
     "after:zn-absolute",
     "after:zn-bg-white",
     "after:zn-rounded-full",
-    "after:hover:zn-bg-primary-100",
+    "after:hover:zn-bg-white",
     "after:zn-transition-all",
     "peer-checked:zn-bg-primary-500",
     "peer-checked:hover:zn-bg-primary-400",
     "peer-checked:after:hover:zn-bg-white",
+
+    "dark:zn-bg-primary-800",
+    "dark:focus:zn-ring-primary-700",
+    "dark:active:zn-ring-primary-700",
+    "dark:after:zn-bg-primary-500",
+    "dark:peer-checked:zn-bg-primary-700",
+    "dark:after:hover:zn-bg-primary-400",
+    "dark:peer-checked:after:zn-bg-white",
   ],
   {
     variants: {

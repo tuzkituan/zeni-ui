@@ -5,6 +5,7 @@ const base = cva(
     "zn-block",
     "zn-rounded-base",
     "zn-text-gray-900",
+    "dark:zn-text-white",
     "zn-w-fit",
     "zn-outline",
     "zn-outline-1",
@@ -13,6 +14,7 @@ const base = cva(
     "zn-px-4",
     "zn-py-3",
     "zn-text-base",
+    "zn-bg-transparent",
   ],
   {
     variants: {
@@ -29,6 +31,10 @@ const base = cva(
 
           "focus-within:!zn-ring-2",
           "focus-within:!zn-ring-primary-100",
+
+          "dark:zn-border-gray-700",
+          "dark:focus-within:!zn-outline-primary-700",
+          "dark:focus-within:!zn-ring-primary-700",
         ],
         filled: [
           "zn-bg-primary-50",
@@ -45,6 +51,11 @@ const base = cva(
 
           "focus-within:!zn-ring-2",
           "focus-within:!zn-ring-primary-100",
+
+          "dark:zn-bg-primary-800",
+          "dark:zn-border-primary-700",
+          "dark:focus-within:!zn-outline-primary-700",
+          "dark:focus-within:!zn-ring-primary-700",
         ],
         flushed: [
           "!zn-rounded-none",
@@ -60,7 +71,7 @@ const base = cva(
         ],
       },
       isDisabled: {
-        true: ["!zn-bg-gray-100", "zn-cursor-not-allowed"],
+        true: ["!zn-bg-gray-100", "dark:!zn-bg-gray-800", "zn-cursor-not-allowed"],
         false: [],
       },
       isResizable: {
