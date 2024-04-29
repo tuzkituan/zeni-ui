@@ -31,6 +31,7 @@ export default {
         warning: getCodeString("#AB9F68"),
         error: getCodeString("#AB6C68"),
         info: getCodeString("#6086AB"),
+        component: "#1e1e1e",
       },
       minHeight: (theme) => ({
         ...theme("spacing"),
@@ -43,13 +44,17 @@ export default {
       },
       backgroundColor: (theme) => ({
         ...theme("colors"),
+        "component-dark": "#1e1e1e",
+        "component-light": "#fff",
+        "body-dark": "#121212",
+        "body-light": "rgb(var(--color-primary-50) / <alpha-value>)",
       }),
       boxShadow: {
         base: "0px 6px 18px 0px rgba(4, 4, 7, 0.05)",
       },
-      // fontSize: {
-      //   base: '16px',
-      // },
+      fontSize: {
+        base: "16px",
+      },
     },
   },
   variants: {

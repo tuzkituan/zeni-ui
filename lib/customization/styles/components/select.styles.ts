@@ -183,7 +183,7 @@ const dropdown = cva([
   "zn-px-1",
   "zn-py-0.5",
   "zn-bg-white",
-  "dark:zn-bg-[#121212]",
+  "dark:zn-bg-component",
   "zn-text-gray-900",
   "dark:zn-text-white",
   "zn-text-base",

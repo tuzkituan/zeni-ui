@@ -79,7 +79,10 @@ export const Popover = ({
                   {...arrowProps}
                   backgroundColor="#fff"
                   borderColor="transparent"
-                  className={arrowClasses}
+                  className={twMerge(
+                    arrowClasses,
+                    "[&>path]:zn-fill-white dark:[&>path]:zn-fill-component"
+                  )}
                   borderWidth={1}
                   size={8}
                 />
