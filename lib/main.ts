@@ -58,6 +58,7 @@ export * from "./providers/zeni-provider";
 
 // UTILS
 export * from "./customization/theme/use-change-color";
+export * from "./customization/theme/use-change-theme";
 
 // HOOKS
 export * from "./hooks/media.hook";
