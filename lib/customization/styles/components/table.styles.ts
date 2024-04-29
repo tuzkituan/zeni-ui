@@ -3,14 +3,14 @@ import { cva } from "class-variance-authority";
 const tableBorder = cva([], {
   variants: {
     isBordered: {
-      true: ["zn-border", "zn-border-gray-200", "zn-border-collapse"],
+      true: ["zn-border", "zn-border-gray-200", "dark:zn-border-gray-800", "zn-border-collapse"],
       false: [],
     },
   },
 });
 
 const base = cva(["zn-w-full"]);
-const row = cva(["hover:zn-bg-gray-100"]);
+const row = cva(["hover:zn-bg-primary-50", "dark:hover:zn-bg-primary-800"]);
 const cell = cva(["zn-text-left"], {
   variants: {
     size: {
@@ -25,6 +25,7 @@ const th = cva([
   "zn-text-base",
   "zn-font-semibold",
   "zn-text-gray-900",
+  "dark:zn-text-gray-500",
 ]);
 const td = cva(["zn-text-base"]);
 const tableStyles = {

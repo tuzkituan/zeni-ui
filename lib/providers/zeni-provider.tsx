@@ -4,23 +4,37 @@ import {
   ToastProvider,
   ToastProviderProps,
 } from "../main";
-import { applyColor, getAccentColor } from "../customization/theme/utils";
+import { applyColor, applyThemeMode, getAccentColor, getThemeMode } from "../customization/theme/utils";
 import React from "react";
 
 export const ZeniProvider = ({
-  accentColor = "#6968AA",
+  themeOptions = {
+    accentColor: "#6968AA",
+    themeMode: "light",
+  },
   children,
   toastOptions,
 }: {
   children: React.ReactNode;
   toastOptions?: ToastProviderProps;
-  accentColor?: string;
+  themeOptions?: {
+    themeMode?: "light" | "dark";
+    accentColor?: string;
+  };
 }) => {
+  const { accentColor, themeMode } = themeOptions;
+  
   useEffect(() => {
     const savedColor = getAccentColor();
-    const color = savedColor || accentColor;
+    const color = savedColor || accentColor || "#6968AA";
     applyColor(color);
   }, [accentColor]);
+
+  useEffect(() => {
+    const savedTheme = getThemeMode();
+    const theme = savedTheme || themeMode || "light";
+    applyThemeMode(theme);
+  }, [themeMode]);
 
   return (
     <>

@@ -23,9 +23,7 @@ const meta = {
     duration: {
       type: "number",
     },
-    icon: {
-      control: "",
-    },
+    icon: {},
     isClosable: {
       type: "boolean",
     },

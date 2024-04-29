@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply dark:zn-bg-primary-800 dark:zn-text-white zn-min-h-screen zn-relative;
+  }
+}
+
 @layer components {
   .env-safe-area-inset-top-0 {
     top: env(safe-area-inset-top, 0px);

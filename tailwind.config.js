@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 
-const { getCodeString } = require("./lib/customization/theme/color-generator.ts")
+const {
+  getCodeString,
+} = require("./lib/customization/theme/color-generator.ts");
 
 export default {
   prefix: "zn-",

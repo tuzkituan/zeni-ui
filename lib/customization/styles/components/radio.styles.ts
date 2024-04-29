@@ -13,6 +13,7 @@ const container = cva(
 );
 const input = cva(
   [
+    "zn-bg-transparent",
     "zn-form-radio",
     "checked:zn-bg-primary-500",
     "zn-border-gray-900",
@@ -23,6 +24,10 @@ const input = cva(
     "active:zn-ring-2",
     "active:zn-ring-primary-100",
     "active:!zn-ring-offset-0",
+
+    "dark:zn-border-primary-500",
+    "dark:focus:zn-ring-primary-800",
+    "dark:active:zn-ring-primary-800",
   ],
   {
     variants: {
@@ -41,12 +46,14 @@ const input = cva(
       isDisabled: {
         true: [
           "zn-cursor-not-allowed",
-          "checked:zn-bg-gray-200",
+          "checked:zn-bg-gray-800",
           "zn-bg-white",
-          "hover:zn-bg-white",
-          "checked:hover:zn-bg-gray-200",
           "active:zn-ring-0",
           "focus:zn-ring-0",
+          "hover:zn-ring-0",
+
+          "dark:checked:zn-bg-gray-800",
+          "dark:zn-bg-gray-800",
         ],
         false: [],
       },
@@ -56,10 +63,10 @@ const input = cva(
     },
   }
 );
-const label = cva(["zn-text-base", "zn-font-medium", "zn-text-gray-900"], {
+const label = cva(["zn-text-base", "zn-font-medium", "zn-text-gray-900", "dark:zn-text-white"], {
   variants: {
     isDisabled: {
-      true: ["zn-text-gray-400"],
+      true: ["zn-text-gray-400", "dark:zn-text-gray-500"],
     },
   },
 });

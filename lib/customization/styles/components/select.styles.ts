@@ -4,6 +4,7 @@ const container = cva(
   [
     "zn-rounded-base",
     "zn-text-gray-900",
+    "dark:zn-text-white",
     "zn-w-fit",
     "zn-outline",
     "zn-outline-1",
@@ -31,6 +32,10 @@ const container = cva(
 
           "focus-within:!zn-ring-2",
           "focus-within:!zn-ring-primary-100",
+
+          "dark:zn-border-gray-700",
+          "dark:focus-within:!zn-outline-primary-700",
+          "dark:focus-within:!zn-ring-primary-700",
         ],
         filled: [
           "zn-bg-primary-50",
@@ -47,6 +52,11 @@ const container = cva(
 
           "focus-within:!zn-ring-2",
           "focus-within:!zn-ring-primary-100",
+
+          "dark:zn-bg-primary-800",
+          "dark:zn-border-primary-700",
+          "dark:focus-within:!zn-outline-primary-700",
+          "dark:focus-within:!zn-ring-primary-700",
         ],
         flushed: [
           "!zn-rounded-none",
@@ -62,7 +72,7 @@ const container = cva(
         ],
       },
       isDisabled: {
-        true: ["!zn-bg-gray-100", "zn-cursor-not-allowed"],
+        true: ["!zn-bg-gray-100", "dark:!zn-bg-gray-800", "zn-cursor-not-allowed"],
         false: [],
       },
     },
@@ -169,7 +179,9 @@ const dropdown = cva([
   "zn-px-1",
   "zn-py-0.5",
   "zn-bg-white",
+  "dark:zn-bg-gray-900",
   "zn-text-gray-900",
+  "dark:zn-text-white",
   "zn-text-base",
   "zn-shadow-base",
   "zn-overflow-x-hidden",
@@ -187,6 +199,7 @@ const option = cva(
     "zn-my-0.5",
     "zn-rounded-base",
     "hover:zn-bg-gray-100",
+    "dark:hover:zn-bg-gray-800",
     "zn-cursor-pointer",
     "zn-font-medium",
     "zn-text-base",
@@ -194,11 +207,11 @@ const option = cva(
   {
     variants: {
       isSelected: {
-        true: ["zn-font-medium", "zn-bg-primary-50"],
+        true: ["zn-font-medium", "zn-bg-primary-50", "dark:zn-bg-primary-800"],
         false: [],
       },
       isDisabled: {
-        true: ["zn-cursor-not-allowed", "zn-text-gray-400"],
+        true: ["zn-cursor-not-allowed", "zn-text-gray-400", "dark:zn-text-gray-600"],
         false: [],
       },
     },
@@ -211,12 +224,12 @@ const optionLabelContainer = cva([
   "zn-w-full",
 ]);
 const optionLabel = cva(["zn-truncate", "zn-inline-block"]);
-const optionCheckIcon = cva(["zn-text-primary-500", "zn-text-[18px]"]);
+const optionCheckIcon = cva(["zn-text-primary-500", "dark:zn-text-primary-200", "zn-text-[18px]"]);
 const group = cva(["zn-flex", "zn-items-center"]);
 const inputLabel = cva(["zn-truncate", "zn-inline-block", "zn-w-full"]);
 const placeholder = cva([
   "zn-text-gray-400",
-  "zn-text-black",
+  "dark:zn-text-gray-500",
   "zn-inline-block",
   "zn-w-full",
 ]);
@@ -241,6 +254,7 @@ const clearElement = cva([
   "zn-p-1.5",
   "hover:zn-cursor-pointer",
   "hover:zn-bg-gray-100",
+  "dark:hover:zn-bg-gray-800",
   "hover:zn-rounded-lg",
 ]);
 const empty = cva([
@@ -249,6 +263,7 @@ const empty = cva([
   "zn-justify-center",
   "zn-items-center",
   "zn-text-gray-400",
+  "dark:zn-gray-50",
 ]);
 const tagContainer = cva([
   "zn-flex",
@@ -273,15 +288,15 @@ const tag = cva(
   {
     variants: {
       variant: {
-        outline: ["zn-bg-primary-50"],
-        filled: ["zn-bg-white"],
-        flushed: ["zn-bg-primary-50"],
+        outline: ["zn-bg-primary-50", "dark:zn-bg-primary-700"],
+        filled: ["zn-bg-white", "dark:zn-bg-primary-600"],
+        flushed: ["zn-bg-primary-50", "dark:zn-bg-primary-700"],
       },
     },
   }
 );
 const tagX = cva(["zn-cursor-pointer"]);
-const iconColor = cva(["zn-text-neutral-50"]);
+const iconColor = cva(["zn-text-gray-50", "dark:zn-text-gray-500"]);
 const selectStyles = {
   container,
   secContainer,

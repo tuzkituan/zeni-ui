@@ -31,59 +31,84 @@ const base = cva(
 
           "disabled:zn-bg-gray-100",
           "disabled:zn-text-gray-400",
+
+          "dark:hover:zn-bg-primary-600",
+          "dark:focus:zn-bg-primary-700",
+          "dark:active:zn-bg-primary-800",
+          "dark:disabled:zn-bg-gray-800",
         ],
         subtle: [
           "zn-bg-primary-100",
           "zn-border",
           "zn-border-transparent",
+          "zn-text-primary-500",
 
           "hover:zn-bg-primary-50",
+          "hover:zn-text-primary-400",
 
-          "focus:zn-bg-primary-200",
+          "focus:zn-bg-primary-100",
 
-          "active:zn-bg-primary-300",
+          "active:zn-bg-primary-200",
+
+          "disabled:zn-bg-gray-100",
+          "disabled:zn-text-gray-400",
 
           "disabled:zn-bg-gray-100",
           "disabled:zn-text-gray-400",
 
-          "disabled:zn-bg-gray-100",
-          "disabled:zn-text-gray-400",
+          "dark:zn-bg-primary-800",
+          "dark:zn-text-primary-200",
+          "dark:hover:zn-bg-primary-800",
+          "dark:hover:zn-text-primary-100",
+          "dark:focus:zn-bg-primary-700",
+          "dark:active:zn-bg-primary-600",
+          "dark:disabled:zn-bg-gray-800",
         ],
         outline: [
           "zn-border",
-          "zn-bg-white",
-          "zn-border-primary-50",
-          "zn-text-gray-900",
+          "zn-bg-transparent",
+          "zn-border-primary-200",
+          "zn-text-primary-500",
 
-          "hover:zn-border-gray-100",
-          "hover:zn-text-primary-500",
+          "hover:zn-border-primary-200",
+          "hover:zn-text-primary-400",
 
-          "active:zn-border-gray-100",
-          "active:zn-text-primary-500",
+          "active:zn-border-primary-200",
+          "active:zn-text-primary-300",
 
           "disabled:zn-bg-gray-100",
           "disabled:zn-text-gray-400",
+
+          "dark:zn-bg-transparent",
+          "dark:zn-border-primary-500",
+          "dark:disabled:zn-bg-gray-800",
+          "dark:disabled:zn-border-primary-800",
         ],
         text: [
           "zn-border",
           "zn-bg-transparent",
           "zn-border-transparent",
 
-          "hover:zn-bg-primary-50",
           "hover:zn-text-primary-500",
 
-          "active:zn-bg-primary-50",
-          "active:zn-text-primary-500",
+          "active:zn-text-primary-300",
 
           "disabled:zn-text-gray-400",
+
+          "dark:hover:zn-text-primary-500",
+          "dark:active:zn-text-primary-600",
+          "dark:disabled:zn-text-gray-500",
         ],
         link: [
           "zn-border",
           "zn-bg-transparent",
           "zn-border-transparent",
           "zn-underline",
-          "zn-text-gray-900",
+          "zn-text-primary-500",
           "disabled:zn-text-gray-400",
+
+          "dark:zn-text-primary-500",
+          "dark:disabled:zn-text-gray-500",
         ],
       },
       size: {
@@ -113,9 +138,16 @@ const base = cva(
         isDanger: true,
         class: [
           "!zn-bg-error-100",
-          "hover:!zn-bg-error-400",
+          "hover:!zn-bg-error-200",
           "focus:!zn-bg-error-200",
           "active:!zn-bg-error-300",
+          "!zn-text-error-500",
+
+          "dark:!zn-bg-error-800",
+          "dark:hover:!zn-bg-error-700",
+          "dark:focus:!zn-bg-error-800",
+          "dark:active:!zn-bg-error-900",
+          "dark:!zn-text-error-300",
         ],
       },
       {
@@ -124,19 +156,15 @@ const base = cva(
         class: [
           "!zn-border-error-500",
           "!zn-text-error-500",
-          "!zn-bg-white",
 
           "hover:!zn-border-error-600",
           "hover:!zn-text-error-600",
-          "hover:!zn-bg-white",
 
-          "focus:!zn-border-error-600",
-          "focus:!zn-text-error-600",
-          "focus:!zn-bg-white",
+          "focus:!zn-border-error-500",
+          "focus:!zn-text-error-500",
 
-          "active:!zn-border-error-600",
-          "active:!zn-text-error-600",
-          "active:!zn-bg-white",
+          "active:!zn-border-error-400",
+          "active:!zn-text-error-400",
         ],
       },
       {
@@ -145,10 +173,15 @@ const base = cva(
         class: [
           "!zn-text-error-500",
           "hover:!zn-text-error-500",
-          "hover:!zn-bg-error-400",
-
+          "hover:!zn-bg-error-100",
           "active:!zn-text-error-500",
-          "active:!zn-bg-error-400",
+          "active:!zn-bg-error-200",
+
+          "dark:!zn-text-error-500",
+          "dark:hover:!zn-text-error-500",
+          "dark:hover:!zn-bg-error-800",
+          "dark:active:!zn-text-error-500",
+          "dark:active:!zn-bg-error-900",
         ],
       },
       {
