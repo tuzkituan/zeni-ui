@@ -15,7 +15,7 @@ const container = cva(
   [
     "zn-m-auto",
     "zn-bg-white",
-    "dark:zn-bg-gray-900",
+    "dark:zn-bg-[#121212]",
     "zn-min-w-[350px] max-w-[90%]",
     "zn-h-fit",
     "zn-rounded-base",
