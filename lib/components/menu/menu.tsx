@@ -108,9 +108,11 @@ export const Menu = ({
                   onPointerEnterCapture={undefined}
                   onPointerLeaveCapture={undefined}
                   {...arrowProps}
-                  backgroundColor="white" // color-component-background
                   borderColor="transparent"
-                  className={arrowClasses}
+                  className={twMerge(
+                    arrowClasses,
+                    "[&>path]:zn-fill-white dark:[&>path]:zn-fill-component"
+                  )}
                   borderWidth={1}
                   size={8}
                 />

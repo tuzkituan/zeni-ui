@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply zn-bg-primary-50 dark:zn-bg-[#0A0A0A] dark:zn-text-white zn-min-h-screen zn-relative;
+    @apply zn-bg-body-light dark:zn-bg-body-dark dark:zn-text-white zn-min-h-screen zn-relative;
   }
 }
 

@@ -66,7 +66,11 @@ const container = cva(
         ],
       },
       isDisabled: {
-        true: ["!zn-bg-gray-100", "dark:!zn-bg-gray-800", "zn-cursor-not-allowed"],
+        true: [
+          "!zn-bg-gray-100",
+          "dark:!zn-bg-gray-800",
+          "zn-cursor-not-allowed",
+        ],
         false: [],
       },
     },
@@ -135,7 +139,7 @@ const clearElement = cva([
 const dropdown = cva([
   "zn-rounded-lg",
   "zn-bg-white",
-  "dark:zn-bg-[#121212]",
+  "dark:zn-bg-component",
   "zn-text-gray-900",
   "dark:zn-text-white",
   "zn-text-base",

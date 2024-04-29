@@ -48,12 +48,20 @@ const base = cva(
       {
         variant: ["subtle", "left-accent", "top-accent"],
         status: "success",
-        class: ["zn-bg-white", "before:zn-bg-success-500", "dark:zn-bg-gray-800"],
+        class: [
+          "zn-bg-white",
+          "before:zn-bg-success-500",
+          "dark:zn-bg-gray-800",
+        ],
       },
       {
         variant: ["subtle", "left-accent", "top-accent"],
         status: "warning",
-        class: ["zn-bg-white", "before:zn-bg-warning-500", "dark:zn-bg-gray-800"],
+        class: [
+          "zn-bg-white",
+          "before:zn-bg-warning-500",
+          "dark:zn-bg-gray-800",
+        ],
       },
       {
         variant: ["subtle", "left-accent", "top-accent"],
@@ -88,49 +96,81 @@ const base = cva(
   }
 );
 
-const icon = cva(["zn-text-2xl", "zn-border", "zn-rounded-full", "zn-p-2.5", "dark:zn-border-transparent"], {
-  variants: {
-    status: {
-      info: ["zn-text-info-500"],
-      success: ["zn-text-success-500"],
-      warning: ["zn-text-warning-500"],
-      error: ["zn-text-error-500"],
-    },
-    variant: {
-      subtle: [],
-      solid: [],
-      "left-accent": [],
-      "top-accent": [],
-    },
-  },
-  compoundVariants: [
-    {
-      variant: ["subtle", "left-accent", "top-accent"],
-      status: "info",
-      class: ["zn-text-info-500", "zn-bg-info-50", "dark:zn-bg-info-800"],
-    },
-    {
-      variant: ["subtle", "left-accent", "top-accent"],
-      status: "success",
-      class: ["zn-text-success-500", "zn-bg-success-50", "dark:zn-bg-success-800"],
-    },
-    {
-      variant: ["subtle", "left-accent", "top-accent"],
-      status: "warning",
-      class: ["zn-text-warning-500", "zn-bg-warning-50", "dark:zn-bg-warning-800"],
-    },
-    {
-      variant: ["subtle", "left-accent", "top-accent"],
-      status: "error",
-      class: ["zn-text-error-500", "zn-bg-error-50", "dark:zn-bg-error-800"],
-    },
-    {
-      variant: "solid",
-      status: ["info", "success", "warning", "error"],
-      class: ["zn-border-none", "zn-bg-white", "dark:zn-bg-gray-800"],
-    },
+const icon = cva(
+  [
+    "zn-text-2xl",
+    "zn-border",
+    "zn-rounded-full",
+    "zn-p-2.5",
+    "dark:zn-border-transparent",
   ],
-});
+  {
+    variants: {
+      status: {
+        info: ["zn-text-info-500"],
+        success: ["zn-text-success-500"],
+        warning: ["zn-text-warning-500"],
+        error: ["zn-text-error-500"],
+      },
+      variant: {
+        subtle: [],
+        solid: [],
+        "left-accent": [],
+        "top-accent": [],
+      },
+    },
+    compoundVariants: [
+      {
+        variant: ["subtle", "left-accent", "top-accent"],
+        status: "info",
+        class: ["zn-text-info-500", "zn-bg-info-50", "dark:zn-bg-info-800"],
+      },
+      {
+        variant: ["subtle", "left-accent", "top-accent"],
+        status: "success",
+        class: [
+          "zn-text-success-500",
+          "zn-bg-success-50",
+          "dark:zn-bg-success-800",
+        ],
+      },
+      {
+        variant: ["subtle", "left-accent", "top-accent"],
+        status: "warning",
+        class: [
+          "zn-text-warning-500",
+          "zn-bg-warning-50",
+          "dark:zn-bg-warning-800",
+        ],
+      },
+      {
+        variant: ["subtle", "left-accent", "top-accent"],
+        status: "error",
+        class: ["zn-text-error-500", "zn-bg-error-50", "dark:zn-bg-error-800"],
+      },
+      {
+        variant: "solid",
+        status: ["info"],
+        class: ["zn-border-none", "zn-bg-white", "dark:zn-bg-info-800"],
+      },
+      {
+        variant: "solid",
+        status: ["success"],
+        class: ["zn-border-none", "zn-bg-white", "dark:zn-bg-success-800"],
+      },
+      {
+        variant: "solid",
+        status: ["warning"],
+        class: ["zn-border-none", "zn-bg-white", "dark:zn-bg-warning-800"],
+      },
+      {
+        variant: "solid",
+        status: ["error"],
+        class: ["zn-border-none", "zn-bg-white", "dark:zn-bg-error-800"],
+      },
+    ],
+  }
+);
 
 const text = cva(["zn-text-base"], {
   variants: {
