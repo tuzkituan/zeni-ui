@@ -274,7 +274,7 @@ const empty = cva([
   "zn-flex",
   "zn-justify-center",
   "zn-items-center",
-  "zn-text-gray-400",
+  "zn-text-gray-500",
   "dark:zn-gray-50",
 ]);
 const tagContainer = cva([
@@ -308,7 +308,7 @@ const tag = cva(
   }
 );
 const tagX = cva(["zn-cursor-pointer"]);
-const iconColor = cva(["zn-text-gray-50", "dark:zn-text-gray-500"]);
+const iconColor = cva(["zn-text-gray-500", "dark:zn-text-gray-500"]);
 const selectStyles = {
   container,
   secContainer,

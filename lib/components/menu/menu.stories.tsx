@@ -1,7 +1,7 @@
+import { Key, SignOut, User } from "@phosphor-icons/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "../text/text";
 import { Menu } from "./menu";
-import { Key, Logout, User } from "iconsax-react";
 
 const meta = {
   title: "OVERLAY/Menu",
@@ -71,7 +71,7 @@ export const Primary: Story = {
       {
         key: 3,
         title: "Logout",
-        icon: <Logout size={20} />,
+        icon: <SignOut size={20} />,
         isDisabled: true,
       },
     ],

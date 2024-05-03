@@ -38,7 +38,7 @@ const close = cva([
 ]);
 const header = cva(["zn-px-6", "zn-pt-6"]);
 const titleContainer = cva(["zn-flex", "zn-gap-2"]);
-const titleIcon = cva(["zn-mt-1"], {
+const titleIcon = cva([], {
   variants: {
     variant: {
       success: ["zn-text-success-500"],

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { IconButton } from "./icon-button";
-import { Add } from "iconsax-react";
+import { Plus } from "@phosphor-icons/react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -32,7 +32,7 @@ export const Primary: Story = {
     variant: "solid",
     isLoading: false,
     isDisabled: false,
-    icon: <Add />,
+    icon: <Plus />,
     isDanger: false,
   },
 };

@@ -1,17 +1,17 @@
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  CloseCircle,
-  CloseSquare,
-  InfoCircle,
-  TickSquare,
-  Warning2,
-} from "iconsax-react";
 import { useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import { Button } from "../button/button";
 import { IModal } from "./modal.types";
+import {
+  CheckCircle,
+  Info,
+  WarningCircle,
+  X,
+  XCircle,
+} from "@phosphor-icons/react";
 
 export const Modal = (props: IModal) => {
   const theme = useComponentStyle("Modal");
@@ -79,13 +79,13 @@ export const Modal = (props: IModal) => {
   const getVariantIcon = () => {
     switch (variant) {
       case "error":
-        return <CloseSquare variant="Bold" size={20} />;
+        return <XCircle weight="fill" fontSize={24} />;
       case "success":
-        return <TickSquare variant="Bold" size={20} />;
+        return <CheckCircle weight="fill" fontSize={24} />;
       case "info":
-        return <InfoCircle variant="Bold" size={20} />;
+        return <Info weight="fill" fontSize={24} />;
       case "warning":
-        return <Warning2 variant="Bold" size={20} />;
+        return <WarningCircle weight="fill" fontSize={24} />;
       default:
         return null;
     }
@@ -146,7 +146,7 @@ export const Modal = (props: IModal) => {
             {isClosable && (
               <div className={closeClasses}>
                 <button onClick={onCancel}>
-                  {closeIcon || <CloseCircle size={24} />}
+                  {closeIcon || <X size={24} />}
                 </button>
               </div>
             )}
