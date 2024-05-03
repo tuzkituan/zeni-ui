@@ -52,9 +52,6 @@ export default {
       boxShadow: {
         base: "0px 6px 18px 0px rgba(4, 4, 7, 0.05)",
       },
-      fontSize: {
-        base: "16px",
-      },
     },
   },
   variants: {
