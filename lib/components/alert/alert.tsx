@@ -1,10 +1,10 @@
 import {
-  CloseCircle,
-  CloseSquare,
-  InfoCircle,
-  TickSquare,
-  Warning2,
-} from "iconsax-react";
+  CheckCircle,
+  Info,
+  WarningCircle,
+  X,
+  XCircle,
+} from "@phosphor-icons/react";
 import { useMemo, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
@@ -73,13 +73,13 @@ export const Alert = (props: IAlert) => {
     }
     switch (stt) {
       case "success":
-        return <TickSquare variant="Bold" size={20} />;
+        return <CheckCircle weight="fill" fontSize={24} />;
       case "warning":
-        return <CloseSquare variant="Bold" size={20} />;
+        return <WarningCircle weight="fill" fontSize={24} />;
       case "error":
-        return <Warning2 variant="Bold" size={20} />;
+        return <XCircle weight="fill" fontSize={24} />;
       default:
-        return <InfoCircle variant="Bold" size={20} />;
+        return <Info weight="fill" fontSize={24} />;
     }
   };
 
@@ -124,7 +124,7 @@ export const Alert = (props: IAlert) => {
             else setShow(false);
           }}
         >
-          <CloseCircle size={20} />
+          <X fontSize={20} weight="bold" />
         </button>
       )}
     </div>

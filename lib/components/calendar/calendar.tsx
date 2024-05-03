@@ -1,5 +1,5 @@
+import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { format, isSameDay, isSameMonth, isSameYear, isToday } from "date-fns";
-import { ArrowLeft2, ArrowRight2 } from "iconsax-react";
 import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
@@ -98,10 +98,10 @@ export const Calendar = (props: ICalendar) => {
           </button>
           <div className="zn-flex-1" />
           <button onClick={onPrevMonth} className={theme.headerArrow()}>
-            <ArrowLeft2 size={20} />
+            <CaretLeft size={20} />
           </button>
           <button onClick={onNextMonth} className={theme.headerArrow()}>
-            <ArrowRight2 size={20} />
+            <CaretRight size={20} />
           </button>
         </div>
       );
@@ -110,7 +110,7 @@ export const Calendar = (props: ICalendar) => {
       return (
         <div className={theme.header()}>
           <button onClick={onPrevYear} className={theme.headerArrow()}>
-            <ArrowLeft2 size={20} />
+            <CaretLeft size={20} />
           </button>
           <div className="zn-flex-1" />
           <button
@@ -121,7 +121,7 @@ export const Calendar = (props: ICalendar) => {
           </button>
           <div className="zn-flex-1" />
           <button onClick={onNextYear} className={theme.headerArrow()}>
-            <ArrowRight2 size={20} />
+            <CaretRight size={20} />
           </button>
         </div>
       );
@@ -132,7 +132,7 @@ export const Calendar = (props: ICalendar) => {
       return (
         <div className={theme.header()}>
           <button onClick={onPrevDecade} className={theme.headerArrow()}>
-            <ArrowLeft2 size={20} />
+            <CaretLeft size={20} />
           </button>
           <div className="zn-flex-1" />
           <button
@@ -144,7 +144,7 @@ export const Calendar = (props: ICalendar) => {
           </button>
           <div className="zn-flex-1" />
           <button onClick={onNextDecade} className={theme.headerArrow()}>
-            <ArrowRight2 size={20} />
+            <CaretRight size={20} />
           </button>
         </div>
       );

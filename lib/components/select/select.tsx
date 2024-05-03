@@ -1,10 +1,4 @@
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  ArrowDown2,
-  CloseCircle,
-  DirectNormal,
-  TickCircle,
-} from "iconsax-react";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
@@ -12,6 +6,7 @@ import { useComponentStyle } from "../../customization/styles/theme.context";
 import { isEmpty } from "../../functions";
 import { Box } from "../box/box";
 import { ISelect, ISelectOption } from "./select.types";
+import { CaretDown, CheckCircle, Tray, X } from "@phosphor-icons/react";
 
 export const Select = ({
   options = [],
@@ -60,7 +55,7 @@ export const Select = ({
             duration: 0.1,
           }}
         >
-          <ArrowDown2 size={20} className={theme.iconColor()} />
+          <CaretDown size={18} className={theme.iconColor()} />
         </motion.div>
       )
     );
@@ -185,7 +180,7 @@ export const Select = ({
     if (_options.length === 0)
       return (
         <div className={emptyClasses}>
-          <DirectNormal size={40}  />
+          <Tray size={40} />
         </div>
       );
 
@@ -230,9 +225,9 @@ export const Select = ({
             <span className={theme.optionLabel()}>{x.label}</span>
           </div>
           {isSelected && (
-            <TickCircle
+            <CheckCircle
               size={20}
-              variant="Bold"
+              weight="fill"
               className={theme.optionCheckIcon()}
             />
           )}
@@ -260,7 +255,7 @@ export const Select = ({
       <div className={tagClasses} key={x.value}>
         <span>{x.label}</span>
         {!x.isDisabled && (
-          <CloseCircle
+          <X
             size={12}
             className={twMerge(theme.tagX(), theme.iconColor())}
             onClick={() => onRemoveTag(x)}
@@ -337,7 +332,7 @@ export const Select = ({
     if ((isClearable && !isEmpty(valueState)) || !!searchValue) {
       return (
         <Box className={clearElementClasses} onClick={onClear}>
-          <CloseCircle size={20} className={theme.iconColor()} />
+          <X size={17} className={theme.iconColor()} />
         </Box>
       );
     }

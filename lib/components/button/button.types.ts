@@ -1,4 +1,8 @@
-export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IButton
+  extends Omit<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    "size" | "disabled"
+  > {
   children?: React.ReactNode;
   iconSpacing?: string | number;
   isDisabled?: boolean;

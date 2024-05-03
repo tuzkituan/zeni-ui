@@ -1,4 +1,4 @@
-import { ArrowDown2, ArrowUp2 } from "iconsax-react";
+import { CaretDown, CaretUp } from "@phosphor-icons/react";
 import { useEffect, useMemo, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
@@ -131,11 +131,11 @@ export const NumberInput = (props: INumberInput) => {
       {showArrow && (
         <div className={arrowContainerClasses}>
           <NumberInputArrow onClick={onIncrement}>
-            <ArrowUp2 size={12} />
+            <CaretUp size={12} />
           </NumberInputArrow>
           <hr className={arrowDividerClasses} />
           <NumberInputArrow onClick={onDecrement}>
-            <ArrowDown2 size={12} />
+            <CaretDown size={12} />
           </NumberInputArrow>
         </div>
       )}

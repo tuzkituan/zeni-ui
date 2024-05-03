@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
 import useImageStatus from "../../hooks/image.hook";
 import { IAvatar } from "./avatar.types";
-import { User } from "iconsax-react";
+import { User } from "@phosphor-icons/react";
 
 export const Avatar = (props: IAvatar) => {
   const theme = useComponentStyle("Avatar");
@@ -48,9 +48,7 @@ export const Avatar = (props: IAvatar) => {
     return initials.toUpperCase();
   };
 
-  const defaultSvgString = renderToString(
-    <User variant="Bold" color="white" size={28} />
-  );
+  const defaultSvgString = renderToString(<User weight="bold" color="#fff" />);
   const defaultImgSrc = `data:image/svg+xml;base64,${btoa(defaultSvgString)}`;
   const nameLetters = name ? getInitials(name) : "";
 

@@ -1,6 +1,6 @@
+import { CalendarBlank, CaretDown, CaretUp, X } from "@phosphor-icons/react";
 import { format as dnsFormat } from "date-fns";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowDown2, ArrowUp2, Calendar2, CloseCircle } from "iconsax-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLayer } from "react-laag";
 import { twMerge } from "tailwind-merge";
@@ -124,7 +124,7 @@ export const DatePicker = (props: IDatePicker) => {
       return (
         <Box className={clearElementClasses} onClick={onClear}>
           <div>
-            <CloseCircle size={20} className={theme.iconColor()} />
+            <X size={20} className={theme.iconColor()} />
           </div>
         </Box>
       );
@@ -134,9 +134,9 @@ export const DatePicker = (props: IDatePicker) => {
       <Box className={clearElementClasses}>
         <div>
           {isOpen ? (
-            <ArrowUp2 size={20} className={theme.iconColor()} />
+            <CaretUp size={20} className={theme.iconColor()} />
           ) : (
-            <ArrowDown2 size={20} className={theme.iconColor()} />
+            <CaretDown size={20} className={theme.iconColor()} />
           )}
         </div>
       </Box>
@@ -158,7 +158,7 @@ export const DatePicker = (props: IDatePicker) => {
         className={containerClasses}
       >
         <Box className={leftElementClasses}>
-          {icon || <Calendar2 size={20} />}
+          {icon || <CalendarBlank size={20} />}
         </Box>
         <input
           placeholder="Select date"
