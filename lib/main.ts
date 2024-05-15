@@ -18,6 +18,8 @@ export * from "./components/checkbox/checkbox";
 export * from "./components/checkbox/checkbox.types";
 export * from "./components/date-picker/date-picker";
 export * from "./components/date-picker/date-picker.types";
+export * from "./components/empty/empty";
+export * from "./components/empty/empty.types";
 export * from "./components/flex/flex";
 export * from "./components/flex/flex.types";
 export * from "./components/image/image";
