@@ -8,4 +8,6 @@
   "cSpell.words": [
     "Zeni"
   ],
+  // format on save
+  "editor.formatOnSave": true
 }
