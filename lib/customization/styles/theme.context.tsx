@@ -32,6 +32,7 @@ interface StyleComponents {
   Calendar: typeof styles.calendarStyles;
   DatePicker: typeof styles.datePickerStyles;
   Switch: typeof styles.switchStyles;
+  Empty: typeof styles.emptyStyles;
 }
 
 const defaultStyle: Style = {
@@ -62,6 +63,7 @@ const defaultStyle: Style = {
     Calendar: styles.calendarStyles,
     DatePicker: styles.datePickerStyles,
     Switch: styles.switchStyles,
+    Empty: styles.emptyStyles,
   },
 };
 
