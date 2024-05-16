@@ -1,4 +1,6 @@
 import "./customization/global.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export * from "./components/alert/alert";
 export * from "./components/alert/alert.types";
@@ -12,6 +14,8 @@ export * from "./components/icon-button/icon-button";
 export * from "./components/icon-button/icon-button.types";
 // export * from "./components/calendar/calendar";
 // export * from "./components/calendar/calendar.types";
+export * from "./components/carousel/carousel";
+export * from "./components/carousel/carousel.types";
 export * from "./components/center/center";
 export * from "./components/center/center.types";
 export * from "./components/checkbox/checkbox";
@@ -23,7 +27,6 @@ export * from "./components/empty/empty.types";
 export * from "./components/flex/flex";
 export * from "./components/flex/flex.types";
 export * from "./components/image/image";
-export * from "./components/image/image-preview";
 export * from "./components/image/image.types";
 export * from "./components/input/input";
 export * from "./components/input/input.types";

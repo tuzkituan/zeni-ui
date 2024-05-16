@@ -3,6 +3,7 @@ import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../lib/**/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -10,14 +11,16 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "@chromatic-com/storybook",
   ],
+
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
-  docs: {
-    autodocs: "tag",
-  },
+
+  docs: {},
+
   core: {},
+
   async viteFinal(config, { configType }) {
     // if (configType === 'DEVELOPMENT') {
     //   // Your development configuration goes here
@@ -30,5 +33,9 @@ const config: StorybookConfig = {
       // Add dependencies to pre-optimization
     });
   },
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript"
+  }
 };
 export default config;

@@ -9,7 +9,7 @@ export interface IImage
   alt?: string;
   objectFit?: "cover" | "contain" | "fill" | "none" | "scale-down";
   fallbackSrc?: string;
-  isPreviewable?: boolean;
+  // isPreviewable?: boolean;
 }
 
 export interface IImagePreview extends IImage {

@@ -14,6 +14,7 @@ export const ImageComponent = forwardRef<HTMLImageElement, IImage>(
       borderRadius = 0,
       alt = "",
       objectFit = "cover",
+      style,
       ...restProps
     } = props;
 
@@ -31,8 +32,9 @@ export const ImageComponent = forwardRef<HTMLImageElement, IImage>(
                 height: boxSize,
               }
             : null),
-          borderRadius,
           objectFit,
+          borderRadius,
+          ...style,
         }}
         alt={alt}
         className={classes}
