@@ -1,7 +1,7 @@
 import Slider, { Settings } from "react-slick";
 import { ICarousel } from "./carousel.types";
 
-const Carousel = ({ items, ...props }: ICarousel & Settings) => {
+export const Carousel = ({ items, ...props }: ICarousel & Settings) => {
   const settings: Settings = {
     dots: false,
     arrows: true,
@@ -24,5 +24,3 @@ const Carousel = ({ items, ...props }: ICarousel & Settings) => {
     </Slider>
   );
 };
-
-export default Carousel;
