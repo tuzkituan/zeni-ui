@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Image } from "./image";
+import ImageCarousel from "./image-carousel";
 
 const meta = {
-  title: "MEDIA/Image",
-  component: Image,
+  title: "MEDIA/ImageCarousel",
+  component: ImageCarousel,
   tags: ["autodocs"],
   argTypes: {
     src: {
@@ -30,10 +30,14 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    src: "https://picsum.photos/640/320",
-    fallbackSrc: "",
-    boxSize: undefined,
-    borderRadius: 4,
-    alt: "",
+    images: [
+      "https://picsum.photos/640/320",
+      "https://picsum.photos/640/320",
+      "https://picsum.photos/640/320",
+      "https://picsum.photos/640/320",
+      "https://picsum.photos/640/320",
+      "https://picsum.photos/640/320",
+      "https://picsum.photos/640/320",
+    ],
   },
 };

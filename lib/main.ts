@@ -23,7 +23,6 @@ export * from "./components/empty/empty.types";
 export * from "./components/flex/flex";
 export * from "./components/flex/flex.types";
 export * from "./components/image/image";
-export * from "./components/image/image-preview";
 export * from "./components/image/image.types";
 export * from "./components/input/input";
 export * from "./components/input/input.types";

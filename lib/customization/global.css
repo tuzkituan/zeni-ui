@@ -27,4 +27,7 @@
   .min-h-inherit {
     min-height: inherit;
   }
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
 }
