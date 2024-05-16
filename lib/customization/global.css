@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.slick-track {
-  display: flex !important;
-  gap: 16px;
-}
-
 @layer base {
   body {
     @apply zn-bg-body-light dark:zn-bg-body-dark dark:zn-text-white zn-min-h-screen zn-relative;
