@@ -9,5 +9,5 @@
     "Zeni"
   ],
   // format on save
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
 }
