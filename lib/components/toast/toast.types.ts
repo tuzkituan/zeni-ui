@@ -9,7 +9,10 @@ export type ToastPosition =
   | "top-left"
   | "top-right";
 export interface ToastOptions
-  extends Pick<IAlert, "variant" | "icon" | "isClosable" | "onClose"> {
+  extends Pick<
+    IAlert,
+    "variant" | "icon" | "isClosable" | "onClose" | "onClick"
+  > {
   title?: React.ReactNode;
   description?: React.ReactNode;
   id?: ToastId;
