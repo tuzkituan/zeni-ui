@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Alert } from "./alert";
+import { Button } from "../button/button";
 
 const meta = {
   title: "FEEDBACK/Alert",
@@ -46,5 +47,9 @@ export const Primary: Story = {
     status: "success",
     variant: "solid",
     isClosable: false,
+    // onClick: () => {
+    //   alert("Clicked");
+    // },
+    // extra: <Button variant="subtle">Extra</Button>,
   },
 };

@@ -2,14 +2,15 @@ import { cva } from "class-variance-authority";
 
 const base = cva(
   [
-    "zn-block",
     "zn-flex",
     "zn-relative",
     "zn-items-center",
-    "zn-justify-start",
+    "zn-justify-between",
     "zn-gap-3",
-    "zn-py-3",
     "zn-px-3",
+    "zn-py-3",
+    "zn-transition-all",
+    "zn-rounded-md",
   ],
   {
     variants: {
@@ -37,6 +38,10 @@ const base = cva(
         success: [],
         warning: [],
         error: [],
+      },
+      isClickable: {
+        true: ["zn-cursor-pointer", "hover:!zn-bg-opacity-95"],
+        false: [],
       },
     },
     compoundVariants: [
@@ -200,7 +205,7 @@ const text = cva(["zn-text-base"], {
     },
   ],
 });
-const close = cva(["zn-font-medium", "zn-absolute", "zn-top-3", "zn-right-3"], {
+const close = cva(["zn-font-medium", "zn-self-start"], {
   variants: {
     variant: {
       subtle: ["!zn-text-gray-400"],
@@ -224,6 +229,21 @@ const descriptionText = cva([
   "zn-break-all",
   "zn-leading-6",
 ]);
+const mainContent = cva([
+  "zn-flex",
+  "zn-relative",
+  "zn-items-center",
+  "zn-justify-between",
+  "zn-gap-3",
+  "zn-w-full",
+]);
+const left = cva([
+  "zn-flex",
+  "zn-relative",
+  "zn-items-center",
+  "zn-justify-start",
+  "zn-gap-3",
+]);
 
 const alertStyles = {
   base,
@@ -232,6 +252,8 @@ const alertStyles = {
   close,
   titleText,
   descriptionText,
+  mainContent,
+  left,
 };
 
 export { alertStyles };

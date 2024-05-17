@@ -25,3 +25,4 @@ export * from "./calendar.styles";
 export * from "./date-picker.styles";
 export * from "./switch.styles";
 export * from "./empty.styles";
+export * from "./carousel.styles";

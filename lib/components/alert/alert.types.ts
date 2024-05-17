@@ -16,4 +16,5 @@ export interface IAlert
   icon?: React.ReactNode;
   isClosable?: boolean;
   onClose?: () => void;
+  extra?: React.ReactNode;
 }
