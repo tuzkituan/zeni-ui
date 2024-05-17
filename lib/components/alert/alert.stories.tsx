@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Alert } from "./alert";
-import { Button } from "../button/button";
 
 const meta = {
   title: "FEEDBACK/Alert",
