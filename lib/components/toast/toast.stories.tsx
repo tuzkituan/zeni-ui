@@ -1,7 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Flex } from "../flex/flex";
 import { Button } from "../button/button";
-import { ToastComponent, ToastOptions, createStandaloneToast, useToast } from ".";
+import {
+  ToastComponent,
+  ToastOptions,
+  createStandaloneToast,
+  useToast,
+} from ".";
 
 const meta = {
   title: "FEEDBACK/Toast/useToast",
@@ -56,6 +61,9 @@ const args: ToastOptions = {
   description: "Welcome to Zeni UI",
   isClosable: true,
   position: "bottom-right",
+  onClick: () => {
+    alert("Clicked");
+  },
 };
 
 export const PushToast = (props: Story) => {

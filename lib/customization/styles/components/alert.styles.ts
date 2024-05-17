@@ -40,7 +40,7 @@ const base = cva(
         error: [],
       },
       isClickable: {
-        true: ["zn-cursor-pointer", "hover:!zn-bg-opacity-95"],
+        true: ["zn-cursor-pointer", "hover:!zn-bg-opacity-90"],
         false: [],
       },
     },

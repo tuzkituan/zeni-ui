@@ -60,6 +60,7 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
     requestClose = false,
     position = "bottom",
     duration = 5000,
+    onClick,
   } = props;
 
   const [delay, setDelay] = useState<number | null>(duration);
@@ -129,6 +130,7 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
           variant={variant}
           className={toastClasses}
           onClose={close}
+          onClick={onClick}
         />
       </div>
     </motion.div>
