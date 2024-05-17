@@ -14,19 +14,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    items: [
-      <div className="zn-bg-red-400 zn-w-[200px] zn-h-[100px]" key={1}>
-        <h3>FIRST SLIDE</h3>
-      </div>,
-      <div className="zn-bg-red-400 zn-w-[200px] zn-h-[100px]" key={2}>
-        <h3>SECOND SLIDE</h3>
-      </div>,
-      <div className="zn-bg-red-400 zn-w-[200px] zn-h-[100px]" key={3}>
-        <h3>THIRD SLIDE</h3>
-      </div>,
-      <div className="zn-bg-red-400 zn-w-[200px] zn-h-[100px]" key={4}>
-        <h3>FORTH SLIDE</h3>
-      </div>,
+    images: [
+      "https://picsum.photos/1024/400",
+      "https://picsum.photos/1024/400",
+      "https://picsum.photos/1024/400",
+      "https://picsum.photos/1024/400",
     ],
+    height: 300,
   },
 };

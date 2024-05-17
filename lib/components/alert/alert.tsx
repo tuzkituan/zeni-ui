@@ -24,6 +24,8 @@ export const Alert = (props: IAlert) => {
     icon,
     isClosable,
     onClose,
+    onClick,
+    extra,
     ...restProps
   } = props;
 
@@ -34,6 +36,7 @@ export const Alert = (props: IAlert) => {
       theme.base({
         status,
         variant,
+        isClickable: !!onClick,
       }),
       className
     );
@@ -48,7 +51,7 @@ export const Alert = (props: IAlert) => {
     );
   }, [status, theme, variant]);
 
-  const contentClasses = useMemo(() => {
+  const textClasses = useMemo(() => {
     return twMerge(
       theme.text({
         status,
@@ -63,9 +66,9 @@ export const Alert = (props: IAlert) => {
       theme.close({
         variant,
       }),
-      contentClasses
+      textClasses
     );
-  }, [contentClasses, variant, theme]);
+  }, [textClasses, variant, theme]);
 
   const getIcon = (stt: string) => {
     if (icon) {
@@ -96,25 +99,31 @@ export const Alert = (props: IAlert) => {
             }
           : null),
       }}
+      onClick={onClick}
       {...restProps}
     >
-      <div
-        className={iconClasses}
-        style={{
-          ...(iconSize
-            ? {
-                fontSize: iconSize,
-              }
-            : null),
-        }}
-      >
-        {getIcon(status)}
-      </div>
-      <div className={contentClasses}>
-        {!!title && <p className={theme.titleText()}>{title}</p>}
-        {!!description && (
-          <p className={theme.descriptionText()}>{description}</p>
-        )}
+      <div className={theme.mainContent()}>
+        <div className={theme.left()}>
+          <div
+            className={iconClasses}
+            style={{
+              ...(iconSize
+                ? {
+                    fontSize: iconSize,
+                  }
+                : null),
+            }}
+          >
+            {getIcon(status)}
+          </div>
+          <div className={textClasses}>
+            {!!title && <p className={theme.titleText()}>{title}</p>}
+            {!!description && (
+              <p className={theme.descriptionText()}>{description}</p>
+            )}
+          </div>
+        </div>
+        {extra}
       </div>
       {isClosable && (
         <button

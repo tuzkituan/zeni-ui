@@ -1,6 +1,4 @@
 import "./customization/global.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 export * from "./components/alert/alert";
 export * from "./components/alert/alert.types";

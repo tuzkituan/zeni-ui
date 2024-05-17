@@ -1,3 +1,6 @@
 export interface ICarousel {
-  items?: React.ReactNode[];
+  images?: string[];
+  height?: string | number;
+  className?: string;
+  style?: React.CSSProperties;
 }
