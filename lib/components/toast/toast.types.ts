@@ -11,7 +11,7 @@ export type ToastPosition =
 export interface ToastOptions
   extends Pick<
     IAlert,
-    "variant" | "icon" | "isClosable" | "onClose" | "onClick"
+    "variant" | "icon" | "isClosable" | "onClose" | "onClick" | "extra"
   > {
   title?: React.ReactNode;
   description?: React.ReactNode;
