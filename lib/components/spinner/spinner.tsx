@@ -13,9 +13,9 @@ export const Spinner = (props: ISpinner) => {
     className = "",
     size = "md",
     icon,
-    opacity = 0.4,
     isLoading = false,
     description,
+    overlayClassName = "",
   } = props;
 
   const spinnerClasses = useMemo(() => {
@@ -32,8 +32,8 @@ export const Spinner = (props: ISpinner) => {
   }, [theme]);
 
   const overlayClasses = useMemo(() => {
-    return twMerge(theme.overlay());
-  }, [theme]);
+    return twMerge(theme.overlay(), overlayClassName);
+  }, [theme, overlayClassName]);
 
   const renderSpinner = () => {
     return (
@@ -67,12 +67,7 @@ export const Spinner = (props: ISpinner) => {
             }}
             key="spinner"
           >
-            <div
-              className={overlayClasses}
-              style={{
-                backgroundColor: `rgba(255,255,255,${1 - opacity})`,
-              }}
-            >
+            <div className={overlayClasses}>
               {renderSpinner()}
               {!isEmpty(description) && (
                 <p className={theme.description()}>{description}</p>

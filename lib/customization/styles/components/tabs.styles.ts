@@ -1,15 +1,23 @@
 import { cva } from "class-variance-authority";
 
 const container = cva(["zn-block"]);
-const nav = cva(["zn-block"], {
-  variants: {
-    variant: {
-      underline: ["zn-border-b", "zn-border-b-gray-200", "dark:zn-border-b-gray-800"],
-      solid: [],
-      outline: [],
+const nav = cva(
+  ["zn-flex", "zn-justify-between", "zn-gap-4", "zn-items-center"],
+  {
+    variants: {
+      variant: {
+        underline: [
+          "zn-border-b",
+          "zn-border-b-gray-200",
+          "dark:zn-border-b-gray-800",
+        ],
+        solid: [],
+        outline: [],
+      },
     },
-  },
-});
+  }
+);
+const extra = cva([]);
 const ul = cva(["zn-flex", "zn-w-full", "zn-list-none", "zn-p-0", "zn-m-0"], {
   variants: {
     variant: {
@@ -65,7 +73,11 @@ const li = cva(
       {
         variant: "outline",
         isSelected: true,
-        class: ["!zn-border-primary-500", "dark:!zn-border-primary-700", "zn-text-primary-500"],
+        class: [
+          "!zn-border-primary-500",
+          "dark:!zn-border-primary-700",
+          "zn-text-primary-500",
+        ],
       },
     ],
   }
@@ -85,6 +97,7 @@ const tabsStyles = {
   nav,
   ul,
   li,
+  extra,
   indicator,
   content,
 };
