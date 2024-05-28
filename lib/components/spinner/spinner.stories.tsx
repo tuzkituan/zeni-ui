@@ -13,10 +13,6 @@ const meta = {
     children: {
       type: "string",
     },
-    opacity: {
-      type: "number",
-      description: "From 0 to 1",
-    },
     icon: {
       description: "Custom icon",
     },
@@ -38,7 +34,6 @@ export const Primary: Story = {
   args: {
     children: undefined,
     size: "md",
-    opacity: undefined,
     icon: undefined,
     description: "Loading...",
     isLoading: false,
@@ -63,7 +58,6 @@ export const LoadingOverlay: Story = {
       </div>
     ),
     size: "md",
-    opacity: undefined,
     icon: undefined,
     description: "Loading...",
     isLoading: true,

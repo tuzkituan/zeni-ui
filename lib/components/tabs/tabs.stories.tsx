@@ -85,5 +85,6 @@ export const Primary: Story = {
     variant: "underline",
     isFitted: false,
     defaultActiveKey: "1",
+    extra: "",
   },
 };

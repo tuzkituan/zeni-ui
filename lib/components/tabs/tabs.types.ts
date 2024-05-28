@@ -13,6 +13,7 @@ export interface ITabs
   ulClassName?: string;
   tabClassName?: string;
   contentClassName?: string;
+  extra?: React.ReactNode;
 }
 
 export interface ITab {

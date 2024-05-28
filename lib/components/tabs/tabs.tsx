@@ -18,6 +18,7 @@ export const Tabs = (props: ITabs) => {
     ulClassName = "",
     tabClassName = "",
     contentClassName = "",
+    extra,
     ...restProps
   } = props;
 
@@ -44,6 +45,10 @@ export const Tabs = (props: ITabs) => {
       navClassName
     );
   }, [theme, navClassName, variant]);
+
+  const extraClasses = useMemo(() => {
+    return twMerge(theme.extra());
+  }, [theme]);
 
   const ulClasses = useMemo(() => {
     return twMerge(
@@ -94,6 +99,7 @@ export const Tabs = (props: ITabs) => {
             </li>
           ))}
         </ul>
+        {extra ? <div className={extraClasses}>{extra}</div> : null}
       </nav>
       <main>
         <AnimatePresence mode="wait">
