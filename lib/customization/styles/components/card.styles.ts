@@ -3,10 +3,11 @@ import { cva } from "class-variance-authority";
 const base = cva([
   "zn-border",
   "zn-border-gray-200",
-  "dark:zn-border-gray-700",
+  "dark:zn-border-gray-800",
   "zn-rounded-base",
-  "zn-bg-component-light",
-  "dark:zn-bg-component-dark",
+  "zn-bg-card-light",
+  "dark:zn-bg-card-dark",
+  "zn-w-full",
 ]);
 const header = cva([
   "zn-py-4",

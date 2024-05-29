@@ -30,7 +30,7 @@ const container = cva(
           "focus-within:!zn-outline-primary-100",
           "focus-within:!zn-outline-2",
 
-          "dark:zn-border-gray-700",
+          "dark:zn-border-gray-800",
           "dark:focus-within:!zn-outline-primary-700",
           "dark:focus-within:!zn-ring-primary-700",
         ],

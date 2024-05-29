@@ -46,6 +46,8 @@ export default {
         ...theme("colors"),
         "component-dark": "#1e1e1e",
         "component-light": "#fff",
+        "card-dark": "#101010",
+        "card-light": "#fff",
         "body-dark": "#121212",
         "body-light": "rgb(var(--color-primary-50) / <alpha-value>)",
       }),
