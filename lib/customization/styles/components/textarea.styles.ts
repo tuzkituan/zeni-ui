@@ -32,7 +32,7 @@ const base = cva(
           "focus-within:!zn-ring-2",
           "focus-within:!zn-ring-primary-100",
 
-          "dark:zn-border-gray-700",
+          "dark:zn-border-gray-800",
           "dark:focus-within:!zn-outline-primary-700",
           "dark:focus-within:!zn-ring-primary-700",
         ],
@@ -71,7 +71,11 @@ const base = cva(
         ],
       },
       isDisabled: {
-        true: ["!zn-bg-gray-100", "dark:!zn-bg-gray-800", "zn-cursor-not-allowed"],
+        true: [
+          "!zn-bg-gray-100",
+          "dark:!zn-bg-gray-800",
+          "zn-cursor-not-allowed",
+        ],
         false: [],
       },
       isResizable: {
