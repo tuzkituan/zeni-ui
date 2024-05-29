@@ -40,7 +40,7 @@ export default {
         ...theme("colors"),
       }),
       borderRadius: {
-        base: "8px",
+        base: "var(--border-radius)",
       },
       backgroundColor: (theme) => ({
         ...theme("colors"),

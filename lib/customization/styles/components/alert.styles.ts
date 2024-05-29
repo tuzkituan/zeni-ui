@@ -10,7 +10,7 @@ const base = cva(
     "zn-px-3",
     "zn-py-3",
     "zn-transition-all",
-    "zn-rounded-md",
+    "zn-rounded-base",
   ],
   {
     variants: {
