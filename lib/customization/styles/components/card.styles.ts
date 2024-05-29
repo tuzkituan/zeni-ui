@@ -5,6 +5,8 @@ const base = cva([
   "zn-border-gray-200",
   "dark:zn-border-gray-700",
   "zn-rounded-base",
+  "zn-bg-component-light",
+  "dark:zn-bg-component-dark",
 ]);
 const header = cva([
   "zn-py-4",

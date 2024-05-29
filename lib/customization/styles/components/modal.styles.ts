@@ -14,8 +14,8 @@ const backdrop = cva([
 const container = cva(
   [
     "zn-m-auto",
-    "zn-bg-white",
-    "dark:zn-bg-component",
+    "zn-bg-component-light",
+    "dark:zn-bg-component-dark",
     "zn-min-w-[350px] max-w-[90%]",
     "zn-h-fit",
     "zn-rounded-base",
