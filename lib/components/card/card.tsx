@@ -41,20 +41,27 @@ export const Card = (props: ICard) => {
   }, [theme]);
 
   const contentClasses = useMemo(() => {
-    return twMerge(theme.content(), contentClassName);
-  }, [theme, contentClassName]);
+    return twMerge(
+      theme.content({
+        hasHeader: !!title || !!description || !!extra,
+      }),
+      contentClassName
+    );
+  }, [theme, contentClassName, title, description, extra]);
 
   return (
     <div className={baseClasses} {...restProps}>
-      <div className={headerClasses}>
-        <div className={titleContainerClasses}>
-          <div className={titleClasses}>{title}</div>
-          {description ? (
-            <div className={descriptionClasses}>{description}</div>
-          ) : null}
+      {title || description || extra ? (
+        <div className={headerClasses}>
+          <div className={titleContainerClasses}>
+            <div className={titleClasses}>{title}</div>
+            {description ? (
+              <div className={descriptionClasses}>{description}</div>
+            ) : null}
+          </div>
+          {extra ? <div className={extraClasses}>{extra}</div> : null}
         </div>
-        {extra ? <div className={extraClasses}>{extra}</div> : null}
-      </div>
+      ) : null}
       <div className={contentClasses}>{children}</div>
     </div>
   );
