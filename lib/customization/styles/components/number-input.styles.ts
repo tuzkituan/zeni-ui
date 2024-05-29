@@ -76,7 +76,11 @@ const container = cva(
         ],
       },
       isDisabled: {
-        true: ["!zn-bg-gray-100", "dark:!zn-bg-gray-800", "zn-cursor-not-allowed"],
+        true: [
+          "!zn-bg-gray-100",
+          "dark:!zn-bg-gray-800",
+          "zn-cursor-not-allowed",
+        ],
         false: [],
       },
     },
@@ -85,7 +89,7 @@ const container = cva(
 
 const input = cva(
   [
-    "zn-rounded-md",
+    "zn-rounded-base",
     "zn-w-full",
     "zn-h-full",
     "!zn-bg-transparent",
@@ -140,7 +144,12 @@ const arrow = cva([
   "zn-grow",
 ]);
 
-const arrowDivider = cva(["zn-text-base", "zn-w-full", "zn-border-t-gray-200", "dark:zn-border-t-gray-700"]);
+const arrowDivider = cva([
+  "zn-text-base",
+  "zn-w-full",
+  "zn-border-t-gray-200",
+  "dark:zn-border-t-gray-700",
+]);
 
 const numberInputStyles = {
   container,

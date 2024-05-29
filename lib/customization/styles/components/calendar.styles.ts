@@ -158,7 +158,7 @@ const header = cva([
 ]);
 const headerButton = cva(
   [
-    "zn-rounded-md",
+    "zn-rounded-base",
     "zn-font-medium",
     "zn-px-1",
     "zn-py-1",
@@ -178,7 +178,12 @@ const headerButton = cva(
     },
   }
 );
-const headerArrow = cva(["zn-text-gray-900", "hover:zn-text-gray-500", "dark:zn-text-white", "dark:hover:zn-text-gray-100"]);
+const headerArrow = cva([
+  "zn-text-gray-900",
+  "hover:zn-text-gray-500",
+  "dark:zn-text-white",
+  "dark:hover:zn-text-gray-100",
+]);
 
 // FOOTER
 const footer = cva([

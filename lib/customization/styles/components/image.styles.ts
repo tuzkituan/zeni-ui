@@ -31,7 +31,7 @@ const tools = cva([
   "zn-bottom-3",
   "zn-bg-black",
   "zn-bg-opacity-60",
-  "zn-rounded-lg",
+  "zn-rounded-base",
   "zn-px-2",
   "zn-py-1",
   "zn-select-none",

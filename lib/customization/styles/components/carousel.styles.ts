@@ -4,7 +4,7 @@ const base = cva([
   "zn-relative",
   "zn-w-full",
   "zn-overflow-hidden",
-  "zn-rounded-md",
+  "zn-rounded-base",
   "zn-z-0",
 ]);
 
@@ -14,7 +14,7 @@ const item = cva([
   "zn-w-full",
   "zn-select-none",
   "zn-pointer-events-none",
-  "!zn-rounded-md",
+  "!zn-rounded-base",
 ]);
 const icon = cva([
   "zn-top-[calc(50%_-_20px)]",

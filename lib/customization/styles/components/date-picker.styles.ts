@@ -79,7 +79,7 @@ const container = cva(
 
 const input = cva(
   [
-    "zn-rounded-md",
+    "zn-rounded-base",
     "zn-w-full",
     "zn-h-full",
     "!zn-bg-transparent",
@@ -134,10 +134,10 @@ const clearElement = cva([
   "[&>div]:hover:zn-bg-gray-100",
   "dark:[&>div]:hover:zn-bg-gray-800",
   "[&>div]:hover:zn-cursor-pointer",
-  "[&>div]:hover:zn-rounded-lg",
+  "[&>div]:hover:zn-rounded-base",
 ]);
 const dropdown = cva([
-  "zn-rounded-lg",
+  "zn-rounded-base",
   "zn-bg-white",
   "dark:zn-bg-component",
   "zn-text-gray-900",

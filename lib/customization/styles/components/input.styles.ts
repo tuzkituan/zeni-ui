@@ -100,7 +100,7 @@ const container = cva(
 
 const input = cva(
   [
-    "zn-rounded-md",
+    "zn-rounded-base",
     "zn-w-full",
     "zn-h-full",
     "!zn-bg-transparent",

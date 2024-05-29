@@ -267,7 +267,7 @@ const clearElement = cva([
   "hover:zn-cursor-pointer",
   "hover:zn-bg-gray-100",
   "dark:hover:zn-bg-gray-800",
-  "hover:zn-rounded-lg",
+  "hover:zn-rounded-base",
 ]);
 const empty = cva([
   "zn-p-6",
