@@ -34,6 +34,7 @@ interface StyleComponents {
   Switch: typeof styles.switchStyles;
   Empty: typeof styles.emptyStyles;
   Carousel: typeof styles.carouselStyles;
+  Card: typeof styles.cardStyles;
 }
 
 const defaultStyle: Style = {
@@ -66,6 +67,7 @@ const defaultStyle: Style = {
     Switch: styles.switchStyles,
     Empty: styles.emptyStyles,
     Carousel: styles.carouselStyles,
+    Card: styles.cardStyles,
   },
 };
 
