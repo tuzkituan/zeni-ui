@@ -12,6 +12,8 @@ export * from "./components/icon-button/icon-button";
 export * from "./components/icon-button/icon-button.types";
 // export * from "./components/calendar/calendar";
 // export * from "./components/calendar/calendar.types";
+export * from "./components/card/card";
+export * from "./components/card/card.types";
 export * from "./components/carousel/carousel";
 export * from "./components/carousel/carousel.types";
 export * from "./components/center/center";
