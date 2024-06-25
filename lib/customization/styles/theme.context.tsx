@@ -37,6 +37,7 @@ interface StyleComponents {
   Card: typeof styles.cardStyles;
   Tag: typeof styles.tagStyles;
   Code: typeof styles.codeStyles;
+  Badge: typeof styles.badgeStyles;
 }
 
 const defaultStyle: Style = {
@@ -72,6 +73,7 @@ const defaultStyle: Style = {
     Card: styles.cardStyles,
     Tag: styles.tagStyles,
     Code: styles.codeStyles,
+    Badge: styles.badgeStyles,
   },
 };
 

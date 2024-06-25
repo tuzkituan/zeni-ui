@@ -1,10 +1,10 @@
 import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
 import { useComponentStyle } from "../../customization/styles/theme.context";
-import { ITag } from "./tag.types";
+import { IBadge } from "./badge.types";
 
-export const Tag = (props: ITag) => {
-  const theme = useComponentStyle("Tag");
+export const Badge = (props: IBadge) => {
+  const theme = useComponentStyle("Badge");
   const {
     children,
     style,
@@ -45,7 +45,7 @@ export const Tag = (props: ITag) => {
       }}
       {...restProps}
     >
-      {children}
+      <span>{children}</span>
     </div>
   );
 };

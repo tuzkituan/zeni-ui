@@ -1,7 +1,14 @@
 import { cva } from "class-variance-authority";
 
 const base = cva(
-  ["zn-rounded-base", "zn-w-fit", "zn-border", "zn-border-primary-500"],
+  [
+    "zn-rounded-sm",
+    "zn-w-fit",
+    "zn-border",
+    "zn-border-primary-500",
+    "zn-font-bold",
+    "zn-uppercase",
+  ],
   {
     variants: {
       variant: {
@@ -17,16 +24,16 @@ const base = cva(
         ],
       },
       size: {
-        sm: ["zn-px-1.5", "zn-py-0.5", "zn-text-xs", "zn-font-medium"],
-        md: ["zn-px-2", "zn-py-1", "zn-text-sm", "zn-font-medium"],
-        lg: ["zn-px-2.5", "zn-py-1", "zn-text-lg", "zn-font-semibold"],
+        sm: ["zn-px-1.5", "zn-py-0.5", "zn-text-xs"],
+        md: ["zn-px-2", "zn-py-0.5", "zn-text-sm"],
+        lg: ["zn-px-3", "zn-py-1", "zn-text-base"],
       },
     },
   }
 );
 
-const tagStyles = {
+const badgeStyles = {
   base,
 };
 
-export { tagStyles };
+export { badgeStyles };
