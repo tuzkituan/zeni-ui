@@ -7,6 +7,7 @@ import { isEmpty } from "../../functions";
 import { Box } from "../box/box";
 import { ISelect, ISelectOption } from "./select.types";
 import { CaretDown, CheckCircle, Tray, X } from "@phosphor-icons/react";
+import { Empty } from "../empty/empty";
 
 export const Select = ({
   options = [],
@@ -180,7 +181,7 @@ export const Select = ({
     if (_options.length === 0)
       return (
         <div className={emptyClasses}>
-          <Tray size={40} />
+          <Empty />
         </div>
       );
 

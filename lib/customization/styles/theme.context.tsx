@@ -35,6 +35,8 @@ interface StyleComponents {
   Empty: typeof styles.emptyStyles;
   Carousel: typeof styles.carouselStyles;
   Card: typeof styles.cardStyles;
+  Tag: typeof styles.tagStyles;
+  Code: typeof styles.codeStyles;
 }
 
 const defaultStyle: Style = {
@@ -68,6 +70,8 @@ const defaultStyle: Style = {
     Empty: styles.emptyStyles,
     Carousel: styles.carouselStyles,
     Card: styles.cardStyles,
+    Tag: styles.tagStyles,
+    Code: styles.codeStyles,
   },
 };
 

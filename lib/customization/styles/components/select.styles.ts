@@ -10,6 +10,7 @@ const container = cva(
     "zn-outline-1",
     "zn-outline-transparent",
     "zn-w-full",
+    "zn-h-[1px]",
   ],
   {
     variants: {
@@ -270,7 +271,7 @@ const clearElement = cva([
   "hover:zn-rounded-base",
 ]);
 const empty = cva([
-  "zn-p-6",
+  "zn-p-4",
   "zn-flex",
   "zn-justify-center",
   "zn-items-center",

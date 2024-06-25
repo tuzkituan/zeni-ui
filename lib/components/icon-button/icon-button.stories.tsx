@@ -32,7 +32,7 @@ export const Primary: Story = {
     variant: "solid",
     isLoading: false,
     isDisabled: false,
-    icon: <Plus />,
+    icon: <Plus fontSize={20} />,
     isDanger: false,
   },
 };
