@@ -12,7 +12,7 @@ export const Popover = ({
   open,
   onOpenChange,
   popoverClassName,
-  trigger = "hover",
+  trigger = "click",
   showArrow = true,
 }: IPopover) => {
   const isHoverTrigger = trigger === "hover";

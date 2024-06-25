@@ -27,3 +27,6 @@ export * from "./switch.styles";
 export * from "./empty.styles";
 export * from "./carousel.styles";
 export * from "./card.styles";
+export * from "./tag.styles";
+export * from "./code.styles";
+export * from "./badge.styles";

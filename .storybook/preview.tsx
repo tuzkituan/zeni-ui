@@ -5,15 +5,15 @@ import React from "react";
 import { withThemeByDataAttribute } from "@storybook/addon-themes";
 
 const preview: Preview = {
-  // parameters: {
-  //   actions: { argTypesRegex: "^on[A-Z].*" },
-  //   controls: {
-  //     matchers: {
-  //       color: /(background|color)$/i,
-  //       date: /Date$/,
-  //     },
-  //   },
-  // },
+  parameters: {
+    // actions: { argTypesRegex: "^on[A-Z].*" },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+    },
+  },
   decorators: [
     (Story) => (
       <ZeniProvider>
@@ -30,7 +30,7 @@ const preview: Preview = {
     }),
   ],
 
-  tags: ["autodocs", "autodocs", "autodocs"]
+  // tags: ["autodocs"],
 };
 
 export default preview;
