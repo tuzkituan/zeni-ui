@@ -4,6 +4,8 @@ export * from "./components/alert/alert";
 export * from "./components/alert/alert.types";
 export * from "./components/avatar/avatar";
 export * from "./components/avatar/avatar.types";
+export * from "./components/badge/badge";
+export * from "./components/badge/badge.types";
 export * from "./components/box/box";
 export * from "./components/box/box.types";
 export * from "./components/button/button";
