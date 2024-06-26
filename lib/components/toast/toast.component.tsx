@@ -138,7 +138,7 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
           className={toastClasses}
           onClose={close}
           onClick={onClick}
-          {...(icon ? { icon } : {})}
+          {...("icon" in props ? { icon } : {})}
           extra={extra}
           style={style}
         />
