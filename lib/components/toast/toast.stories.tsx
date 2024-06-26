@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Flex } from "../flex/flex";
-import { Button } from "../button/button";
 import {
   ToastComponent,
   ToastOptions,
   createStandaloneToast,
   useToast,
 } from ".";
+import { Button } from "../button/button";
+import { Flex } from "../flex/flex";
 
 const meta = {
   title: "FEEDBACK/Toast/useToast",
