@@ -22,6 +22,8 @@ export interface ToastOptions
   onRequestRemove?: () => void;
   onCloseComplete?: () => void;
   requestClose?: boolean;
+  className?: string;
+  style?: React.CSSProperties;
 }
 export type ToastState = {
   [K in ToastPosition]: ToastOptions[];

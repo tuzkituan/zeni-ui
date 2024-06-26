@@ -26,6 +26,7 @@ export const Alert = (props: IAlert) => {
     onClose,
     onClick,
     extra,
+    style,
     ...restProps
   } = props;
 
@@ -40,7 +41,7 @@ export const Alert = (props: IAlert) => {
       }),
       className
     );
-  }, [className, status, theme, variant]);
+  }, [className, status, theme, variant, onClick]);
 
   const iconClasses = useMemo(() => {
     return twMerge(
@@ -71,7 +72,10 @@ export const Alert = (props: IAlert) => {
   }, [textClasses, variant, theme]);
 
   const getIcon = (stt: string) => {
-    if (icon) {
+    if ("icon" in props) {
+      if (!icon) {
+        return null;
+      }
       return icon;
     }
     switch (stt) {
@@ -98,24 +102,27 @@ export const Alert = (props: IAlert) => {
               gap: spacing,
             }
           : null),
+        ...style,
       }}
       onClick={onClick}
       {...restProps}
     >
       <div className={theme.mainContent()}>
         <div className={theme.left()}>
-          <div
-            className={iconClasses}
-            style={{
-              ...(iconSize
-                ? {
-                    fontSize: iconSize,
-                  }
-                : null),
-            }}
-          >
-            {getIcon(status)}
-          </div>
+          {getIcon(status) ? (
+            <div
+              className={iconClasses}
+              style={{
+                ...(iconSize
+                  ? {
+                      fontSize: iconSize,
+                    }
+                  : null),
+              }}
+            >
+              {getIcon(status)}
+            </div>
+          ) : null}
           <div className={textClasses}>
             {!!title && <p className={theme.titleText()}>{title}</p>}
             {!!description && (

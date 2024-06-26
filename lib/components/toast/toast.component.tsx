@@ -62,6 +62,8 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
     duration = 5000,
     onClick,
     extra,
+    className,
+    style,
   } = props;
 
   const [delay, setDelay] = useState<number | null>(duration);
@@ -93,8 +95,13 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
   useTimeout(close, delay);
 
   const toastClasses = useMemo(() => {
-    return twMerge(theme.alert());
-  }, [theme]);
+    return twMerge(
+      theme.alert({
+        isCenter: ["bottom", "top"].includes(position),
+        className,
+      })
+    );
+  }, [theme, position, className]);
 
   const toastContainer = useMemo(() => {
     return twMerge(
@@ -133,6 +140,7 @@ export const ToastComponent = memo((props: ToastComponentProps) => {
           onClose={close}
           onClick={onClick}
           extra={extra}
+          style={style}
         />
       </div>
     </motion.div>

@@ -59,8 +59,8 @@ const args: ToastOptions = {
   duration: 7000,
   title: "Hi there!",
   description: "Welcome to Zeni UI",
-  isClosable: true,
-  position: "bottom-right",
+  isClosable: false,
+  position: "bottom",
   onClick: () => {
     alert("Clicked");
   },
