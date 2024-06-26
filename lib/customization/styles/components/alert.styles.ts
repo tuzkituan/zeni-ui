@@ -8,7 +8,7 @@ const base = cva(
     "zn-justify-between",
     "zn-gap-3",
     "zn-px-3",
-    "zn-py-3",
+    "zn-py-2.5",
     "zn-transition-all",
     "zn-rounded-base",
   ],
@@ -103,10 +103,10 @@ const base = cva(
 
 const icon = cva(
   [
-    "zn-text-2xl",
+    "zn-text-3xl",
     "zn-border",
     "zn-rounded-full",
-    "zn-p-2.5",
+    "zn-p-1.5",
     "dark:zn-border-transparent",
   ],
   {

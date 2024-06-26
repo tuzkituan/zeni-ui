@@ -28,7 +28,7 @@ const toastsContainer = cva(
         false: [],
       },
       isTopOrBottom: {
-        true: ["zn-mx-auto"],
+        true: ["zn-mx-auto", "zn-w-fit"],
         false: [],
       },
       isRighty: {
@@ -54,13 +54,22 @@ const alertContainer = cva(["zn-flex", "zn-flex-col", "zn-items-center"], {
     },
   },
 });
-const alert = cva([
-  "zn-min-w-[250px]",
-  "zn-max-w-[500px]",
-  "zn-rounded-base",
-  "zn-overflow-hidden",
-  "zn-shadow-base",
-]);
+const alert = cva(
+  [
+    "zn-max-w-[500px]",
+    "zn-rounded-base",
+    "zn-overflow-hidden",
+    "zn-shadow-base",
+  ],
+  {
+    variants: {
+      isCenter: {
+        true: [],
+        false: ["zn-min-w-[250px]"],
+      },
+    },
+  }
+);
 
 const toastStyles = {
   toastsContainer,

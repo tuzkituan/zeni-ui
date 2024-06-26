@@ -50,5 +50,6 @@ export const Primary: Story = {
     //   alert("Clicked");
     // },
     // extra: <Button variant="subtle">Extra</Button>,
+    // icon: null,
   },
 };
