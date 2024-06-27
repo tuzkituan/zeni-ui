@@ -10,8 +10,7 @@ const base = cva(
     "zn-uppercase",
     "zn-bg-primary-500",
     "zn-border",
-    "zn-border-gray-50",
-    "dark:zn-border-gray-900",
+    "zn-border-transparent",
     "zn-bg-clip-padding",
   ],
   {

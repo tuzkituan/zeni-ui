@@ -1,7 +1,7 @@
 {
   "name": "zeni-ui",
   "private": false,
-  "version": "2.1.3",
+  "version": "2.1.4",
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
