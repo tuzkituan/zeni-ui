@@ -15,7 +15,7 @@ export const Avatar = (props: IAvatar) => {
     size = "md",
     name,
     bgColor,
-    borderColor = "white",
+    borderColor = "",
     style,
     ...restProps
   } = props;
