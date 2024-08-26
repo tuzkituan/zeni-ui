@@ -6,3 +6,6 @@ I just want to create my own UI library, that's all.
 
 ### Storybook
 https://tuzkituan.github.io/zeni-ui/
+
+### Example project
+https://zeni-guy.vercel.app
