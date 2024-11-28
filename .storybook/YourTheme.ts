@@ -1,10 +1,10 @@
 import { create } from "@storybook/theming/create";
 
 export default create({
-  base: "dark",
+  base: "light",
   brandTitle: "ZENI-UI",
   brandTarget: "_self",
-  // appBg: "#F6F4EB",
+  appBg: "#FFF",
   appBorderRadius: 8,
   fontBase: '"Onest", sans-serif',
 });
