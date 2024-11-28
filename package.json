@@ -19,8 +19,7 @@
     "build": "tsc --p ./tsconfig-build.json && vite build",
     "prepublishOnly": "npm run build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "publish": "npm publish --access public"
+    "build-storybook": "storybook build"
   },
   "peerDependencies": {
     "react": "^18.2.0",
